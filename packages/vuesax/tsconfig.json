@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "es5",
+    "module": "es6",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "allowJs": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
+    "rootDir": ".",
+  },
+  "include": [
+    "src/**/*"
+  ],
+}
+

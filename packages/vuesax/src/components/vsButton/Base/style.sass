@@ -1,0 +1,14 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-button
+  background: vs-color(color, 1)
+  color: #fff
+  padding: vs-var(button-padding)
+  border: 0px
+  margin: vs-var(button-margin)
+  border-radius: vs-var(button-border-radius)
+  &:hover
+    background: vs-color(color, .5)
+    opacity: .5

@@ -1,0 +1,22 @@
+{
+  "name": "@vuesax/vuepress-theme-vuesax",
+  "version": "0.0.10",
+  "description": "Vuepress theme for Vuesax framework",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev example --temp example/.temp",
+    "p": "npm version patch && npm publish --access public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.0.0-rc.1",
+    "boxicons": "^2.0.4",
+    "node-sass": "^4.13.0",
+    "sass": "^1.23.3",
+    "sass-loader": "^7.3.1",
+    "vuepress": "^1.1.0",
+    "vuepress-plugin-container": "^2.1.0"
+  }
+}

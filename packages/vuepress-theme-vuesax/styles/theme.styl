@@ -1,0 +1,256 @@
+@require './code'
+@require './custom-blocks'
+@require './arrow'
+@require './wrapper'
+@require './toc'
+
+:root
+  --vs-primary: 26,92,255
+  --vs-theme-bg: #f4f7f8
+  --vs-theme-color: #2c3e50
+  --vs-theme-layout: #fff
+  --vs-theme-bg2: #eef2f5
+  --vs-theme-code: #3f3d56
+  --vs-theme-code2: #363449
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  display: block
+  background: getVar(theme-bg)
+}
+*::-webkit-scrollbar-thumb {
+  // background: darken(#f5f7fb, 15%);
+  // background: darken(#f5f7fb, 15%);
+  background: getVar(theme-layout)
+  border-radius: 5px;
+}
+
+::selection
+  background: alpha(#2564ff, .15)
+
+.all-transition
+  *
+    transition: all 0s !important
+// vs-clipboard
+
+getColor(colorx, alpha = 1)
+    unquote("rgba(var(--"+colorx+"), "+alpha+")")
+
+
+getVar(var)
+    unquote("var(--vs-"+var+")")
+
+.vs-clipboard
+  opacity 0
+  position fixed
+  bottom 0px
+  right 0px
+  pointer-events: none
+
+box-icon
+  fill getVar(theme-color)
+  g
+    fill getVar(theme-color)
+
+.hidden-sidebar
+  .config
+    left 0px !important
+    .hidden-sidebar-hidden
+      display: none
+    .visible-sidebar-hidden
+      display: block
+  .sidebar
+    transform: translate(-100%) !important
+  .page,.docs-home
+    margin-left: 0px !important
+    width 100%
+    .sidebar
+      transform: translate(0%) !important
+
+html, body
+  padding 0
+  margin 0
+  // background-color #f4f7f8
+  background-color getVar(theme-bg)
+  color getVar(theme-color)
+
+body
+  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  font-size 16px
+
+*
+  box-sizing: border-box
+
+.page
+  margin-left 260px
+  padding-left: 0px
+
+.navbar
+  position fixed
+  z-index 10000
+  top 0
+  right 0px
+  left: auto
+  height auto
+  background-color getVar(theme-layout)
+  box-sizing border-box
+  border-bottom 0px !important
+  width: 100%
+
+.sidebar-mask
+  position fixed
+  z-index 9
+  top 0
+  left 0
+  width 100vw
+  height 100vh
+  display none
+
+.sidebar
+  font-size 16px
+  background getVar(theme-layout)
+  width 260px
+  position fixed
+  z-index 10
+  margin 0
+  top 57px
+  left 0
+  bottom 0
+  box-sizing border-box
+  border-right 0px
+  overflow-y auto
+
+.content:not(.custom)
+  @extend $wrapper
+  > *:first-child
+    margin-top $navbarHeight
+  a:hover
+    text-decoration underline
+  p.demo
+    padding 1rem 1.5rem
+    border 1px solid #ddd
+    border-radius 4px
+  img
+    max-width 100%
+
+.content.custom
+  padding 0
+  margin 0
+  img
+    max-width 100%
+
+a
+  font-weight 500
+  color getVar(theme-color) !important
+  text-decoration none
+
+p a code
+  font-weight 400
+  color getVar(theme-color)
+
+kbd
+  background #eee
+  border solid 0.15rem #ddd
+  border-bottom solid 0.25rem #ddd
+  border-radius 0.15rem
+  padding 0 0.15em
+
+blockquote
+  font-size .9rem
+  color #999
+  border-left .5rem solid #dfe2e5
+  margin 0.5rem 0
+  padding .25rem 0 .25rem 1rem
+  & > p
+    margin 0
+
+ul, ol
+  padding-left 1.2em
+
+strong
+  font-weight 600
+
+h1, h2, h3, h4, h5, h6
+  font-weight 600
+  line-height 1.25
+  .content:not(.custom) > &
+    margin-top (0.5rem - $navbarHeight)
+    padding-top ($navbarHeight + 1rem)
+    margin-bottom 0
+    &:first-child
+      margin-top -1.5rem
+      margin-bottom 1rem
+      + p, + pre, + .custom-block
+        margin-top 2rem
+  &:hover .header-anchor
+    opacity: 1
+
+h1
+  font-size 2.2rem
+
+h2
+  font-size 1.65rem
+  padding-bottom .3rem
+  border-bottom 1px solid $borderColor
+
+h3
+  font-size 1.35rem
+
+a.header-anchor
+  font-size 0.85em
+  float left
+  margin-left -0.87em
+  padding-right 0.23em
+  margin-top 0.125em
+  opacity 0
+  &:hover
+    text-decoration none
+
+code, kbd, .line-number
+  font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
+
+p, ul, ol
+  line-height 1.7
+
+hr
+  border 0
+  border-top 1px solid $borderColor
+
+table
+  border-collapse collapse
+  margin 1rem 0
+  display: block
+  overflow-x: auto
+
+tr
+  border-top 1px solid #dfe2e5
+  &:nth-child(2n)
+    background-color transparent
+
+th, td
+  border 1px solid #dfe2e5
+  padding .6em 1em
+
+.theme-container
+  &.sidebar-open
+    .sidebar-mask
+      display: block
+  &.no-navbar
+    .content:not(.custom) > h1, h2, h3, h4, h5, h6
+        margin-top 1.5rem
+        padding-top 0
+    .sidebar
+      top 0
+
+
+@media (min-width: ($MQMobile + 1px))
+  .theme-container.no-sidebar
+    .sidebar
+      display none
+    .page
+      padding-left 0
+
+@require 'mobile.styl'

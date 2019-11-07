@@ -1,0 +1,15 @@
+{
+  "presets": [
+    // "@babel/typescript",
+    // "@babel/env"
+    ["@babel/env", {"loose": true, "modules": false}],
+    "@babel/typescript"
+  ],
+  "plugins": [
+      // ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": true }],
+      "@babel/plugin-transform-runtime",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+      "@babel/plugin-proposal-object-rest-spread"
+  ]
+}

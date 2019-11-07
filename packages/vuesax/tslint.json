@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules"
+  ],
+  "rules": {
+    "quotemark": [true, "single"],
+    "semicolon": false,
+    "trailing-comma": false,
+    "no-console": false, // eliminar antes de publicar
+    "object-literal-sort-keys":false
+  }
+}
