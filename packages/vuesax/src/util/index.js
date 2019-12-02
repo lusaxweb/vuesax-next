@@ -1,7 +1,7 @@
 // import * as consolee from 'consolee'
 var isColor = function (color) {
     var vsColors = [
-        'primary', 'secondary', 'success', 'danger', 'warning', 'dark', 'light',
+        'primary', 'secondary', 'success', 'danger', 'warning', 'dark', 'light', 'warn',
         // social colors
         'facebook',
         'twitter',
@@ -65,7 +65,7 @@ var setColor = function (colorName, color, el) {
         setVar(colorName, newColor, el);
     }
     else if (isColor(color)) {
-        var style = getComputedStyle(el);
+        var style = getComputedStyle(document.documentElement);
         newColor = style.getPropertyValue('--vs-' + color);
         setVar(colorName, newColor, el);
     }

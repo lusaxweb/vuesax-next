@@ -5,7 +5,7 @@
 
 
       <router-link v-if="$route.path.indexOf('/docs/') !== -1" class="back-link" to="/docs/">
-        <box-icon name='left-arrow-alt'></box-icon>
+        <i class="bx bx-left-arrow-alt"></i>
       </router-link>
 
       <!-- <div class="con-svg">
@@ -22,41 +22,29 @@
           </h1>
 
           <ul ref="titleul" class="interactive-links">
-            <!-- <li>
-              <a target="_blank" href="">
-                <box-icon name='mobile-alt'></box-icon>
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="">
-                <box-icon name='code-block'></box-icon>
-              </a>
-            </li> -->
-
-
             <li title="Copy Link">
               <a target="_blank" href="">
-                <box-icon name='link'></box-icon>
+                <i class="bx bx-link"></i>
               </a>
             </li>
 
             <li title="Share">
               <button>
-                <box-icon name='share-alt'></box-icon>
+                <i class="bx bx-share-alt"></i>
                 <ul class="options">
                   <li class="tw">
                     <a target="_blank" :href="`https://twitter.com/intent/tweet?url=https%3A%2F%2Flusaxweb.github.io%2Fvuesax&text=@vuesax+framework+components+for+vuejs+/+${$page.title}&hashtags=${$page.title},framework,components,vuejs,vuesax,lusaxweb,design,developer,frontend`">
-                      <box-icon type='logo' name='twitter'></box-icon>
+                      <i class="bx bxl-twitter"></i>
                     </a>
                   </li>
                   <li class="f">
                     <a target="_blank" :href="`https://www.facebook.com/sharer.php?u=https%3A%2F%2Flusaxweb.github.io%2Fvuesax%2F`">
-                      <box-icon name='facebook-square' type='logo' ></box-icon>
+                      <i class="bx bxl-facebook-square"></i>
                     </a>
                   </li>
                   <li class="in">
                     <a target="_blank" :href="`https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Flusaxweb.github.io%2Fvuesax&title=Vuesax+Framework&summary=framework+components+for+vuejs.&source=Vuesax`">
-                      <box-icon name='linkedin-square' type='logo' ></box-icon>
+                      <i class="bx bxl-linkedin-square"></i>
                     </a>
 
                   </li>
@@ -77,24 +65,24 @@
             <li class="divider" />
             <li title="Package NPM">
               <a target="_blank" href="">
-                <box-icon name='package' ></box-icon>
+                <i class="bx bx-package"></i>
               </a>
             </li>
             <li title="View Code Github">
               <a target="_blank" href="">
-                <box-icon name='code-alt' ></box-icon>
+                <i class="bx bx-code-alt"></i>
               </a>
             </li>
             <li title="Edit Page">
               <a target="_blank" :href="editLink">
-                <box-icon name='edit' ></box-icon>
+                <i class="bx bx-edit"></i>
               </a>
             </li>
             <li title="Report a Bug">
               <a
                 target="_blank"
                 :href="`https://github.com/lusaxweb/vuesax/issues/new?title=[${$page.title}] - Your Bug Name&amp;body=**Steps to Reproduce**%0A1. Do something%0A2. Do something else.%0A3. Do one last thing.%0A%0A**Expected**%0AThe ${$page.title} should do this%0A%0A**Result**%0AThe ${$page.title} does not do this%0A%0A**Testcase**%0A(fork this to get started)%0Ahttp://jsfiddle.net/exmple-bug/1/`">
-                <box-icon name='bug' ></box-icon>
+                <i class="bx bx-bug"></i>
               </a>
             </li>
           </ul>
@@ -141,7 +129,7 @@
         <span
           class="prev"
         >
-          <box-icon v-show="prev" name='chevron-left' ></box-icon>
+          <i class="bx bx-chevron-left"></i>
           <router-link
             v-if="prev"
             class="prev"
@@ -161,7 +149,7 @@
           >
             {{ next.title || next.path }}
           </router-link>
-          <box-icon name='chevron-right' ></box-icon>
+          <i class="bx bx-chevron-right"></i>
         </span>
       </p>
     </div>
@@ -172,7 +160,7 @@
       ref="up"
       @click="handleUp"
       class="up">
-      <box-icon name='chevron-up'></box-icon>
+      <i class="bx bx-chevron-up"></i>
     </div>
 
     <Footer />
@@ -696,6 +684,8 @@ getVar(var)
     @extend $wrapper
     margin 0 auto
 .page-edit
+  margin-top 50px
+  font-size .85rem
   @extend $wrapper
   padding-top 1rem
   padding-bottom 1rem

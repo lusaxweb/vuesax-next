@@ -3,7 +3,7 @@
 
 const isColor = (color: string) => {
   const vsColors = [
-    'primary', 'secondary', 'success', 'danger', 'warning', 'dark', 'light',
+    'primary', 'secondary', 'success', 'danger', 'warning', 'dark', 'light', 'warn',
     // social colors
     'facebook',
     'twitter',
@@ -69,15 +69,15 @@ const setColor = (colorName: string, color: string, el: any) => {
     newColor = `${rgb!.r},${rgb!.g},${rgb!.b}`
     setVar(colorName, newColor, el)
   } else if (isColor(color)) {
-    const style = getComputedStyle(el)
+    const style = getComputedStyle(document.documentElement)
     newColor = style.getPropertyValue('--vs-' + color)
     setVar(colorName, newColor, el)
   } else if (isRGBNumbers) {
     setVar(colorName, color, el)
   } else {
-//     consolee.warn({
-//       el,
-//       link: 'https://lusaxweb.github.io/vuesax/',
+    //     consolee.warn({
+      //       el,
+      //       link: 'https://lusaxweb.github.io/vuesax/',
 //       text: `• Component: ${el.__vue__.$vnode.componentOptions.tag}
 // • Warn info: El formato de la propiedad color es incorrecto
 // • Prop: color
@@ -86,7 +86,7 @@ const setColor = (colorName: string, color: string, el: any) => {
 // • Example: color="#000" or color="rgb(255,255,255)"`,
 //       title: 'VUESAX'
 //     })
-  }
+}
 }
 
 export {

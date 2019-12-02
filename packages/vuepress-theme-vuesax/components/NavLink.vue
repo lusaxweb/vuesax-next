@@ -6,7 +6,7 @@
     :exact="exact || $route.path.indexOf('/guide/') !== -1 && item.text === 'Documentation'"
   >
   {{ item.text }}
-    <box-icon v-if="arrow" name='chevron-down'></box-icon>
+    <i class="bx bx-chevron-down"></i>
   </router-link>
   <a
     v-else
@@ -53,13 +53,15 @@ export default {
 </script>
 <style lang="stylus">
 .nav-item
+  i.bx:not(.bx-dots-horizontal-rounded)
+    display none
   > div > .nav-link
     display flex !important
     align-items center
     justify-content center
-    box-icon
-      max-width 18px
-      max-height 18px
+    i.bx
+      display block
+      font-size 1rem
       transition all .25s ease
       margin-bottom -4px
 </style>

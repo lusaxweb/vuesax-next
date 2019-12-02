@@ -12,7 +12,9 @@
         <span v-if="item.text != '...'">
           {{ item.text }}
         </span>
-        <box-icon v-else class="dots" name='dots-horizontal-rounded'></box-icon>
+        <i class="bx bx-dots-horizontal-rounded">
+
+        </i>
       </span>
     </a>
 
@@ -96,12 +98,11 @@ getVar(var)
       display flex !important
       align-items center
       justify-content center
-    box-icon
-      max-width 22px
-      max-height 22px
+    i.bx
+      font-size 1.3rem
       transition all .25s ease
     .nav-link
-      box-icon
+      i.bx
         max-width 18px !important
         max-height 18px !important
         transition all .25s ease
@@ -109,7 +110,7 @@ getVar(var)
   &:hover
     border-color transparent
     .nav-link
-      box-icon
+      i.bx
         transform rotate(-180deg)
   .nav-dropdown
     .dropdown-item

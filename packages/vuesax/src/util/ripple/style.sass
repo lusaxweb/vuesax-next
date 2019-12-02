@@ -1,0 +1,57 @@
+@import '../../styles/mixins'
+@import '../../styles/colors'
+
+.vs-ripple-content
+  width: 100px
+  height: 100px
+  position: absolute
+  width: 100%
+  pointer-events: none
+  overflow: hidden
+  height: 100%
+  top: 0px
+  right: 0px
+  border-radius: inherit
+  z-index: -1
+  .vs-ripple
+    --vs-color: 255,255,255
+    width: 0px
+    height: 0px
+    border-radius: 50%
+    opacity: 0
+    position: absolute
+    transform: translate(-50%,-50%)
+    transition: all .5s ease
+    background: radial-gradient(circle,vs-color(color, .05),vs-color(color, .6))
+    &--solid
+      background: vs-color(color, 1)
+      opacity: 1
+  .vs-ripple-invert
+    --vs-color: 255,255,255
+    width: 0px
+    height: 0px
+    border-radius: 50%
+    opacity: 0
+    position: absolute
+    transform: translate(-50%,-50%)
+    transition: all .5s ease
+    background-image: radial-gradient(circle,vs-color(color, .5),vs-color(color, 0))
+  .vs-ripple-cut-1
+    --vs-color: 255,255,255
+    width: 0px
+    height: 0px
+    opacity: 0
+    position: absolute
+    transform: translate(-100%,-50%) skew(20deg)
+    transition: all .6s ease
+    background-image: linear-gradient(270deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 100%);
+  .vs-ripple-cut-2
+    --vs-color: 255,255,255
+    width: 0px
+    height: 0px
+    opacity: 0
+    position: absolute
+    transform: translate(0%,-50%) skew(20deg)
+    transition: all .6s ease
+    background-image: linear-gradient(90deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 100%);
+

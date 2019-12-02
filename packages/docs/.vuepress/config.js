@@ -1,7 +1,12 @@
 module.exports = {
+  base: '/vuesax-next/',
+  title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),
+  head: [
+    ['link', { rel: 'icon', href: `/favicon2_1.png` }]
+  ],
   themeConfig: {
-    repo: 'git@github.com:lusaxweb/vuesax.git',
+    repo: 'git@github.com:lusaxweb/vuesax-next.git',
     lastUpdated: true,
     linkPrevVersion: 'https://lusaxweb.github.io/vuesax/',
     searchPlaceholder: 'Vuesax Search',
@@ -184,9 +189,7 @@ module.exports = {
         title: 'Examples',
         collapsable: false,
         children: [
-          '',
-          'one',
-          'two'
+          ''
         ]
       }]
     }

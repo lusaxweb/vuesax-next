@@ -1,6 +1,7 @@
 <template>
   <button class="config">
-    <box-icon name='cog' ></box-icon>
+    <!-- <box-icon name='cog' ></box-icon> -->
+    <i class="bx bx-cog"></i>
     <svg class="effect1config" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
       <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
     </svg>
@@ -10,32 +11,37 @@
         <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
       </svg>
       <li @click="reloadConfig">
-        <box-icon name='rotate-left'></box-icon>
+        <!-- <box-icon name='rotate-left'></box-icon> -->
+        <i title="reload config" class="bx bx-rotate-left"></i>
       </li>
       <li @click="ChangeSidebar">
-        <box-icon :title="`Hidden Sidebar`" class="hidden-sidebar-hidden" name='left-indent'></box-icon>
-        <box-icon :title="`Open Sidebar`" class="visible-sidebar-hidden" name='right-indent' ></box-icon>
+        <!-- <box-icon :title="`Hidden Sidebar`" class="hidden-sidebar-hidden" name='left-indent'></box-icon> -->
+        <i title="Hidden Sidebar" class="bx bx-left-indent hidden-sidebar-hidden"></i>
+        <!-- <box-icon :title="`Open Sidebar`" class="visible-sidebar-hidden" name='right-indent' ></box-icon> -->
+        <i title="Open Sidebar" class="bx bx-right-indent visible-sidebar-hidden"></i>
       </li>
       <li :title="`${ !$vsTheme.sidebarCollapseOpen ? 'Open' : 'Close'} sidebar items`" @click="ChangeManu" :class="{'active': !$vsTheme.sidebarCollapseOpen}">
-        <box-icon v-if="$vsTheme.sidebarCollapseOpen" name='list-minus'></box-icon>
-        <box-icon v-else name='list-plus'></box-icon>
+        <!-- <box-icon v-if="$vsTheme.sidebarCollapseOpen" name='list-minus'></box-icon> -->
+        <i v-if="$vsTheme.sidebarCollapseOpen" class="bx bx-list-minus"></i>
+        <!-- <box-icon v-else name='list-plus'></box-icon> -->
+        <i v-else class="bx bx-list-plus"></i>
       </li>
       <li title="View examples mobile style" @click="ChangeMobile" :class="{'active': $vsTheme.mobileActive}">
-        <box-icon name='mobile-alt' ></box-icon>
+        <i class="bx bx-mobile-alt"></i>
       </li>
       <li :title="`${ !$vsTheme.openCode ? 'Open' : 'Close'} all Code`" @click="ChangeOpenCode" :class="{'active': $vsTheme.openCode}">
-        <box-icon name='code-block'></box-icon>
+        <i class="bx bx-code-block"></i>
       </li>
       <li class="theme-color-layout" title="Theme Color Layout">
-        <box-icon name='paint-roll'></box-icon>
+        <i class="bx bx-paint-roll"></i>
         <input @change="ChangeColorLayout($event.target.value)" type="color" value="#2564ff">
       </li>
       <li :title="`Theme ${ !$vsTheme.themeDarken ? 'Dark' : 'Light'}`" class="li-darken" @click="ChangeTheme" :class="{'active': $vsTheme.themeDarken}">
-        <box-icon v-if="!$vsTheme.themeDarken" name='brightness-half' ></box-icon>
-        <box-icon v-else name='brightness' ></box-icon>
+        <i v-if="!$vsTheme.themeDarken" class="bx bx-brightness-half"></i>
+        <i v-else class="bx bx-brightness"></i>
       </li>
       <li class="theme-color-primary" title="Theme Primary Color">
-        <box-icon name='color-fill' type='solid' ></box-icon>
+        <i class="bx bxs-color-fill"></i>
         <input @change="ChangeColor" type="color" value="#2564ff">
       </li>
 
@@ -185,7 +191,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$vsTheme)
     const isDarken = localStorage.theme === 'darken'
     if (!isDarken) {
       document.body.style.setProperty(`--vs-theme-bg`, '#f4f7f8')
@@ -239,8 +244,8 @@ getVar(var)
     height 100%
     opacity 0
 
-  box-icon
-    fill getColor(primary)
+  i.bx
+    color getColor(primary)
 .config
   position fixed
   bottom 0px
@@ -254,7 +259,7 @@ getVar(var)
   transition all .25s ease
   outline none
   &:focus, &:hover
-    >box-icon
+    >i.bx
       transform rotate(60deg)
     ul
       opacity 1
@@ -274,10 +279,10 @@ getVar(var)
       bottom -38px
       top auto
 
-  box-icon
-    max-width 22px
+  i.bx
+    font-size 1.2rem
     transition all .25s ease
-
+    color getVar(theme-color)
   ul
     position absolute
     top 0px

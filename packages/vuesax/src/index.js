@@ -1,5 +1,5 @@
 import * as vsComponents from './components/index';
-// import './styles/vuesax.sass'
+import './styles/vuesax.sass';
 var install = function (Vue) {
     // Components
     Object.values(vsComponents).forEach(function (vsComponent) {

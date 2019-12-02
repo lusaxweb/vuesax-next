@@ -80,6 +80,10 @@ getVar(var)
     animation loading .6s linear infinite
     top calc(50% - 14px)
     left calc(50% - 14px)
+
+  div[id*="carbonads"]
+    + div
+      display none !important
 </style>
 <style lang="css">
 .infoads {

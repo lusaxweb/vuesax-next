@@ -18,18 +18,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 import { setColor } from '../util/index';
 var VsComponent = /** @class */ (function (_super) {
     __extends(VsComponent, _super);
     function VsComponent() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.use = function (vue) {
-            console.log(vue);
-            console.log(_this);
-        };
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
+    VsComponent.prototype.handleWatchColor = function () {
+        setColor('color', this.color, this.$el);
+    };
     VsComponent.prototype.mounted = function () {
         if (this.color) {
             setColor('color', this.color, this.$el);
@@ -38,6 +36,12 @@ var VsComponent = /** @class */ (function (_super) {
     __decorate([
         Prop({ type: String, "default": '' })
     ], VsComponent.prototype, "color");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsComponent.prototype, "active");
+    __decorate([
+        Watch('color')
+    ], VsComponent.prototype, "handleWatchColor");
     VsComponent = __decorate([
         Component
     ], VsComponent);

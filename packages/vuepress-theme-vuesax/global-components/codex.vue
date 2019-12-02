@@ -3,7 +3,7 @@
     <header class="header-codex">
       <ul>
         <li title="Codepen" v-if="codepen" @click="openCodepen" class="con-link">
-          <box-icon name='codepen' type='logo' ></box-icon>
+           <i class='bx bxl-codepen'></i>
         </li>
 
         <li title="Codesandbox" v-if="codesandbox" @click="openCodesandbox">
@@ -11,10 +11,8 @@
         </li>
 
         <li title="Copy code" :class="{'copied': check}" @click="copy">
-          <!-- <i v-if="!check" class='bx bx-copy-alt' ></i> -->
-          <box-icon v-if="!check" name='copy'></box-icon>
-          <!-- <i v-else class='bx bx-check' ></i> -->
-          <box-icon v-else name='check' ></box-icon>
+          <i v-if="!check" class='bx bx-copy' ></i>
+          <i v-else class='bx bx-check' ></i>
         </li>
 
         <!-- <li class="con-api-link">
@@ -29,11 +27,9 @@
           :class="{'active': active}"
           class="not-a con-link" @click="active = !active">
 
-          <!-- <i v-if="!active" class='bx bx-code-alt' ></i> -->
-          <box-icon v-if="!active" name='code-alt' ></box-icon>
+          <i v-if="!active" class='bx bx-code-alt' ></i>
 
-          <!-- <i v-else class='bx bxs-hide' ></i> -->
-          <box-icon v-else name='hide' ></box-icon>
+          <i v-else class='bx bxs-hide' ></i>
         </li>
 
 
@@ -346,10 +342,10 @@ getVar(var)
         opacity 1
         border-radius 12px 12px 0px 0px
         background getVar(theme-code2)
-        box-icon
+        i
           fill #fff !important
       // &.not-a
-      svg, box-icon
+      svg, i
         max-width 18px
         transition all .25s ease
         fill getVar(theme-color) !important

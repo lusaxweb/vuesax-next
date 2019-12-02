@@ -1,4 +1,5 @@
 // import Vuesax from '../vuesax/src/index.js'
+import 'boxicons/css/boxicons.min.css'
 export default ({
   Vue // the version of Vue being used in the VuePress app
   // options, // the options for the root Vue instance

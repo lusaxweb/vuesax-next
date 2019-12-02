@@ -4,10 +4,14 @@
   "description": "Vuesax v4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node scripts/dev.js",
+    "docs:deploy": "sh scripts/deploy.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  }
 }

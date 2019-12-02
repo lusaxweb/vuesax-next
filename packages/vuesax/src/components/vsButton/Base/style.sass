@@ -3,12 +3,113 @@
 @import 'root'
 
 .vs-button
-  background: vs-color(color, 1)
-  color: #fff
   padding: vs-var(button-padding)
   border: 0px
   margin: vs-var(button-margin)
   border-radius: vs-var(button-border-radius)
+  transition: all .25s ease
+  position: relative
+  user-select: none
+  z-index: 1
+
+  &--active-disabled
+    pointer-events: none
+    opacity: .6
+
+  &:disabled
+    pointer-events: none
+    opacity: .35
+
+  // Type Button Style
+
+.vs-button--default
+  background: vs-color(color, 1)
+  color: #fff
+  &.vs-button--active
+    box-shadow: 0px 10px 20px -10px vs-color(color, 1)
+    transform: translate(0,-3px)
   &:hover
-    background: vs-color(color, .5)
-    opacity: .5
+    box-shadow: 0px 10px 20px -10px vs-color(color, 1)
+    transform: translate(0,-3px)
+
+.vs-button--flat
+  background: vs-color(color, .15)
+  color: vs-color(color, 1)
+  &:hover
+    background: vs-color(color, .25)
+  &:focus
+    color: #fff
+    background: vs-color(color, 1)
+    transition: all .25s ease, background .25s ease .25s
+  &.vs-button--active
+    background: vs-color(color, 1)
+    color: #fff
+    &::after
+      position: absolute
+      width: 100%
+      content: ''
+      height: 100%
+      background: rgba(0,0,0,.1)
+      left: 0px
+      top: 0px
+      opacity: 0
+      pointer-events: none
+      border-radius: inherit
+      transition: all .25s ease
+    &:hover
+      &::after
+        opacity: 1
+
+.vs-button--border
+  background: vs-color(color, 0)
+  color: vs-color(color, 1)
+  &:before
+    content: ''
+    border: 2px solid vs-color(color, 1)
+    position: absolute
+    top: 0px
+    left: 0px
+    width: calc(100% - 4px)
+    height: calc(100% - 4px)
+    border-radius: inherit
+    background: transparent
+    pointer-events: none
+    transition: all .25s ease
+  &:hover
+    &:before
+      border: 2px solid vs-color(color, .5)
+  &:focus
+    color: #fff
+    background: vs-color(color, 1)
+  &.vs-button--active
+    background: vs-color(color, 1)
+    color: #fff
+
+.vs-button--gradient
+  background: vs-color('color')
+  color: #fff
+  overflow: hidden
+  &::before
+    content: ''
+    background: linear-gradient(30deg, vs-color('color',0) 33%, vs-color('color', 1) 100%)
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    border-radius: inherit
+    pointer-events: none
+    transition: all .4s ease
+    z-index: -1
+    filter: hue-rotate(-40deg)
+
+  &:hover
+    transform: translate(0, -3px)
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,.35)
+    &::before
+      opacity: 0
+      // transform: translate(50%, -50%)
+  &.vs-button--active
+    transform: translate(0, -3px)
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,.35)
+

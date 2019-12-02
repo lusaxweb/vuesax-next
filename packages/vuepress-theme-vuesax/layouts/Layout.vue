@@ -5,6 +5,7 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+    hola
     <Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -47,8 +48,9 @@
         slot="bottom"
       />
     </Sidebar>
-
-    <Config />
+    <ClientOnly>
+      <Config />
+    </ClientOnly>
   </div>
 </template>
 

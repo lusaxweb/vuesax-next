@@ -1,5 +1,5 @@
 import * as vsComponents from './components/index'
-// import './styles/vuesax.sass'
+import './styles/vuesax.sass'
 
 const install = (Vue: any) => {
   // Components
