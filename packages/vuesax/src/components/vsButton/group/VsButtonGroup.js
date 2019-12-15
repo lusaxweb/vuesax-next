@@ -17,34 +17,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import Vue from 'vue';
-import { Component, Prop, Watch } from 'vue-property-decorator';
-import { setColor } from '../util/index';
-var VsComponent = /** @class */ (function (_super) {
-    __extends(VsComponent, _super);
-    function VsComponent() {
-        return _super !== null && _super.apply(this, arguments) || this;
+import { Component } from 'vue-property-decorator';
+import VsComponent from '../../../mixins/component';
+var VsButton = /** @class */ (function (_super) {
+    __extends(VsButton, _super);
+    function VsButton() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.Class = '';
+        return _this;
     }
-    VsComponent.prototype.handleWatchColor = function () {
-        setColor('color', this.color, this.$el);
+    VsButton.prototype.render = function (h) {
+        var btnGroup = h('div', {
+            staticClass: 'vs-button-group'
+        }, this.$slots["default"]);
+        return btnGroup;
     };
-    VsComponent.prototype.mounted = function () {
-        if (this.color) {
-            setColor('color', this.color, this.$el);
-        }
-    };
-    __decorate([
-        Prop({ type: String, "default": 'primary' })
-    ], VsComponent.prototype, "color");
-    __decorate([
-        Prop({ type: Boolean, "default": false })
-    ], VsComponent.prototype, "active");
-    __decorate([
-        Watch('color')
-    ], VsComponent.prototype, "handleWatchColor");
-    VsComponent = __decorate([
+    VsButton = __decorate([
         Component
-    ], VsComponent);
-    return VsComponent;
-}(Vue));
-export default VsComponent;
+    ], VsButton);
+    return VsButton;
+}(VsComponent));
+export default VsButton;

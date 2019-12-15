@@ -28,10 +28,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import Color from 'color';
 import { Component, Prop } from 'vue-property-decorator';
 import VsComponent from '../../../mixins/component';
-import { isColor, setColor } from '../../../util/index';
 import ripple, { rippleCut, rippleReverse } from '../../../util/ripple/index';
 var VsButton = /** @class */ (function (_super) {
     __extends(VsButton, _super);
@@ -40,42 +38,51 @@ var VsButton = /** @class */ (function (_super) {
         _this.Class = '';
         return _this;
     }
-    VsButton.prototype.setColors = function () {
-        var ComponentColor = this.color;
-        if (!this.color) {
-            ComponentColor = 'primary';
-        }
-        if (!isColor(ComponentColor)) {
-            var colorDarken = Color(ComponentColor).darken(0.2).rgb().string();
-            setColor('color-darken', colorDarken, this.$el);
-            var colorRotate = Color(ComponentColor).rotate(25).rgb().string();
-            setColor('color-rotate', colorRotate, this.$el);
-        }
-        else {
-            var vsColor = "rgb(" + getComputedStyle(this.$el).getPropertyValue('--vs-color') + ")";
-            var colorDarken = Color(vsColor).darken(0.2).rgb().string();
-            setColor('color-darken', colorDarken, this.$el);
-            var colorRotate = Color(vsColor).rotate(25).rgb().string();
-            setColor('color-rotate', colorRotate, this.$el);
-        }
-    };
-    VsButton.prototype.mounted = function () {
-        // this.setColors()
-    };
     VsButton.prototype.render = function (h) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
         var _this = this;
+        var defaultSlot = h('div', {
+            staticClass: 'vs-button__content'
+        }, this.$slots["default"]);
+        var animateSlot = h('div', {
+            staticClass: 'vs-button__animate',
+            "class": [
+                "vs-button__animate--" + this.animationType
+            ]
+        }, this.$slots.animate);
+        var loadingElement = h('div', {
+            staticClass: 'vs-button__loading'
+        });
         var btn = h('button', {
             staticClass: 'vs-button',
             "class": [
+                "vs-button--" + this.color,
+                "vs-button--size-" + this.size,
                 (_a = {}, _a["vs-button--active"] = !!this.active, _a),
                 (_b = {}, _b["vs-button--active-disabled"] = !!this.activeDisabled, _b),
-                (_c = {}, _c["vs-button--default"] = !this.flat &&
+                (_c = {}, _c["vs-button--icon"] = !!this.icon, _c),
+                (_d = {}, _d["vs-button--circle"] = !!this.circle, _d),
+                (_e = {}, _e["vs-button--square"] = !!this.square, _e),
+                (_f = {}, _f["vs-button--loading"] = !!this.loading, _f),
+                (_g = {}, _g["vs-button--upload"] = !!this.upload, _g),
+                (_h = {}, _h["vs-button--block"] = !!this.block, _h),
+                (_j = {}, _j["vs-button--animate"] = !!this.$slots.animate, _j),
+                (_k = {}, _k["vs-button--animate-" + this.animationType] = !!this.animationType, _k),
+                (_l = {}, _l["vs-button--animate-inactive"] = !!this.animateInactive, _l),
+                (_m = {}, _m["vs-button--default"] = !this.flat &&
                     !this.border &&
-                    !this.gradient, _c),
-                (_d = {}, _d["vs-button--flat"] = !!this.flat, _d),
-                (_e = {}, _e["vs-button--border"] = !!this.border, _e),
-                (_f = {}, _f["vs-button--gradient"] = !!this.gradient, _f),
+                    !this.gradient &&
+                    !this.relief &&
+                    !this.transparent &&
+                    !this.shadow &&
+                    !this.floating, _m),
+                (_o = {}, _o["vs-button--flat"] = !!this.flat, _o),
+                (_p = {}, _p["vs-button--border"] = !!this.border, _p),
+                (_q = {}, _q["vs-button--gradient"] = !!this.gradient, _q),
+                (_r = {}, _r["vs-button--relief"] = !!this.relief, _r),
+                (_s = {}, _s["vs-button--transparent"] = !!this.transparent, _s),
+                (_t = {}, _t["vs-button--shadow"] = !!this.shadow, _t),
+                (_u = {}, _u["vs-button--floating"] = !!this.floating, _u),
             ],
             attrs: __assign({}, this.$attrs),
             on: __assign(__assign({}, this.$listeners), { mousedown: function (evt) {
@@ -88,15 +95,14 @@ var VsButton = /** @class */ (function (_super) {
                     }
                     else {
                         if (_this.flat) {
-                            ripple(evt, _this.color || _this.flat && !_this.active && document.activeElement !== _this.$el ? 'primary' : null, _this.flat && !_this.active && document.activeElement !== _this.$el);
+                            ripple(evt, _this.color && !_this.active && document.activeElement !== _this.$el ? _this.color : null, _this.flat && !_this.active && document.activeElement !== _this.$el);
                         }
                         else {
-                            console.log('entro aqu', _this.color);
                             ripple(evt, null, false);
                         }
                     }
                 } })
-        }, this.$slots["default"]);
+        }, [defaultSlot, this.$slots.animate ? animateSlot : null, this.loading ? loadingElement : null]);
         return btn;
     };
     __decorate([
@@ -114,6 +120,45 @@ var VsButton = /** @class */ (function (_super) {
     __decorate([
         Prop({ type: Boolean, "default": false })
     ], VsButton.prototype, "gradient");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "relief");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "transparent");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "shadow");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "floating");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "icon");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "circle");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "square");
+    __decorate([
+        Prop({ type: String, "default": null })
+    ], VsButton.prototype, "size");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "loading");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "upload");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "block");
+    __decorate([
+        Prop({ type: String, "default": '' })
+    ], VsButton.prototype, "animationType");
+    __decorate([
+        Prop({ type: Boolean, "default": false })
+    ], VsButton.prototype, "animateInactive");
     VsButton = __decorate([
         Component
     ], VsButton);

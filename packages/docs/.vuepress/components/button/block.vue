@@ -1,8 +1,6 @@
 <template>
   <div class="center">
-    <vs-button gradient :active="active == 0" @click="active = 0" >Active</vs-button>
-    <vs-button gradient :active="active == 1" @click="active = 1" >Default</vs-button>
-    <vs-button gradient disabled >Disabled</vs-button>
+    <vs-button block ><i class='bx bxs-paint-roll' ></i> Edit Theme</vs-button>
   </div>
 </template>
 <script>
@@ -18,4 +16,7 @@ export default {
   align-items center
   justify-content center
   padding 20px
+  max-width 400px
+  margin auto
 </style>
+
