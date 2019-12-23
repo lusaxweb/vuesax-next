@@ -32,6 +32,13 @@
 .all-transition
   *
     transition: all 0s !important
+
+.center
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 20px
+  flex-wrap: wrap
 // vs-clipboard
 
 getColor(colorx, alpha = 1)
@@ -72,8 +79,8 @@ html, body
   padding 0
   margin 0
   // background-color #f4f7f8
-  background-color getVar(theme-bg)
-  color getVar(theme-color)
+  background-color getVar(theme-bg) !important
+  color getVar(theme-color) !important
 
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
@@ -86,7 +93,7 @@ body
 
 .page
   margin-left 260px
-  padding-left: 0px
+  padding-left: 0px !important
 
 .navbar
   position fixed
@@ -102,12 +109,13 @@ body
 
 .sidebar-mask
   position fixed
-  z-index 9
+  z-index 10000
   top 0
   left 0
   width 100vw
   height 100vh
   display none
+  background: rgba(0,0,0,.3)
 
 .sidebar
   font-size 16px
@@ -222,7 +230,6 @@ hr
 table
   border-collapse collapse
   margin 1rem 0
-  display: block
   overflow-x: auto
 
 tr

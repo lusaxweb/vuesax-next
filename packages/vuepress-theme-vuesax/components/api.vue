@@ -15,10 +15,10 @@
             <tr>
               <th>Property</th>
               <th>Type</th>
-              <th>Values</th>
-              <th>Description</th>
+              <th class="val">Values</th>
+              <th class="des">Description</th>
               <th>default</th>
-              <th>Example</th>
+              <th class="ex">Example</th>
               <th class="bugx">
                 <span>
                   More
@@ -44,25 +44,25 @@
                 </span>
               </td>
               <td>{{tr.type}}</td>
-              <td v-html="getValues(tr.values)"></td>
-              <td v-html="tr.description"></td>
+              <td class="val" v-html="getValues(tr.values)"></td>
+              <td class="des" v-html="tr.description"></td>
               <td>{{tr.default}}</td>
-              <td>
+              <td class="ex">
                 <a :href="tr.usage" v-if="tr.usage" class="btn-usage">
-                  Usage <box-icon name='code-block' ></box-icon>
+                  Usage <i class='bx bx-code-block'></i>
                 </a>
                 <a :href="`#vs-api-${tr.name}`" v-if="tr.code" @click="toggleCode($event,tr)" class="btn-toggle-code">
-                  <span class="open">Open <box-icon name='code-alt' ></box-icon></span> <span class="close">Close <box-icon name='x' ></box-icon></span>
+                  <span class="open">Open <i class='bx bx-code-alt' ></i></span> <span class="close">Close <i class='bx bx-x' ></i></span>
                 </a>
               </td>
 
               <td class="bugx">
                 <a target="_blank" :href="`https://github.com/lusaxweb/vuesax/issues/new?title=[${$page.title}] prop (${tr.name}) - Your Bug Name&amp;body=**Steps to Reproduce**%0A1. Do something%0A2. Do something else.%0A3. Do one last thing.%0A%0A**Expected**%0AThe ${tr.name} should do this%0A%0A**Result**%0AThe ${tr.name} does not do this%0A%0A**Testcase**%0A(fork this to get started)%0Ahttp://jsfiddle.net/example-bug/1/`" >
-                  <box-icon name='bug' ></box-icon>
+                  <i class='bx bx-bug' ></i>
                 </a>
 
                 <a target="_blank" :href="`https://github.com/lusaxweb/vuesax/`" >
-                  <box-icon name='terminal'></box-icon>
+                  <i class='bx bx-terminal' ></i>
                 </a>
               </td>
             </tr>
@@ -425,6 +425,9 @@ getVar(var)
     padding 10px
     background getVar(theme-layout)
     border-radius 20px
+    overflow hidden
+    .content-table
+      overflow auto
     box-icon
       max-height 16px
       max-width 16px
@@ -438,12 +441,12 @@ getVar(var)
       border-bottom 0px
       border-bottom 1px solid getVar(theme-bg2)
       height auto
-      overflow hidden
-      width 100%
-      display table !important
+      // overflow hidden
+      width 100% !important
+      // max-width 100%
+      // display table !important
       border-collapse: separate;
       border-spacing: 0;
-
       &.fixed-thead
         thead
           position fixed
@@ -532,5 +535,37 @@ getVar(var)
         a
           opacity 1
 
+@media (max-width: 1180px)
+  .content-api
+    overflow hidden
+    position relative
+  .con-api
+    overflow hidden
+    position relative
+    table
+      pre
+        width 100%
+      .bugx,.val
+        display none
+@media (max-width: 1000px)
+  .con-api
+    padding 1rem 10px !important
+    .content-api
+      .content-table
+        overflow auto
+    h2
+      padding-bottom 0px
 
+@media (max-width: 800px)
+  .con-api
+    table
+      .ex
+        display none
+      rd
+
+      td,th
+        font-size .65rem !important
+        padding 5px !important
+    .tr-code
+      display none !important
 </style>

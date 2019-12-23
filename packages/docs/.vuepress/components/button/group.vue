@@ -75,11 +75,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.center
-  display flex
-  align-items center
-  justify-content center
-  flex-direction column
 >>>.vs-button-group
   margin 20px 0px
 </style>

@@ -13,4 +13,3 @@ features:
   details: Internally we use the beautiful and beloved vuejs to facilitate the use of components and create much faster and with great performance.
 ---
 
-# Title

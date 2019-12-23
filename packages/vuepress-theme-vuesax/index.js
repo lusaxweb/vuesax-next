@@ -15,7 +15,7 @@ module.exports = (options, ctx) => ({
     }
   },
   name: 'vuepress-theme-vuesax',
-  extend: '@vuepress/theme-default',
+  // extend: '@vuepress/theme-default',
   plugins: [
     ['@vuepress/active-header-links'],
     ['container', {

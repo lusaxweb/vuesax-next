@@ -343,11 +343,10 @@ getVar(var)
         border-radius 12px 12px 0px 0px
         background getVar(theme-code2)
         i
-          fill #fff !important
+          color #fff !important
       // &.not-a
       svg, i
         max-width 18px
-        transition all .25s ease
         fill getVar(theme-color) !important
       &:hover
         opacity 1
@@ -356,5 +355,9 @@ getVar(var)
           transition all .25s ease
           fill alpha($textColor, .6)
           pointer-events none
-
+@media (max-width: 500px)
+  .code
+    .con-code
+      width: 100%
+      margin 0px
 </style>

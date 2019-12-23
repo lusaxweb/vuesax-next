@@ -1,10 +1,21 @@
 import * as vsComponents from './components/index';
+import defineVuesaxFunctions from './functions/defineVuesaxFunctions';
+import * as vsLayouts from './layout/index';
 import './styles/vuesax.sass';
-var install = function (Vue) {
+import { defineVuesaxOptions } from './util/defineVuesaxOptions';
+var install = function (Vue, options) {
     // Components
     Object.values(vsComponents).forEach(function (vsComponent) {
         Vue.use(vsComponent);
     });
+    // layout
+    Object.values(vsLayouts).forEach(function (vsLayout) {
+        Vue.use(vsLayout);
+    });
+    if (options) {
+        defineVuesaxOptions(options);
+    }
+    defineVuesaxFunctions(Vue);
 };
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);

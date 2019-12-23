@@ -38,7 +38,7 @@ div[class*="language-"]
     line-height 1.6
   .highlight-lines
     user-select none
-    // padding-top 1.2rem
+    padding-top 1.2rem
     position absolute
     top 0
     left 0
@@ -142,3 +142,9 @@ div[class~="language-bash"]:before
 
 div[class~="language-php"]:before
   content "php"
+
+@media (max-width: 500px)
+  div[class*="language-"]
+    pre, pre[class*="language-"]
+      padding-left 5px
+      padding-right: 5px

@@ -70,4 +70,27 @@ getVar(var)
           &:hover
             transform translate(0, -5px)
             box-shadow 0px 10px 20px -10px rgba(0,0,0,.1)
+
+@media (max-width: 1000px)
+  .docs-home
+    ~ .sidebar
+      display block
+    .sidebar
+      z-index 8 !important
+      transform translateX(0%) !important
+
+@media (max-width: 600px)
+  .docs-home
+    .sidebar
+      box-shadow none !important
+      padding-bottom 0px !important
+      ul
+        li
+          width 50%
+          a
+            width calc(100% - 10px)
+            padding 20px 10px
+            border-radius 10px
+            margin 5px
+            height auto
 </style>

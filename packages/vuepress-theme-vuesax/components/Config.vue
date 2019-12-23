@@ -309,4 +309,12 @@ getVar(var)
         border 2px solid getVar(theme-bg2)
       .visible-sidebar-hidden
         display none
+
+@media (max-width: 1000px)
+  .config
+    left 0px
+@media (max-width: 600px)
+  .config
+    display none
+    left 0px
 </style>

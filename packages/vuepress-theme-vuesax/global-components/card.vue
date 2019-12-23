@@ -4,12 +4,12 @@
       <slot></slot>
     </div>
 
-    <div class="example" :class="{'mobile': $vsTheme.mobileActive}">
+    <div v-if="$slots.example" class="example" :class="{'mobile': $vsTheme.mobileActive}">
       <slot name="example" />
     </div>
 
 
-    <div class="slotcode">
+    <div v-if="$slots.template || $slots.script || $slots.style" class="slotcode">
       <codex :codesandbox="codesandbox" :codepen="codepen">
         <div v-if="$slots.template" slot="template">
           <slot name="template" />
@@ -49,6 +49,13 @@ h1
   margin-top 20px
   margin-bottom -50px
   width 100%
+  > .text
+    ul
+      margin-left 40px
+      padding-left 0px
+      li
+        p
+          padding-left 5px !important
   .example
     position relative
     padding 10px
@@ -132,4 +139,16 @@ h1
       z-index 200
       position relative
 
+@media (max-width: 500px)
+  .card
+    .text
+      padding 10px
+      h2
+        font-size 1.3rem
+        padding-top 80px
+        padding-left 10px
+        padding-bottom 0px
+      p
+        padding-left 10px
+        padding-top 10px
 </style>

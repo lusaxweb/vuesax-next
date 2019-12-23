@@ -17,25 +17,6 @@ export default {
       type: String,
       default: 'top'
     }
-  },
-
-  mounted() {
-    let h = this.$el.closest('h2') || this.$el.closest('h1')
-    let idx = h.id
-    let link = document.querySelector(`.link-${idx}`)
-    let badge = document.createElement('span')
-    badge.className = 'badge-link'
-    badge.classList.add(this.type)
-
-    if(this.$el.closest('h1')) {
-      badge.innerHTML = this.text
-      badge.classList.add('header-badge-link')
-    }
-
-    if (!link.querySelector('.badge-link')) {
-      link.appendChild(badge)
-    }
-
   }
   // render (h, { props, slots }) {
   //   return h('span', {
@@ -54,7 +35,7 @@ export default {
   border-radius 5px
   padding 1px 5px
   color white
-  margin-right 5px
+  margin-right 0px
   background-color #42b983
   cursor default
   pointer-events none
@@ -68,15 +49,15 @@ export default {
   &.accent
     background $accentColor
   &.tip, &.green, &.success
-    background-color alpha(#42b983,.1)
-    color #42b983
+    background-color alpha(#42b983,1)
+    color #ff
     // background #42b983
   &.error, &.danger
-    background alpha(rgb(255, 71, 87),.1) //#f66
-    color rgb(255, 71, 87) //#f66
+    background alpha(rgb(255, 71, 87),1) //#f66
+    color #fff //#f66
     border 0px
   &.warning, &.warn, &.yellow
-    background alpha(rgb(255, 186, 0),.1)
-    color rgb(255, 186, 0)
+    background alpha(rgb(255, 186, 0),1)
+    color #fff
     // background-color darken(#ffe564, 35%)
 </style>

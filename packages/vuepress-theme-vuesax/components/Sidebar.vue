@@ -40,6 +40,7 @@ getVar(var)
   right -37px
   top -2px
   // stroke #000
+  pointer-events none
   fill getVar(theme-layout)
 
 .header__btns
@@ -137,4 +138,7 @@ getVar(var)
         top calc(1rem - 2px)
     & .content-sidebar > .sidebar-links
       padding 1rem 0
+@media (max-width: 400px)
+  .back-link
+    display none
 </style>

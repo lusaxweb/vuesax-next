@@ -170,4 +170,23 @@ getVar(var)
         display block
         &:hover
           opacity 1
+
+@media (max-width: 1200px)
+  .footer
+    ul
+      margin 30px 10px
+      padding 15px
+@media (max-width: 800px)
+  .footer
+    .footer__uls
+      flex-wrap wrap
+    ul
+      margin 30px 10px
+      padding 15px
+      width calc(50% - 20px)
+@media (max-width: 400px)
+  .footer
+    ul
+      padding  0px 30px
+      width calc(100% - 20px)
 </style>

@@ -12,6 +12,7 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
+    "lerna": "^3.19.0",
     "shelljs": "^0.8.3"
   }
 }

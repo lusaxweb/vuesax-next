@@ -307,6 +307,19 @@ export default {
 
       // console.log(window.pageYOffset + (window.innerHeight) - footerTop)
     })
+
+    window.addEventListener('resize', () => {
+      if(window.pageYOffset > 140) {
+        this.$refs.header.classList.add('fixed')
+        // console.dir(this.$refs.page)
+        this.$refs.header.style.width = `${this.$refs.page.offsetWidth}px`
+        // this.$refs.page.style.paddingTop = '200px'
+      } else {
+        this.$refs.header.style.width = `100%`
+        // this.$refs.page.style.paddingTop = '0px'
+        this.$refs.header.classList.remove('fixed')
+      }
+    })
   },
 
   methods: {
@@ -383,16 +396,22 @@ getVar(var)
   top 0px
   left 0px
   z-index 600
-  padding 10px
-  padding-bottom 6px
   margin 15px
   display block
   transition background .25s ease, box-shadow .25s ease, transform .25s ease
   border-radius 25px 10px 10px 10px
+  display flex
+  align-items center
+  justify-content center
+  padding 5px
+  padding-top 8px
+  padding-left 8px
   &:hover
     background getVar(theme-layout)
     box-shadow 0px 6px 10px -5px rgba(0,0,0,.1)
     transform translate(0,-3px)
+  i
+    font-size 1.4rem
 
 .con-svg
   position absolute
@@ -494,6 +513,7 @@ getVar(var)
     padding-bottom 0px
     // transition background .25s ease
     background transparent
+    padding 0px 60px !important
     &.con-table
       height auto !important
     .flex-header
@@ -606,7 +626,7 @@ getVar(var)
   display block
   margin-top 57px
   position relative
-  // overflow hidden
+  overflow hidden
   margin-bottom 0px
   padding-top 200px !important
   transition all .25s ease
@@ -741,6 +761,9 @@ getVar(var)
     padding-right 5px
     padding-left 10px
 
+@media (max-width: 1300px)
+  .page .sidebar
+    display none !important
 @media (max-width: $MQMobile)
   .page-edit
     .edit-link
@@ -749,5 +772,40 @@ getVar(var)
       font-size .8em
       float none
       text-align left
-
+@media (max-width: 600px)
+  .page
+    .content__default
+      padding 10px
+  .up
+    bottom 50px
+    right 0px
+    opacity 0
+    pointer-events none
+    &.active
+      opacity 1
+      pointer-events auto
+  .header-page
+    table
+      display none !important
+    .header__content
+      height 120px
+      padding-right 30px !important
+      .flex-header
+        margin-bottom 0px !important
+        #header-title
+          font-size 1.5rem !important
+  .header-page
+    &.fixed
+      .header__content
+        height 52px !important
+        .flex-header
+          #header-title
+            font-size 1.2rem !important
+@media (max-width: 500px)
+  .page
+    padding-top 140px !important
+@media (max-width: 400px)
+  .header-page
+    .header__content
+      padding 0px 20px !important
 </style>

@@ -13,7 +13,6 @@ export default class VsButton extends VsComponent {
   @Prop({ type: String, default: '' }) public ripple!: string
 
   @Prop({ type: Boolean, default: false }) public activeDisabled!: boolean
-
   // type Button Style
   @Prop({ type: Boolean, default: false }) public flat!: boolean
 

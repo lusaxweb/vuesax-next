@@ -36,8 +36,8 @@ export default {
     load () {
       const s = document.createElement('script')
       s.id = '_carbonads_js'
-      // s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
-      s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=localhost`
+      s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
+      // s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=localhost`
       this.$el.appendChild(s)
     }
   }
@@ -84,6 +84,33 @@ getVar(var)
   div[id*="carbonads"]
     + div
       display none !important
+
+@media (max-width: 600px)
+  .carbon-ads
+    width 100% !important
+    min-height auto !important
+    padding 0px 10px !important
+    &:hover
+      transform translate(0px) !important
+      border-radius 0px !important
+    &:before,&:after
+      display none !important
+    .carbon-poweredby
+      display none !important
+    .carbon-wrap
+      display flex
+      align-items center
+      justify-content center
+      .carbon-text
+        padding-bottom 0px
+        text-align left
+      .carbon-img
+        margin-bottom 0px !important
+        img
+          width 60px
+          border-radius 10px
+          margin-right 10px
+
 </style>
 <style lang="css">
 .infoads {

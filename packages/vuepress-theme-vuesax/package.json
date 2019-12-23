@@ -4,7 +4,6 @@
   "description": "Vuepress theme for Vuesax framework",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev example --temp example/.temp",
     "p": "npm version patch && npm publish --access public"
   },
   "keywords": [],

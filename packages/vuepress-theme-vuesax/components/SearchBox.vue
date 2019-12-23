@@ -38,7 +38,7 @@
         >
           <a :href="s.path" @click.prevent>
             <span class="page-title">{{ s.title || s.path }}</span>
-            <span v-if="s.header" class="header"><box-icon name='chevron-right'></box-icon> {{ s.header.title }}</span>
+            <span v-if="s.header" class="header"><i class='bx bx-chevron-right'></i> {{ s.header.title }}</span>
           </a>
         </li>
       </ul>
@@ -48,6 +48,9 @@
 
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
+const SEARCH_MAX_SUGGESTIONS = 5
+const SEARCH_PATHS = null
+const SEARCH_HOTKEYS = ['s', '/']
 export default {
   data () {
     return {
@@ -294,6 +297,7 @@ getVar(var)
     min-width 25rem
     margin 0px !important
     border-radius 14px
+    z-index 1000
     &.align-right
       right 0
   .suggestion
@@ -336,13 +340,17 @@ getVar(var)
   .search-box
     input
       cursor pointer
-      width 0
+      width 40px
       border-color transparent
       position relative
+      &::placeholder
+        color transparent
       &:focus
         cursor text
         left 0
         width 10rem
+        &::placeholder
+          color inherit
 
 // Match IE11
 @media all and (-ms-high-contrast: none)
@@ -357,15 +365,23 @@ getVar(var)
 @media (max-width: $MQMobile)
   .search-box
     margin-right 0
-    input
-      left 1rem
     .suggestions
       right 0
 
-@media (max-width: $MQMobileNarrow)
+
+@media (max-width: 500px)
   .search-box
     .suggestions
-      width calc(100vw - 4rem)
-    input:focus
-      width 8rem
+      width calc(100vw - 20px) !important
+      min-width auto !important
+    &.focused
+      width 100%
+    input
+      transition all 0s ease
+      color transparent !important
+      &:focus
+        width 100%
+        color inherit !important
+      &::placeholder
+        color transparent !important
 </style>

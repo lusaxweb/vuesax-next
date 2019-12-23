@@ -68,9 +68,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .center
-  display flex
-  align-items center
-  justify-content center
   flex-wrap wrap
   padding 20px
   max-width 400px

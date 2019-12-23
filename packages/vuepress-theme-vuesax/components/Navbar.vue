@@ -36,7 +36,9 @@
       <NavLinks class="can-hide"/>
     </div>
 
-    <div class="external-links-search">
+    <div
+      :class="{'remove-links': focused}"
+      class="external-links-search">
       <a
         title="Previous Version"
         class="v-old"
@@ -76,7 +78,9 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
+      showSuggestions: false,
+      focused: false
     }
   },
 
@@ -156,6 +160,10 @@ getVar(var)
   justify-content center
   position absolute
   right 20px
+  &.remove-links
+    width calc(100% - 60px)
+    .con-links, .v-old
+      display none
   .con-links
     display flex
     align-items center
@@ -212,11 +220,31 @@ getVar(var)
       flex: 0 0 auto
       vertical-align top
 
-@media (max-width: $MQMobile)
+@media (max-width: 1000px)
   .navbar
-    padding-left 4rem
+    padding 9px
+    padding-top 8px
+    padding-left 2.5rem
+    display flex
+    justify-content space-between
+    .home-link
+      position relative
+      padding-left 0px
+      margin-left 25px
+    .external-links-search
+      position relative
+      padding-left 0px
+      right 0px
     .can-hide
       display none
     .links
       padding-left 1.5rem
+      display none
+
+@media (max-width: 500px)
+  .home-link
+    width 20px !important
+    overflow hidden
+    .logo-nav
+      height 20px
 </style>

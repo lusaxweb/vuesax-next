@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vuesax-next/',
+  base: '/',
   title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
@@ -17,8 +17,8 @@ module.exports = {
         items: [
           { text: 'Introduction', link: '/docs/guide/introduction' },
           { text: 'Getting Started', link: '/docs/guide/gettingStarted' },
-          { text: 'Configuration', link: '/docs/guide/configuration' },
-          { text: 'Migration', link: '/docs/guide/migration' },
+          // { text: 'Configuration', link: '/docs/guide/configuration' },
+          // { text: 'Migration', link: '/docs/guide/migration' },
         ]
       },
       {
@@ -43,11 +43,7 @@ module.exports = {
           {
             text: 'Components',
             items: [
-              { text: 'Button', link: '/docs/components/button' },
-              { text: 'Avatar', link: '/docs/components/avatar' },
-              { text: 'Dropdown', link: '/docs/components/dropdown' },
-              { text: 'checkbox', link: '/docs/components/checkbox' },
-              { text: 'input', link: '/docs/components/input' },
+              { text: 'Button', link: '/docs/components/' },
             ]
           }
         ]
@@ -133,8 +129,8 @@ module.exports = {
           children: [
             '/docs/guide/',
             '/docs/guide/gettingStarted',
-            '/docs/guide/configuration',
-            '/docs/guide/migration',
+            // '/docs/guide/configuration',
+            // '/docs/guide/migration',
           ]
         },
         {
@@ -152,8 +148,6 @@ module.exports = {
           collapsable: false,
           children: [
             '/docs/components/',
-            '/docs/components/button',
-            '/docs/components/avatar'
           ]
         },
         {
