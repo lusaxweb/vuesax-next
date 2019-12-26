@@ -20,7 +20,6 @@ export default class VsAlert extends VsComponent {
     return h('div', {
       staticClass: 'vs-alert',
       class: [
-        'vs-alert',
         { [`vs-alert--solid`] : !!this.solid },
         { [`vs-alert--border`] : !!this.border },
         { [`vs-alert--shadow`] : !!this.shadow },

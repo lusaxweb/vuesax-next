@@ -1,4 +1,7 @@
 module.exports = {
+  plugins: [
+    ['vuepress-plugin-typescript']
+  ],
   base: '/',
   title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),

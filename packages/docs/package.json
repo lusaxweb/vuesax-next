@@ -22,7 +22,10 @@
     "postcss-loader": "^3.0.0",
     "sass": "^1.23.3",
     "sass-loader": "^7.3.1",
+    "typescript": "^3.7.4",
     "vue-property-decorator": "^8.3.0",
-    "vuepress": "^1.1.0"
+    "vuepress": "^1.1.0",
+    "vuepress-plugin-typescript": "^0.1.1",
+    "vuepress-types": "^0.5.1"
   }
 }
