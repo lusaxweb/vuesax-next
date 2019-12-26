@@ -1,0 +1,64 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-alert
+  background: vs-color('color', .1)
+  color: vs-color('color', 1)
+  width: 100%
+  padding: 10px 20px
+  border-radius: 0px 12px 12px 0px
+  position: relative
+  font-size: .9rem
+  z-index: 10
+  &::after
+    content: ''
+    background: vs-color('color', 1)
+    left: 0px
+    top: 0px
+    width: 2px
+    height: 100%
+    position: absolute
+    border-top-right-radius: 0px
+    border-bottom-right-radius: 0px
+    border-radius: inherit
+  &--solid
+    background: vs-color('color', 1)
+    color: #fff
+    &::after
+      background: rgba(255, 255, 255, .4)
+  &--border
+    background: transparent
+    border: 1px solid vs-color('color', 1)
+  &--shadow
+    background: transparent
+    box-shadow: 0px 4px 15px 0px vs-color('color', .12)
+  &--gradient
+    background: vs-color('color', 1)
+    color: #fff
+    &::before
+      background: linear-gradient(30deg, vs-color('color',0) 33%, vs-color('color', 1) 100%)
+      filter: hue-rotate(-50deg)
+      width: 100%
+      content: ''
+      position: absolute
+      height: 100%
+      top: 0px
+      left: 0px
+      z-index: -1
+      border-radius: inherit
+  &--flat
+    background: rgba(0,0,0,.03)
+  &--relief
+    background: vs-color('color', 1)
+    color: #fff
+    &::before
+      background: vs-color('color', .25)
+      width: 100%
+      content: ''
+      position: absolute
+      height: 100%
+      top: 6px
+      left: 6px
+      z-index: -1
+      border-radius: inherit

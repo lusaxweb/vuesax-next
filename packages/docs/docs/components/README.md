@@ -1,6 +1,5 @@
 ---
 PROPS:
- # cSpell:ignore vuesax, autoset, codepen, whatsapp, linkedin, behance, dribbble
   - name: color
     type: String
     values: primary, success, danger, warning, dark, RGB, HEX
@@ -159,8 +158,6 @@ PROPS:
               </template>
             </vs-button>
     usage: '#toggle'
-
-
 
 SLOTS:
   - name: animate

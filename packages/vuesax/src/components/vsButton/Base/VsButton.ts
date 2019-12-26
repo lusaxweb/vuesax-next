@@ -1,7 +1,6 @@
 import { VNode } from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
-import { isColor, setColor } from '../../../util/index'
 import ripple, { rippleCut, rippleReverse } from '../../../util/ripple/index'
 
 @Component

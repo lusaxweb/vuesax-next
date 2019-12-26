@@ -44,6 +44,8 @@ module.exports = {
             text: 'Components',
             items: [
               { text: 'Button', link: '/docs/components/' },
+							{ text: 'Alert', link: '/docs/components/Alert' },
+							// new component slot 1
             ]
           }
         ]
@@ -148,6 +150,8 @@ module.exports = {
           collapsable: false,
           children: [
             '/docs/components/',
+						'/docs/components/Alert',
+						// new component slot 2
           ]
         },
         {
@@ -157,27 +161,27 @@ module.exports = {
             '/docs/layout/',
           ]
         },
-        {
-          title: 'Functions',
-          collapsable: false,
-          children: [
-            '/docs/functions/',
-          ]
-        },
-        {
-          title: 'Directives',
-          collapsable: false,
-          children: [
-            '/docs/functions/',
-          ]
-        },
-        {
-          title: 'Animations',
-          collapsable: false,
-          children: [
-            '/docs/animations/',
-          ]
-        },
+        // {
+        //   title: 'Functions',
+        //   collapsable: false,
+        //   children: [
+        //     '/docs/functions/',
+        //   ]
+        // },
+        // {
+        //   title: 'Directives',
+        //   collapsable: false,
+        //   children: [
+        //     '/docs/functions/',
+        //   ]
+        // },
+        // {
+        //   title: 'Animations',
+        //   collapsable: false,
+        //   children: [
+        //     '/docs/animations/',
+        //   ]
+        // },
       ],
       '/examples/': [{
         title: 'Examples',
