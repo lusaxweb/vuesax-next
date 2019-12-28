@@ -17,7 +17,7 @@
 
         <!-- <li class="con-api-link">
           <a href="#vs-api">
-            <!-- API
+            <!API
             <i class='bx bx-list-ul' ></i>
           </a>
         </li> -->

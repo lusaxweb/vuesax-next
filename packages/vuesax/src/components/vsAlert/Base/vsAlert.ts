@@ -1,5 +1,5 @@
 import { VNode } from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
 
 @Component
@@ -16,8 +16,79 @@ export default class VsAlert extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) public relief!: boolean
 
+  @Prop({ default: true }) public value!: any
+
+  @Prop({ type: Boolean, default: false }) public hiddenContent!: boolean
+
+  @Prop({ type: Boolean, default: false }) public closable!: boolean
+
+  @Watch('hiddenContent')
+  public handleHiddenContent(val: boolean) {
+    if (!this.value) {
+      return
+    }
+    const el = (this.$el as HTMLElement)
+    const content = (this.$refs.content as HTMLElement)
+    if (!val) {
+      // el.style.height = 'auto'
+      setTimeout(() => {
+        el.style.height = this.$el.scrollHeight - 1 + 'px'
+      }, 10)
+    } else {
+      el.style.height = this.$el.scrollHeight - content.scrollHeight + 'px'
+    }
+  }
+
+  public beforeEnter(el: any) {
+    el.style.height = 0
+  }
+
+  public enter(el: any, done: any) {
+    let h = el.scrollHeight
+    el.style.height = h - 1 + 'px'
+    done()
+  }
+
+  public leave(el: any, done: any) {
+    el.style.height = '0px'
+  }
+
+  public handleClickClose() {
+    this.$emit('input', !this.value)
+  }
+
+  public mounted() {
+    const el = (this.$el as HTMLElement)
+    el.style.height = this.$el.scrollHeight - 1 + 'px'
+  }
+
   public render(h: any): VNode {
-    return h('div', {
+    const contentText = h('div', {
+      staticClass: 'vs-alert__content__text',
+      ref: 'text'
+    }, [!this.hiddenContent && this.$slots.default])
+
+    const content = h('div', {
+      staticClass: 'vs-alert__content',
+      ref: 'content'
+    }, [!this.hiddenContent && contentText])
+
+    const title = h('div', {
+      staticClass: 'vs-alert__title',
+    }, this.$slots.title)
+
+    const closeBtn = h('button', {
+      staticClass: 'vs-alert__close',
+      on: {
+        click: this.handleClickClose
+      } 
+    }, this.$slots.close)
+
+    const footer = h('div', {
+      staticClass: 'vs-alert__footer',
+    }, this.$slots.footer)
+
+    const render = h('div', {
       staticClass: 'vs-alert',
       class: [
         { [`vs-alert--solid`] : !!this.solid },
@@ -27,6 +98,19 @@ export default class VsAlert extends VsComponent {
         { [`vs-alert--flat`] : !!this.flat },
         { [`vs-alert--relief`] : !!this.relief },
       ],
-    }, this.$slots.default)
+    }, [
+      this.$slots.title && title,
+      content,
+      this.closable && closeBtn,
+      this.$slots.footer && footer
+    ])
+
+    return h('transition', {
+      on: {
+        beforeEnter: this.beforeEnter,
+        enter: this.enter,
+        leave: this.leave
+      },
+    }, [this.value && render])
   }
 }

@@ -6,11 +6,24 @@
   background: vs-color('color', .1)
   color: vs-color('color', 1)
   width: 100%
-  padding: 10px 20px
+  padding: 0px 20px
   border-radius: 0px 12px 12px 0px
   position: relative
   font-size: .9rem
   z-index: 10
+  transition: all .25s ease
+  overflow: hidden
+  &::selection
+   background: vs-color('color', .15)
+  *::selection
+   background: vs-color('color', .15)
+  b
+    font-weight: 600
+  a
+    color: inherit !important
+    text-decoration: underline
+    &:hover
+      opacity: .6
   &::after
     content: ''
     background: vs-color('color', 1)
@@ -19,23 +32,49 @@
     width: 2px
     height: 100%
     position: absolute
-    border-top-right-radius: 0px
-    border-bottom-right-radius: 0px
-    border-radius: inherit
   &--solid
     background: vs-color('color', 1)
     color: #fff
+    .vs-alert__close
+      color: #fff
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .15)
+      &:hover
+        transform: translate(0,-2px)
+        box-shadow: 0px 5px 18px 0px rgba(0, 0, 0, .15)
+      svg
+        fill: #fff
     &::after
       background: rgba(255, 255, 255, .4)
   &--border
     background: transparent
-    border: 1px solid vs-color('color', 1)
+    &::before
+      border: 1px solid vs-color('color', 1)
+      border-left: 0px
+      width: calc(100% - 2px)
+      content: ''
+      position: absolute
+      height: calc(100% - 2px)
+      top: 0px
+      left: 0px
+      z-index: -1
+      border-radius: inherit
   &--shadow
     background: transparent
     box-shadow: 0px 4px 15px 0px vs-color('color', .12)
   &--gradient
     background: vs-color('color', 1)
     color: #fff
+    border-radius: 12px
+    .vs-alert__close
+      color: #fff
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .15)
+      &:hover
+        transform: translate(0,-2px)
+        box-shadow: 0px 5px 18px 0px rgba(0, 0, 0, .15)
+      svg
+        fill: #fff
+    &::after
+      display: none
     &::before
       background: linear-gradient(30deg, vs-color('color',0) 33%, vs-color('color', 1) 100%)
       filter: hue-rotate(-50deg)
@@ -52,13 +91,75 @@
   &--relief
     background: vs-color('color', 1)
     color: #fff
+    border-radius: 12px
+    .vs-alert__close
+      color: #fff
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .15)
+      &:hover
+        transform: translate(0,-2px)
+        background: rgba(0,0,0,.2)
+        box-shadow: 0px 5px 18px 0px rgba(0, 0, 0, .15)
+      svg
+        fill: #fff
+    &::after
+      display: none
     &::before
-      background: vs-color('color', .25)
+      // background: vs-color('color', .25)
+      background: rgba(0,0,0,.2)
       width: 100%
       content: ''
       position: absolute
       height: 100%
-      top: 6px
-      left: 6px
+      top: -6px
+      left: -6px
       z-index: -1
       border-radius: inherit
+
+
+.vs-alert__title
+  font-weight: 600
+  font-size: 1rem
+  padding: 15px
+  ~ .vs-alert__content
+    .vs-alert__content__text
+      padding-top: 0px
+  
+
+.vs-alert__content
+  transition: all .25s ease
+  overflow: hidden
+  &__text
+    padding: 15px 15px
+    padding-top: 20px
+    padding-bottom: 20px
+
+.vs-alert__close
+  position: absolute
+  top: 9px
+  right: 6px
+  background: transparent
+  border: 0px
+  color: vs-color('color')
+  width: 30px
+  height: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .25s ease
+  box-shadow: 0px 0px 0px 0px vs-color('color', .3)
+  border-radius: 10px
+  padding: 0px
+  &:hover
+    transform: translate(0,-2px)
+    box-shadow: 0px 5px 18px 0px vs-color('color', .3)
+  svg
+    fill: vs-color('color')
+
+.vs-alert__footer
+  position: relative
+  width: 100%
+  padding: 10px 15px
+  padding-top: 0px
+  display: flex
+  align-items: center
+  justify-content: flex-end
