@@ -16,5 +16,8 @@
   "include": [
     "**/*"
   ],
+  "rules": {
+    "interface-name" : [true, "never-prefix"]
+  }
 }
 

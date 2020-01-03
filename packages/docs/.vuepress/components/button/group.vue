@@ -75,7 +75,9 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
->>>.vs-button-group
-  margin 20px 0px
+.center
+  flex-wrap wrap
+  >>>.vs-button-group
+    margin 20px 20px
 </style>
 

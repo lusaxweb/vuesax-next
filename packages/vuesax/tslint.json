@@ -8,6 +8,11 @@
     "semicolon": false,
     "trailing-comma": false,
     "no-console": false, // eliminar antes de publicar
-    "object-literal-sort-keys":false
+    "object-literal-sort-keys":false,
+    "member-access": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ]
   }
 }

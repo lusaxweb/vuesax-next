@@ -12,7 +12,8 @@
     "new:component": "node scripts/newComponent.js",
     "new:sub": "node scripts/newSubComponent.js",
     "postinstall": "node scripts/postinstall.js",
-    "dev": "tsc -w src/index.ts --module es6"
+    "dev": "tsc -w src/index.ts --module es6",
+    "test:types": "tsc -p ./types/test/tsconfig.json"
   },
   "keywords": [],
   "author": "",

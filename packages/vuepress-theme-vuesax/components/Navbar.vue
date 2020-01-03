@@ -63,18 +63,69 @@
         @blur="focused = false"
         @showSuggestions="handleShowSuggestions"
         v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
+      <!-- <NavLinksLanguages class="can-hide"/> -->
+      <!-- <button @click="handlePaddle">
+        Buy Now!
+      </button> -->
+      <div class="user-info">
+        <button class="btn-login" v-if="!$user.user" @click="handleLogin">
+          Login
+        </button>
+
+        <div v-else class="user-dropdown">
+          <div class="user">
+            <img :src="$user.user.photoURL" alt="">
+          </div>
+
+          <div class="dropdown">
+            <div class="dropdown-content">
+              <span class="name-user">
+                {{ $user.user.displayName }}
+              </span>
+              <button class="logout" @click="handleLogOut">
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- <button @click="handleVuesaxPass" v-if="$user.user">
+          Comprar Components Pass
+        </button> -->
+      </div>
     </div>
   </header>
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox'
+// import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
+import NavLinks from './NavLinks.vue'
+// import NavLinksLanguages from '@theme/components/NavLinksLanguages.vue'
 import SearchBox from './SearchBox.vue'
 
+import * as firebase from "firebase/app";
+
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/database";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCO1X9AaKblBqNA3OL1HvAC-7n9xhJxmdU",
+  authDomain: "vuesax-framework.firebaseapp.com",
+  databaseURL: "https://vuesax-framework.firebaseio.com",
+  projectId: "vuesax-framework",
+  storageBucket: "vuesax-framework.appspot.com",
+  messagingSenderId: "150226273019",
+  appId: "1:150226273019:web:0f4faefcb7549d5cbe665e",
+  measurementId: "G-ELFGE3FQQF"
+};
+// Initialize Firebase
+
+// Vue.prototype.$firebase = firebase
+
 export default {
-  components: { SidebarButton, NavLinks, AlgoliaSearchBox, SearchBox },
+  components: { SidebarButton, NavLinks, SearchBox },
 
   data () {
     return {
@@ -84,7 +135,30 @@ export default {
     }
   },
 
+  created() {
+    firebase.initializeApp(firebaseConfig);
+  },
+
   mounted () {
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        // this.$user.user = user
+        const userId = firebase.auth().currentUser.uid
+        firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+          // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+          this.$user.user = snapshot.val()
+          // ...
+        });
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+        this.$user.user = null
+      }
+    });
+
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
     const handleLinksWrapWidth = () => {
@@ -105,9 +179,20 @@ export default {
         this.$el.classList.remove('fixed')
       }
     })
+    Paddle.Setup({
+      vendor: 106600,
+    })
+    // console.log(Paddle)
   },
 
   computed: {
+
+    getUserPass() {
+      if(this.$user.user) {
+        return Object.keys(this.$user.user.pass) || []
+      }
+    },
+
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
     },
@@ -118,6 +203,65 @@ export default {
   },
 
   methods:{
+    handleVuesaxPass() {
+      Paddle.Checkout.open({
+        product: 579772,
+        successCallback: (data) => {
+          const db = firebase.database()
+          const userId = firebase.auth().currentUser.uid
+          db.ref('users/' + userId + '/pass/' + data.product.name).set(data).then(() => {
+            firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+            // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+              this.$user.user = snapshot.val()
+              // ...
+            });
+          })
+        }
+      })
+    },
+    handleLogOut() {
+      firebase.auth().signOut().then(() => {
+        this.$user.user = null
+      }).catch(function(error) {
+        // An error happened.
+      });
+    },
+    handleLogin() {
+      const provider = new firebase.auth.GithubAuthProvider();
+      firebase.auth().signInWithPopup(provider).then((result) => {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+
+        this.handleUserDB(user)
+        // ...
+      })
+    },
+    handleUserDB(user) {
+      const userId = firebase.auth().currentUser.uid
+      firebase.database().ref(`users/${userId}`).once("value", snapshot => {
+        if (!snapshot.exists()){
+          const db = firebase.database()
+          const userId = firebase.auth().currentUser.uid
+          db.ref('users/' + userId).set({
+            displayName: user.displayName,
+            email: user.email,
+            photoURL : user.photoURL,
+            uid: user.uid
+          }).then(() => {
+            firebase.database().ref(`users/${userId}`).once("value", snapshot => {
+              this.$user.user = snapshot.val()
+            })
+          })
+        } else {
+          this.$user.user = snapshot.val()
+        }
+      })
+    },
+    handlePaddle() {
+      Paddle.Checkout.open({ product: 579742 })
+    },
     handleShowSuggestions(active) {
       this.showSuggestions = active
     }
@@ -137,6 +281,72 @@ $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
 getVar(var)
     unquote("var(--vs-"+var+")")
+
+.user-info
+  position relative
+  margin-left 10px
+  .user-dropdown
+    display flex
+    align-items center
+    justify-content center
+    padding-right 10px
+    &:hover
+      .dropdown
+        opacity 1
+        visibility visible
+    .dropdown
+      width 160px
+      visibility hidden
+      opacity 0
+      position absolute
+      right 10px
+      bottom 0px
+      transform translate(0,100%)
+      box-shadow 0px 10px 20px -10px rgba(0,0,0,.15)
+      transition all .25s ease
+      .dropdown-content
+        width 160px
+        border-radius 15px 5px 15px 15px
+        padding 10px
+        background getVar(theme-layout)
+        margin-top 15px
+        position relative
+      .name-user
+        border-bottom 1px solid getVar(theme-bg2)
+        margin-bottom 10px
+        width 100%
+        padding 5px 10px
+        padding-top 0px
+        font-size .8rem
+        text-align center
+      .logout
+        background: getVar(theme-color)
+        color: getVar(theme-layout)
+        border 0px
+        padding 8px 25px
+        border-radius 10px
+        transition all .25s ease
+        box-shadow 0px 0px 0px 0px getVar(theme-color)
+        width 100%
+        &:hover
+          box-shadow 0px 5px 15px -5px getVar(theme-color)
+          transform translate(0,-4px)
+    .user
+      img
+        width 40px
+        border-radius 30%
+  .btn-login
+    background: getVar(theme-color)
+    color: getVar(theme-layout)
+    border 0px
+    padding 10px 15px
+    border-radius 10px
+    margin-right 10px
+    transition all .25s ease
+    box-shadow 0px 0px 0px 0px getVar(theme-color)
+    &:hover
+      box-shadow 0px 5px 15px -5px getVar(theme-color)
+      transform translate(0,-4px)
 
 .logo-nav
   fill getVar(theme-color)
@@ -159,9 +369,9 @@ getVar(var)
   align-items center
   justify-content center
   position absolute
-  right 20px
+  right 0px
   &.remove-links
-    width calc(100% - 60px)
+    // width calc(100% - 60px)
     .con-links, .v-old
       display none
   .con-links
@@ -219,6 +429,14 @@ getVar(var)
     .search-box
       flex: 0 0 auto
       vertical-align top
+
+@media (max-width: 1500px)
+  .navbar
+    justify-content flex-start
+  .home-link
+    position relative
+    padding-left 0px
+    padding-right 20px
 
 @media (max-width: 1000px)
   .navbar

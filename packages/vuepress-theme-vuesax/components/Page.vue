@@ -93,7 +93,7 @@
       </svg>
     </header>
 
-    <Sidebar :fixed="true" :items="sidebarItems"/>
+    <Sidebar2 key="sidebar-new" :fixed="true" :items="sidebarItems"/>
 
     <slot name="top"/>
 
@@ -169,13 +169,13 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util'
-import Sidebar from './sidebar.vue'
+import Sidebar2 from './sidebar2.vue'
 import api from './api.vue'
 import headerSvg from './headerSvg.vue'
 import Footer from './Footer.vue'
 export default {
   components: {
-    Sidebar,
+    Sidebar2,
     api,
     headerSvg,
     Footer
@@ -253,10 +253,12 @@ export default {
 
   mounted() {
     window.addEventListener('scroll',() => {
-      if(window.pageYOffset > 300) {
-        this.$refs.up.classList.add('active')
-      } else {
-        this.$refs.up.classList.remove('active')
+      if(this.$refs.up) {
+        if(window.pageYOffset > 300) {
+          this.$refs.up.classList.add('active')
+        } else {
+          this.$refs.up.classList.remove('active')
+        }
       }
 
       if(window.pageYOffset > 200) {
@@ -265,9 +267,12 @@ export default {
         this.$el.querySelector('.sidebar').classList.remove('fixed')
       }
 
-      this.$refs.title.style.fontSize = `${ 40 - (window.pageYOffset / 7) > 24 ? 40 - (window.pageYOffset / 7) : 24 }px`
+      if(this.$refs.title && this.$refs.flex) {
+        this.$refs.title.style.fontSize = `${ 40 - (window.pageYOffset / 7) > 24 ? 40 - (window.pageYOffset / 7) : 24 }px`
 
-      this.$refs.flex.style.marginBottom = `${ 70 - (window.pageYOffset / 2) > 0 ? 70 - (window.pageYOffset / 2) : 0 }px`
+        this.$refs.flex.style.marginBottom = `${ 70 - (window.pageYOffset / 2) > 0 ? 70 - (window.pageYOffset / 2) : 0 }px`
+      }
+
 
       // if(window.pageYOffset > 0) {
       //   this.$el.querySelector('.svgx').style.opacity = 0
@@ -278,16 +283,17 @@ export default {
 
       // this.$refs.title.style.marginBottom = `${ 70 - (window.pageYOffset / 2) > 0 ? 70 - (window.pageYOffset / 2) : 0 }px`
       // this.$refs.title.style.marginBottom = this.$refs.titleul.style.marginBottom = `${ 70 - (window.pageYOffset / 2) > 0 ? 70 - (window.pageYOffset / 2) : 0 }px`
-
-      if(window.pageYOffset > 140) {
-        this.$refs.header.classList.add('fixed')
-        // console.dir(this.$refs.page)
-        this.$refs.header.style.width = `${this.$refs.page.offsetWidth}px`
-        // this.$refs.page.style.paddingTop = '200px'
-      } else {
-        this.$refs.header.style.width = `100%`
-        // this.$refs.page.style.paddingTop = '0px'
-        this.$refs.header.classList.remove('fixed')
+      if(this.$refs.header) {
+        if(window.pageYOffset > 140) {
+          this.$refs.header.classList.add('fixed')
+          // console.dir(this.$refs.page)
+          this.$refs.header.style.width = `${this.$refs.page.offsetWidth}px`
+          // this.$refs.page.style.paddingTop = '200px'
+        } else {
+          this.$refs.header.style.width = `100%`
+          // this.$refs.page.style.paddingTop = '0px'
+          this.$refs.header.classList.remove('fixed')
+        }
       }
 
       // this.$refs.header.style.height = `${ 200 - window.pageYOffset > 40 ? 200 - window.pageYOffset : 40 }px`
@@ -513,7 +519,7 @@ getVar(var)
     padding-bottom 0px
     // transition background .25s ease
     background transparent
-    padding 0px 60px !important
+    padding 0px 40px !important
     &.con-table
       height auto !important
     .flex-header

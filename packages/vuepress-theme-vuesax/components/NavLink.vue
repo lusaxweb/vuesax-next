@@ -55,6 +55,8 @@ export default {
 .nav-item
   i.bx:not(.bx-dots-horizontal-rounded)
     display none
+  i.bx.not-remove
+    display block !important
   > div > .nav-link
     display flex !important
     align-items center

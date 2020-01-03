@@ -8,13 +8,16 @@
       v-if="!item.link"
       @click="toggle"
     >
-      <span class="title">
+      <span
+        :class="item.text"
+        class="title">
         <span v-if="item.text != '...'">
           {{ item.text }}
         </span>
-        <i class="bx bx-dots-horizontal-rounded">
+        <i v-else class="bx bx-dots-horizontal-rounded">
 
         </i>
+        <i v-if="hasFle" class="bx bx-chevron-down not-remove"></i>
       </span>
     </a>
 
@@ -75,7 +78,8 @@ export default {
   props: {
     item: {
       required: true
-    }
+    },
+    hasFle: {}
   },
 
   methods: {
@@ -97,7 +101,10 @@ getVar(var)
     .title
       display flex !important
       align-items center
-      justify-content center
+      justify-content center¨
+      &.Languages
+        span
+          font-size .7rem
     i.bx
       font-size 1.3rem
       transition all .25s ease

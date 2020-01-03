@@ -2,9 +2,9 @@ import * as vsComponents from './components/index'
 import defineVuesaxFunctions from './functions/defineVuesaxFunctions'
 import * as vsLayouts from './layout/index'
 import './styles/vuesax.sass'
-import { defineVuesaxOptions, IVuesaxOptions } from './util/defineVuesaxOptions'
+import { defineVuesaxOptions, VuesaxOptions } from './util/defineVuesaxOptions'
 
-const install = (Vue: any, options?: IVuesaxOptions) => {
+const install = (Vue: any, options?: VuesaxOptions) => {
   // Components
   Object.values(vsComponents).forEach((vsComponent) => {
     Vue.use(vsComponent)

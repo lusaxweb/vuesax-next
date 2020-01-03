@@ -165,6 +165,8 @@ export default {
     ChangeTheme() {
       document.body.classList.add('all-transition')
       const isDarken = localStorage.theme === 'darken'
+      document.body.classList.remove(!isDarken ? 'lighten' : 'darken')
+      document.body.classList.add(isDarken ? 'lighten' : 'darken')
       if (isDarken) {
         document.body.style.setProperty(`--vs-theme-bg`, '#f4f7f8')
         document.body.style.setProperty(`--vs-theme-color`, '#2c3e50')

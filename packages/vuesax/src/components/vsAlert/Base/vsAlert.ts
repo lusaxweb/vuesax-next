@@ -22,6 +22,8 @@ export default class VsAlert extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) public closable!: boolean
 
+  @Prop({ type: [Number, String], default: 0 }) public progress!: number | string
+
   @Watch('hiddenContent')
   public handleHiddenContent(val: boolean) {
     if (!this.value) {
@@ -30,10 +32,10 @@ export default class VsAlert extends VsComponent {
     const el = (this.$el as HTMLElement)
     const content = (this.$refs.content as HTMLElement)
     if (!val) {
-      // el.style.height = 'auto'
+      el.style.height = 'auto'
       setTimeout(() => {
         el.style.height = this.$el.scrollHeight - 1 + 'px'
-      }, 10)
+      }, 250)
     } else {
       el.style.height = this.$el.scrollHeight - content.scrollHeight + 'px'
     }
@@ -63,15 +65,28 @@ export default class VsAlert extends VsComponent {
   }
 
   public render(h: any): VNode {
+    const icon = h('div', {
+      staticClass: 'vs-alert__icon',
+      ref: 'icon'
+    }, [this.$slots.icon])
+
     const contentText = h('div', {
       staticClass: 'vs-alert__content__text',
       ref: 'text'
-    }, [!this.hiddenContent && this.$slots.default])
+    }, [this.$slots.default])
 
-    const content = h('div', {
-      staticClass: 'vs-alert__content',
-      ref: 'content'
-    }, [!this.hiddenContent && contentText])
+    const content = h('transition', {
+      on: {
+        beforeEnter: this.beforeEnter,
+        enter: this.enter,
+        leave: this.leave
+      },
+    }, [ !this.hiddenContent &&
+      h('div', {
+        staticClass: 'vs-alert__content',
+        ref: 'content'
+      }, [contentText])
+    ])
 
     const title = h('div', {
       staticClass: 'vs-alert__title',
@@ -88,6 +103,17 @@ export default class VsAlert extends VsComponent {
       staticClass: 'vs-alert__footer',
     }, this.$slots.footer)
 
+    const progress = h('div', {
+      staticClass: 'vs-alert__progress',
+    }, [
+      h('div', {
+        staticClass: 'vs-alert__progress__bar',
+        style: {
+          width: `${this.progress}%`
+        }
+      })
+    ])
+
     const render = h('div', {
       staticClass: 'vs-alert',
       class: [
@@ -99,10 +125,12 @@ export default class VsAlert extends VsComponent {
         { [`vs-alert--relief`] : !!this.relief },
       ],
     }, [
+      this.$slots.icon && icon,
       this.$slots.title && title,
       content,
       this.closable && closeBtn,
-      this.$slots.footer && footer
+      this.$slots.footer && footer,
+      !!this.progress && progress
     ])
 
     return h('transition', {

@@ -5,10 +5,12 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <Navbar
-      v-if="shouldShowNavbar"
-      @toggle-sidebar="toggleSidebar"
-    />
+    <ClientOnly>
+      <Navbar
+        v-if="shouldShowNavbar"
+        @toggle-sidebar="toggleSidebar"
+      />
+    </ClientOnly>
 
     <div
       class="sidebar-mask"
@@ -18,6 +20,8 @@
     <Home v-if="$page.frontmatter.home"/>
 
     <Docs-home :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.docsHome"/>
+
+    <Pass-layout :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.passLayout"/>
 
     <Page
       v-else
@@ -62,8 +66,9 @@ import { resolveSidebarItems } from '../util'
 import Carbon from '../components/Carbon'
 import DocsHome from '../components/DocsHome'
 import Config from '../components/Config.vue'
+import PassLayout from '../components/PassLayout.vue'
 export default {
-  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config },
+  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout },
 
   data () {
     return {
@@ -109,11 +114,12 @@ export default {
 
     pageClasses () {
       const userPageClass = this.$page.frontmatter.pageClass
+      const { frontmatter } = this.$page
       return [
         {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'no-sidebar': !this.shouldShowSidebar || frontmatter.passLayout
         },
         userPageClass
       ]

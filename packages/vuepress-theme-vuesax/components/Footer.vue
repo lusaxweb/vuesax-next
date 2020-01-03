@@ -119,7 +119,6 @@ getVar(var)
     unquote("var(--vs-"+var+")")
 .footer
   width 100%
-  background getVar(theme-bg2)
   margin 0px
   margin-top 100px
   display flex

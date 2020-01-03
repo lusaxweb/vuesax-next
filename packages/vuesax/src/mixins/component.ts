@@ -3,26 +3,25 @@ import { Component, Prop, Watch } from 'vue-property-decorator'
 import { setColor } from '../util/index'
 @Component
 export default class VsComponent extends Vue {
-  // tslint:disable-next-line:member-access
-  static install: (vue: any) => any
-  // tslint:disable-next-line:member-access
+  static install: (vue: any) => void
+
   static use: (vue: any) => any
 
-  public componentColor: string = null
+  componentColor: string = null
 
-  @Prop({ type: String, default: 'primary' }) public color!: string
+  @Prop({ type: String, default: 'primary' }) color!: string
 
-  @Prop({ type: Boolean, default: false }) public danger!: boolean
+  @Prop({ type: Boolean, default: false }) danger!: boolean
 
-  @Prop({ type: Boolean, default: false }) public success!: boolean
+  @Prop({ type: Boolean, default: false }) success!: boolean
 
-  @Prop({ type: Boolean, default: false }) public warn!: boolean
+  @Prop({ type: Boolean, default: false }) warn!: boolean
 
-  @Prop({ type: Boolean, default: false }) public dark!: boolean
+  @Prop({ type: Boolean, default: false }) dark!: boolean
 
-  @Prop({ type: Boolean, default: false }) public active!: boolean
+  @Prop({ type: Boolean, default: false }) active!: boolean
 
-  public changeColor() {
+  changeColor() {
     this.componentColor = (this.danger && 'danger') ||
     (this.success && 'success') ||
     (this.warn && 'warn') ||
@@ -32,31 +31,31 @@ export default class VsComponent extends Vue {
   }
 
   @Watch('color')
-  public handleWatchColor() {
+  handleWatchColor() {
     this.changeColor()
   }
 
   @Watch('danger')
-  public handleWatchDanger() {
+  handleWatchDanger() {
     this.changeColor()
   }
 
   @Watch('success')
-  public handleWatchSuccess() {
+  handleWatchSuccess() {
     this.changeColor()
   }
 
   @Watch('warn')
-  public handleWatchWarn() {
+  handleWatchWarn() {
     this.changeColor()
   }
 
   @Watch('dark')
-  public handleWatchDark() {
+  handleWatchDark() {
     this.changeColor()
   }
 
-  public mounted() {
+  mounted() {
     this.changeColor()
   }
 }

@@ -6,7 +6,7 @@
       <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
     </svg>
     <div class="content-sidebar">
-      <NavLinks/>
+      <NavLinks2 />
       <slot name="top"/>
       <SidebarLinks :fixed="fixed" :depth="0" :items="items"/>
       <slot name="bottom"/>
@@ -16,14 +16,14 @@
 
 <script>
 import SidebarLinks from '@theme/components/SidebarLinks.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
+import NavLinks2 from '@theme/components/NavLinks2.vue'
 
 export default {
   name: 'Sidebar',
 
-  components: { SidebarLinks, NavLinks },
+  components: { SidebarLinks, NavLinks2 },
 
-  props: ['items', 'fixed']
+  props: ['items', 'fixed'],
 }
 </script>
 
@@ -130,10 +130,21 @@ getVar(var)
     & > li:not(:first-child)
       margin-top .75rem
 
-@media (max-width: $MQMobile)
+@media (max-width: 1000px)
   .sidebar
     .nav-links
-      display block
+      display block !important
+      .nav-item
+        &:hover
+          .dropdown-wrapper .nav-dropdown
+            display block !important
+            transform translate(0px) !important
+            box-shadow none !important
+            h4
+              padding-left 0px !important
+      .dropdown-wrapper .nav-dropdown
+        position relative
+        display none !important
       .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after
         top calc(1rem - 2px)
     & .content-sidebar > .sidebar-links

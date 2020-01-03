@@ -5,6 +5,7 @@ import ripple, { rippleCut, rippleReverse } from '../../../util/ripple/index'
 
 @Component
 export default class VsButton extends VsComponent {
+  [x: string]: any
   public Class: string = ''
 
   public prototype: any
@@ -44,6 +45,12 @@ export default class VsButton extends VsComponent {
   @Prop({ type: String, default: '' }) public animationType!: string
 
   @Prop({ type: Boolean, default: false }) public animateInactive!: boolean
+  
+  @Prop({ type: String, default: null }) public to!: string | null
+  
+  @Prop({ type: String, default: null }) public href!: string | null
+
+  @Prop({ type: Boolean, default: false }) public blank!: boolean
 
   public render(h: any): VNode {
 
@@ -65,8 +72,10 @@ export default class VsButton extends VsComponent {
     const btn = h('button', {
       staticClass: 'vs-button',
       class: [
-        `vs-button--${this.color}`,
+        // `vs-button--${this.color.replace('#', '')}`,
+        `vs-button--${this.componentColor}`,
         `vs-button--size-${this.size}`,
+        { [`vs-button--fff`] : this.color === '#fff' },
         { [`vs-button--active`] : !!this.active },
         { [`vs-button--active-disabled`] : !!this.activeDisabled },
         { [`vs-button--icon`] : !!this.icon },
@@ -101,7 +110,7 @@ export default class VsButton extends VsComponent {
       },
       on: {
         ...this.$listeners,
-        mousedown: (evt: any) => {
+        mousedown: (evt: EventTarget) => {
           // ripple effect
           if (this.ripple === 'reverse') {
             rippleReverse(evt)
@@ -126,6 +135,15 @@ export default class VsButton extends VsComponent {
               )
             }
           }
+        },
+        click: (evt: EventTarget) => {
+          if (this.to) {
+            this.$router.push(this.to)
+          } else if (this.href) {
+            window.open(this.href, this.blank && '_blank' || '_self')
+            // console.log(this.blank && '_self')
+          }
+          this.$emit('click', evt)
         }
       }
     }, [ defaultSlot, this.$slots.animate ? animateSlot : null , this.loading ? loadingElement : null ] )

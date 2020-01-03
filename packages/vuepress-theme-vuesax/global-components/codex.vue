@@ -117,7 +117,6 @@ export default {
     '$vsTheme.openCode': function (val) {
       this.active = val
       localStorage.openCode = val
-      console.log('hello workasdasd<<<<<<<<<<<<<<')
     },
     activeSlot() {
       this.$nextTick(() => {

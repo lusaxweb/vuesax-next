@@ -16,12 +16,18 @@
   justify-content: center
   padding: 0px
   outline: none
+  font-size: .8rem
+  &--fff
+    &:focus
+      color: rgba(30,30,30,1) !important
+
   &__content
     padding: vs-var(button-padding)
     width: 100%
     display: flex
     align-items: center
     justify-content: center
+    
 
   &--active-disabled
     pointer-events: none
@@ -30,13 +36,22 @@
   &:disabled
     pointer-events: none
     opacity: .35
-  &--animate:not(&--animate-inactive)
+  &--animate:not(.vs-button--animate-inactive)
+    .vs-button__content
+      i
+        font-size: 1.15rem
+    &:hover
+      .vs-button__content
+        transform: translate(-100%)
+      .vs-button__animate
+        transform: translate(0%)
     &-vertical
       &:hover
         .vs-button__content
           transform: translate(0,-100%) !important
+          opacity: 0
         .vs-button__animate
-          transform: translate(0%)
+          transform: translate(0%) !important
     &-scale
       &:hover
         .vs-button__content
@@ -55,11 +70,7 @@
           transform:  rotate(0)
     .vs-button__content
       transition: transform .25s ease
-    &:hover
-      .vs-button__content
-        transform: translate(-100%)
-      .vs-button__animate
-        transform: translate(0%)
+    
   &__animate
     position: absolute
     width: 100%
@@ -116,7 +127,7 @@
       content: ''
       width: 17px
       height: 17px
-      border: 2px solid rgba(255,255,255,.5)
+      border: 2px dotted rgba(255,255,255,.6)
       border-top: 2px solid rgba(255,255,255, 0)
       border-bottom: 2px solid rgba(255,255,255, 0)
       border-right: 2px solid rgba(255,255,255, 0)
@@ -172,7 +183,7 @@
     .vs-button__content
       padding: 8px 8px
     i
-      font-size: 0.95rem
+      font-size: 1.15rem
 
   // Type Button Style
 

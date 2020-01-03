@@ -131,9 +131,9 @@ getVar(var)
   position: fixed;
   display: block;
   right: 0px;
-  width: 150px;
+  width: 140px;
   background: var(--vs-theme-layout);
-  padding: 5px;
+  padding: 4px;
   padding-bottom: 0px;
   border-radius: 30px 0px 0px 0px;
   box-sizing: border-box;
@@ -163,9 +163,10 @@ div[id*="carbonads"] {
   display: block;
   overflow: hidden;
   /* margin-bottom: 30px; */
-  width: calc(100% - 10px);
-  margin: 5px;
+  width: calc(100% - 2px);
+  margin: 2px;
   border-radius: 10px;
+  margin-right: 0px;
   /* margin-left: 7px; */
   text-align: center;
   /* box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05); */
@@ -199,24 +200,24 @@ div[id*="carbonads"] span {
 
 .carbon-img {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   max-width: 160px;
   line-height: 1;
 }
 
 .carbon-img img {
   display: block;
-  margin: 0 auto;
-  max-width: 160px;
+  max-width: none !important;
   width: 100%;
-  height: auto;
-  border-radius: 15px 15px 15px 15px
+  border-radius: 15px 15px 15px 15px;
+  border: 0px;
+  margin: 0px;
 }
 
 .carbon-text {
   display: block;
   /* padding: 0 1em 8px; */
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   opacity: .75;
 }
 
@@ -228,6 +229,7 @@ div[id*="carbonads"] span {
   font-weight: 600;
   font-size: 9px;
   line-height: 0;
+  display: none
 }
 
 @media only screen and (max-width: 1100) {

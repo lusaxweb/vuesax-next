@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import Sidebar from '../components/Sidebar.vue'
+import Sidebar from '../components/Sidebar2.vue'
 import Footer from './Footer.vue'
 export default {
   components: {
@@ -57,7 +57,7 @@ getVar(var)
         a
           width 200px
           height 200px
-          background getVar(theme-layout)
+          background getVar(theme-bg)
           margin 10px
           display block
           border-radius 30px
@@ -69,7 +69,7 @@ getVar(var)
           padding 20px
           &:hover
             transform translate(0, -5px)
-            box-shadow 0px 10px 20px -10px rgba(0,0,0,.1)
+            padding-bottom 30px
 
 @media (max-width: 1000px)
   .docs-home

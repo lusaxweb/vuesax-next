@@ -175,7 +175,7 @@ export function groupHeaders (headers) {
 
 export function resolveNavLinkItem (linkItem) {
   return Object.assign(linkItem, {
-    type: linkItem.items && linkItem.items.length ? 'links' : 'link'
+    type: linkItem.items && linkItem.items.length > 0 ? 'links' : 'link'
   })
 }
 

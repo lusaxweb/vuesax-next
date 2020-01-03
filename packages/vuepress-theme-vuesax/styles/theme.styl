@@ -4,6 +4,12 @@
 @require './wrapper'
 @require './toc'
 
+@font-face
+  font-family: "Poppins"
+  src: url("/Poppins/Poppins-Medium.ttf")
+  font-weight: 400
+  font-style: normal
+
 :root
   --vs-primary: 26,92,255
   --vs-theme-bg: #f4f7f8
@@ -79,14 +85,18 @@ html, body
   padding 0
   margin 0
   // background-color #f4f7f8
-  background-color getVar(theme-bg) !important
+  background-color: getVar(theme-layout)
+  // background-color getVar(theme-bg) !important
   color getVar(theme-color) !important
 
 body
-  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-family "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-size 16px
+
+button
+  font-family "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
 
 *
   box-sizing: border-box
@@ -94,6 +104,7 @@ body
 .page
   margin-left 260px
   padding-left: 0px !important
+  background-color getVar(theme-bg) !important
 
 .navbar
   position fixed
@@ -253,7 +264,7 @@ th, td
       top 0
 
 
-@media (min-width: ($MQMobile + 1px))
+@media (min-width: 1000px)
   .theme-container.no-sidebar
     .sidebar
       display none

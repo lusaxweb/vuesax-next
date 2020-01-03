@@ -25,7 +25,13 @@
     "typescript": "^3.7.4",
     "vue-property-decorator": "^8.3.0",
     "vuepress": "^1.1.0",
+    "vuepress-plugin-google-adsense": "0.0.4",
     "vuepress-plugin-typescript": "^0.1.1",
     "vuepress-types": "^0.5.1"
+  },
+  "dependencies": {
+    "firebase": "^7.6.1",
+    "vue-google-adsense": "^1.8.0",
+    "vue-script2": "^2.1.0"
   }
 }

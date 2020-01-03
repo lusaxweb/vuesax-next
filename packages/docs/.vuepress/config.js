@@ -1,4 +1,18 @@
 module.exports = {
+  // locales: {
+  //   // The key is the path for the locale to be nested under.
+  //   // As a special case, the default locale can use '/' as its path.
+  //   '/': {
+  //     lang: 'es-ES', // this will be set as the lang attribute on <html>
+  //     title: 'Vuesax',
+  //     description: 'esto es en español'
+  //   },
+  //   '/en/': {
+  //     lang: 'en-US',
+  //     title: 'VuePress',
+  //     description: 'esto es en ingles'
+  //   }
+  // },
   plugins: [
     ['vuepress-plugin-typescript']
   ],
@@ -6,7 +20,13 @@ module.exports = {
   title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
-    ['link', { rel: 'icon', href: `/favicon2_1.png` }]
+    ['link', { rel: 'icon', href: `/favicon2_1.png` }],
+    ['script', {
+      src: 'https://cdn.paddle.com/paddle/paddle.js'
+    }],
+    // ['script', {
+    //   type:'text/javascript'
+    // }, `Paddle.Setup({ vendor: 106600 });`]
   ],
   themeConfig: {
     repo: 'git@github.com:lusaxweb/vuesax-next.git',
@@ -52,6 +72,11 @@ module.exports = {
             ]
           }
         ]
+      },
+      {
+        text: 'Vuesax Pass',
+        link: '/pass/',
+        items: []
       },
       {
         text: 'Examples',

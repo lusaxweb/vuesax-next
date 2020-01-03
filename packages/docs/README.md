@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: <b>Vuesax</b> Framework Components for <a target="_blank" href="https://vuejs.org/" >Vuejs</a>
-tagline: We love what we do. Let us help you do what <b>You love</b>.
+heroText: <b>Vuesax</b> Marco <br/> de components creados con <a target="_blank" href="https://vuejs.org/" >Vuejs</a>
+tagline: Nos encanta lo que hacemos permítanos ayudarlo a crear lo que usted ama.
 actionText: Get Started
 actionLink: /docs/guide/
 features:
