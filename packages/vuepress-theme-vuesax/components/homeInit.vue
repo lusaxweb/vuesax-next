@@ -907,5 +907,78 @@ getVar(var)
             height 15px
           i
             font-size .8rem
+@media (max-width: 1350px)
+  .home-init
+    overflow hidden
+    .con-text
+      width 50%
+    .con-animation
+      .con-mobile
+        width 150px
+        height 300px
+        left -40px
+      .con-desk
+        height 560px
+        width 600px
+        svg
+          height 100%
+@media (max-width: 1100px)
+  .home-init
+    margin-bottom 140px
+    .con-text
+      width 100%
+      z-index 200
+      .hero
+        background transparent
+        display block
+        .content-hero
+          padding 20px
+    .con-animation
+      position absolute
+      z-index 100
+      right 0px
+      bottom -60px
+@media (max-width: 800px)
+  .home-init
+    .con-text
+      .hero
+        .content-hero
+          padding 20px 20px
+          h1
+            font-size 2rem !important
 
+@media (max-width: 670px)
+  .home-init
+    margin-bottom 0px
+    .con-text
+      .hero
+        display flex
+        padding 30px
+    .con-animation
+      display none
+@media (max-width: 450px)
+  .home-init
+    .con-text
+      .hero
+        padding 0px
+    .con-btns
+      flex-wrap wrap
+      justify-content flex-start
+      width 100%
+      a
+        margin 0px
+        margin-top 10px
+        max-width auto
+        width 100%
+        text-align center
+        &.discord
+          width calc(50% - 5px)
+          padding 9px
+          margin-right 10px
+        &.github
+          width calc(50% - 5px)
+          .badge-star
+            position relative
+            top 0px
+            right 0px
 </style>

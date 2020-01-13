@@ -1,18 +1,16 @@
-module.exports = {
-  // locales: {
-  //   // The key is the path for the locale to be nested under.
-  //   // As a special case, the default locale can use '/' as its path.
-  //   '/': {
-  //     lang: 'es-ES', // this will be set as the lang attribute on <html>
-  //     title: 'Vuesax',
-  //     description: 'esto es en español'
-  //   },
-  //   '/en/': {
-  //     lang: 'en-US',
-  //     title: 'VuePress',
-  //     description: 'esto es en ingles'
-  //   }
-  // },
+module.exports = ctx => ({
+  locales: {
+    // The key is the path for the locale to be nested under.
+    // As a special case, the default locale can use '/' as its path.
+    '/': {
+      lang: 'English', // this will be set as the lang attribute on <html>
+      title: 'Vuesax',
+    },
+    '/es/': {
+      lang: 'Español',
+      title: 'VuePress',
+    }
+  },
   plugins: [
     ['vuepress-plugin-typescript']
   ],
@@ -21,203 +19,152 @@ module.exports = {
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
     ['link', { rel: 'icon', href: `/favicon2_1.png` }],
-    ['script', {
-      src: 'https://cdn.paddle.com/paddle/paddle.js'
-    }],
     // ['script', {
-    //   type:'text/javascript'
-    // }, `Paddle.Setup({ vendor: 106600 });`]
+    //   src: 'https://cdn.paddle.com/paddle/paddle.js'
+    // }],
+    ['script', {
+      'data-ad-client': 'ca-pub-4283907298344887',
+      sync: true,
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    }]
   ],
   themeConfig: {
+
+    locales: {
+      '/': {
+        ...getNavbar(),
+        ...getSidebar()
+      },
+      '/es/': {
+        ...getNavbar('/es/'),
+        ...getSidebar('/es/')
+      }
+    },
+
     repo: 'git@github.com:lusaxweb/vuesax-next.git',
     lastUpdated: true,
     linkPrevVersion: 'https://lusaxweb.github.io/vuesax/',
     searchPlaceholder: 'Vuesax Search',
+  }
+})
+
+function getNavbar (lang = '/') {
+
+  return {
     nav: [
       {
-        text: 'Guide',
-        link: '/docs/guide/',
+        text: `Guide`,
+        link: `${lang}docs/guide/`,
         items: [
-          { text: 'Introduction', link: '/docs/guide/introduction' },
-          { text: 'Getting Started', link: '/docs/guide/gettingStarted' },
-          // { text: 'Configuration', link: '/docs/guide/configuration' },
-          // { text: 'Migration', link: '/docs/guide/migration' },
+          { text: `Introduction`, link: `${lang}docs/guide/` },
+          { text: `Getting Started`, link: `${lang}docs/guide/gettingStarted` },
         ]
       },
       {
-        text: 'Documentation',
-        link: '/docs/',
+        text: `Documentation`,
+        link: `${lang}docs/`,
         items: [
           {
-            text: 'Theme',
+            text: `Theme`,
             items: [
-              { text: 'Color', link: '/docs/theme/' },
-              { text: 'Icons', link: '/docs/theme/icons' },
-              { text: 'Font', link: '/docs/theme/font' },
-              { text: 'Generate', link: '/docs/theme/generate' },
+              { text: `Color`, link: `${lang}docs/theme/` },
             ]
           },
           {
-            text: 'Layout',
+            text: `Layout`,
             items: [
-              { text: 'Grid', link: '/docs/layout/' },
+              { text: `Grid`, link: `${lang}docs/layout/` },
             ]
           },
           {
-            text: 'Components',
+            text: `Components`,
             items: [
-              { text: 'Button', link: '/docs/components/' },
-							{ text: 'Alert', link: '/docs/components/Alert' },
+              { text: `Button`, link: `${lang}docs/components/` },
+              { text: `Alert`, link: `${lang}docs/components/Alert` },
+              { text: 'Loading', link: '/docs/components/Loading' },
 							// new component slot 1
             ]
           }
         ]
       },
       {
-        text: 'Vuesax Pass',
-        link: '/pass/',
+        text: `Vuesax Pass`,
+        link: `${lang}pass/`,
         items: []
       },
       {
-        text: 'Examples',
-        link: '/examples/',
-        items: [
-          { text: 'Hello World', link: '' },
-          { text: 'Nuxt', link: '' },
-          { text: 'Vue CLI', link: '' },
-          { text: 'Custom Theme Colors', link: '' },
-          { text: 'Responsive', link: '' },
-          { text: 'Add Icons', link: '' },
-          { text: 'CDN', link: '' },
-          { text: 'I18n', link: '' },
-          { text: 'Typescript', link: '' },
-          { text: 'Vuepress', link: '' },
-          { text: 'Form', link: '' },
-          { text: 'Vuelidate', link: '' },
-          { text: 'SSR', link: '' },
-        ]
-      },
-      {
-        text: 'Ecosystem',
-        link: '/ecosystem/',
+        text: `Ecosystem`,
+        link: `${lang}ecosystem/`,
         items: [
           {
-            text: 'Social',
+            text: `Social`,
             items: [
-              { text: 'GitHub', link: 'https://github.com/lusaxweb/vuesax' },
-              { text: 'Discord', link: 'https://discord.gg/9dsKtvB' },
-              { text: 'Twitter', link: 'https://twitter.com/vuesax' },
-              { text: 'Codepen', link: 'https://codepen.io/lusaxweb/' },
-              { text: 'Medium', link: 'https://medium.com/@luisdanielrovira8' }
+              { text: `GitHub`, link: `https://github.com/lusaxweb/vuesax` },
+              { text: `Discord`, link: `https://discord.gg/9dsKtvB` },
+              { text: `Twitter`, link: `https://twitter.com/vuesax` },
+              { text: `Medium`, link: `https://medium.com/@luisdanielrovira8` }
             ]
           },
           {
-            text: 'Help',
+            text: `Help`,
             items: [
-              { text: 'Issues', link: 'https://github.com/lusaxweb/vuesax/issues' },
-              { text: 'Edit Page', link: 'https://github.com/lusaxweb/vuesax' },
-              { text: 'Latest Releases', link: 'https://github.com/lusaxweb/vuesax/releases' },
-              { text: 'FAQ', link: 'https://github.com/lusaxweb/vuesax/wiki' }
+              { text: `Issues`, link: `https://github.com/lusaxweb/vuesax/issues` },
+              { text: `Edit Page`, link: `https://github.com/lusaxweb/vuesax` },
+              { text: `Latest Releases`, link: `https://github.com/lusaxweb/vuesax/releases` },
             ]
           },
           {
-            text: 'Contact',
+            text: `Contact`,
             items: [
-              { text: 'Lusaxweb', link: 'http://lusaxweb.net' },
-              { text: 'Chat', link: 'https://discordapp.com/invite/9dsKtvB' },
-              { text: 'Pull Request', link: 'https://github.com/lusaxweb/vuesax/pulls' },
-              { text: 'Codepen Template', link: 'https://codepen.io/lusaxweb/pen/mxMKYr' }
+              { text: `Lusaxweb`, link: `http://lusaxweb.net` },
+              { text: `Chat`, link: `https://discordapp.com/invite/9dsKtvB` },
+              { text: `Pull Request`, link: `https://github.com/lusaxweb/vuesax/pulls` },
+              { text: `Codepen Template`, link: `https://codepen.io/lusaxweb/pen/mxMKYr` }
             ]
           }
         ]
-      },
-      {
-        text: '...',
-        items: [
-          {
-            text: 'More',
-            items: [
-              { text: 'Team', link: '/team/' },
-              { text: 'Support Vuesax', link: '/support/' },
-              { text: 'API', link: '/api/' },
-              { text: 'Blog', link: '/blog/' },
-              { text: 'Chat', link: 'https://discordapp.com/invite/9dsKtvB' },
-              { text: 'Brand', link: '/branding/' },
-              { text: 'Shop', link: '/shop/' },
-              { text: 'Resources', link: '/resource/' },
-              { text: 'Contributors', link: '/contributors/' },
-            ]
-          }
-        ]
-      },
-    ],
+      }
+    ]
+  }
+}
+
+function getSidebar (lang = '/') {
+  return {
     sidebar: {
-      '/docs/': [
+      [`${lang}docs/`]: [
         {
           title: 'Guide',
           collapsable: false,
           children: [
-            '/docs/guide/',
-            '/docs/guide/gettingStarted',
-            // '/docs/guide/configuration',
-            // '/docs/guide/migration',
+            `${lang}docs/guide/`,
+            `${lang}docs/guide/gettingStarted`,
           ]
         },
         {
-          title: 'Theme',
+          title: `Theme`,
           collapsable: false,
           children: [
-            '/docs/theme/',
-            '/docs/theme/icons',
-            '/docs/theme/font',
-            '/docs/theme/generate',
+            `${lang}docs/theme/`,
           ]
         },
         {
-          title: 'Components',
+          title: `Components`,
           collapsable: false,
           children: [
-            '/docs/components/',
-						'/docs/components/Alert',
+            `${lang}docs/components/`,
+            `${lang}docs/components/Alert`,
+            '/docs/components/Loading',
 						// new component slot 2
           ]
         },
         {
-          title: 'Layout',
+          title: `Layout`,
           collapsable: false,
           children: [
-            '/docs/layout/',
+            `${lang}docs/layout/`,
           ]
         },
-        // {
-        //   title: 'Functions',
-        //   collapsable: false,
-        //   children: [
-        //     '/docs/functions/',
-        //   ]
-        // },
-        // {
-        //   title: 'Directives',
-        //   collapsable: false,
-        //   children: [
-        //     '/docs/functions/',
-        //   ]
-        // },
-        // {
-        //   title: 'Animations',
-        //   collapsable: false,
-        //   children: [
-        //     '/docs/animations/',
-        //   ]
-        // },
       ],
-      '/examples/': [{
-        title: 'Examples',
-        collapsable: false,
-        children: [
-          ''
-        ]
-      }]
     }
   }
 }

@@ -10,6 +10,7 @@
     "no-console": false, // eliminar antes de publicar
     "object-literal-sort-keys":false,
     "member-access": false,
+    "triple-equals": false,
     "interface-name": [
       true,
       "never-prefix"

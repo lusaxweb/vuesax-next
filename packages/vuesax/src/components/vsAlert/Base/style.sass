@@ -119,17 +119,23 @@
         fill: #fff
     &::after
       display: none
-      
+
 
 
 .vs-alert__title
   font-weight: 600
   font-size: 1rem
   padding: 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  &--clickHidden
+    cursor: pointer
+    padding-right: 0px
   ~ .vs-alert__content
     .vs-alert__content__text
       padding-top: 0px
-  
+
 
 .vs-alert__content
   transition: height .25s ease
@@ -138,7 +144,7 @@
     padding: 15px 15px
     padding-top: 20px
     padding-bottom: 20px
-    
+
 
 .vs-alert__close
   position: absolute
@@ -156,6 +162,8 @@
   box-shadow: 0px 0px 0px 0px vs-color('color', .3)
   border-radius: 10px
   padding: 0px
+  // background-image: url(../../../icons/bx-x.svg)
+  // background-position: center
   &:hover
     transform: translate(0,-2px)
     box-shadow: 0px 5px 18px 0px vs-color('color', .3)
@@ -188,7 +196,7 @@
     width: 24px
     height: 24px
     fill: vs-color('color', 1)
-  ~ .vs-alert__footer 
+  ~ .vs-alert__footer
     padding-left: 35px
   ~ .vs-alert__content
     padding-left: 20px
@@ -209,3 +217,28 @@
     height: 100%
     background: vs-color('color', 1)
     transition: all .25s ease
+
+.vs-alert__pagination
+  position: relative
+  padding: 0px 20px
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  margin-bottom: 10px
+  span
+    font-size: .8rem
+    margin: 0px 8px
+    min-width: 28px
+    text-align: center
+  button
+    border: 0px
+    background: transparent
+    color: vs-color('color', 1)
+    padding: 0px 7px
+    font-size: 1rem
+    background: vs-color('color', .1)
+    border-radius: 8px
+    transition: all .25s ease
+    &:hover
+      background: vs-color('color', 1)
+      color: #fff

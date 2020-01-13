@@ -3,21 +3,14 @@ export default {
   render (h) {
     return h('div', { class: 'carbon-ads' })
   },
-  // [
-  //     h('div', {
-  //       class: 'infoads'
-  //     }, 'Este anuncio está diseñado para apoyar al Open Source.')
-  //   ]
   mounted () {
-    if (this.$route.fullPath !== '/') {
-      this.load()
-    }
+    this.load()
   },
   watch: {
     '$route' (to, from) {
       if (
-        // to.path !== from.path
-        // &&
+        to.path !== from.path
+        &&
         this.$el.querySelector('#carbonads')
       ) {
         // this.$el.classList.add('hidden-ads')
@@ -26,17 +19,16 @@ export default {
         //   this.$el.innerHTML = ''
         //   this.load()
         // }, 400);
-
+        this.$el.innerHTML = ''
+        this.load()
       }
-      this.$el.innerHTML = ''
-      this.load()
     }
   },
   methods: {
     load () {
       const s = document.createElement('script')
       s.id = '_carbonads_js'
-      s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
+      s.src = `//cdn.carbonads.com/carbon.js?serve=CE7DEKQN&placement=vuesaxcom`
       // s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=localhost`
       this.$el.appendChild(s)
     }
@@ -53,33 +45,33 @@ getVar(var)
     transform rotate(0deg)
   100%
     transform rotate(360deg)
-.carbon-ads
-  &:after
-    content ''
-    width 22px
-    height 22px
-    position absolute
-    border-radius 50%
-    border 3px solid getVar(theme-color)
-    border-top 3px solid transparent
-    border-left 3px solid transparent
-    border-bottom 3px solid transparent
-    animation loading .6s ease infinite
-    top calc(50% - 14px)
-    left calc(50% - 14px)
-  &:before
-    content ''
-    width 22px
-    height 22px
-    position absolute
-    border-radius 50%
-    border 3px dashed getVar(theme-color)
-    border-top 3px solid transparent
-    border-left 3px solid transparent
-    border-bottom 3px solid transparent
-    animation loading .6s linear infinite
-    top calc(50% - 14px)
-    left calc(50% - 14px)
+// .carbon-ads
+//   &:after
+//     content ''
+//     width 22px
+//     height 22px
+//     position absolute
+//     border-radius 50%
+//     border 3px solid getVar(theme-color)
+//     border-top 3px solid transparent
+//     border-left 3px solid transparent
+//     border-bottom 3px solid transparent
+//     animation loading .6s ease infinite
+//     top calc(50% - 14px)
+//     left calc(50% - 14px)
+//   &:before
+//     content ''
+//     width 22px
+//     height 22px
+//     position absolute
+//     border-radius 50%
+//     border 3px dashed getVar(theme-color)
+//     border-top 3px solid transparent
+//     border-left 3px solid transparent
+//     border-bottom 3px solid transparent
+//     animation loading .6s linear infinite
+//     top calc(50% - 14px)
+//     left calc(50% - 14px)
 
   div[id*="carbonads"]
     + div
@@ -131,15 +123,15 @@ getVar(var)
   position: fixed;
   display: block;
   right: 0px;
-  width: 140px;
+  width: 145px;
   background: var(--vs-theme-layout);
-  padding: 4px;
+  padding: 6px;
   padding-bottom: 0px;
-  border-radius: 30px 0px 0px 0px;
+  border-radius: 25px 0px 0px 0px;
   box-sizing: border-box;
   bottom: 0px;
   z-index: 10000;
-  min-height: 160px
+  min-height: 170px
 }
 
 .carbon-ads:hover {
@@ -229,6 +221,7 @@ div[id*="carbonads"] span {
   font-weight: 600;
   font-size: 9px;
   line-height: 0;
+  /* padding-top: 5px */
   display: none
 }
 

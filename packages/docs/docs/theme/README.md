@@ -2,13 +2,13 @@
 
 <card>
 
-  ## Colores Predeterminados
+  ## Default Colors
 
-  Vuesax tiene los colores principales que se mantienen durante toda la aplicación para facilitar el cambio y la operación efectiva
+  Vuesax has the main colors that are maintained throughout the application to facilitate change and effective operation
 
   Los colores principales se pueden cambiar y personalizar al gusto de cada desarrollador para una aplicación mas personalizada
 
-  Colores por defecto:
+  Default colors:
 
   - primary
   - success
@@ -21,14 +21,18 @@
 </card>
 
 <card>
-  
+
   ## Customize Theme Colors
 
-  Puedes cambiar los colores como tu quieras y en cualquier momento, vuesax usa variables de css nativas lo que significa que puedes acceder a ellas y cambiarlas cuando quieras 
+  You can change the colors as you want and at any time, vuesax uses native css variables which means you can access them and change them whenever you want
 
-  igual vuesax te proporciona varias formas de cambiar los colores principales ya sea por css o javascript
+  equal vuesax gives you several ways to change the main colors either by css or javascript
 
-  ### javascript
+</card>
+
+<card>
+
+  ## javascript
 
   ```js
     Vue.use(Vuesax, {
@@ -41,14 +45,18 @@
       }
     })
   ```
-  
-  ### css
 
-  Puedes cambiar las variables de vuesax por medio de css como cualquier otra variable css
+</card>
 
-  ::: warning Formato HEX solo Números
+<card>
 
-  Es importante que los colores sean en formato HEX y solo el valor numerico por ejemplo: `rgb(255,100,50)` es equivalente a `255,100,50`
+  ## css
+
+  You can change the vuesax variables by means of css like any other css variable
+
+  ::: warning HEX Format Numbers Only
+
+  It is important that the colors are in HEX format and only the numerical value for example: `rgb (255,100.50)` is equivalent to `255,100.50`
 
   :::
 
@@ -62,13 +70,17 @@
     }
   ```
 
-  ### VS Function
+</card>
 
-  Puedes cambiar los colores principales en cualquier punto de tu aplicación pero solo del lado del cliente con la existencia del `document object`  con la funcion de vuesax `$vs.setColor`
+<card>
+
+  ## VS Function
+
+  You can change the main colors at any point of your application but only on the client side with the existence of the `document object` with the function of vuesax` $ vs. setColor`
 
   ::: warning
 
-  Solo puedes usar esta funcion cuando se puede obtener el objeto document, por ejemplo no se puede usar en el `created()` de vuejs ya que todavia no esta renderizado el documento ni los elementos
+  You can only use this function when you can obtain the document object, for example it cannot be used in the `created ()` of vuejs since the document and the elements are not yet rendered
 
   :::
 
@@ -83,8 +95,6 @@
     </script>
 
   ```
-
-  
 
 </card>
 

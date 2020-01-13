@@ -5,7 +5,59 @@
       data-ad-client="ca-pub-4283907298344887"
       data-ad-slot="4634073296">
     </Adsense> -->
-    <home-init>
+    <div class="init">
+      <header class="hero">
+        <div class="points-init">
+          <span
+            v-for="span in 16"
+            :key="span"
+          ></span>
+        </div>
+        <div class="circle-init"></div>
+        <div class="content-hero">
+          <h1 v-if="data.heroText !== null" v-html="data.heroText || $title || 'Hello'" id="main-title" />
+
+          <p v-html="data.tagline || $description || 'Welcome to your VuePress site'" class="description" />
+
+          <div class="con-btns">
+            <NavLink
+              @mouseleave.native="time('vuesax')"
+              @mouseenter.native="vuesax = true, expand = true"
+              title="Get Started"
+              class="action-button"
+              :item="actionLink"
+            />
+
+            <a
+              @mouseleave="time('discord')"
+              @mouseenter="discord = true, expand = true"
+              title="Discord" class="discord" target="_blank" href="https://discord.gg/9dsKtvB">
+              <i class='bx bxl-discord' ></i>
+              Discord
+            </a>
+
+            <a
+              @mouseleave="time('github')"
+              @mouseenter="github = true, expand = true"
+              title="Github" class="github" target="_blank" href="https://github.com/lusaxweb/vuesax">
+              <i class='bx bxl-github' ></i>
+              <span title="Stargazers" class="badge-star">
+                <!-- <i class='bx bxs-star' ></i> -->
+                {{ numberWithCommas }}
+              </span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <components :class="{
+        'github-hover':github,
+        'discord-hover':discord,
+        'vuesax-hover':vuesax,
+        'btn-hover': expand,
+        }" />
+    </div>
+    <!-- <home-init>
       <header class="hero">
         <div class="content-hero">
           <h1 v-if="data.heroText !== null" v-html="data.heroText || $title || 'Hello'" id="main-title" />
@@ -14,42 +66,40 @@
 
           <div class="con-btns">
             <NavLink
+              title="Get Started"
               class="action-button"
               :item="actionLink"
             />
 
-            <a class="discord" target="_blank" href="https://discord.gg/9dsKtvB">
+            <a title="Discord" class="discord" target="_blank" href="https://discord.gg/9dsKtvB">
               <i class='bx bxl-discord' ></i>
               Discord
             </a>
 
-            <a class="github" target="_blank" href="https://github.com/lusaxweb/vuesax">
+            <a title="Github" class="github" target="_blank" href="https://github.com/lusaxweb/vuesax">
               <i class='bx bxl-github' ></i>
+              <span title="Stargazers" class="badge-star">
+                <!<i class='bx bxs-star' ></i>
+                {{ numberWithCommas }}
+              </span>
             </a>
           </div>
-          <!-- <p
-            class="action"
-            v-if="data.actionText && data.actionLink"
-          >
-            <NavLink
-              class="action-button"
-              :item="actionLink"
-            />
-          </p> -->
         </div>
-        <!-- <svg class="logo-vuesax" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 271.62 195.86"><title>vuesax1</title><g id="Capa_2" data-name="Capa 2"><g id="Capa_1-2" data-name="Capa 1"><path d="M0,141.49H11.72l14.8,41,14.88-41H53.13L32.76,195H20.45Z"/><path d="M57.37,191.87q-3.91-4-3.91-11.55V155.63H64.68v24.44c0,2.6.63,4.52,1.87,5.74s3.18,1.82,5.78,1.82a12.47,12.47,0,0,0,5.28-1.12,14.52,14.52,0,0,0,4.28-2.95V155.63H93.12V195H82.73l-.42-3.74a21.58,21.58,0,0,1-13.89,4.57Q61.28,195.86,57.37,191.87Z"/><path d="M106.88,190.67Q101,185.48,101,175.25q0-9.65,5.11-15.05t14.92-5.41q9,0,13.93,4.7t4.94,12.6v7.15H111.41q.82,4.57,4.2,6.4t9.93,1.83a37.6,37.6,0,0,0,6.44-.58,30,30,0,0,0,5.62-1.5v8q-5.49,2.49-14.39,2.49Q112.74,195.86,106.88,190.67Zm23.23-18.33v-2.17q0-7.3-8.73-7.31-5.47,0-7.73,2.2t-2.24,7.28Z"/><path d="M153.31,195.28a28.63,28.63,0,0,1-6.49-1.58v-9.31a28.91,28.91,0,0,0,6.41,1.79,40.62,40.62,0,0,0,6.9.62,21.73,21.73,0,0,0,5.94-.54,2.14,2.14,0,0,0,1.62-2.2,2.58,2.58,0,0,0-1.49-2.33,36.56,36.56,0,0,0-5.74-2.16c-.83-.22-1.89-.55-3.16-1q-5.82-1.9-8.52-4.57c-1.8-1.77-2.7-4.27-2.7-7.48a10,10,0,0,1,4.19-8.73q4.2-3,13.18-3a45,45,0,0,1,6.7.5,34,34,0,0,1,5.69,1.33v9.23a23.13,23.13,0,0,0-5.07-1.58,27.89,27.89,0,0,0-5.49-.58,23.51,23.51,0,0,0-5.9.54c-1.28.36-1.91,1.07-1.91,2.12a2.26,2.26,0,0,0,1.37,2.12,34.88,34.88,0,0,0,5.28,1.87l2.74.83a32.35,32.35,0,0,1,7.4,3.12,9.8,9.8,0,0,1,3.7,3.87,12.74,12.74,0,0,1,1.12,5.73,10.16,10.16,0,0,1-4.4,8.94q-4.41,3-13.06,3A57.26,57.26,0,0,1,153.31,195.28Z"/><path d="M189.27,192.66a10.85,10.85,0,0,1-4-9,11.47,11.47,0,0,1,4.2-9.35q4.2-3.45,12.1-3.45h11.64v-1.08a7.45,7.45,0,0,0-.87-3.91,5.25,5.25,0,0,0-3.08-2.08,23,23,0,0,0-6.28-.66,40.64,40.64,0,0,0-13,2.08v-7.9a33.16,33.16,0,0,1,6.86-1.83,51.2,51.2,0,0,1,8.44-.67q18.63,0,18.62,15.22v25h-9.72l-.59-3.57q-4.82,4.41-14.29,4.4A15.54,15.54,0,0,1,189.27,192.66Zm19.45-5.4a11.68,11.68,0,0,0,4.45-3.2v-6.24H201.78c-4.38,0-6.57,1.81-6.57,5.41s2.38,5.24,7.15,5.24A16,16,0,0,0,208.72,187.26Z"/><path d="M244.35,175,229.8,155.63h12.14l8.48,11.47,8.48-11.47H271L256.57,175l15.05,20H259.39l-9-12.05-9,12.05H229.21Z"/><polygon points="197.85 10.82 174.99 10.82 135.85 71.44 96.71 10.82 73.84 10.82 135.85 106.85 197.85 10.82"/><polygon points="135.85 117.53 83.35 36.23 73.79 36.23 135.85 132.33 197.91 36.23 188.35 36.23 135.85 117.53"/><polygon points="168.39 1.85 135.85 51.33 103.31 1.85 127.25 7.89 127.25 0 144.44 0 144.44 7.89 168.39 1.85"/></g></g></svg> -->
 
       </header>
-    </home-init>
+    </home-init> -->
 
     <Patrons />
 
-    <Illustration1 />
-    <Illustration2 />
-    <Illustration3 />
-    <Illustration4 />
+    <Illustration1 :data="data.features[0]" />
+    <Illustration2 :data="data.features[1]" />
 
-    <Premium-themes />
+    <Illustration3 :data="data.features[2]" />
+    <Illustration4 :data="data.features[3]" />
+
+    <twitter />
+    <Premium-themes :data="data.premiumThemes" />
+
 
 
 
@@ -75,7 +125,7 @@
     >
       {{ data.footer }}
     </div> -->
-    <Footer />
+    <Footer :data="data.suscribe" />
   </main>
 </template>
 
@@ -87,12 +137,20 @@ import Illustration1 from './HomeIllustration1.vue'
 import Illustration2 from './HomeIllustration2.vue'
 import Illustration3 from './HomeIllustration3.vue'
 import Illustration4 from './HomeIllustration4.vue'
+import components from './HomeComponents.vue'
 import PremiumThemes from './premiumThemes.vue'
 import Patrons from './HomePatrons.vue'
+import twitter from './HomeTwiter.vue'
 
 export default {
-  components: { NavLink, Footer, HomeInit, Illustration1, Illustration2, Illustration3, Illustration4, Patrons, PremiumThemes },
-
+  components: { NavLink, Footer, HomeInit, Illustration1, Illustration2, Illustration3, Illustration4, Patrons, PremiumThemes, components, twitter },
+  data:() => ({
+    star: 0,
+    github: false,
+    discord: false,
+    vuesax: false,
+    expand: false
+  }),
   computed: {
     data () {
       return this.$page.frontmatter
@@ -103,21 +161,154 @@ export default {
         link: this.data.actionLink,
         text: this.data.actionText
       }
+    },
+    numberWithCommas() {
+        const x = this.star
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return parts.join(".");
+    }
+  },
+
+  mounted(){
+     fetch('https://api.github.com/repos/lusaxweb/vuesax')
+    .then(response => response.json())
+    .then(json => {
+      this.star = json.stargazers_count
+    })
+  },
+  methods: {
+    time(name) {
+      this.expand = false
+      this[name] = false
     }
   }
 }
 </script>
 
 <style lang="stylus">
+getColor(colorx, alpha = 1)
+    unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
 getVar(var)
     unquote("var(--vs-"+var+")")
+
+.darken
+  .init
+    &:after
+      background-image: radial-gradient(getVar(theme-bg) 0%, getVar(theme-bg) 30%, transparent 70%);
+  .discord
+    background getVar(theme-bg)
+    color #fff !important
+    i
+      color #fff !important
+  .badge-star
+    background getVar(theme-bg2)
+    color #fff
+
+.init
+  display flex
+  align-items center
+  justify-content flex-start
+  width 100%
+  height 100vh
+  position relative
+  &:after
+    content ''
+    background-image: radial-gradient(getVar(theme-bg2) 0%, getVar(theme-bg) 40%, transparent 75%);
+    // background #000
+    position absolute
+    top 0px
+    right 0px
+    width 60%
+    height 100%
+    z-index 1
+  .points-init
+    width 100px
+    height 100px
+    top 200px
+    left 10px
+    position absolute
+    display flex
+    align-items center
+    justify-content center
+    flex-wrap wrap
+    span
+
+      width 25px
+      height 25px
+      display block
+      transition all .25s ease
+      display flex
+      align-items center
+      justify-content center
+      &:hover
+        &:after
+          background getColor('primary')
+          width 12px
+          height 12px
+          box-shadow 0px 4px 10px 0px getColor('primary', .2)
+      &:after
+        content: ''
+        position relative
+        width 6px
+        height 6px
+        background getVar(theme-bg2)
+        border-radius 50%
+        transition all .25s ease
+  .circle-init
+    position absolute
+    width 430px
+    height 430px
+    border 40px solid getVar(theme-bg)
+    border-radius 50%
+    bottom -80px
+    left -200px
+    z-index -1
+    transition all .25s ease
+    &:hover
+      border 40px solid getVar(theme-bg2)
+  .hero
+    width 50%
+    z-index 100
+.badge-star
+  position absolute
+  top -8px
+  right -25px
+  font-size .7rem
+  background getVar(theme-color)
+  color getVar(theme-layout)
+  border-radius 8px 8px 8px 4px
+  padding 2px 5px
+  font-weight normal
+  z-index 100
+  i
+    font-size .6rem !important
 
 .con-btns
   display flex
   align-items center
   justify-content center
-
-.discord, .github
+.discord
+  background getColor('primary', .1)
+  border 0px
+  padding 11px 25px
+  margin 0px 10px
+  font-weight 600
+  display flex
+  align-items center
+  justify-content center
+  position relative
+  border-radius 14px
+  color getColor('primary', 1) !important
+  transition all .25s ease
+  font-size .8rem
+  &:hover
+    background getColor('primary', .2)
+  i
+    color getColor('primary', 1)
+    font-size 1.4rem
+    margin-right 3px
+.github
   padding 10px 20px
   margin 0px 10px
   font-weight 600
@@ -144,7 +335,6 @@ getVar(var)
     box-shadow 0px 0px 0px 0px getVar(theme-color)
   i
     font-size 1.4rem
-
   &.github
     padding 10px
     margin-left 0px
@@ -156,6 +346,7 @@ getVar(var)
   margin 0px auto
   display block
   width 100%
+  overflow hidden
   ~ .config
     left 0px
   ~ .carbon-ads
@@ -172,7 +363,6 @@ getVar(var)
     align-items center
     justify-content center
     min-height 800px
-    background getVar(theme-layout)
     padding-top 60px
     padding 20px
     .content-hero
@@ -180,42 +370,41 @@ getVar(var)
       align-items flex-start
       justify-content center
       flex-direction column
-      padding 40px
+      padding 40px 60px
     img
       max-width: 100%
       max-height 280px
       display block
       margin 3rem auto 1.5rem
     h1
-      font-size 2.5rem !important
+      font-size 2.3rem !important
       text-align left
       margin-bottom 15px
     h1, .description, .action
       text-align left
     .description
       max-width 35rem
-      font-size 1.2rem
+      font-size 1.1rem
       line-height 1.3
       color getVar(theme-color)
       opacity .6
       margin-top 0px
     .action-button
       display inline-block
-      font-size 1rem
-      color getVar(theme-bg) !important
+      font-size .8rem
+      color #fff !important
       // background-color $accentColor
-      background getVar(theme-color)
-      padding 10px 20px
-      border-radius 15px
+      background getColor('primary')
+      padding 13px 25px
+      border-radius 17px
       transition background-color .1s ease
       box-sizing border-box
       transition all .25s ease
-      box-shadow 0px 0px 0px 0px getVar(theme-color, 1)
+      box-shadow 0px 10px 20px -10px getColor('primary', .5)
       i
         display none
       &:hover
-        background-color getVar(theme-color, .7)
-        box-shadow 0px 10px 20px -10px getVar(theme-color, 1)
+        box-shadow 0px 20px 20px -10px getColor('primary', .5)
         transform translate(0,-5px)
   .features
     padding 1.2rem 0px
@@ -229,7 +418,7 @@ getVar(var)
     justify-content space-between
   .feature
     flex-grow 1
-    flex-basis 30%
+    flex-basis 30%nav-link action-button
     max-width 30%
     h2
       font-size 1.4rem
@@ -256,8 +445,6 @@ getVar(var)
 
 @media (max-width: $MQMobileNarrow)
   .home
-    padding-left 1.5rem
-    padding-right 1.5rem
     .hero
       img
         max-height 210px
@@ -274,4 +461,67 @@ getVar(var)
     .feature
       h2
         font-size 1.25rem
+
+@media (max-width: 1400px)
+  .home
+    .content-i
+      padding 100px 30px
+      .con-text
+        padding-left 0px
+      .con-ilus
+        height auto
+        padding-right 20px
+        width 50%
+        svg
+          height auto
+          width 100%
+@media (max-width: 1000px)
+  .home
+    .content-i
+      .con-text
+        h2
+          font-size 1.5rem
+        p
+          font-size .9rem
+        .btn-action
+          padding 7px 15px
+          font-size .9rem
+@media (max-width: 800px)
+  .home
+    .content-i
+      position relative
+      justify-content flex-start
+      .con-text
+        width 60%
+        z-index 300
+      .con-ilus
+        position absolute
+        width 50%
+        top 40px
+        right 0px
+
+@media (max-width: 670px)
+  .home
+    .content-i
+      position relative
+      justify-content flex-start
+      .con-text
+        width 90%
+        z-index 300
+      .con-ilus
+        position absolute
+        width 100%
+        top 40px
+        right -40%
+        max-width none
+        opacity .4
+@media (max-width: 500px)
+  .home
+    .content-i
+      .con-text
+        width 100%
+        h2
+          font-size 1.2rem
+        p
+          font-size .8rem
 </style>

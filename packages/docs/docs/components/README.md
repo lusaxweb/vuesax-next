@@ -3,13 +3,13 @@ PROPS:
   - name: color
     type: String
     values: primary, success, danger, warning, dark, RGB, HEX
-    description: Cambia el color del componente y algunos de sus sub componentes.
+    description: Change the color of the component and some of its sub components.
     default: primary
     link: /api/color
     usage: '#color'
     code: >
             <vs-button
-              color="success" 
+              color="success"
             >
               Success
             </vs-button>
@@ -17,7 +17,7 @@ PROPS:
   - name: style button
     type: Prop
     values: flat, border, gradient, transparent, dashed, shadow, relief, floating
-    description: Cambia el estilo del componente y de sus estados.
+    description: Change the style of the component and its states.
     default: null
     link: null
     usage: '#flat'
@@ -31,7 +31,7 @@ PROPS:
   - name: active
     type: Boolean
     values: true, false
-    description: Determina si el componente esta activo y cambia su estilo a ese estado.
+    description: Determine if the component is active and change its style to that state.
     default: false
     link: null
     usage: '#default'
@@ -43,7 +43,7 @@ PROPS:
   - name: upload
     type: Boolean
     values: true, false
-    description: Determina si el componente tiene activo el estado de upload cambiando el estilo y agregando la animación.
+    description: Determine if the component has the upload status active by changing the style and adding the animation.
     default: false
     link: null
     usage: '#upload'
@@ -55,7 +55,7 @@ PROPS:
   - name: to
     type: String
     values: url - vue-router
-    description: Agrega la funcionalidad de vue-router al botón, al hacer click se va a redirigir a la ruta pasada.
+    description: Add the functionality of vue-router to the button, clicking it will redirect to the last route.
     default: false
     link: null
     usage: '#to-href'
@@ -67,7 +67,7 @@ PROPS:
   - name: href
     type: String
     values: href - link
-    description: Agrega un href de un link externo para agregar la funcionalidad al hacer click en el componente.
+    description: Add an href of an external link to add the functionality by clicking on the component.
     default: false
     link: null
     usage: '#to-href'
@@ -79,7 +79,7 @@ PROPS:
   - name: blank
     type: Boolean
     values: true, false
-    description: como en un elemento html `a` determina si se abre una nueva ventana o se sustituye la actual.
+    description: as in an html element `a` determines whether a new window is opened or the current one is replaced.
     default: false
     link: null
     usage: '#to-href'
@@ -91,7 +91,7 @@ PROPS:
   - name: icon
     type: Boolean
     values: true, false
-    description: Determina si el componente contiene solo un icono, al agregar esta propiedad el componente tiene un ancho y alto igual.
+    description: Determine if the component contains only one icon, by adding this property the component has an equal width and height.
     default: false
     link: null
     usage: '#icon'
@@ -103,7 +103,7 @@ PROPS:
   - name: circle
     type: Boolean
     values: true, false
-    description: Cambia el border-radius para dar un estilo de circulo.
+    description: Change the border radius to give a circle style.
     default: false
     link: null
     usage: '#circle'
@@ -115,7 +115,7 @@ PROPS:
   - name: square
     type: Boolean
     values: true, false
-    description: Cambia el border-radius para dar un estilo de rectángulo.
+    description: Change the border radius to give a rectangle style.
     default: false
     link: null
     usage: '#square'
@@ -127,7 +127,7 @@ PROPS:
   - name: block
     type: Boolean
     values: true, false
-    description: Cambia el ancho del componente al total posible determinado por el elemento padre.
+    description: Change the width of the component to the possible total determined by the parent element.
     default: false
     link: null
     usage: '#block'
@@ -139,7 +139,7 @@ PROPS:
   - name: animationType
     type: Boolean
     values: true, false
-    description: Cambia el tipo de animacion, esta propiedad solo funciona si se tiene el <code>slot</code> animate.
+    description: Change the type of animation, this property only works if you have the <code> slot </code> animate.
     default: false
     link: null
     usage: '#animate'
@@ -154,7 +154,7 @@ PROPS:
   - name: animateInactive
     type: Boolean
     values: true, false
-    description: Determina si la animación esta activa para el usuario al hacer hover.
+    description: Determine if the animation is active for the user when hovering.
     default: false
     link: null
     usage: '#toggle'
@@ -171,7 +171,7 @@ SLOTS:
   - name: animate
     type: slot
     values: null
-    description: Slot Para agregar el elemento que se visualizara en la animacion.
+    description: Slot To add the element that will be displayed in the animation.
     default: null
     link: null
     code: >
@@ -183,6 +183,16 @@ SLOTS:
           </vs-button>
     usage: '#animated'
   # _______________________________________
+NEWS:
+  - loading
+  - upload
+  - block
+  - animate
+  - floating
+  - social
+  - group
+  - toggle
+  - to-href
 ---
 
 # Button
@@ -193,28 +203,28 @@ SLOTS:
 
 <docs-warn />
 
-Los botones son parte fundamental de cualquier proyecto, con vuesax puedes agregar un boton genial con una sola linea de código
+The buttons are a fundamental part of any project, with vuesax you can add a great button with a single line of code
 
-los botones tienen todos los estados como active, focus, hover, para hacer mas simple su implementación y agilizar el trabajo
+the buttons have all the states as active, focus, hover, to make its implementation simpler and speed up the work
 
 <div slot="example">
   <button-default />
 </div>
 
 <div slot="template">
-  
+
   ```html
     <template>
       <div>
-        <vs-button 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
@@ -226,7 +236,7 @@ los botones tienen todos los estados como active, focus, hover, para hacer mas s
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -245,34 +255,34 @@ los botones tienen todos los estados como active, focus, hover, para hacer mas s
 
 ## Flat
 
-Puedes cambiar el estilo completo hacia *flat* de un botón con la propiedad `flat` que su valor es un `boolean` por ende con solo agregarla ya se cambiaran los estilos
+You can change the full style towards *flat* of a button with the `flat` property that its value is a` boolean`, so just adding it will change the styles
 
 <div slot="example">
   <button-flat />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
-        <vs-button 
-          flat 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          flat
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          flat 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          flat
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
-        <vs-button 
-          flat 
-          disabled 
+        <vs-button
+          flat
+          disabled
         >
           Disabled
         </vs-button>
@@ -283,7 +293,7 @@ Puedes cambiar el estilo completo hacia *flat* de un botón con la propiedad `fl
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -302,14 +312,14 @@ Puedes cambiar el estilo completo hacia *flat* de un botón con la propiedad `fl
 
 ## Border
 
-Puedes cambiar el estilo completo hacia *border* de un botón con la propiedad `border` que su valor es un `boolean` por ende con solo agregarla ya se cambiaran los estilos
+You can change the full style towards *border* of a button with the `border` property that its value is a` boolean` so just adding it will change the styles
 
 <div slot="example">
   <button-border />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -340,7 +350,7 @@ Puedes cambiar el estilo completo hacia *border* de un botón con la propiedad `
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -359,10 +369,10 @@ Puedes cambiar el estilo completo hacia *border* de un botón con la propiedad `
 
 ## Gradient
 
-Puedes cambiar el estilo completo hacia *Gradient* de un botón con la propiedad `gradient` que su valor es un `boolean` por ende con solo agregarla ya se cambiaran los estilos
+You can change the full style towards *Gradient* of a button with the `gradient` property that its value is a` boolean`, so just adding it will change the styles
 
-:::tip Gradient Color Automático
-  Los colores del gradiente se generan automáticamente por la propiedad `color` que en este ejemplo es el color `primary`
+:::tip Gradient Auto Color
+  Gradient colors are automatically generated by the `color` property which in this example is the` primary` color
 :::
 
 <div slot="example">
@@ -370,26 +380,26 @@ Puedes cambiar el estilo completo hacia *Gradient* de un botón con la propiedad
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div>
-        <vs-button 
-          gradient 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          gradient
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          gradient 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          gradient
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
-        <vs-button 
-          gradient 
+        <vs-button
+          gradient
           disabled
         >
           Disabled
@@ -402,7 +412,7 @@ Puedes cambiar el estilo completo hacia *Gradient* de un botón con la propiedad
 
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -421,33 +431,33 @@ Puedes cambiar el estilo completo hacia *Gradient* de un botón con la propiedad
 
 ## Relief
 
-Cambia el estilo del botón a un aspecto de relieve con la propiedad `relief`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+Change the style of the button to a relief aspect with the `relief` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-relief />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div>
-        <vs-button 
-          relief 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          relief
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          relief 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          relief
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
-        <vs-button 
-          relief 
+        <vs-button
+          relief
           disabled
         >
           Disabled
@@ -460,7 +470,7 @@ Cambia el estilo del botón a un aspecto de relieve con la propiedad `relief`, l
 
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -479,33 +489,33 @@ Cambia el estilo del botón a un aspecto de relieve con la propiedad `relief`, l
 
 ## Transparent
 
-Cambia el estilo del botón con la propiedad `transparent`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+Change the style of the button with the `transparent` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-transparent />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div>
-        <vs-button 
-          transparent 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          transparent
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          transparent 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          transparent
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
-        <vs-button 
-          transparent 
+        <vs-button
+          transparent
           disabled
         >
           Disabled
@@ -518,7 +528,7 @@ Cambia el estilo del botón con la propiedad `transparent`, la propiedad es un `
 
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -538,33 +548,33 @@ Cambia el estilo del botón con la propiedad `transparent`, la propiedad es un `
 
 ## Shadow
 
-Cambia el estilo del botón con la propiedad `shadow`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+Change the style of the button with the `shadow` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-shadow />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div>
-        <vs-button 
-          shadow 
-          :active="active == 0" 
-          @click="active = 0" 
+        <vs-button
+          shadow
+          :active="active == 0"
+          @click="active = 0"
         >
           Active
         </vs-button>
-        <vs-button 
-          shadow 
-          :active="active == 1" 
-          @click="active = 1" 
+        <vs-button
+          shadow
+          :active="active == 1"
+          @click="active = 1"
         >
           Default
         </vs-button>
-        <vs-button 
-          shadow 
+        <vs-button
+          shadow
           disabled
         >
           Disabled
@@ -577,7 +587,7 @@ Cambia el estilo del botón con la propiedad `shadow`, la propiedad es un `boole
 
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -597,7 +607,7 @@ Cambia el estilo del botón con la propiedad `shadow`, la propiedad es un `boole
 
 ## Color
 
-Cambia el color del componente Button con la propiedad `color` y el valor de el color por ejemplo (**#fff**, **rgba(100,10,5)** o los **colores principales de vuesax**), esto solo afectara al componente y su valor puede ser dinámico
+Change the color of the Button component with the `color` property and the color value for example (**#fff**, **rgba (100,10,5)** or the **main colors of vuesax**), this will only affect the component and its value can be dynamic
 
 <utils-color />
 
@@ -606,7 +616,7 @@ Cambia el color del componente Button con la propiedad `color` y el valor de el 
 </div>
 
 <div slot="template">
-  
+
   ```html{10}
     <template>
       <div class="center">
@@ -671,7 +681,7 @@ Cambia el color del componente Button con la propiedad `color` y el valor de el 
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -690,9 +700,9 @@ Cambia el color del componente Button con la propiedad `color` y el valor de el 
 
 ## Icon
 
-Si necesitas un botón de solo icono usa la propiedad `icon`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+If you need an icon-only button use the `icon` property, the property is a` boolean` so you can add it without any value.
 
-esta propiedad hace que el boton tenga un tamaño especifico haciendo que sea del mismo ancho y alto, no usar cuando sea icono y texto
+This property makes the button have a specific size making it the same width and height, do not use when it is icon and text
 
 <utils-icon />
 
@@ -701,7 +711,7 @@ esta propiedad hace que el boton tenga un tamaño especifico haciendo que sea de
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -768,7 +778,7 @@ esta propiedad hace que el boton tenga un tamaño especifico haciendo que sea de
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -787,14 +797,14 @@ esta propiedad hace que el boton tenga un tamaño especifico haciendo que sea de
 
 ## Icon - Text
 
-Si necesitas un botón con texto e icon puedes hacerlos agregándolos en el `slot` default.
+If you need a button with text and icon you can do them by adding them in the `slot` default.
 
 <div slot="example">
   <button-iconText />
 </div>
 
 <div slot="template">
-  
+
   ```html{7}
     <template>
       <div class="center">
@@ -856,7 +866,7 @@ Si necesitas un botón con texto e icon puedes hacerlos agregándolos en el `slo
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -875,14 +885,14 @@ Si necesitas un botón con texto e icon puedes hacerlos agregándolos en el `slo
 
 ## Circle
 
-Puedes redondear completamente las esquinas con la propiedad `circle`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+You can completely round the corners with the `circle` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-circle />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -953,7 +963,7 @@ Puedes redondear completamente las esquinas con la propiedad `circle`, la propie
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -972,70 +982,70 @@ Puedes redondear completamente las esquinas con la propiedad `circle`, la propie
 
 ## Square
 
-Puedes hacer todas las esquinas totalmente rectas con la propiedad `Square`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+You can make all the corners completely straight with the `Square` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-square />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
-        <vs-button 
-          square 
-          :active="active == 0" 
+        <vs-button
+          square
+          :active="active == 0"
           @click="active = 0"
         >
           Home
         </vs-button>
 
-        <vs-button 
-          square 
-          icon 
+        <vs-button
+          square
+          icon
           success
-          flat 
+          flat
           :active="active == 1" @click="active = 1"
         >
           <i class="bx bxs-phone-call"></i>
         </vs-button>
-        
-        <vs-button 
-          square 
+
+        <vs-button
+          square
           danger
-          border 
-          :active="active == 2" 
+          border
+          :active="active == 2"
           @click="active = 2"
         >
           <i class="bx bxs-heart"></i> Like
         </vs-button>
-        
-        <vs-button 
-          square 
+
+        <vs-button
+          square
           warn
-          gradient 
-          :active="active == 3" 
+          gradient
+          :active="active == 3"
           @click="active = 3"
         >
           Notifications <i class="bx bxs-bell-ring"></i>
         </vs-button>
-        <vs-button 
-          square 
-          icon 
-          color="#7d33ff" 
-          relief 
-          :active="active == 5" 
+        <vs-button
+          square
+          icon
+          color="#7d33ff"
+          relief
+          :active="active == 5"
           @click="active = 5"
         >
           <i class="bx bxs-paper-plane"></i>
         </vs-button>
-        <vs-button 
-          square 
-          icon 
-          color="rgb(59,222,200)" 
-          gradient 
-          :active="active == 6" 
+        <vs-button
+          square
+          icon
+          color="rgb(59,222,200)"
+          gradient
+          :active="active == 6"
           @click="active = 6"
         >
           <i class="bx bxs-purchase-tag"></i>
@@ -1047,7 +1057,7 @@ Puedes hacer todas las esquinas totalmente rectas con la propiedad `Square`, la 
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1066,9 +1076,9 @@ Puedes hacer todas las esquinas totalmente rectas con la propiedad `Square`, la 
 
 ## Size
 
-Cambia el tamaño de todo el boton incluyendo padding, font-size y borde con la propiedad `size`
+Change the size of the entire button including padding, font-size and border with the `size` property
 
-valores:
+values:
   - xl
   - l
   - default
@@ -1080,7 +1090,7 @@ valores:
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -1125,7 +1135,7 @@ valores:
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1144,14 +1154,14 @@ valores:
 
 ## Loading <Badge text="New"/>
 
-Ahora puedes agregar un estado de cargando con la propiedad `loading`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+Now you can add a loading status with the `loading` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-loading />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -1221,7 +1231,7 @@ Ahora puedes agregar un estado de cargando con la propiedad `loading`, la propie
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1240,14 +1250,14 @@ Ahora puedes agregar un estado de cargando con la propiedad `loading`, la propie
 
 ## Upload <Badge text="New"/>
 
-Ahora puedes agregar un estado de enviando o subiendo datos al servidor con la propiedad `upload`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+Now you can add a status of sending or uploading data to the server with the `upload` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-upload />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
@@ -1328,7 +1338,7 @@ Ahora puedes agregar un estado de enviando o subiendo datos al servidor con la p
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1347,19 +1357,19 @@ Ahora puedes agregar un estado de enviando o subiendo datos al servidor con la p
 
 ## Block <Badge text="New"/>
 
-Puedes hacer que el boton tenga todo el ancho permitido con la propiedad `block`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+You can make the button have the full width allowed with the `block` property, the property is a` boolean` so you can add it without any value.
 
 <div slot="example">
   <button-block />
 </div>
 
 <div slot="template">
-  
+
   ```html{4}
     <template>
       <div class="center">
-        <vs-button 
-          block 
+        <vs-button
+          block
         >
           <i class='bx bxs-paint-roll' ></i> Edit Theme
         </vs-button>
@@ -1375,16 +1385,16 @@ Puedes hacer que el boton tenga todo el ancho permitido con la propiedad `block`
 
 ## Animate <Badge text="New"/>
 
-Puedes crear una animación al componente agregando el `slot="animate"` y el contenido sera el que aparecerá al animarse el componente
+You can create an animation to the component by adding the ``slot="animate" `and the content will be the one that appears when the component is animated
 
-también puedes cambiar el tipo de animación con la propiedad `animation-type` y los valores permitidos son (`vertical`, `scale`, `rotate`)
+You can also change the type of animation with the `animation-type` property and the allowed values ​​are (` vertical`, `scale`,` rotate`)
 
 <div slot="example">
   <button-animate />
 </div>
 
 <div slot="template">
-  
+
   ```html{5,6,7}
     <template>
       <div class="center">
@@ -1441,16 +1451,16 @@ también puedes cambiar el tipo de animación con la propiedad `animation-type` 
 
 ## Social <Badge text="New"/>
 
-Usar los colores de las redes sociales es algo muy común en un proyecto ya sea un boton de login o uno de compartir por eso vuesax te facilita el buscar cada color y solo con poner el nombre de la red ya se cambia todo el estilo del componente
+Using the colors of social networks is very common in a project either a login button or a share button so Vuesax makes it easy for you to search for each color and just by putting the name of the network you already change the whole style of the component
 
-Colores soportados: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `snapchat`, `whatsapp`, `tumblr`, `reddit`, `spotify`, `amazon`, `medium`, `vimeo`, `skype`, `dribbble`, `slack`, `yahoo`, `twitch`, `discord`, `telegram`, `google-plus`, `messenger`)
+Supported colors: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `snapchat`, `whatsapp`, `tumblr`, `reddit`, `spotify`, `amazon`, `medium`, `vimeo`, `skype`, `dribbble`, `slack`, `yahoo`, `twitch`, `discord`, `telegram`, `google-plus`, `messenger`)
 
 <div slot="example">
   <button-social />
 </div>
 
 <div slot="template">
-  
+
   ```html{5}
     <template>
       <div class="center">
@@ -1598,50 +1608,50 @@ Colores soportados: (`facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, 
 
 ## Floating <Badge text="New"/>
 
-Puedes hacer que un boton sea de estilo flotante fácilmente con la propiedad `Floating`, la propiedad es un `boolean` por lo que puedes agregarla sin ningún valor.
+You can make a float style button easily with the `Floating` property, the property is a` boolean` so you can add it without any value.
 
-estos botones normalmente hacen una acción importante en especifico y van con una posición fija en la esquina inferior
+these buttons usually do an important action in specific and go with a fixed position in the lower corner
 
 <div slot="example">
   <button-floating />
 </div>
 
 <div slot="template">
-  
+
   ```html{6}
     <template>
       <div class="center">
-        <vs-button 
-          circle 
-          icon 
+        <vs-button
+          circle
+          icon
           floating
         >
           <i class='bx bx-plus' ></i>
         </vs-button>
-        
-        <vs-button 
-          color="whatsapp" 
-          circle 
-          icon 
+
+        <vs-button
+          color="whatsapp"
+          circle
+          icon
           floating
         >
           <i class='bx bxl-whatsapp' ></i>
         </vs-button>
 
-        <vs-button 
-          color="#ff3e4e" 
-          circle 
-          icon 
+        <vs-button
+          color="#ff3e4e"
+          circle
+          icon
           floating
         >
           <i class='bx bx-up-arrow-alt' ></i>
         </vs-button>
-        
-        <vs-button 
-          circle 
-          icon 
-          disabled 
-          floating 
+
+        <vs-button
+          circle
+          icon
+          disabled
+          floating
         >
           <i class='bx bxs-chat' ></i>
         </vs-button>
@@ -1657,14 +1667,14 @@ estos botones normalmente hacen una acción importante en especifico y van con u
 
 ## Group <Badge text="New"/>
 
-Si necesitas hacer un grupo de botones puedes usar el **sub-componente** `<vs-button-group></vs-button-group>` y adentro en el slot default poner los botones que quieres agrupar
+If you need to make a group of buttons you can use the **sub-component** `<vs-button-group> </vs-button-group>` and inside the default slot put the buttons you want to group
 
 <div slot="example">
   <button-group />
 </div>
 
 <div slot="template">
-  
+
   ```html{3,16}
     <template>
       <div class="center">
@@ -1740,7 +1750,7 @@ Si necesitas hacer un grupo de botones puedes usar el **sub-componente** `<vs-bu
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1759,22 +1769,22 @@ Si necesitas hacer un grupo de botones puedes usar el **sub-componente** `<vs-bu
 
 ## Toggle <Badge text="New"/>
 
-Este es un ejemplo de lo que puedes lograr con simples lógicas y pocas lineas de código.
+This is an example of what you can achieve with simple logic and few lines of code.
 
 <div slot="example">
   <button-toggle />
 </div>
 
 <div slot="template">
-  
+
   ```html
     <template>
       <div class="center">
-        <vs-button 
-          @click="handleClick" 
-          :icon="success" 
-          :upload="sending" 
-          :color="success ? 'success' : 'primary'" 
+        <vs-button
+          @click="handleClick"
+          :icon="success"
+          :upload="sending"
+          :color="success ? 'success' : 'primary'"
         >
           <span v-if="!success">
             <i class='bx bx-mail-send' ></i>
@@ -1784,10 +1794,10 @@ Este es un ejemplo de lo que puedes lograr con simples lógicas y pocas lineas d
           <i class='bx bx-check' v-else ></i>
         </vs-button>
 
-        <vs-button 
-          :animate-inactive="successFace" 
-          @click="handleClickFace" 
-          :loading="loadingFace" 
+        <vs-button
+          :animate-inactive="successFace"
+          @click="handleClickFace"
+          :loading="loadingFace"
           color="facebook"
         >
           <i class='bx bxl-facebook-square' ></i>
@@ -1803,7 +1813,7 @@ Este es un ejemplo de lo que puedes lograr con simples lógicas y pocas lineas d
 </div>
 
 <div slot="script">
-  
+
   ```html
     <script>
       export default {
@@ -1839,7 +1849,7 @@ Este es un ejemplo de lo que puedes lograr con simples lógicas y pocas lineas d
 </div>
 
 <div slot="style">
-  
+
   ```html
     <style scoped lang="stylus">
       span
@@ -1860,14 +1870,14 @@ Este es un ejemplo de lo que puedes lograr con simples lógicas y pocas lineas d
 
 ## To - href <Badge text="New"/>
 
-Si necesitas usar un boton como un link de vue-router o un link externo puedes hacerlo con las propiedades (`to`: vue-router link) o (`href`: html link externo)
+If you need to use a button such as a vue-router link or an external link you can do it with the properties (`to`: vue-router link) or (` href`: html external link)
 
 <div slot="example">
   <button-toHref />
 </div>
 
 <div slot="template">
-  
+
   ```html
     <template>
       <div class="center">
@@ -1899,3 +1909,10 @@ Si necesitas usar un boton como un link de vue-router o un link externo puedes h
 </div>
 
 </card>
+
+<card>
+
+  ## API
+
+</card>
+

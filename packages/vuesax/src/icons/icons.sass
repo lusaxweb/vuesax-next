@@ -1,0 +1,72 @@
+@import '../styles/mixins'
+@import '../styles/colors'
+.vs-icon-close
+  width: 30px
+  height: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  &:before
+    background: vs-color('color', 1)
+    content: ''
+    position: absolute
+    width: 16px
+    transform: rotate(-45deg)
+    height: 2px
+    border-radius: 2px
+    transition: all .3s ease
+  &:after
+    background: vs-color('color', 1)
+    content: ''
+    position: absolute
+    width: 16px
+    height: 2px
+    transform: rotate(45deg)
+    border-radius: 2px
+    transition: all .3s ease
+  &.vs-icon-hover-less
+    &:hover
+      &:after
+        width: 12px
+        transform: rotate(180deg)
+      &:before
+        width: 12px
+        transform: rotate(180deg)
+
+
+.vs-icon-plus
+  width: 30px
+  height: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  transition: all .25s ease
+  cursor: pointer
+  &:before
+    background: vs-color('color', 1)
+    content: ''
+    position: absolute
+    width: 14px
+    transform: rotate(0deg)
+    height: 2px
+    border-radius: 2px
+    transition: all .3s ease
+  &:after
+    background: vs-color('color', 1)
+    content: ''
+    position: absolute
+    width: 14px
+    height: 2px
+    transform: rotate(90deg)
+    border-radius: 2px
+    transition: all .4s ease
+  &:hover:not(.less)
+    transform: rotate(-90deg)
+  &.less
+    &:hover
+      transform: scale(.75)
+    &:after
+      transform: rotate(180deg)
+

@@ -6,17 +6,17 @@
     <div class="ul">
       <a target="_blank" href="https://tipe.io/">
         <img class="type" src="tipe.png" alt="">
-        <img class="type themeDarken" src="tipe.png" alt="">
+        <img class="type themeDarken" src="/tipe.png" alt="">
       </a>
       <a target="_blank" href="https://bit.dev/">
         <img src="bit-share-code.png" alt="">
-        <img class="themeDarken" src="bit-share-code2.png" alt="">
+        <img class="themeDarken" src="/bit-share-code2.png" alt="">
       </a>
       <a target="_blank" href="https://www.wrappixel.com/?ref=102">
         <img src="wrappixel-logo.png" alt="">
-        <img class="themeDarken" src="wrappixel-logo2.png" alt="">
+        <img class="themeDarken" src="/wrappixel-logo2.png" alt="">
       </a>
-      <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+      <a class="plus" target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
         <i class='bx bx-plus'></i>
       </a>
     </div>
@@ -46,10 +46,12 @@ getVar(var)
 .darken
   .con-patrons
     button
-      box-shadow 0px 10px 20px -5px rgba(0,0,0,.3)
+      // box-shadow 0px 10px 20px -5px rgba(0,0,0,.3)
+      background getVar(theme-bg)
     .ul
       a
-        box-shadow 0px 20px 35px -5px rgba(0,0,0,.2)
+        // box-shadow 0px 20px 35px -5px rgba(0,0,0,.2)
+        background getVar(theme-bg)
         img
           display none
         .themeDarken
@@ -118,4 +120,24 @@ getVar(var)
 
       .themeDarken
         display none
+
+@media (max-width: 800px)
+  .con-patrons
+    .ul
+      a
+        margin 15px 10px
+        width 110px
+        height 110px
+@media (max-width: 600px)
+  .con-patrons
+    padding 0px
+    .ul
+      flex-wrap wrap
+      a
+        margin 15px 8px
+        width 90px
+        height 90px
+        padding 8px
+        &.plus
+          display none
 </style>

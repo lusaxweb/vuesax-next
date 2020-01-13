@@ -5,9 +5,8 @@
         Vuesax Components Pass
       </h1>
       <p>
-        Componentes exclusivos y únicos, cada semana se van a crear componentes nuevos y geniales que solo podrás obtener teniendo el <b>Vuesax Pass</b>
-        <br>
-        también tendras muchos privilegios y mejoras como imágenes exclusivas descuentos en la tienda y un distintivo en nuestro discord canal aparte de muchas cosas mas
+        Exclusive and unique components, every week new and great components will be created that you can only obtain by having the <b>Vuesax Pass</b> <br>
+        You will also have many privileges and improvements such as exclusive images discounts in the store and a distinctive on our discord channel apart from many more
       </p>
     </header>
 
@@ -48,10 +47,16 @@
         </h2>
       </div>
     </div>
+
+    <Footer />
   </div>
 </template>
 <script>
+import Footer from './Footer.vue'
 export default {
+  components: {
+    Footer
+  },
   computed: {
     getUserPass() {
       if(this.$user.user) {
@@ -133,6 +138,8 @@ getVar(var)
     padding 0px 20px
     max-width 1200px
     margin auto
+    min-height 100vh
+    position relative
     .row
       width calc(50% - 20px)
       h2

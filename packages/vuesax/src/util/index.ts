@@ -35,7 +35,9 @@ const setVar = (propertyName: string, value: string, el: any) => {
   if (!el) {
     document.documentElement.style.setProperty(`--vs-${propertyName}`, value)
   } else {
-    el.style.setProperty(`--vs-${propertyName}`, value)
+    if (el.nodeName !== '#comment') {
+      el.style.setProperty(`--vs-${propertyName}`, value)
+    }
   }
 }
 

@@ -45,9 +45,9 @@ export default class VsButton extends VsComponent {
   @Prop({ type: String, default: '' }) public animationType!: string
 
   @Prop({ type: Boolean, default: false }) public animateInactive!: boolean
-  
+
   @Prop({ type: String, default: null }) public to!: string | null
-  
+
   @Prop({ type: String, default: null }) public href!: string | null
 
   @Prop({ type: Boolean, default: false }) public blank!: boolean

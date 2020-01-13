@@ -64,7 +64,7 @@
             </li>
             <li class="divider" />
             <li title="Package NPM">
-              <a target="_blank" href="">
+              <a target="_blank" href="https://www.npmjs.com/package/vuesax">
                 <i class="bx bx-package"></i>
               </a>
             </li>
@@ -97,7 +97,9 @@
 
     <slot name="top"/>
 
-    <Content/>
+    <transition name="fade">
+      <Content/>
+    </transition>
 
     <api />
 
@@ -268,7 +270,7 @@ export default {
       }
 
       if(this.$refs.title && this.$refs.flex) {
-        this.$refs.title.style.fontSize = `${ 40 - (window.pageYOffset / 7) > 24 ? 40 - (window.pageYOffset / 7) : 24 }px`
+        this.$refs.title.style.fontSize = `${ 35 - (window.pageYOffset / 7) > 24 ? 35 - (window.pageYOffset / 8) : 20 }px`
 
         this.$refs.flex.style.marginBottom = `${ 70 - (window.pageYOffset / 2) > 0 ? 70 - (window.pageYOffset / 2) : 0 }px`
       }
@@ -397,6 +399,7 @@ function flatten (items, res) {
 @require '../styles/wrapper.styl'
 getVar(var)
     unquote("var(--vs-"+var+")")
+
 .back-link
   position absolute
   top 0px
@@ -473,13 +476,13 @@ getVar(var)
     height 60px
   &.fixed
     position fixed
-    top 58px
+    top 53px
     z-index 1000
     border-radius 0px
     background getVar(theme-bg)
     margin 0px
     .back-link
-      margin 5px 15px
+      margin 10px 15px
     .header__content
       height 58px
       &:after
@@ -542,11 +545,12 @@ getVar(var)
       box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
       transition all .25s ease
     h1
-      font-size 40px
+      font-size 35px
       margin 0px
       padding 13px 0px
       // margin-bottom 70px
       padding-bottom 15px
+      font-weight 600
     .interactive-links
       // margin-bottom 70px
       display flex
@@ -577,7 +581,7 @@ getVar(var)
             ul
               opacity 1
               visibility visible
-              transform translate(0, calc(100% - 25px))
+              transform translate(0, calc(100% - 20px))
           ul
             list-style none
             padding 0px
@@ -632,7 +636,7 @@ getVar(var)
   display block
   margin-top 57px
   position relative
-  overflow hidden
+  // overflow hidden
   margin-bottom 0px
   padding-top 200px !important
   transition all .25s ease

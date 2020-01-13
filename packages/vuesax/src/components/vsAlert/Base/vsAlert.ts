@@ -1,31 +1,76 @@
 import { VNode } from 'vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
+import VsIconsClose from '../../../icons/close'
+import VsIconsPlus from '../../../icons/plus'
 import VsComponent from '../../../mixins/component'
 
 @Component
 export default class VsAlert extends VsComponent {
-  @Prop({ type: Boolean, default: false }) public solid!: boolean
+  @Prop({ type: Boolean, default: false }) solid!: boolean
 
-  @Prop({ type: Boolean, default: false }) public border!: boolean
+  @Prop({ type: Boolean, default: false }) border!: boolean
 
-  @Prop({ type: Boolean, default: false }) public shadow!: boolean
+  @Prop({ type: Boolean, default: false }) shadow!: boolean
 
-  @Prop({ type: Boolean, default: false }) public gradient!: boolean
+  @Prop({ type: Boolean, default: false }) gradient!: boolean
 
-  @Prop({ type: Boolean, default: false }) public flat!: boolean
+  @Prop({ type: Boolean, default: false }) flat!: boolean
 
-  @Prop({ type: Boolean, default: false }) public relief!: boolean
+  @Prop({ type: Boolean, default: false }) relief!: boolean
 
-  @Prop({ default: true }) public value!: any
+  @Prop({ default: true }) value!: any
 
-  @Prop({ type: Boolean, default: false }) public hiddenContent!: boolean
+  @Prop({ type: Boolean, default: null }) hiddenContent!: boolean | null
 
-  @Prop({ type: Boolean, default: false }) public closable!: boolean
+  @Prop({ type: Boolean, default: false }) closable!: boolean
 
-  @Prop({ type: [Number, String], default: 0 }) public progress!: number | string
+  @Prop({ type: [Number, String], default: 0 }) progress!: number | string
+
+  @Prop({ type: [Number, String], default: 0 }) page!: number | string
+
+  @Watch('page')
+  handleWatchPage() {
+    const content = this.$refs.content as HTMLElement
+    content.style.minHeight = content.scrollHeight + 'px'
+
+    this.$nextTick(() => {
+      const el = (this.$el as HTMLElement)
+      el.style.height = this.$el.scrollHeight - 1 + 'px'
+    })
+  }
+
+  get getTotalPages() {
+    const keys = Object.keys(this.$slots).filter((item) => {
+      return item.indexOf('page') !== -1
+    })
+    return keys.length
+  }
+
+  get getPages() {
+    const keys = Object.keys(this.$slots).filter((item) => {
+      return item.indexOf('page') !== -1
+    })
+
+    const values: any = []
+
+    keys.forEach((item) => {
+      values.push(this.page == item.split('-')[1] && this.$slots[item])
+    })
+    return values
+  }
+
+  mounted() {
+    if (this.$el && this.$refs.content) {
+      const el = (this.$el as HTMLElement)
+      el.style.height = this.$el.scrollHeight - 1 + 'px'
+
+      const content = this.$refs.content as HTMLElement
+      content.style.minHeight = content.scrollHeight + 'px'
+    }
+  }
 
   @Watch('hiddenContent')
-  public handleHiddenContent(val: boolean) {
+  handleHiddenContent(val: boolean) {
     if (!this.value) {
       return
     }
@@ -41,39 +86,56 @@ export default class VsAlert extends VsComponent {
     }
   }
 
-  public beforeEnter(el: any) {
+  beforeEnter(el: any) {
     el.style.height = 0
   }
 
-  public enter(el: any, done: any) {
+  enter(el: any, done: any) {
     let h = el.scrollHeight
     el.style.height = h - 1 + 'px'
     done()
   }
 
-  public leave(el: any, done: any) {
+  leave(el: any, done: any) {
+    el.style.minHeight = '0px'
     el.style.height = '0px'
   }
 
-  public handleClickClose() {
+  handleClickClose() {
     this.$emit('input', !this.value)
   }
 
-  public mounted() {
-    const el = (this.$el as HTMLElement)
-    el.style.height = this.$el.scrollHeight - 1 + 'px'
+  handleClickHidden() {
+    this.$emit('update:hiddenContent', !this.hiddenContent)
   }
 
-  public render(h: any): VNode {
+  handleClickPrevPage() {
+    if (this.page > 1) {
+      this.$emit('update:page', Number(this.page) - 1)
+    }
+  }
+
+  handleClickNextPage() {
+    if (this.page < this.getTotalPages) {
+      this.$emit('update:page', Number(this.page) + 1)
+    }
+  }
+
+  render(h: any): VNode {
     const icon = h('div', {
       staticClass: 'vs-alert__icon',
       ref: 'icon'
-    }, [this.$slots.icon])
+    }, [
+      this.$slots.icon
+    ])
 
     const contentText = h('div', {
       staticClass: 'vs-alert__content__text',
       ref: 'text'
-    }, [this.$slots.default])
+    }, [
+      this.$slots.default,
+      ...this.getPages
+    ])
 
     const content = h('transition', {
       on: {
@@ -90,18 +152,58 @@ export default class VsAlert extends VsComponent {
 
     const title = h('div', {
       staticClass: 'vs-alert__title',
-    }, this.$slots.title)
+      class: {
+        'vs-alert__title--clickHidden': typeof this.hiddenContent === 'boolean'
+      },
+      on: {
+        click: this.handleClickHidden
+      }
+    }, [
+      this.$slots.title,
+      !this.closable && typeof this.hiddenContent === 'boolean' && h(VsIconsPlus, {
+        props: {
+          less: !this.hiddenContent
+        },
+        on: {
+          click: this.handleClickHidden
+        }
+      })
+    ])
 
     const closeBtn = h('button', {
       staticClass: 'vs-alert__close',
       on: {
         click: this.handleClickClose
-      } 
-    }, this.$slots.close)
+      }
+    }, [
+      h(VsIconsClose, {
+        props: {
+          hover: 'less'
+        }
+      })
+    ])
+
+    const pagination = h('div', {
+      staticClass: 'vs-alert__pagination'
+    }, [
+      h('button', {
+        on: {
+          click: this.handleClickPrevPage
+        }
+      } , '<'),
+      h('span', `${this.page} / ${this.getTotalPages}`),
+      h('button', {
+        on: {
+          click: this.handleClickNextPage
+        }
+      }, '>')
+    ])
 
     const footer = h('div', {
       staticClass: 'vs-alert__footer',
-    }, this.$slots.footer)
+    }, [
+      this.$slots.footer
+    ])
 
     const progress = h('div', {
       staticClass: 'vs-alert__progress',
@@ -123,6 +225,7 @@ export default class VsAlert extends VsComponent {
         { [`vs-alert--gradient`] : !!this.gradient },
         { [`vs-alert--flat`] : !!this.flat },
         { [`vs-alert--relief`] : !!this.relief },
+        { [`vs-alert--pages`] : this.getPages.length > 0 },
       ],
     }, [
       this.$slots.icon && icon,
@@ -130,7 +233,8 @@ export default class VsAlert extends VsComponent {
       content,
       this.closable && closeBtn,
       this.$slots.footer && footer,
-      !!this.progress && progress
+      !!this.progress && progress,
+      this.getTotalPages > 0 && pagination
     ])
 
     return h('transition', {

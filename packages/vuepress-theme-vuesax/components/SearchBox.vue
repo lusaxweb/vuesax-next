@@ -371,9 +371,12 @@ getVar(var)
 
 @media (max-width: 500px)
   .search-box
+      width 100%
     .suggestions
       width calc(100vw - 20px) !important
       min-width auto !important
+      right auto
+      left 0px
     &.focused
       width 100%
     input

@@ -15,6 +15,8 @@ cd .vuepress/dist
 # if you are deploying to a custom domain
 echo 'vuesax.com' > CNAME
 
+echo 'google.com, pub-4283907298344887, DIRECT, f08c47fec0942fa0' > ads.txt
+
 git init
 git add -A
 git commit -m 'deploy'

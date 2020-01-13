@@ -36,6 +36,7 @@ export default {
 <style lang="stylus">
 getVar(var)
     unquote("var(--vs-"+var+")")
+
 h1
   + .card
       .text

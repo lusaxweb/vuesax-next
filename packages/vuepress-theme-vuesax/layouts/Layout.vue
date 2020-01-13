@@ -5,6 +5,9 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+
+    <HeaderNotification />
+
     <ClientOnly>
       <Navbar
         v-if="shouldShowNavbar"
@@ -36,6 +39,7 @@
         slot="bottom"
       />
     </Page>
+
     <Carbon />
 
     <Sidebar
@@ -67,8 +71,9 @@ import Carbon from '../components/Carbon'
 import DocsHome from '../components/DocsHome'
 import Config from '../components/Config.vue'
 import PassLayout from '../components/PassLayout.vue'
+import HeaderNotification from '../components/HeaderNotification.vue'
 export default {
-  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout },
+  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification },
 
   data () {
     return {

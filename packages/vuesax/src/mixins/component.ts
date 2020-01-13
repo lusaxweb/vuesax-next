@@ -55,6 +55,10 @@ export default class VsComponent extends Vue {
     this.changeColor()
   }
 
+  updated() {
+    this.changeColor()
+  }
+
   mounted() {
     this.changeColor()
   }

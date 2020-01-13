@@ -14,7 +14,8 @@
     "rootDir": ".",
   },
   "include": [
-    "**/*"
+    "**/*",
+    "./src/**/*"
   ],
   "rules": {
     "interface-name" : [true, "never-prefix"]

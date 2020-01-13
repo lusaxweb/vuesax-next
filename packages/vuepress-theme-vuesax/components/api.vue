@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="props || slots || events" id="vs-api" class="con-api">
-    <h2 class="h2"><a href="#vs-api">#</a> API</h2>
+    <!-- <h2 class="h2"><a href="#vs-api">#</a> API</h2> -->
     <div class="content-api">
 
       <div v-for="(table, key) in getTables" class="content-table">
@@ -177,7 +177,17 @@ export default {
         evt.target.classList.remove('copied')
       }, 1000);
 
-      this.$vs.clipboard(code)
+      this.clipboard(code)
+    },
+    clipboard(text) {
+      var aux = document.createElement("textarea");
+      aux.value = text
+      aux.className = "vs-clipboard"
+      document.body.appendChild(aux);
+      aux.focus();
+      aux.select();
+      document.execCommand("copy");
+      document.body.removeChild(aux);
     },
     getValues(values) {
       if(!values) return
@@ -396,7 +406,7 @@ getVar(var)
   max-width 900px
   margin auto
   padding: 1rem 2.5rem;
-  padding-top 60px
+  padding-top 30px
   h2
     padding 0px 20px
     padding-top 40px

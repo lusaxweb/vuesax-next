@@ -136,7 +136,9 @@ export default {
   },
 
   created() {
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
   },
 
   mounted () {
@@ -179,9 +181,9 @@ export default {
         this.$el.classList.remove('fixed')
       }
     })
-    Paddle.Setup({
-      vendor: 106600,
-    })
+    // Paddle.Setup({
+    //   vendor: 106600,
+    // })
     // console.log(Paddle)
   },
 
@@ -203,22 +205,22 @@ export default {
   },
 
   methods:{
-    handleVuesaxPass() {
-      Paddle.Checkout.open({
-        product: 579772,
-        successCallback: (data) => {
-          const db = firebase.database()
-          const userId = firebase.auth().currentUser.uid
-          db.ref('users/' + userId + '/pass/' + data.product.name).set(data).then(() => {
-            firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-            // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-              this.$user.user = snapshot.val()
-              // ...
-            });
-          })
-        }
-      })
-    },
+    // handleVuesaxPass() {
+    //   Paddle.Checkout.open({
+    //     product: 579772,
+    //     successCallback: (data) => {
+    //       const db = firebase.database()
+    //       const userId = firebase.auth().currentUser.uid
+    //       db.ref('users/' + userId + '/pass/' + data.product.name).set(data).then(() => {
+    //         firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+    //         // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+    //           this.$user.user = snapshot.val()
+    //           // ...
+    //         });
+    //       })
+    //     }
+    //   })
+    // },
     handleLogOut() {
       firebase.auth().signOut().then(() => {
         this.$user.user = null
@@ -259,9 +261,9 @@ export default {
         }
       })
     },
-    handlePaddle() {
-      Paddle.Checkout.open({ product: 579742 })
-    },
+    // handlePaddle() {
+    //   Paddle.Checkout.open({ product: 579742 })
+    // },
     handleShowSuggestions(active) {
       this.showSuggestions = active
     }
@@ -461,8 +463,19 @@ getVar(var)
 
 @media (max-width: 500px)
   .home-link
-    width 20px !important
+    width 24px !important
     overflow hidden
+    padding 0px
+    margin-top 3px
     .logo-nav
-      height 20px
+      height 24px
+  .user-info
+    .btn-login
+      margin-right 0px
+
+@media (max-width: 390px)
+  .external-links-search
+    .con-links
+      display none
+
 </style>

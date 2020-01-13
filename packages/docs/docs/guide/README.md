@@ -4,11 +4,11 @@
 
   ## Whats is Vuesax?
 
-  Vuesax (pronunciado / vjusacksː /, como view sacks) es un framework de componentes UI creado con [Vuejs](https://vuejs.org/) para hacer proyectos fácilmente y con un estilo único y agradable, vuesax esta creado desde cero y pensado para todo tipo de desarrollador desde el amante del frontend hasta el backend que quiere crear fácilmente su enfoque visual al usuario final
+  Vuesax (pronounced / vjusacksː /, as view sacks) is a framework of UI components created with [Vuejs](https://vuejs.org/)  to make projects easily and with a unique and pleasant style, vuesax is created from scratch and designed for all types of developers from the frontend lover to the backend who wants to easily create their visual approach to the end user
 
-  Estamos enfocados en agilizar el trabajo del programador dando componentes creados en su totalidad y con una personalización independiente y muy fáciles de implementar, asi la creatividad esta en nuestras manos pero no dejamos de lado que cada proyecto es distinto tanto visualmente como en su ecosistema
+  We are focused on streamlining the work of the programmer by giving components created in their entirety and with an independent customization and very easy to implement, so creativity is in our hands but we do not neglect that each project is different both visually and in its ecosystem
 
-  Vuesax no tiene una linea de diseño como por ejemplo otros frameworks de componentes basados en [Material Design](https://material.io/), creemos que ya hay demacrados frameworks que se parecen visualmente y en UI/UX y no queremos ser uno mas de el montón, aparte de eso nos encanta crear y diseñar nuevas experiencias y sorprenderte con elementos nuevos o detalles que solo podemos hacer siendo libres visualmente.
+  Vuesax does not have a design line such as other component frameworks based on Material Design, we believe that there are already emaciated frameworks that look visually and in UI / UX and we don't want to be one more of the bunch, apart from that we love to create and design new experiences and surprise you with new elements or details that we can only do by being visually free.
 
 </card>
 
@@ -16,23 +16,23 @@
 
   ## Why Vuesax?
 
-  Vuesax es un framework relativamente nuevo y con un diseño refrescante y en las ultimas tendencia, vuesax basado en vuejs lo que quiere decir que vamos de la mano con uno de los framework de javascript mas populares del mundo y con una comunidad enorme con lo cual tendrás toda la ayuda y documentación para crear y hacer tu proyecto
+  Vuesax is a relatively new framework with a refreshing design and in the latest trends, vuesax based on vuejs which means that we go hand in hand with one of the most popular javascript frameworks in the world and with a huge community with which you will have all the help and documentation to create and make your project
 
-  - Vuesax a diferencia de muchos frameworks esta diseñado desde cero y no estamos anclado a ninguna linea de diseño, esto es algo genial ya que tu proyecto va a ser único y muy distinto al de los demás
+  - Vuesax unlike many frameworks is designed from scratch and we are not anchored to any design line, this is something great since your project is going to be unique and very different from the others
 
-  - Estamos centrados en la creación rápida y fácil de proyectos dando una hermosa linea visual pero sin dejar de lado la personalización e independencia del desarrollador
+  - We are focused on the quick and easy creation of projects giving a beautiful visual line but without forgetting the personalization and independence of the developer
 
-  - Vuesax usa variables de css nativas para una mejor personalización y cambios en producción como por ejemplo cambiar a tema oscuro o cambiar el color principal de toda la aplicación con pocas lineas de javascript
+  - Vuesax uses native css variables for better customization and production changes such as changing to dark theme or changing the main color of the entire application with few javascript lines
 
-  - Vuesax es un marco diseñado para tener un gran impacto visual y que siempre está en tendencia con respecto al diseño.
+  - Vuesax is a frame designed to have a great visual impact and that is always in trend with respect to design.
 
-  - Una comunidad de código abierto para crear, mejorar y corregir cualquier componente o función.
+  - An open source community to create, improve and correct any component or function.
 
-  - Componentes independientes para evitar la importación de código innecesario.
+  - Independent components to avoid importing unnecessary code.
 
-  - Markdown documentos para una mejor sostenibilidad.
+  - Markdown documents for better sustainability.
 
-  - y mucho mas.
+  - and much more.
 
 </card>
 
@@ -40,7 +40,7 @@
 
   ## How It Works
 
-  Vuesax es un framework de componentes UI que puedes usar en tu aplicación o proyecto y ahorrarte mucho tiempo y trabajo en crearlos tu mismo, los componentes están creados para ser personalizados y reutilizables para que puedas usarlos en cualquier lugar y lógica.
+  Vuesax is a framework of UI components that you can use in your application or project and save you a lot of time and work in creating them yourself, the components are created to be customized and reusable so you can use them anywhere and logical.
 
 </card>
 
@@ -48,12 +48,12 @@
 
   ## Features
 
-  - Modular: puedes usar todos los componentes de vuesax o simplemente uno solo por demanda, dando asi el ahorro de código innecesario y menos peso en el total del framework
-  - Creación rápida: crea aplicaciones web rápidamente con vuesax ya que todo el trabajo difícil esta hecho por ti, solo con agregar un componente ya tienes un hermoso y funcional elemento en tu proyecto
-  - inicio fácil: no necesitas ser un experto en vuejs o javascript para implementar vuesax o sus componentes en tu proyecto
-  - diseño único: Tu proyecto es único? vuesax sabe que lo es y por eso es único también para que no seas igual a otros proyectos y todo sea lo mismo
-  - componentes únicos: hay componentes en vuesax que no vas a encontrar en otros frameworks ya que tenemos un diseño único y por ende libertad de crear nuevas experiencias de usuario
-  - Mucho mas
+  - Modular: you can use all vuesax components or just one on demand, thus saving unnecessary code and less weight in the total framework
+  - Quick creation: create web applications quickly with vuesax since all the difficult work is done for you, just by adding a component you already have a beautiful and functional element in your project
+  - easy start: you don't need to be an expert in vuejs or javascript to implement vuesax or its components in your project
+  - unique design: Is your project unique? Vuesax knows that it is and that is why it is also unique so that you are not equal to other projects and everything is the same
+  - unique components: there are components in vuesax that you will not find in other frameworks since we have a unique design and therefore freedom to create new user experiences
+  - Much more
 
 </card>
 

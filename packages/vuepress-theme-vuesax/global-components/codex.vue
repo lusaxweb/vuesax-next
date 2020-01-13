@@ -1,5 +1,11 @@
 <template>
   <div class="code">
+    <div
+      :class="{'copied': check}"
+      class="noti-code"
+    >
+      <i class='bx bx-check' ></i> Code copied
+    </div>
     <header class="header-codex">
       <ul>
         <li title="Codepen" v-if="codepen" @click="openCodepen" class="con-link">
@@ -23,16 +29,14 @@
         </li> -->
 
         <li
-          :title="active ? 'Close code' : 'View code'"
+          :title="active ? 'hide code' : 'View code'"
           :class="{'active': active}"
-          class="not-a con-link" @click="active = !active">
+          class="not-a con-link" @click="toggleCode">
 
           <i v-if="!active" class='bx bx-code-alt' ></i>
 
-          <i v-else class='bx bxs-hide' ></i>
+          <i v-else class='bx bx-hide' ></i>
         </li>
-
-
       </ul>
     </header>
     <transition
@@ -66,6 +70,13 @@
           >
           <div ref="slot0" key="0" v-if="activeSlot == 0" class="slot-template slots">
             <slot name="template" />
+
+            <footer
+              @click="toggleCode"
+              :title="active ? 'Hide code' : 'View code'"
+              class="footer-code">
+              <i class='bx bx-hide' ></i>
+            </footer>
           </div>
         </transition >
         <transition
@@ -75,6 +86,13 @@
           >
           <div ref="slot1" key="1" v-if="activeSlot == 1" class="slot-script slots">
             <slot name="script"/>
+
+            <footer
+              @click="toggleCode"
+              :title="active ? 'Hide code' : 'View code'"
+              class="footer-code">
+              <i class='bx bx-hide' ></i>
+            </footer>
           </div>
         </transition >
 
@@ -85,6 +103,13 @@
           >
           <div ref="slot2" key="2" v-if="activeSlot == 2" class="slot-style slots">
             <slot name="style"/>
+
+            <footer
+              @click="toggleCode"
+              :title="active ? 'Hide code' : 'View code'"
+              class="footer-code">
+              <i class='bx bx-hide' ></i>
+            </footer>
           </div>
         </transition >
 
@@ -97,6 +122,13 @@
             <slot name="template"/>
             <slot name="script"/>
             <slot name="style"/>
+
+            <footer
+              @click="toggleCode"
+              :title="active ? 'Hide code' : 'View code'"
+              class="footer-code">
+              <i class='bx bx-hide' ></i>
+            </footer>
           </div>
         </transition >
         </div>
@@ -133,6 +165,10 @@ export default {
     this.$vsTheme.openCode = (localStorage.openCode == 'true')
   },
   methods:{
+    toggleCode() {
+      this.active = !this.active
+      this.$router.replace(!this.active ? `${this.$route.hash.replace('-view', '')}-hide` : `${this.$route.hash.replace('-hide', '')}-view`)
+    },
     openCodepen(url) {
       window.open(this.codepen)
     },
@@ -161,9 +197,9 @@ export default {
       let text = this.$slots[slot][0].elm.innerText
       if (this.activeSlot == 3) {
         text = `
-${this.$slots['template'][0].elm.innerText}
-${this.$slots['script'][0].elm.innerText}
-${this.$slots['style'][0].elm.innerText}
+${this.$slots['template'] ? this.$slots['template'][0].elm.innerText.trim() : ''}
+${this.$slots['script'] ? this.$slots['script'][0].elm.innerText.trim() : ''}
+${this.$slots['style'] ? this.$slots['style'][0].elm.innerText.trim() : ''}
         `
       }
 
@@ -173,6 +209,8 @@ ${this.$slots['style'][0].elm.innerText}
       setTimeout(() => {
         this.check = false
       }, 1000);
+
+      this.$router.replace(`${this.$route.hash}-c`)
     },
     // animation
     beforeEnter(el) {
@@ -209,6 +247,51 @@ ${this.$slots['style'][0].elm.innerText}
 <style lang="stylus">
 getVar(var)
     unquote("var(--vs-"+var+")")
+
+.noti-code
+  position fixed
+  bottom 0px
+  width 100%
+  max-width 500px
+  background getVar(theme-color)
+  left 50%
+  transform translate(-50%, 100%)
+  padding 10px 20px
+  text-align center
+  color getVar(theme-layout)
+  border-radius 20px 20px 0px 0px
+  opacity 0
+  visibility hidden
+  transition all .25s ease
+  z-index 1000
+  i
+    position absolute
+    left 0px
+    top 0px
+    font-size 20px
+    width 45px
+    height 45px
+    background rgba(0,0,0,.1)
+    border-radius 20px 0px 0px 0px
+    display flex
+    align-items center
+    justify-content center
+  &.copied
+    opacity 1
+    visibility visible
+    transform translate(-50%, 0%)
+
+.footer-code
+  display flex
+  align-items center
+  justify-content center
+  padding 6px
+  color #fff
+  cursor pointer
+  transition all .25s ease
+  &:hover
+    opacity .4
+
 .slot-all
   >div
     &:nth-last-child(2)
@@ -222,12 +305,20 @@ getVar(var)
 
 .con-codes
   position relative
+  width 100%
+  overflow hidden
 .slots
   transition all .25s ease
   width 100%
   overflow hidden
   top 0px
   left 0px
+  div
+    width 100%
+    overflow hidden
+    pre
+      width 100%
+      overflow hidden
   >div
     &:last-child
       div[class*="language-"]

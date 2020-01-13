@@ -6,7 +6,7 @@
       <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
     </svg>
 
-    <ul>
+    <ul class="options">
       <svg class="effect1config" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
         <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
       </svg>
@@ -20,15 +20,15 @@
         <!-- <box-icon :title="`Open Sidebar`" class="visible-sidebar-hidden" name='right-indent' ></box-icon> -->
         <i title="Open Sidebar" class="bx bx-right-indent visible-sidebar-hidden"></i>
       </li>
-      <li :title="`${ !$vsTheme.sidebarCollapseOpen ? 'Open' : 'Close'} sidebar items`" @click="ChangeManu" :class="{'active': !$vsTheme.sidebarCollapseOpen}">
+      <li :title="`${ !$vsTheme.sidebarCollapseOpen ? 'Open' : 'Close'} sidebar items`" @click="ChangeMenu" :class="{'active': !$vsTheme.sidebarCollapseOpen}">
         <!-- <box-icon v-if="$vsTheme.sidebarCollapseOpen" name='list-minus'></box-icon> -->
         <i v-if="$vsTheme.sidebarCollapseOpen" class="bx bx-list-minus"></i>
         <!-- <box-icon v-else name='list-plus'></box-icon> -->
         <i v-else class="bx bx-list-plus"></i>
       </li>
-      <li title="View examples mobile style" @click="ChangeMobile" :class="{'active': $vsTheme.mobileActive}">
+      <!-- <li title="View examples mobile style" @click="ChangeMobile" :class="{'active': $vsTheme.mobileActive}">
         <i class="bx bx-mobile-alt"></i>
-      </li>
+      </li> -->
       <li :title="`${ !$vsTheme.openCode ? 'Open' : 'Close'} all Code`" @click="ChangeOpenCode" :class="{'active': $vsTheme.openCode}">
         <i class="bx bx-code-block"></i>
       </li>
@@ -45,6 +45,21 @@
         <input @change="ChangeColor" type="color" value="#2564ff">
       </li>
 
+      <li class="theme-translate" title="Theme translate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+
+        <ul class="lang">
+          <li
+            v-for="(item, i) in lang[0].items"
+            :key="i"
+            v-show="item.link !== $page.path"
+            >
+            <router-link :to="item.link">
+              {{ item.text }}
+            </router-link>
+          </li>
+        </ul>
+      </li>
 
       <svg class="effect1config invert" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
         <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
@@ -55,6 +70,38 @@
 <script>
 import Vue from 'vue'
 export default {
+  computed: {
+    lang () {
+      const { locales } = this.$site
+      if (locales && Object.keys(locales).length > 1) {
+        const currentLink = this.$page.path
+        const routes = this.$router.options.routes
+        const themeLocales = this.$site.themeConfig.locales || {}
+        const languageDropdown = {
+          text: this.$themeLocaleConfig.selectText || 'Languages',
+          items: Object.keys(locales).map(path => {
+            const locale = locales[path]
+            const text = themeLocales[path] && themeLocales[path].label || locale.lang
+            let link
+            // Stay on the current page
+            if (locale.lang === this.$lang) {
+              link = currentLink
+            } else {
+              // Try to stay on the same page
+              link = currentLink.replace(this.$localeConfig.path, path)
+              // fallback to homepage
+              if (!routes.some(route => route.path === link)) {
+                link = path
+              }
+            }
+            return { text, link }
+          })
+        }
+        return [ languageDropdown]
+      }
+      return []
+    }
+  },
   methods:{
     reloadConfig() {
       const sidebar = document.querySelector('.theme-container > .sidebar')
@@ -103,11 +150,11 @@ export default {
         b: parseInt(result[3], 16)
       } : null;
     },
-    contrastColor(elementx) {
-      let c = elementx
-      if(/[#]/g.test(elementx)){
-        let rgbx = this.hexToRgb(elementx)
-        c = `rgb(${rgbx.r},${rgbx.g},${rgbx.b})`
+    contrastColor(element) {
+      let c = element
+      if(/[#]/g.test(element)){
+        let rgb = this.hexToRgb(element)
+        c = `rgb(${rgb.r},${rgb.g},${rgb.b})`
       }
       var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
       var yiq = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
@@ -151,7 +198,7 @@ export default {
       const color = `${rgb.r},${rgb.g},${rgb.b}`
       document.body.style.setProperty(`--vs-primary`, color)
     },
-    ChangeManu() {
+    ChangeMenu() {
       this.$vsTheme.sidebarCollapseOpen = !this.$vsTheme.sidebarCollapseOpen
       localStorage.sidebarCollapseOpen = !this.$vsTheme.sidebarCollapseOpen
     },
@@ -209,6 +256,9 @@ export default {
       document.body.style.setProperty(`--vs-theme-code`, '#141417')
       document.body.style.setProperty(`--vs-theme-code2`, '#161619')
     }
+
+    document.body.classList.remove(isDarken ? 'lighten' : 'darken')
+    document.body.classList.add(!isDarken ? 'lighten' : 'darken')
   },
   created() {
     Vue.prototype.$mobile = { active: (localStorage.mobile != 'true') || false }
@@ -221,10 +271,36 @@ export default {
 }
 </script>
 <style lang="stylus">
-getColor(colorx, alpha = 1)
-    unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
+getColor(vsColor, alpha = 1)
+    unquote("rgba(var(--vs-"+vsColor+"), "+alpha+")")
 getVar(var)
     unquote("var(--vs-"+var+")")
+.theme-translate
+  &:hover
+    .lang
+      opacity 1
+      transform translate(100%)
+  svg
+    width 18px
+    fill getVar(theme-color)
+  .lang
+    transition all .25s ease
+    position absolute
+    bottom 5px
+    background getVar(theme-layout)
+    min-width 80px
+    right -5px
+    transform translate(90%)
+    border-radius 0px 20px 20px 0px
+    padding 0px
+    opacity 0
+    li
+      text-align center
+      font-weight bold
+      padding 0px !important
+      a
+        padding 4px
+        font-weight bold
 
 .theme-color-layout
   position relative
@@ -263,7 +339,7 @@ getVar(var)
   &:focus, &:hover
     >i.bx
       transform rotate(60deg)
-    ul
+    ul.options
       opacity 1
       visibility visible
       transform translate(0px, calc(-100% - 25px))
@@ -285,7 +361,7 @@ getVar(var)
     font-size 1.2rem
     transition all .25s ease
     color getVar(theme-color)
-  ul
+  ul.options
     position absolute
     top 0px
     left 0px
@@ -306,6 +382,7 @@ getVar(var)
       border-radius 12px 12px 12px 12px
       margin 4px
       border 2px solid transparent
+      position relative
       &.active
         background rgba(0,0,0,.05)
         border 2px solid getVar(theme-bg2)

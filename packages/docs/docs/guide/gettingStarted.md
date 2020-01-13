@@ -4,7 +4,7 @@
 
   ## Installation
 
-  Vuesax es un framework de componentes UI basado en Vuejs lo que quiere decir que vuejs tiene que estar en su proyecto para que Vuesax pueda hacer la magia.
+  Vuesax is a framework of UI components based on Vuejs which means that vuejs has to be in your project so that Vuesax can do the magic.
 
 </card>
 
@@ -12,7 +12,7 @@
 
   ## NPM
 
-  Puedes instalar vuesax por medio de npm con el comando:
+  You can install vuesax through npm with the command:
 
   ```bash
   npm install vuesax # OR yarn add vuesax
@@ -24,7 +24,7 @@
 
   ## Uso
 
-  Para usar vuesax en su proyecto de vuejs agrega este codigo:
+  To use vuesax in your vuejs project, add this code:
 
   ```js
     import Vue from 'vue'
@@ -40,9 +40,9 @@
 
 <card>
 
-  ## Componentes individuales (bajo demanda)
+  ## Individual components (on demand)
 
-  Hay casos que en tu proyecto solo necesitas algunos componentes de vuesax y para ello puedes agregarlos de la siguiente manera
+  There are cases that in your project you only need some components of vuesax and for this you can add them as follows
 
   ```js
     import Vue from 'vue'
@@ -60,7 +60,7 @@
 
   ## CDN
 
-  Puedes usar vuesax cargandolo por medio de cdn agregando una etiqueta `<script>` a tu proyecto 
+  You can use vuesax by loading it via cdn by adding a `<script>` tag to your project
 
   ```html
     <!DOCTYPE html>
