@@ -1,5 +1,6 @@
 {
   "vsButton": "./src/components/vsButton/base/index.ts",
   "vsAlert": "./src/components/vsAlert/Base/index.ts",
+  "vsInput": "./src/components/vsInput/Base/index.ts",
   "newComponent": ""
 }
