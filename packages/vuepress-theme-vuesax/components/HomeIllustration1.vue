@@ -1,8 +1,8 @@
 <template>
   <div class="content-i">
     <div class="con-ilus">
-      <img class="not-darken" src="vuesax-white-1.svg" alt="">
-      <img class="has-darken" src="vuesax-dark-1.svg" alt="">
+      <img class="not-darken" src="/vuesax-white-1.svg" alt="">
+      <img class="has-darken" src="/vuesax-dark-1.svg" alt="">
     </div>
 
     <div class="con-text">

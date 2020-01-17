@@ -116,10 +116,10 @@ PROPS:
     description: texto descriptivo.
     default: primary
     link: /api/color
-    code: >
-            código...
     usage: '#color'
-  
+    code: >
+            ...
+
 SLOTS:
   - name: animate
     type: slot
@@ -127,11 +127,11 @@ SLOTS:
     description: texto descriptivo.
     default: null
     link: /api/slot
-    code: >
-          código...
     usage: '#animated'
+    code: >
+          ...
 ---
-  
+
 # ${name}
 
 <card>
@@ -147,15 +147,9 @@ Descripción
 </div>
 
 <div slot="template">
-  
+
   ${'```'}html{3,4,5}
-    <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
-      </div>
-    </template>
+    ...
   ${'```'}
 
 </div>
@@ -164,13 +158,13 @@ Descripción
 }
 
 function addComponentConfig(name) {
-  sed('-i', '// new component slot 1', `{ text: '${name}', link: '/docs/components/${name}' },\n\t\t\t\t\t\t\t// new component slot 1`, '../../config.js');
-  sed('-i', '// new component slot 2', `'/docs/components/${name}',\n\t\t\t\t\t\t// new component slot 2`, '../../config.js');
+  sed('-i', '// new component slot 1', `{ text: '${name}', link: ${'`${lang}'}docs/components/${name}${'`'} },\n\t\t\t\t\t\t\t// new component slot 1`, '../../config.js');
+  sed('-i', '// new component slot 2', `${'`${lang}'}docs/components/${name}${'`'},\n\t\t\t\t\t\t// new component slot 2`, '../../config.js');
 }
 
 inquirer.prompt(questions).then(answers => {
   const name = answers.name
-  
+
   // docs
   cd(`../docs/docs/components`)
   writeToFile(FileComponentMD(name), `${name}.md`)
@@ -181,7 +175,7 @@ inquirer.prompt(questions).then(answers => {
 
   // Create Component Files
   cd('../../../../vuesax')
-  
+
   addComponentJson(name)
   addComponentExport(name)
   mkdir('-p', `src/components/vs${name}/Base`)
@@ -191,9 +185,9 @@ inquirer.prompt(questions).then(answers => {
   writeToFile(FileIndexTs(name), `index.ts`)
   writeToFile(FileComponentTs(name), `vs${name}.ts`)
 
-  
+
   execSync(`code style.sass && code vs${name}.ts && code index.ts`)
-  
+
 
   emptyLine()
   emptyLine()

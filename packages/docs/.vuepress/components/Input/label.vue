@@ -1,6 +1,10 @@
 <template>
   <div class="center content-inputs">
-    <vs-input v-model="value" placeholder="Name" />
+    <vs-input
+      label="Full Name"
+      v-model="value"
+      placeholder="Evan You"
+    />
   </div>
 </template>
 <script>

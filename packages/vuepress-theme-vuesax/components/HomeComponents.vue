@@ -1,8 +1,8 @@
 <template>
   <div class="con-components">
     <div class="con-logo vuesax-logo">
-      <img class="not-darken" src="vuesax-only.png" alt="">
-      <img class="has-darken" src="vuesax-only-b.png" alt="">
+      <img class="not-darken" src="/vuesax-only.png" alt="">
+      <img class="has-darken" src="/vuesax-only-b.png" alt="">
       <div class="github-logo__1"></div>
       <div class="github-logo__2"></div>
       <div class="github-logo__3"></div>
@@ -22,10 +22,10 @@
     <div class="content-components">
       <div class="component1">
         <div class="avatar">
-          <img class="not-darken" src="foto1.png" alt="">
-          <img class="back not-darken" src="foto1.png" alt="">
-          <img class="has-darken" src="foto12.png" alt="">
-          <img class="back has-darken" src="foto12.png" alt="">
+          <img class="not-darken" src="/foto1.png" alt="">
+          <img class="back not-darken" src="/foto1.png" alt="">
+          <img class="has-darken" src="/foto12.png" alt="">
+          <img class="back has-darken" src="/foto12.png" alt="">
           <span class="badge">
             8
           </span>
@@ -51,8 +51,8 @@
       </div>
 
       <div class="component2">
-        <img class="not-darken" src="vuesax-only.png" alt="">
-        <img class="has-darken" src="vuesax-only-b.png" alt="">
+        <img class="not-darken" src="/vuesax-only.png" alt="">
+        <img class="has-darken" src="/vuesax-only-b.png" alt="">
       </div>
 
       <div class="component3">
@@ -77,8 +77,8 @@
       </div>
 
       <div class="component4">
-        <img class="not-darken" src="foto3.png" alt="">
-        <img class="has-darken" src="foto10.png" alt="">
+        <img class="not-darken" src="/foto3.png" alt="">
+        <img class="has-darken" src="/foto10.png" alt="">
         <h4>
           Potted Captus
         </h4>
@@ -91,7 +91,7 @@
       <div class="component5">
         <i class='bx bxs-star'></i>
         <div class="con-img">
-          <img src="vue-logo.png" alt="">
+          <img src="/vue-logo.png" alt="">
         </div>
         <h4>
           Components Vuejs
@@ -115,8 +115,8 @@
       <div class="component7">
         <div class="con-img">
           <i class='bx bx-video' ></i>
-          <img class="not-darken" src="foto4.png" alt="">
-          <img class="has-darken" src="foto11.png" alt="">
+          <img class="not-darken" src="/foto4.png" alt="">
+          <img class="has-darken" src="/foto11.png" alt="">
         </div>
 
         <header>
@@ -151,8 +151,8 @@
         </div>
 
         <div class="con-img">
-          <img class="not-darken" src="foto2.jpg" alt="">
-          <img class="has-darken" src="foto13.png" alt="">
+          <img class="not-darken" src="/foto2.jpg" alt="">
+          <img class="has-darken" src="/foto13.png" alt="">
 
           <div class="play">
             <!-- <i class='bx bx-play' ></i> -->
@@ -171,9 +171,9 @@
           </div>
 
           <div class="con-avatars">
-            <img src="foto9.png" alt="">
-            <img src="foto8.png" alt="">
-            <img src="foto7.png" alt="">
+            <img src="/foto9.png" alt="">
+            <img src="/foto8.png" alt="">
+            <img src="/foto7.png" alt="">
           </div>
         </footer>
       </div>

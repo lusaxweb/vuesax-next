@@ -3,10 +3,10 @@
     <a target="_blank" href="https://www.wrappixel.com/templates/xtreme-vuesax-admin-pro/?ref=102">
       <img class="bg not-darken" src="https://www.wrappixel.com/wp-content/uploads/edd/2019/10/xtrene-vuesax-admin-template-nw.jpg" alt="">
       <img class="bg has-darken" src="https://www.wrappixel.com/demos/vuejs-admin-templates/xtreme-vuesax-pro/landingpage/assets/images/dark-demo.jpg" alt="">
-      <img class="logo not-darken" src="wrappixel-logo.png" alt="">
-      <img class="logo has-darken" src="wrappixel-logo2.png" alt="">
-      <img class="svg not-darken" src="vuesax-white-6.svg" alt="">
-      <img class="svg has-darken" src="vuesax-dark-5.svg" alt="">
+      <img class="logo not-darken" src="/wrappixel-logo.png" alt="">
+      <img class="logo has-darken" src="/wrappixel-logo2.png" alt="">
+      <img class="svg not-darken" src="/vuesax-white-6.svg" alt="">
+      <img class="svg has-darken" src="/vuesax-dark-5.svg" alt="">
     </a>
     <header>
       <h2 v-html="data.title" />

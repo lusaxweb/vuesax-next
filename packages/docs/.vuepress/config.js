@@ -1,14 +1,14 @@
 module.exports = ctx => ({
   locales: {
     '/': {
-      lang: 'English',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator'
+      // lang: 'English',
+      lang: 'en-US',
+      text: 'English',
     },
     '/es/': {
-      lang: 'Español',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器'
+      // lang: 'Español',
+      lang: 'es-ES',
+      text: 'Español',
     }
   },
   plugins: [
@@ -81,17 +81,18 @@ function getNavbar (lang = '/') {
             items: [
               { text: `Button`, link: `${lang}docs/components/` },
               { text: `Alert`, link: `${lang}docs/components/Alert` },
-              { text: 'Loading', link: '/docs/components/Loading' },
+              { text: `Loading`, link: `${lang}docs/components/Loading` },
+              { text: `Input`, link: `${lang}docs/components/Input` },
 							// new component slot 1
             ]
           }
         ]
       },
-      {
-        text: `Vuesax Pass`,
-        link: `${lang}pass/`,
-        items: []
-      },
+      // {
+      //   text: `Vuesax Pass`,
+      //   link: `${lang}pass/`,
+      //   items: []
+      // },
       {
         text: `Ecosystem`,
         link: `${lang}ecosystem/`,
@@ -153,7 +154,8 @@ function getSidebar (lang = '/') {
           children: [
             `${lang}docs/components/`,
             `${lang}docs/components/Alert`,
-            '/docs/components/Loading',
+            `${lang}docs/components/Loading`,
+            `${lang}docs/components/Input`,
 						// new component slot 2
           ]
         },

@@ -19,19 +19,27 @@ export default class VsComponent extends Vue {
 
   @Prop({ type: Boolean, default: false }) dark!: boolean
 
+  @Prop({ type: Boolean, default: false }) primary!: boolean
+
   @Prop({ type: Boolean, default: false }) active!: boolean
 
   changeColor() {
     this.componentColor = (this.danger && 'danger') ||
     (this.success && 'success') ||
     (this.warn && 'warn') ||
-    (this.dark && 'dark')
+    (this.dark && 'dark') ||
+    (this.primary && 'primary')
 
     setColor('color', this.componentColor || this.color || 'primary', this.$el)
   }
 
   @Watch('color')
   handleWatchColor() {
+    this.changeColor()
+  }
+
+  @Watch('primary')
+  handleWatchPrimary() {
     this.changeColor()
   }
 

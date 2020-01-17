@@ -3,7 +3,7 @@ PROPS:
   - name: placeholder
     type: String
     values: String
-    description: Add a placeholder to the input.
+    description: Agrega un placeholder al input.
     default: null
     link: null
     usage: '#default'
@@ -16,7 +16,7 @@ PROPS:
   - name: label
     type: String
     values: String
-    description: Add a label above the component.
+    description: Agrega un label arriba del componente.
     default: null
     link: null
     usage: '#label'
@@ -33,7 +33,7 @@ PROPS:
   - name: label-placeholder
     type: String
     values: String
-    description: Add a placeholder converts to focus on a label.
+    description: Agrega un placeholder convierte al estar en focus en un label.
     default: null
     link: null
     usage: '#label-placeholder'
@@ -49,7 +49,7 @@ PROPS:
   - name: color
     type: string
     values: vuesax colors,RGB,HEX
-    description: Change component color.
+    description: Cambia el color del componente.
     default: null
     link: null
     usage: '#color'
@@ -96,7 +96,7 @@ PROPS:
   - name: state
     type: String
     values: vuesax colors,RGB,HEX
-    description: Change the background color of the component by changing its status.
+    description: Cambia el color de fondo de el componente cambiando su estado.
     default: null
     link: null
     usage: '#state'
@@ -139,7 +139,7 @@ PROPS:
   - name: progress
     type: number
     values: 0 - 100
-    description: Add a progress bar starting in red and ending in green.
+    description: Agrega una barra de progreso iniciando en rojo y terminando en verde.
     default: null
     link: null
     usage: '#progress'
@@ -215,7 +215,7 @@ PROPS:
   - name: loading
     type: boolean
     values: boolean
-    description: Add a loading animation to the input.
+    description: agrega una animación de loading al input.
     default: null
     link: null
     usage: '#loading'
@@ -229,7 +229,7 @@ PROPS:
   - name: type
     type: string
     values: html type
-    description: Change the type of input (html values).
+    description: Cambia el tipo de input (valores html).
     default: null
     link: null
     usage: '#input-types'
@@ -277,7 +277,7 @@ PROPS:
   - name: border
     type: boolean
     values: boolean
-    description: Change the style of the component.
+    description: Cambia el estilo de el componente.
     default: false
     link: null
     usage: '#border'
@@ -303,7 +303,7 @@ PROPS:
   - name: shadow
     type: boolean
     values: boolean
-    description: Change the style of the component.
+    description: Cambia el estilo de el componente.
     default: false
     link: null
     usage: '#shadow'
@@ -329,7 +329,7 @@ PROPS:
   - name: icon-after
     type: boolean
     values: boolean
-    description: Put the icon after the input.
+    description: Pone el icono después de el input.
     default: false
     link: null
     usage: '#icon'
@@ -347,7 +347,7 @@ PROPS:
   - name: visible-password
     type: boolean
     values: boolean
-    description: If the input is of the password type, it is modified to show the password.
+    description: Si el input es de tipo password se modifica para mostrar la contraseña.
     default: false
     link: null
     usage: '#progress'
@@ -379,7 +379,7 @@ SLOTS:
   - name: icon
     type: Slot
     values: null
-    description: Add an icon to the input.
+    description: Agrega un icono al input.
     default: null
     link: null
     usage: '#icon'
@@ -403,7 +403,7 @@ SLOTS:
   - name: message
     type: Slot
     values: null
-    description: Add an informative text below the input.
+    description: Agrega un texto informativo debajo de el input.
     default: null
     link: null
     usage: '#message'
@@ -448,7 +448,7 @@ SLOTS:
 
 <docs-warn />
 
-Add an elements input facilitate with the component `<vs-input>`
+agrega un elements input facilitate con el componente `<vs-input>`
 
 <div slot="example">
   <input-default />
@@ -486,7 +486,7 @@ Add an elements input facilitate with the component `<vs-input>`
 
 ## Label
 
-Add a label to the input with the property `label`
+Agrega un label al input con la propiedad `label`
 
 <div slot="example">
   <input-label />
@@ -528,7 +528,7 @@ Add a label to the input with the property `label`
 
 ## Label Placeholder
 
-You can have a placeholder with a great animation when being or in focus or with a value becoming a label above the input with the property `label-placeholder`
+Puedes tener un placeholder con una animación genial al estar o en focus o con un valor convirtiéndose en un label arriba de el input con la propiedad `label-placeholder`
 
 <div slot="example">
   <input-labelPlaceholder />
@@ -569,7 +569,7 @@ You can have a placeholder with a great animation when being or in focus or with
 
 ## Color
 
-Change the color of the component and add a border below with the `color` property, the allowed values ​​are the main colors of vuesax and the colors (**RGB** y **HEX**)
+Cambia el color de el componente y agrega un border abajo con la propiedad `color`, los valores permitidos son los colores principales de vuesax y los colores (**RGB** y **HEX**)
 
 <div slot="example">
   <input-color />
@@ -646,7 +646,7 @@ Change the color of the component and add a border below with the `color` proper
 
 ## icon
 
-Add an icon to the input easily with the slot icon if you want the icon to be before the input you can do it with the property `icon-before`
+Agrega un icono al input fácilmente con el slot icon si quieres que el icono este antes de el input puedes hacerlo con la propiedad `icon-before`
 
 <utils-icon />
 
@@ -697,7 +697,7 @@ Add an icon to the input easily with the slot icon if you want the icon to be be
 
 ## Message
 
-You can add a message below the input with the `slot="message- {vuesax color}"` to report that a field is missing or the value is wrong
+Puedes agregar un mensaje debajo de el input con el `slot="message-{vuesax color}"` para informar que falta un campo o es erróneo el valor
 
 <div slot="example">
   <input-message />
@@ -769,7 +769,7 @@ You can add a message below the input with the `slot="message- {vuesax color}"` 
 
 ## State
 
-Change the color of the input for some state, the allowed states are (primary, success, danger, warn, dark)
+Cambia el color de el input para algún estado, los estados permitidos son (primary, success, danger, warn, dark)
 
 <div slot="example">
   <input-state />
@@ -842,16 +842,16 @@ Change the color of the input for some state, the allowed states are (primary, s
 
 ## Progress
 
-Add a validation progress bar, the most common is its use to validate passwords and correct data within the input, its value is (0 - 100).
+Agrega una barra de progreso de validación, lo mas común es su uso para validar contraseñas y datos correctos dentro de el input, su valor es de (0 - 100).
 
 :::tip
-  The example validates that the password has at least
+  En el ejemplo se valida que la contraseña tenga por lo menos
 
-  - A special character
-  - More than 6 digits
-  - One lower case letter
-  - An uppercase letter
-  - A number
+  - Un carácter especial
+  - Mas de 6 dígitos
+  - Una letra minúscula
+  - Una letra mayúscula
+  - Un numero
 :::
 
 <div slot="example">
@@ -945,7 +945,7 @@ Add a validation progress bar, the most common is its use to validate passwords 
 
 ## Loading
 
-Add a loading animation to the input with the `loading` property, the property is a `Boolean`, so you can add it without any value.
+Agrega una animación de loading al input con la propiedad `loading`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 
 <div slot="example">
   <input-loading />
@@ -983,7 +983,7 @@ Add a loading animation to the input with the `loading` property, the property i
 
 ## Input types
 
-Change the type of input with the `type` property as a native html input, the default value is `text`
+Cambia el tipo de input con la propiedad `type` como un input nativo de html, el valor por defecto es `text`
 
 <div slot="example">
   <input-types />
@@ -1061,7 +1061,7 @@ Change the type of input with the `type` property as a native html input, the de
 
 ## Border
 
-Change everything is style of the component with the `border` property, the property is a `Boolean`, so you can add it without any value.
+Cambia todo es estilo de el componente con la propiedad `border`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 
 <div slot="example">
   <input-border />
@@ -1113,7 +1113,7 @@ Change everything is style of the component with the `border` property, the prop
 
 ## Shadow
 
-Change everything is style of the component with the `shadow` property, the property is a `Boolean`, so you can add it without any value.
+Cambia todo es estilo de el componente con la propiedad `shadow`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 
 <div slot="example">
   <input-shadow />

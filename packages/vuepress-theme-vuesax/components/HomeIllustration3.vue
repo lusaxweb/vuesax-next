@@ -2,8 +2,8 @@
   <div class="content-i">
 
     <div class="con-ilus">
-      <img class="not-darken" src="vuesax-white-4.svg" alt="">
-      <img class="has-darken" src="vuesax-dark-4.svg" alt="">
+      <img class="not-darken" src="/vuesax-white-4.svg" alt="">
+      <img class="has-darken" src="/vuesax-dark-4.svg" alt="">
     </div>
     <div class="con-text">
       <h2 v-html="data.title" />

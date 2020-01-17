@@ -2,6 +2,326 @@
 @import '../../../styles/colors'
 @import 'root'
 
+@mixin state($color)
+  .vs-input
+    background: vs-color($color,.1) !important
+    color: vs-color($color,1)
+  .vs-input__label
+    color: vs-color($color,1)
+  .vs-input__icon
+    color: vs-color($color,1)
+    background: vs-color($color,.1)
+    box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+
+.vs-input-parent
+  display: flex
+  align-self: center
+  justify-content: center
+  flex-direction: column
+  position: relative
+  &--has-label
+    margin-top: 20px !important
+  &--state-success
+    @include state('success')
+  &--state-danger
+    @include state('danger')
+  &--state-warn
+    @include state('warn')
+  &--state-dark
+    @include state('dark')
+  &--state-primary
+    @include state('primary')
+
+.vs-input-content
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  position: relative
+  border-radius: 12px
+  + .vs-input__message
+    padding-top: 2px
+
+  &--has-color
+    .vs-input
+      // box-shadow: 0px 10px 20px -5px vs-color('color',.3)
+      &:focus
+        border-bottom: 2px solid vs-color('color',1)
+        ~ .vs-input__icon
+          color: vs-color('color',1)
+        ~ .vs-input__label
+          color: vs-color('color',1)
+        ~ .vs-input__label--placeholder
+          color: vs-color('color',1)
+
 .vs-input
-  background: vs-color('color')
-  color: #fff
+  border: 2px solid transparent
+  background: vs-color('gray-2')
+  color: vs-color('text')
+  padding: 7px 13px
+  border-radius: inherit
+  transition: all .25s ease
+  width: 200px
+  padding-left: 10px
+  &:focus
+    background: vs-color('gray-3')
+    padding-left: 15px
+    &.vs-input--has-icon:not(.vs-input--has-icon--after)
+      padding-left: 40px
+      ~ .vs-input__icon
+        box-shadow: 15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+      ~ .vs-input__label:not(.vs-input__label--placeholder):not(.vs-input__label--label)
+        left: 44px
+    ~ .vs-input__icon
+      box-shadow: -15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(-6px, -6px)
+      background: vs-color('gray-1')
+      &--after
+        transform: translate(6px, -6px)
+    ~ .vs-input__label:not(.vs-input__label--placeholder):not(.vs-input__label--label)
+      opacity: 0
+      left: 20px
+    ~ .vs-input__label--placeholder
+      opacity: 1
+      visibility: visible
+      pointer-events: auto
+      transform: translate(-3%, -77%)
+      font-size: .75rem
+  &__label
+    position: absolute
+    left: 13px
+    font-size: .8rem
+    transition: all .25s ease
+    cursor: text
+    user-select: none
+    pointer-events: none
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    opacity: .4
+    &--hidden
+      opacity: 0
+      visibility: hidden
+      &.vs-input__label--placeholder
+        opacity: 1
+        visibility: visible
+        pointer-events: auto
+        transform: translate(-3%, -80%)
+        font-size: .75rem
+    &--label
+      opacity: 1
+      visibility: visible
+      pointer-events: auto
+      transform: translate(-2%, -77%)
+      font-size: .75rem
+  &--has-icon
+    padding-left: 35px
+    ~ .vs-input__label
+      left: 44px
+
+    &--after
+      padding-left: 7px
+      ~ .vs-input__label
+        left: 13px
+      &.vs-input__label--label
+        transform: translate(calc(-3% - 22px), -80%) !important
+    &:focus
+      &--has-icon
+        &--after
+          ~ .vs-input__label
+            left: 44px
+          ~ .vs-input__label--placeholder
+            transform: translate(calc(-3% - 22px), -80%) !important
+          ~ .vs-input__label
+            left: 44px
+
+  &__icon
+    position: absolute
+    right: auto
+    width: 36px
+    height: 36px
+    display: flex
+    align-items: center
+    justify-content: center
+    box-shadow: 12px 0px 10px -10px rgba(0,0,0,vs-var(shadow-opacity))
+    transition: all .25s ease
+    border-radius: inherit
+    background: vs-color('gray-2')
+    pointer-events: none
+    left: 0px
+    &--after
+      left: auto
+      right: 0px
+      box-shadow: -12px 0px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+    &--click
+      pointer-events: auto !important
+      cursor: pointer
+      &:hover
+        box-shadow: -15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+        transform: translate(-6px, -6px)
+        background: vs-color('gray-1')
+        &.vs-input__icon--after
+          transform: translate(6px, -6px)
+
+  &__message
+    font-size: .7rem
+    position: relative
+    padding: 0px 7px
+    transition: all .25s ease
+    overflow: hidden
+    &--success
+      color: vs-color('success',1)
+    &--danger
+      color: vs-color('danger',1)
+    &--warn
+      color: vs-color('warn',1)
+    &--dark
+      color: vs-color('dark',1)
+    &--primary
+      color: vs-color('primary',1)
+
+  &__progress
+    width: 95%
+    left: 2.5%
+    position: relative
+    height: 2px
+    background: vs-color('gray-2')
+    margin-top: 5px
+    overflow: hidden
+    border-radius: 5px
+    &--danger
+      .vs-input__progress__bar
+        background: vs-color('danger',1)
+    &--warn
+      .vs-input__progress__bar
+        background: vs-color('warn',1)
+    &--success
+      .vs-input__progress__bar
+        background: vs-color('success',1)
+    &__bar
+      width: 32%
+      height: 2px
+      max-width: 100%
+      transition: all .25s ease
+      border-radius: 5px
+
+  &__loading
+    position: absolute
+    width: 22px
+    height: 22px
+    right: 7px
+    pointer-events: none
+    border-radius: 50%
+    box-sizing: border-box
+    background: inherit
+    cursor: deafult
+    &:after
+      box-sizing: border-box
+      position: absolute
+      width: 100%
+      height: 100%
+      border: 2px solid vs-color('primary',1)
+      border-radius: inherit
+      border-top: 2px solid transparent
+      border-left: 2px solid transparent
+      border-right: 2px solid transparent
+      animation: rotate .8s ease infinite
+      top: 0px
+      content: ''
+    &:before
+      box-sizing: border-box
+      top: 0px
+      position: absolute
+      width: 100%
+      height: 100%
+      border: 2px dashed vs-color('primary',1)
+      border-radius: inherit
+      border-top: 2px solid transparent
+      border-left: 2px solid transparent
+      border-right: 2px solid transparent
+      animation: rotate .8s linear infinite
+      opacity: .2
+      content: ''
+
+.vs-input-parent
+  &--border
+    .vs-input__icon
+      background: transparent !important
+      box-shadow: none !important
+    .vs-input-content
+      border-radius: 0px
+      .vs-input__affects
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0px
+        left: 0px
+        pointer-events: none
+        &__1
+          border-bottom: 2px solid vs-color('gray-3')
+          width: 100%
+          height: 2px
+          position: absolute
+          bottom: 0px
+          transition: all .25s ease
+        &__2
+          border-bottom: 2px solid vs-color('color',1)
+          width: 0%
+          height: 2px
+          position: absolute
+          bottom: 0px
+          transition: all .25s ease
+          left: 50%
+          transform: translate(-50%)
+      .vs-input
+        background: transparent
+        border-radius: 0px
+        &:focus
+          ~ .vs-input__affects
+              .vs-input__affects__2
+                width: 100%
+  &--shadow
+    .vs-input__icon
+      background: transparent
+      z-index: 100
+      // box-shadow: none !important
+    .vs-input-content
+      .vs-input__affects
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0px
+        left: 0px
+        border-radius: inherit
+        pointer-events: none
+        z-index: 10
+        &__1
+          box-shadow: 0px 6px 25px -6px rgba(0,0,0, vs-var(shadow-opacity))
+          width: 100%
+          height: 100%
+          position: absolute
+          top: 0px
+          transition: all .25s ease
+          z-index: 200
+          border-radius: inherit
+      .vs-input
+        background: transparent
+        border-radius: 0px
+        border: 2px solid transparent
+        &:focus
+          transform: translate(0,3px)
+          ~ .vs-input__icon
+            background: vs-color('background') !important
+            opacity: 1
+            box-shadow: 0px 10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity)) !important
+          ~ .vs-input__affects
+              .vs-input__affects__1
+                transform: translate(0,3px)
+                box-shadow: 0px 0px 3px 0px rgba(0,0,0, vs-var(shadow-opacity))
+
+@keyframes rotateInputLoading
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

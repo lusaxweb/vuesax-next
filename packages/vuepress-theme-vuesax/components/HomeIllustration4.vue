@@ -10,8 +10,8 @@
       </button>
     </div>
     <div class="con-ilus">
-      <img class="not-darken" src="vuesax-white-3.svg" alt="">
-      <img class="has-darken" src="vuesax-dark-3.svg" alt="">
+      <img class="not-darken" src="/vuesax-white-3.svg" alt="">
+      <img class="has-darken" src="/vuesax-dark-3.svg" alt="">
     </div>
   </div>
 </template>
