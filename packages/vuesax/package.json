@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "4.0.0",
+  "version": "4.0.1-alpha.1",
   "description": "Framework components for vuejs",
   "main": "dist/vuesax.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "new:sub": "node scripts/newSubComponent.js",
     "postinstall": "node scripts/postinstall.js",
     "dev": "tsc -w src/index.ts --module es6",
-    "test:types": "tsc -p ./types/test/tsconfig.json"
+    "test:types": "tsc -p ./types/test/tsconfig.json",
+    "deploy": "npm publish --tag next"
   },
   "keywords": [],
   "author": "",
