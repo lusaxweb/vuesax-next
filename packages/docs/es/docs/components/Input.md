@@ -438,6 +438,14 @@ SLOTS:
                 </vs-input>
               </div>
             </template>
+
+NEWS:
+  - state
+  - progress
+  - loading
+  - border
+  - shadow
+  - messages
 ---
 
 # Input
@@ -695,7 +703,7 @@ Agrega un icono al input fácilmente con el slot icon si quieres que el icono es
 
 <card>
 
-## Message
+## Message <Badge text="New"/>
 
 Puedes agregar un mensaje debajo de el input con el `slot="message-{vuesax color}"` para informar que falta un campo o es erróneo el valor
 
@@ -767,7 +775,7 @@ Puedes agregar un mensaje debajo de el input con el `slot="message-{vuesax color
 
 <card>
 
-## State
+## State <Badge text="New"/>
 
 Cambia el color de el input para algún estado, los estados permitidos son (primary, success, danger, warn, dark)
 
@@ -840,7 +848,7 @@ Cambia el color de el input para algún estado, los estados permitidos son (prim
 
 <card>
 
-## Progress
+## Progress <Badge text="New"/>
 
 Agrega una barra de progreso de validación, lo mas común es su uso para validar contraseñas y datos correctos dentro de el input, su valor es de (0 - 100).
 
@@ -943,7 +951,7 @@ Agrega una barra de progreso de validación, lo mas común es su uso para valida
 
 <card>
 
-## Loading
+## Loading <Badge text="New"/>
 
 Agrega una animación de loading al input con la propiedad `loading`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 
@@ -1059,7 +1067,7 @@ Cambia el tipo de input con la propiedad `type` como un input nativo de html, el
 
 <card>
 
-## Border
+## Border <Badge text="New"/>
 
 Cambia todo es estilo de el componente con la propiedad `border`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 
@@ -1111,7 +1119,7 @@ Cambia todo es estilo de el componente con la propiedad `border`, la propiedad e
 
 <card>
 
-## Shadow
+## Shadow <Badge text="New"/>
 
 Cambia todo es estilo de el componente con la propiedad `shadow`, la propiedad es un `booleano`, por lo que puede agregarlo sin ningún valor.
 

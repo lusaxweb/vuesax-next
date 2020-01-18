@@ -94,6 +94,10 @@ function getNavbar (lang = '/') {
       //   items: []
       // },
       {
+        text: `License`,
+        link: `${lang}license/`
+      },
+      {
         text: `Ecosystem`,
         link: `${lang}ecosystem/`,
         items: [

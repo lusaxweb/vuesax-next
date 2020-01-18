@@ -36,7 +36,7 @@
   &:disabled
     pointer-events: none
     opacity: .35
-  &--animate:not(.vs-button--animate-inactive)
+  &.vs-button--animate:not(.vs-button--animate-inactive)
     .vs-button__content
       i
         font-size: 1.15rem
@@ -45,14 +45,14 @@
         transform: translate(-100%)
       .vs-button__animate
         transform: translate(0%)
-    &-vertical
+    &.vs-button--animate-vertical
       &:hover
         .vs-button__content
           transform: translate(0,-100%) !important
           opacity: 0
         .vs-button__animate
           transform: translate(0%) !important
-    &-scale
+    &.vs-button--animate-scale
       &:hover
         .vs-button__content
           transform: scale(1.4) !important
@@ -60,7 +60,7 @@
         .vs-button__animate
           opacity: 1
           transform: scale(1)
-    &-rotate
+    &.vs-button--animate-rotate
       &:hover
         .vs-button__content
           transform: rotate(180deg) !important

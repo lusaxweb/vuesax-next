@@ -26,6 +26,8 @@
 
     <Pass-layout :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.passLayout"/>
 
+    <license :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.license"/>
+
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -71,9 +73,10 @@ import Carbon from '../components/Carbon'
 import DocsHome from '../components/DocsHome'
 import Config from '../components/Config.vue'
 import PassLayout from '../components/PassLayout.vue'
+import License from '../components/License.vue'
 import HeaderNotification from '../components/HeaderNotification.vue'
 export default {
-  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification },
+  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification, License },
 
   data () {
     return {
