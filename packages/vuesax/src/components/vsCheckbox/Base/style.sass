@@ -1,0 +1,179 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-checkbox-content
+  display: flex
+  align-items: center
+  justify-content: flex-start
+
+.vs-checkbox-con
+  width: 23px
+  height: 23px
+  border-radius: 9px
+  position: relative
+  z-index: 1
+
+.vs-checkbox-mask
+  border-radius: 40%
+  width: 100%
+  height: 100%
+  position: absolute
+  // border: 2px solid transparent
+  z-index: 50
+  cursor: pointer
+  pointer-events: none
+  box-sizing: border-box
+  transition: all .25s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: -1
+  box-sizing: border-box
+  i
+    opacity: 0
+    transition: all .25s ease
+    color: #fff
+    font-size: 1.2rem
+    transform: scale(.5)
+  &:after
+    content: ''
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    background: vs-color('color', 1)
+    transform: scale(.5)
+    border-radius: inherit
+    opacity: 0
+    transition: all .25s ease
+    z-index: -1
+  &:before
+    content: ''
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    border-radius: inherit
+    transition: all .25s ease
+    z-index: -1
+    border: 2px solid vs-color('gray-4', 1)
+    box-sizing: border-box
+  .vs-icon-check
+    opacity: 0
+    z-index: 200
+
+.vs-checkbox
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0px
+  left: 0px
+  margin: 0px
+  padding: 0px
+  opacity: 0
+  z-index: 100
+  cursor: pointer
+  &:disabled
+    opacity: 0
+    pointer-events: none
+  &:active
+    ~ .vs-checkbox-mask
+      background: vs-color('gray-4', 1) !important
+  &:hover
+    ~ .vs-checkbox-mask
+      background: vs-color('gray-3', 1)
+      &:before
+        border: 2px solid vs-color('gray-4', 0)
+      // border: 2px solid vs-color('gray-3', 1)
+  &:checked
+    &:hover
+      ~ .vs-checkbox-mask
+        box-shadow: 0px 3px 15px 0px vs-color('color', .35)
+    ~ .vs-checkbox-mask
+      // border: 2px solid vs-color('color', 1) !important
+      box-shadow: 0px 0px 0px 0px vs-color('color', .35)
+      i
+        opacity: 1
+        transform: scale(1)
+        transition: all .25s ease .15s
+      .vs-icon-check
+        opacity: 1
+        span
+          &:before
+            width: 8px
+            transition: all .25s ease .1s
+          &:after
+            transition: all .2s ease .30s
+            height: 13px
+      &:after
+        opacity: 1
+        transform: scale(1)
+      &:before
+        opacity: 0
+        transform: scale(1.2)
+
+.vs-checkbox-label
+  user-select: none
+  cursor: pointer
+  padding: 7px
+  transition: all .25s ease
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  &:before
+    position: absolute
+    width: 0px
+    height: 2px
+    background: vs-color('text', .6)
+    content: ''
+    transition: all .25s ease
+
+.vs-checkbox--disabled
+  pointer-events: none
+  .vs-checkbox-label
+    opacity: .5
+  .vs-checkbox-mask
+    opacity: .6
+    background: transparent !important
+
+.vs-checkbox--checked
+  .lineThrough
+    opacity: .4
+    &:before
+      width: calc(100% - 10px)
+
+.vs-checkbox--loading
+  pointer-events: none
+  &.vs-checkbox--checked
+    .vs-checkbox-mask
+      background: transparent !important
+      &:before
+        border-radius: 50%
+        border: 2px solid vs-color('color', 1) !important
+        border-top: 2px solid transparent !important
+        animation: rotateCheckboxLoading .6s linear infinite
+        opacity: 1 !important
+      &:after
+        opacity: 0
+        transform: scale(.5)
+  .vs-checkbox-mask
+    background: transparent !important
+    &:before
+      border-radius: 50%
+      border: 2px solid vs-color('gray-4', 1) !important
+      border-top: 2px solid transparent !important
+      animation: rotateCheckboxLoading .6s linear infinite
+
+@keyframes rotateCheckboxLoading
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.vs-checkbox--label-before
+  .vs-checkbox-label
+    order: -1

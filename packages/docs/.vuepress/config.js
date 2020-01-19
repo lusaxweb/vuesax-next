@@ -83,6 +83,7 @@ function getNavbar (lang = '/') {
               { text: `Alert`, link: `${lang}docs/components/Alert` },
               { text: `Loading`, link: `${lang}docs/components/Loading` },
               { text: `Input`, link: `${lang}docs/components/Input` },
+							{ text: 'Checkbox', link: `${lang}docs/components/Checkbox` },
 							// new component slot 1
             ]
           }
@@ -160,6 +161,7 @@ function getSidebar (lang = '/') {
             `${lang}docs/components/Alert`,
             `${lang}docs/components/Loading`,
             `${lang}docs/components/Input`,
+						`${lang}docs/components/Checkbox`,
 						// new component slot 2
           ]
         },

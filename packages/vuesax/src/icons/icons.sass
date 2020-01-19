@@ -70,3 +70,66 @@
     &:after
       transform: rotate(180deg)
 
+
+.vs-icon-check
+  width: 23px
+  height: 23px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .25s ease
+  border-radius: inherit
+  // transform: rotate(45deg)
+  span
+    transform: rotate(45deg)
+    display: block
+    position: relative
+    width: 8px
+    height: 13px
+    margin-top: -4px
+    &:before
+      background: #fff
+      content: ''
+      position: absolute
+      // width: 8px
+      height: 2px
+      border-radius: 2px
+      transition: all .2s ease
+      border-radius: 5px
+      z-index: 100
+      width: 0px
+      bottom: 0px
+    &:after
+      bottom: 0px
+      right: 0rem
+      z-index: 100
+      border-radius: 5px
+      background: #fff
+      content: ''
+      position: absolute
+      // width: 13px
+      height: 0px
+      border-radius: 2px
+      transition: all .2s ease
+      width: 2px
+  &.active
+    &:before
+      width: 8px
+    &:after
+      width: 4px
+
+  &.indeterminate
+    span
+      margin-top: -7px !important
+      &:before
+        transform: rotate(-45deg)
+        bottom: 0px
+        right: 0px
+        opacity: 0
+      &:after
+        right: 1px !important
+        bottom: -2px !important
+        transform: rotate(45deg) !important
+        transition: all .25s ease !important
+        height: 11px !important
+
