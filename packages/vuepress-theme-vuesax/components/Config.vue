@@ -523,6 +523,7 @@ getVar(var)
     left 0px
 @media (max-width: 600px)
   .config
-    display none
+    // display none
     left 0px
+    bottom 48px
 </style>

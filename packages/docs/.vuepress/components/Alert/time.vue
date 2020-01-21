@@ -1,7 +1,7 @@
 <template>
   <div class="center">
-    <vs-button dark flat @click="active=true">Open Alert 10s</vs-button>
-    <vs-alert dark :progress="progress" v-model="active">
+    <vs-button flat @click="active=true">Open Alert 10s</vs-button>
+    <vs-alert :progress="progress" v-model="active">
       <template #title>
         Vuesax Framework
       </template>

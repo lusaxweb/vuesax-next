@@ -87,31 +87,46 @@
     width: 8px
     height: 13px
     margin-top: -4px
-    &:before
-      background: #fff
+    .line1
+      background: transparent
       content: ''
       position: absolute
-      // width: 8px
       height: 2px
       border-radius: 2px
       transition: all .2s ease
       border-radius: 5px
       z-index: 100
-      width: 0px
+      width: 8px
       bottom: 0px
-    &:after
+      &:after
+        content: ''
+        position: absolute
+        width: 0%
+        height: 2px
+        background: #fff
+        transition: all .25s ease
+        border-radius: 5px 0px 0px 5px
+    .line2
       bottom: 0px
       right: 0rem
       z-index: 100
       border-radius: 5px
-      background: #fff
+      background: transparent
       content: ''
       position: absolute
-      // width: 13px
-      height: 0px
-      border-radius: 2px
+      height: 13px
+      border-radius: 5px
       transition: all .2s ease
       width: 2px
+      &:after
+        content: ''
+        position: absolute
+        width: 2px
+        height: 0%
+        background: #fff
+        transition: all .25s ease
+        bottom: 0px
+        border-radius: 5px 5px 0px 0px
   &.active
     &:before
       width: 8px
@@ -121,14 +136,14 @@
   &.indeterminate
     span
       margin-top: -7px !important
-      &:before
+      .line1
         transform: rotate(-45deg)
         bottom: 0px
         right: 0px
         opacity: 0
-      &:after
-        right: 1px !important
-        bottom: -2px !important
+      .line2
+        right: 0px !important
+        bottom: -1px !important
         transform: rotate(45deg) !important
         transition: all .25s ease !important
         height: 11px !important

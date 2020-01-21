@@ -274,6 +274,14 @@ getVar(var)
       margin 30px 10px
       padding 15px
       width calc(50% - 20px)
+@media (max-width: 500px)
+  .footer
+    .subscribe-content
+      padding 40px 10px
+      .con-form
+        width 100%
+        input[type="email"]
+          width calc(100% - 50px) !important
 @media (max-width: 400px)
   .footer
     .subscribe-content
@@ -284,10 +292,15 @@ getVar(var)
       #mc_embed_signup_scroll
         display block
         width 100%
+      .con-form
+        input[type="email"]
+          width 100% !important
+          margin-bottom 10px !important
       input
-        width 100%
+        width 100% !important
         margin-right 0px
-        margin-bottom 10px
+        margin-top 10px
+        margin-left 0px !important
     ul
       padding  0px 30px
       width calc(100% - 20px)

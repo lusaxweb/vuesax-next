@@ -68,7 +68,7 @@ export default class VsCheckbox extends VsComponent {
       attrs: {
         ...this.$attrs,
         type: 'checkbox',
-        id: this._uid,
+        id: this._uid
       },
       domProps: {
         checked: this.isChecked
@@ -107,8 +107,8 @@ export default class VsCheckbox extends VsComponent {
             } else {
               this.$emit('input', this.notValue || null)
             }
-
           }
+          this.$emit('change', evt)
         }
       }
     })
@@ -126,9 +126,11 @@ export default class VsCheckbox extends VsComponent {
 
     const label = h('label', {
       staticClass: 'vs-checkbox-label',
-      class: {
-        lineThrough: this.lineThrough
-      },
+      class: [
+        {
+          lineThrough: this.lineThrough
+        }
+      ],
       attrs: {
         for: this._uid
       }
@@ -144,7 +146,7 @@ export default class VsCheckbox extends VsComponent {
     ])
 
     return h('div', {
-      staticClass: ['vs-checkbox-content'],
+      staticClass: 'vs-checkbox-content',
       class: [
         { 'vs-checkbox--checked': this.isChecked },
         { 'vs-checkbox--disabled': this.$attrs.hasOwnProperty('disabled') },

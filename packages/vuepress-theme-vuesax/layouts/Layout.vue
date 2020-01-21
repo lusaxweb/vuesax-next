@@ -42,7 +42,9 @@
       />
     </Page>
 
-    <Carbon />
+    <Carbon ref="carbon" />
+    <Codefund ref="codefund" />
+    <VuesaxAds v-if="ads == 'vuesax'" />
 
     <Sidebar
       :items="sidebarItems"
@@ -75,12 +77,16 @@ import Config from '../components/Config.vue'
 import PassLayout from '../components/PassLayout.vue'
 import License from '../components/License.vue'
 import HeaderNotification from '../components/HeaderNotification.vue'
+import Codefund from '../components/Codefund.vue'
+import VuesaxAds from '../components/VuesaxAds.vue'
 export default {
-  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification, License },
+  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification, License, Codefund, VuesaxAds },
 
   data () {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      ads: 'codefund',
+      noAdvertiser: false
     }
   },
 
@@ -134,13 +140,80 @@ export default {
     }
   },
 
+  watch: {
+    '$route' (to, from) {
+      if (
+        to.path !== from.path
+      ) {
+        this.$refs.carbon.$el.innerHTML = ''
+        this.$refs.codefund.$el.innerHTML = ''
+        if (this.$route.path !== '/') {
+          if (!this.noAdvertiser) {
+            this.loadCodeFund()
+          } else {
+            this.$refs.codefund.$el.innerHTML = ''
+            window.removeEventListener('codefund', this.handlerCodefound);
+            const number = Math.round(Math.random() * (4) + 1)
+            if (number == 1) {
+              this.ads = 'vuesax'
+              this.$refs.carbon.$el.innerHTML = ''
+              this.$refs.carbon.$el.classList.add('hidden')
+            } else {
+              this.ads = 'carbon'
+              this.$refs.carbon.load()
+              this.$refs.carbon.$el.classList.remove('hidden')
+            }
+          }
+        }
+      }
+    }
+  },
+
   mounted () {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+    if (this.$route.path !== '/') {
+      this.loadCodeFund()
+    }
   },
 
   methods: {
+    handlerCodefound(event) {
+      if (event.detail.status === 'no-advertiser') {
+        this.noAdvertiser = true
+        this.$refs.codefund.$el.innerHTML = ''
+        window.removeEventListener('codefund', this.handlerCodefound);
+        const number = Math.round(Math.random() * (4) + 1)
+        if (number == 1) {
+          this.ads = 'vuesax'
+          this.$refs.carbon.$el.innerHTML = ''
+          this.$refs.carbon.$el.classList.add('hidden')
+        } else {
+          this.ads = 'carbon'
+          this.$refs.carbon.load()
+          this.$refs.carbon.$el.classList.remove('hidden')
+        }
+      } else {
+        this.ads = 'codefund'
+        this.$refs.carbon.$el.innerHTML = ''
+        this.$refs.carbon.$el.classList.add('hidden')
+      }
+    },
+    loadCodeFund() {
+      this.$refs.codefund.$el.innerHTML = ''
+      const script = document.createElement("script");
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute(
+        "src",
+        `https://app.codefund.io/properties/677/funder.js`
+      )
+
+      window.removeEventListener('codefund', this.handlerCodefound);
+
+      window.addEventListener('codefund', this.handlerCodefound);
+      this.$refs.codefund.$el.appendChild(script);
+    },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },

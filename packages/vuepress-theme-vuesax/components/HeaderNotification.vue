@@ -10,10 +10,10 @@
       </div>
       <div class="text-n">
         <h3>
-          Nuevo Componente <b>Button</b> 🎉
+          New component <b>Checkbox</b> 🎉
         </h3>
         <p>
-          Ver los ejemplos y la nueva documentación
+          See the examples and the new documentation
         </p>
       </div>
     </div>
@@ -22,7 +22,7 @@
         class="btn-info"
         @click="handleClick"
       >
-        👉 Mas información
+        👉 More information
       </button>
       <button
         @click="handleRemove"
@@ -40,7 +40,7 @@ export default {
   }),
   methods: {
     handleClick() {
-      this.$router.push('/docs/components/')
+      this.$router.push('/docs/components/checkbox')
       this.active = 0
 
       localStorage.notificationHidden = this.number

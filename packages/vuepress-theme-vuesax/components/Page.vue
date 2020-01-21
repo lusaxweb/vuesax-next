@@ -422,6 +422,10 @@ getVar(var)
   i
     font-size 1.4rem
 
+@media (max-width: 1240px)
+  .back-link
+    display none
+
 .con-svg
   position absolute
   top 0px
@@ -727,13 +731,17 @@ getVar(var)
       margin-right 0.25rem
   .last-updated
     float right
-    font-size 0.9em
+    font-size 0.85em
+    padding 0px 10px
     .prefix
-      font-weight 500
-      color lighten($textColor, 25%)
+      padding-left 10px
+      font-weight 600
+      // color lighten($textColor, 25%)
     .time
+      padding-left 10px
       font-weight 400
-      color #aaa
+      // color #aaa
+      opacity: .8
 
 .page-nav
   @extend $wrapper

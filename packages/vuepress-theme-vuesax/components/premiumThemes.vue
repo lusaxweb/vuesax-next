@@ -13,10 +13,10 @@
       <p v-html="data.details" />
 
       <footer>
-        <vs-button active >
+        <vs-button active @click="open('https://www.wrappixel.com/templates/xtreme-vuesax-admin-pro/?ref=102')" >
           See more
         </vs-button>
-        <vs-button flat >
+        <vs-button flat @click="open('https://www.wrappixel.com/demos/vuejs-admin-templates/xtreme-vuesax-pro/main/login/?ref=102')" >
           Live Demo
         </vs-button>
       </footer>
@@ -25,7 +25,12 @@
 </template>
 <script>
 export default {
-  props: ['data']
+  props: ['data'],
+  methods: {
+    open(url) {
+      open(url)
+    }
+  }
 }
 </script>
 <style lang="stylus">

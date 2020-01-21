@@ -138,7 +138,8 @@
         </div>
 
         <footer>
-          <input placeholder="Comment" type="text" name="" id="comment">
+          <vs-input placeholder="Comment" />
+          <!-- <input placeholder="Comment" type="text" name="" id="comment"> -->
           <vs-button icon flat>
             <i class='bx bx-send' ></i>
           </vs-button>
@@ -243,7 +244,8 @@
       </div>
 
       <div class="component12">
-        <input placeholder="Search" type="text" name="" id="search">
+        <vs-input placeholder="Search" />
+        <!-- <input placeholder="Search" type="text" name="" id="search"> -->
         <vs-button icon>
           <i class='bx bx-search'></i>
         </vs-button>
@@ -251,7 +253,8 @@
 
       <div class="component13">
         <header>
-          <input placeholder="Location" type="text" name="" id="location">
+          <vs-input placeholder="location"></vs-input>
+          <!-- <input placeholder="Location" type="text" name="" id="location"> -->
           <button>
             <i class='bx bx-chevron-right'></i>
           </button>
@@ -259,44 +262,56 @@
 
         <ul>
           <li>
-            <input checked type="checkbox" name="" id="checkbox1">
+            <!-- <input checked type="checkbox" name="" id="checkbox1">
             <span class="check">
               <i class='bx bx-check'></i>
             </span>
 
             <label for="">
               Spain
-            </label>
+            </label> -->
+            <vs-checkbox>
+              Spain
+            </vs-checkbox>
           </li>
           <li>
-            <input type="checkbox" name="" id="checkbox2">
+            <!-- <input type="checkbox" name="" id="checkbox2">
             <span class="check">
               <i class='bx bx-check'></i>
             </span>
 
             <label for="">
               Germany
-            </label>
+            </label> -->
+            <vs-checkbox>
+              Germany
+            </vs-checkbox>
           </li>
           <li>
-            <input type="checkbox" name="" id="checkbox3">
+            <!-- <input type="checkbox" name="" id="checkbox3">
             <span class="check">
               <i class='bx bx-check'></i>
             </span>
 
             <label for="">
               Italy
-            </label>
+            </label> -->
+            <vs-checkbox>
+              Italy
+            </vs-checkbox>
           </li>
           <li>
-            <input type="checkbox" name="" id="checkbox4">
+            <!-- <input type="checkbox" name="" id="checkbox4">
             <span class="check">
               <i class='bx bx-check'></i>
             </span>
 
             <label for="">
               Japan
-            </label>
+            </label> -->
+            <vs-checkbox>
+              Japan
+            </vs-checkbox>
           </li>
         </ul>
 
@@ -361,6 +376,18 @@ getVar(var)
     height: 500px
     width: 500px
     opacity: 0
+
+@keyframes componentAnimate
+  0%
+    transform translate(0px)
+  30%
+    transform translate(0,-10px)
+  50%
+    transform translate(0,4px)
+  70%
+    transform translate(0,-15px)
+  100%
+    transform translate(0px)
 
 .has-darken
   display none
@@ -490,33 +517,60 @@ getVar(var)
         transform scale(1)
         opacity 1
     .component13
-      transform translate(-150px, -20px)
+      top 160px !important
+      left -150px !important
+      // transform translate(-150px, -20px) !important
       z-index 20
+      // animation: none !important
     .component12
-      transform translate(-90px, 20px)
+      top 560px !important
+      left -90px !important
+      // transform translate(-90px, 20px) !important
     .component11
-      transform translate(-90px, 70px)
+      top 710px !important
+      left 10px !important
+      // transform translate(-90px, 70px) !important
     .component10
-      transform translate(-40px, 50px)
+      top 650px !important
+      left 320px !important
+      // transform translate(-40px, 50px) !important
     .component9
-      transform translate(0px, 80px)
+      top 660px !important
+      left 490px !important
+      // transform translate(0px, 80px) !important
     .component8
-      transform translate(-270px, -160px)
+      top 20px !important
+      left 120px !important
+      // transform translate(-270px, -160px) !important
       z-index 10
     .component7
-      transform translate(50px, 40px)
+      top 450px !important
+      left 810px !important
+      // transform translate(50px, 40px) !important
     .component6
-      transform translate(40px, -20px)
+      top 330px !important
+      left 960px !important
+      // transform translate(40px, -20px) !important
     .component5
-      transform translate(60px, -70px)
+      top 15px !important
+      left 920px !important
+      // transform translate(60px, -70px) !important
     .component4
-      transform translate(80px, -60px)
+      top 60px !important
+      left 748px !important
+      // transform translate(80px, -60px) !important
     .component3
-      transform translate(30px, -100px)
+      top -75px !important
+      left 680px !important
+      // transform translate(30px, -100px) !important
     .component2
-      transform translate(-30px, -70px)
+      top -70px !important
+      left 430px !important
+      // transform translate(-30px, -70px) !important
     .component1
-      transform translate(-100px, -100px)
+      top -100px !important
+      left -100px !important
+      transform translate(-100px, -100px) !important
   .content-components
     position relative
     width 1100px
@@ -532,9 +586,14 @@ getVar(var)
       position absolute
       box-shadow 0px 8px 20px 0px rgba(0,0,0,.04)
       transition all .25s ease
+      animation componentAnimate 18s infinite ease
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 5px)
+      .vs-input-parent
+        width calc(100% - 50px)
+        >>>input
+          width 100% !important
       ul
         margin 0px
         padding 10px 0px
@@ -544,7 +603,7 @@ getVar(var)
           display flex
           align-items center
           justify-content flex-start
-          padding 10px 3px
+          padding 3px 3px
           cursor pointer
           transition all .25s ease
           &:hover
@@ -629,13 +688,11 @@ getVar(var)
       top 540px
       left 0px
       transition all .25s ease
-      input
-        border 0px
+      animation componentAnimate 20s infinite ease alternate
+      >>>input
         background getVar(theme-layout)
-        padding 13px 15px
-        border-radius 15px
+        padding 10px 15px
         box-shadow 0px 8px 20px 0px rgba(0,0,0,.04)
-        transition all .25s ease
         width 275px
         &:focus
           padding-left 20px
@@ -645,7 +702,7 @@ getVar(var)
       button
         position absolute
         right 0px
-        top 0px
+        top -3px
         border-radius 17px
         width 40px
         height 40px
@@ -658,10 +715,10 @@ getVar(var)
       position absolute
       top 640px
       left 100px
-
       transition all .25s ease
       border-radius 15px
       user-select none
+      animation componentAnimate 16s infinite ease reverse
       .liquid
         width 20px
         background getVar(theme-layout)
@@ -772,6 +829,7 @@ getVar(var)
       border-radius 18px
       box-shadow 0px 8px 20px 0px rgba(0,0,0,.04)
       transition all .25s ease
+      animation componentAnimate 14s infinite ease
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 5px)
@@ -789,7 +847,7 @@ getVar(var)
       transition all .25s ease
       border-radius 15px
       user-select none
-
+      animation componentAnimate 19s infinite ease-out alternate
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 5px)
@@ -864,6 +922,7 @@ getVar(var)
       z-index 100
       box-shadow 0px 15px 30px -8px rgba(0,0,0,.08)
       transition all .25s ease
+      animation componentAnimate 22s infinite ease reverse
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 7px)
@@ -956,6 +1015,7 @@ getVar(var)
       z-index 100
       box-shadow 0px 15px 30px -8px rgba(0,0,0,.08)
       transition all .25s ease
+      animation componentAnimate 15s infinite ease
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 7px)
@@ -968,8 +1028,10 @@ getVar(var)
           width 41px
           height 41px
           margin-left 10px
-        input
+        >>>.vs-input-parent
           width calc(100% - 60px)
+        >>>input
+          width 100%
           padding 12px 14px
           border 0px
           background getVar(theme-bg)
@@ -1058,11 +1120,12 @@ getVar(var)
       padding 20px
       border-radius 30px
       left 920px
+      top 350px
       user-select none
       box-shadow 0px 15px 30px -8px rgba(0,0,0,.08)
       transition all .25s ease
-      top 350px
       z-index 200
+      animation componentAnimate 18s infinite ease alternate
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 7px)
@@ -1096,10 +1159,11 @@ getVar(var)
       padding 20px
       border-radius 30px
       left 860px
+      top 85px
       user-select none
       box-shadow 0px 15px 30px -8px rgba(0,0,0,.08)
       transition all .25s ease
-      top 85px
+      animation componentAnimate 13s infinite ease reverse
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 7px)
@@ -1143,10 +1207,11 @@ getVar(var)
       background getVar(theme-layout)
       padding 10px
       border-radius 30px
-      left 668px
       user-select none
       box-shadow 0px 15px 30px -8px rgba(0,0,0,.08)
       transition all .25s ease
+      animation componentAnimate 16s infinite ease
+      left 668px
       top 120px
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
@@ -1174,6 +1239,7 @@ getVar(var)
       align-items center
       justify-content center
       transition all .25s ease
+      animation componentAnimate 21s infinite ease alternate
       .con-switch
         width 65px
         height 35px
@@ -1240,6 +1306,7 @@ getVar(var)
       background getVar(theme-layout)
       padding 35px
       transition all .25s ease
+      animation componentAnimate 19s infinite ease reverse
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 7px)
@@ -1261,6 +1328,10 @@ getVar(var)
       padding 8px 10px
       background getVar(theme-layout)
       transition all .25s ease
+      animation componentAnimate 15s infinite ease
+      position absolute
+      top 0px
+      left 0px
       .con-text
         padding 0px 20px
         position relative

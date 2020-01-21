@@ -223,7 +223,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 getVar(var)
     unquote("var(--vs-"+var+")")
 .fade-enter-active, .fade-leave-active

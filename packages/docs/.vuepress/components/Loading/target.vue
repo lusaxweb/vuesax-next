@@ -6,7 +6,7 @@
     </div>
 
     <div ref="content" class="content-div">
-      Soy el contenedor <br> del <b>loading</b>
+      I am the container <br> of the <b>loading</b>
     </div>
   </div>
 </template>

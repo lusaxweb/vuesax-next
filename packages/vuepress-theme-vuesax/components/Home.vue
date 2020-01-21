@@ -353,6 +353,14 @@ getVar(var)
     opacity 0
     visibility hidden
     display none
+  ~ .codefund
+    opacity 0
+    visibility hidden
+    display none
+  ~ .con-vuesax-ads
+    opacity 0
+    visibility hidden
+    display none
   #main-title
     font-size 2rem
     font-weight normal

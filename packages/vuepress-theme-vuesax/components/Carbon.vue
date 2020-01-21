@@ -6,24 +6,24 @@ export default {
   mounted () {
     this.load()
   },
-  watch: {
-    '$route' (to, from) {
-      if (
-        to.path !== from.path
-        &&
-        this.$el.querySelector('#carbonads')
-      ) {
-        // this.$el.classList.add('hidden-ads')
-        // setTimeout(() => {
-        //   this.$el.classList.remove('hidden-ads')
-        //   this.$el.innerHTML = ''
-        //   this.load()
-        // }, 400);
-        this.$el.innerHTML = ''
-        this.load()
-      }
-    }
-  },
+  // watch: {
+  //   '$route' (to, from) {
+  //     if (
+  //       to.path !== from.path
+  //       &&
+  //       this.$el.querySelector('#carbonads')
+  //     ) {
+  //       // this.$el.classList.add('hidden-ads')
+  //       // setTimeout(() => {
+  //       //   this.$el.classList.remove('hidden-ads')
+  //       //   this.$el.innerHTML = ''
+  //       //   this.load()
+  //       // }, 400);
+  //       this.$el.innerHTML = ''
+  //       this.load()
+  //     }
+  //   }
+  // },
   methods: {
     load () {
       const s = document.createElement('script')
@@ -81,7 +81,10 @@ getVar(var)
   .carbon-ads
     width 100% !important
     min-height auto !important
-    padding 0px 10px !important
+    padding 0px 30px !important
+    bottom 0px !important
+    z-index 1000 !important
+    border-radius 0px !important
     &:hover
       transform translate(0px) !important
       border-radius 0px !important
@@ -132,6 +135,11 @@ getVar(var)
   bottom: 0px;
   z-index: 10000;
   min-height: 170px
+}
+
+.carbon-ads.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .carbon-ads:hover {

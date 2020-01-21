@@ -113,9 +113,10 @@ export default {
 
   mounted() {
     document.addEventListener('scroll', () => {
+      const pageYOffset = window.pageYOffset
       let tables = document.querySelectorAll('.content-api table')
       tables.forEach((table, index) => {
-        if(window.pageYOffset + 52 >= table.offsetTop && window.pageYOffset + 100 < table.offsetTop + table.offsetHeight) {
+        if(Number(pageYOffset) + 52 >= table.offsetTop && pageYOffset + 100 < (table.offsetTop + table.offsetHeight)) {
           let clone = table.cloneNode(true)
           let tbodys = clone.querySelectorAll('tbody')
           tbodys.forEach((tbody) => {
@@ -545,18 +546,18 @@ getVar(var)
         a
           opacity 1
 
-@media (max-width: 1180px)
-  .content-api
-    overflow hidden
-    position relative
-  .con-api
-    overflow hidden
-    position relative
-    table
-      pre
-        width 100%
-      .bugx,.val
-        display none
+// @media (max-width: 1180px)
+//   .content-api
+//     overflow hidden
+//     position relative
+//   .con-api
+//     overflow hidden
+//     position relative
+//     table
+//       pre
+//         width 100%
+//       .bugx,.val
+//         display none
 @media (max-width: 1000px)
   .con-api
     padding 1rem 10px !important
