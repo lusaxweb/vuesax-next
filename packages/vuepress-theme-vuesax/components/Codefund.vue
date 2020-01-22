@@ -22,7 +22,11 @@ getVar(var)
   background getVar('theme-layout')
   z-index 10000
   // padding 8px
-  border-radius 30px 0px 0px 0px
+  border-radius 25px 0px 0px 0px
+  transition all .25s ease
+  &:hover
+    transform translate(-10px,-10px)
+    border-radius 20px
   &.hidden
     visibility hidden
     opacity 0

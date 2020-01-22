@@ -289,7 +289,7 @@ getVar(var)
   align-items center
   justify-content center
 .discord
-  background getColor('primary', .1)
+  // background getColor('primary', .1)
   border 0px
   padding 11px 25px
   margin 0px 10px
@@ -299,13 +299,26 @@ getVar(var)
   justify-content center
   position relative
   border-radius 14px
-  color getColor('primary', 1) !important
+  // color getColor('primary', 1) !important
   transition all .25s ease
   font-size .8rem
+  &:after
+    border-radius inherit
+    content: ''
+    position absolute
+    top 0px
+    left 0px
+    width calc(100% - 4px)
+    height calc(100% - 4px)
+    border 2px solid getVar(theme-color)
+    opacity .2
+    transition all .25s ease
+    background transparent
+    box-shadow 0px 0px 0px 0px getVar(theme-color)
   &:hover
-    background getColor('primary', .2)
+    &:after
+      opacity 1
   i
-    color getColor('primary', 1)
     font-size 1.4rem
     margin-right 3px
 .github

@@ -67,7 +67,7 @@ getVar(var)
   width 100%
   position fixed
   height 40px
-  background getVar(theme-color)
+  background getVar(theme-bg2)
   z-index 10000
   display flex
   align-items center
@@ -91,8 +91,8 @@ getVar(var)
       display flex
       align-items center
       justify-content center
-      color getVar(theme-layout)
-      background rgba(0,0,0,.1)
+      color getVar(theme-color)
+      background rgba(0,0,0,.05)
       margin-right 20px
       transition all .25s ease
     .text-n
@@ -100,7 +100,7 @@ getVar(var)
         margin 0px
         padding 0px
         font-size .7rem
-        color getVar(theme-layout)
+        color getVar(theme-color)
         font-weight normal
         b
           text-decoration underline
@@ -109,7 +109,7 @@ getVar(var)
         margin 0px
         padding 0px
         font-size .55rem
-        color getVar(theme-layout)
+        color getVar(theme-color)
   .con-btn-n
     display flex
     align-items center
@@ -120,9 +120,9 @@ getVar(var)
       border-radius 20px
       border 0px
       background transparent
-      color getVar(theme-layout)
+      color getVar(theme-color)
       font-size .65rem
-      background rgba(0,0,0,.1)
+      background rgba(0,0,0,.05)
       transition all .25s ease
       margin-right 10px
       &.btn-x

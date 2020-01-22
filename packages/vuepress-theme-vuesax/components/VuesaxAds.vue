@@ -47,6 +47,10 @@ getVar(var)
   z-index 100000
   padding 8px
   padding-bottom 8px
+  transition all .25s ease
+  &:hover
+    transform translate(-10px,-10px)
+    border-radius 20px
   img
     width 100%
     border-radius 15px

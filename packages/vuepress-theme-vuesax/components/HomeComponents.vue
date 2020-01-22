@@ -502,75 +502,6 @@ getVar(var)
   transform scale(.8)
   z-index 100
   // overflow hidden
-  &.btn-hover
-    &.vuesax-hover
-      .vuesax-logo
-        transform scale(1)
-        opacity 1
-
-    &.discord-hover
-      .discord-logo
-        transform scale(1)
-        opacity 1
-    &.github-hover
-      .github-logo
-        transform scale(1)
-        opacity 1
-    .component13
-      top 160px !important
-      left -150px !important
-      // transform translate(-150px, -20px) !important
-      z-index 20
-      // animation: none !important
-    .component12
-      top 560px !important
-      left -90px !important
-      // transform translate(-90px, 20px) !important
-    .component11
-      top 710px !important
-      left 10px !important
-      // transform translate(-90px, 70px) !important
-    .component10
-      top 650px !important
-      left 320px !important
-      // transform translate(-40px, 50px) !important
-    .component9
-      top 660px !important
-      left 490px !important
-      // transform translate(0px, 80px) !important
-    .component8
-      top 20px !important
-      left 120px !important
-      // transform translate(-270px, -160px) !important
-      z-index 10
-    .component7
-      top 450px !important
-      left 810px !important
-      // transform translate(50px, 40px) !important
-    .component6
-      top 330px !important
-      left 960px !important
-      // transform translate(40px, -20px) !important
-    .component5
-      top 15px !important
-      left 920px !important
-      // transform translate(60px, -70px) !important
-    .component4
-      top 60px !important
-      left 748px !important
-      // transform translate(80px, -60px) !important
-    .component3
-      top -75px !important
-      left 680px !important
-      // transform translate(30px, -100px) !important
-    .component2
-      top -70px !important
-      left 430px !important
-      // transform translate(-30px, -70px) !important
-    .component1
-      top -100px !important
-      left -100px !important
-      transform translate(-100px, -100px) !important
   .content-components
     position relative
     width 1100px
@@ -1391,17 +1322,103 @@ getVar(var)
           z-index 120
           user-select none
 
-@media (max-width: 1150px)
+@media (min-width: 1150px)
   .con-components
+    width 60%
+    position absolute
+    right 0px
+    height 80vh
+    // background getVar(theme-bg)
+    // background-color: #FFFFFF;
+    // background-image: linear-gradient(180deg, getVar(theme-layout) 0%, getVar(theme-bg2) 30%, getVar(theme-bg2) 80%, getVar(theme-layout) 100%);
+
+    display flex
+    align-items center
+    justify-content center
+    transform scale(.8)
+    z-index 100
+    // overflow hidden
+    &.btn-hover
+      &.vuesax-hover
+        .vuesax-logo
+          transform scale(1)
+          opacity 1
+
+      &.discord-hover
+        .discord-logo
+          transform scale(1)
+          opacity 1
+      &.github-hover
+        .github-logo
+          transform scale(1)
+          opacity 1
+      .component13
+        top 160px !important
+        left -150px !important
+        // transform translate(-150px, -20px) !important
+        z-index 20
+        // animation: none !important
+      .component12
+        top 560px !important
+        left -90px !important
+        // transform translate(-90px, 20px) !important
+      .component11
+        top 710px !important
+        left 10px !important
+        // transform translate(-90px, 70px) !important
+      .component10
+        top 650px !important
+        left 320px !important
+        // transform translate(-40px, 50px) !important
+      .component9
+        top 660px !important
+        left 490px !important
+        // transform translate(0px, 80px) !important
+      .component8
+        top 20px !important
+        left 120px !important
+        // transform translate(-270px, -160px) !important
+        z-index 10
+      .component7
+        top 450px !important
+        left 810px !important
+        // transform translate(50px, 40px) !important
+      .component6
+        top 330px !important
+        left 960px !important
+        // transform translate(40px, -20px) !important
+      .component5
+        top 15px !important
+        left 920px !important
+        // transform translate(60px, -70px) !important
+      .component4
+        top 60px !important
+        left 748px !important
+        // transform translate(80px, -60px) !important
+      .component3
+        top -75px !important
+        left 680px !important
+        // transform translate(30px, -100px) !important
+      .component2
+        top -70px !important
+        left 430px !important
+        // transform translate(-30px, -70px) !important
+      .component1
+        top -100px !important
+        left -100px !important
+        transform translate(-100px, -100px) !important
+
+@media (max-width: 1150px)
+  .content-components
     transform scale(.7)
 @media (max-width: 960px)
-  .con-components
+  .content-components
     transform scale(.6)
     left -7%
     right auto
     bottom 0px
     width 100%
 @media (max-width: 550px)
-  .con-components
+  .content-components
     display none
 </style>
