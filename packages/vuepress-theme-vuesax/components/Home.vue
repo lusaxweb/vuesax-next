@@ -94,6 +94,7 @@
     <Illustration1 :data="data.features[0]" />
     <Illustration2 :data="data.features[1]" />
 
+    <Uses />
     <Illustration3 :data="data.features[2]" />
     <Illustration4 :data="data.features[3]" />
 
@@ -141,9 +142,10 @@ import components from './HomeComponents.vue'
 import PremiumThemes from './premiumThemes.vue'
 import Patrons from './HomePatrons.vue'
 import twitter from './HomeTwiter.vue'
+import Uses from './HomeUses.vue'
 
 export default {
-  components: { NavLink, Footer, HomeInit, Illustration1, Illustration2, Illustration3, Illustration4, Patrons, PremiumThemes, components, twitter },
+  components: { NavLink, Footer, HomeInit, Illustration1, Illustration2, Illustration3, Illustration4, Patrons, PremiumThemes, components, twitter, Uses },
   data:() => ({
     star: 0,
     github: false,
