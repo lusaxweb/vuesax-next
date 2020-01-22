@@ -1,9 +1,6 @@
-# vuesax-next
+# vuesax-next (v4.x)
 
   <img width="100%" src="https://raw.githubusercontent.com/lusaxweb/vuesax-next/master/public/vuesax.gif" alt="vuesax" />
-
-Vuesax v4
-
 
 ## Status: Alpha
 
@@ -27,6 +24,7 @@ Vuesax 4 is created with totally different technologies than v3 some of the most
 - Pre css processor: **Sass**
 - Use of Webpack and babel to compile the components
 - Vuepress v1.1.0
+- Typescript
 
 We would love our users to test with Vuesax v4 to find bugs so we can fix them on the fly
 
