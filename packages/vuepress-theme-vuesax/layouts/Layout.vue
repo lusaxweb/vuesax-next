@@ -165,24 +165,24 @@ export default {
       ) {
         this.$refs.carbon.$el.innerHTML = ''
         this.$refs.codefund.$el.innerHTML = ''
-        if (this.$route.path !== '/') {
-          if (!this.noAdvertiser) {
-            this.loadCodeFund()
+        // if (this.$route.path !== '/') {
+        if (!this.noAdvertiser) {
+          this.loadCodeFund()
+        } else {
+          this.$refs.codefund.$el.innerHTML = ''
+          window.removeEventListener('codefund', this.handlerCodefound);
+          const number = Math.round(Math.random() * (4) + 1)
+          if (number == 1) {
+            this.ads = 'vuesax'
+            this.$refs.carbon.$el.innerHTML = ''
+            this.$refs.carbon.$el.classList.add('hidden')
           } else {
-            this.$refs.codefund.$el.innerHTML = ''
-            window.removeEventListener('codefund', this.handlerCodefound);
-            const number = Math.round(Math.random() * (4) + 1)
-            if (number == 1) {
-              this.ads = 'vuesax'
-              this.$refs.carbon.$el.innerHTML = ''
-              this.$refs.carbon.$el.classList.add('hidden')
-            } else {
-              this.ads = 'carbon'
-              this.$refs.carbon.load()
-              this.$refs.carbon.$el.classList.remove('hidden')
-            }
+            this.ads = 'carbon'
+            this.$refs.carbon.load()
+            this.$refs.carbon.$el.classList.remove('hidden')
           }
         }
+        // }
       }
     }
   },
@@ -191,9 +191,9 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
-    if (this.$route.path !== '/') {
-      this.loadCodeFund()
-    }
+    // if (this.$route.path !== '/') {
+    this.loadCodeFund()
+    // }
   },
 
   methods: {

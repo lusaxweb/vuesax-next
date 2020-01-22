@@ -24,6 +24,8 @@ getVar(var)
   // padding 8px
   border-radius 25px 0px 0px 0px
   transition all .25s ease
+  &:empty
+    display none
   &:hover
     transform translate(-10px,-10px)
     border-radius 20px

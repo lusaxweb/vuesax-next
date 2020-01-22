@@ -779,6 +779,7 @@ getVar(var)
       border-radius 15px
       user-select none
       animation componentAnimate 19s infinite ease-out alternate
+      min-width 200px
       &:hover
         box-shadow 0px 0px 0px 0px rgba(0,0,0,.1)
         transform translate(0, 5px)
@@ -1412,13 +1413,27 @@ getVar(var)
   .content-components
     transform scale(.7)
 @media (max-width: 960px)
-  .content-components
-    transform scale(.6)
-    left -7%
-    right auto
-    bottom 0px
+  .con-components
     width 100%
-@media (max-width: 550px)
-  .content-components
-    display none
+    .content-components
+      transform scale(.7)
+      left -7%
+      right auto
+      bottom 0px
+      width 100% !important
+      margin-top 250px
+@media (max-width: 960px)
+  .con-components
+    .content-components
+      left -12%
+@media (max-width: 760px)
+  .con-components
+    .content-components
+      left -18%
+@media (max-width: 470px)
+  .con-components
+    .content-components
+      margin-top 280px
+      transform scale(.6)
+      left -25%
 </style>

@@ -364,18 +364,18 @@ getVar(var)
   overflow hidden
   ~ .config
     left 0px
-  ~ .carbon-ads
-    opacity 0
-    visibility hidden
-    display none
-  ~ .codefund
-    opacity 0
-    visibility hidden
-    display none
-  ~ .con-vuesax-ads
-    opacity 0
-    visibility hidden
-    display none
+  // ~ .carbon-ads
+  //   opacity 0
+  //   visibility hidden
+  //   display none
+  // ~ .codefund
+  //   opacity 0
+  //   visibility hidden
+  //   display none
+  // ~ .con-vuesax-ads
+  //   opacity 0
+  //   visibility hidden
+  //   display none
   #main-title
     font-size 2rem
     font-weight normal
@@ -553,21 +553,28 @@ getVar(var)
       position relative
       justify-content flex-start
       padding 40px 20px
+      flex-direction column
       .con-text
         width 90%
         z-index 300
       .con-ilus
-        position absolute
+        position relative
         width 100%
-        top 40px
-        right -40%
         max-width none
-        opacity 0
+        opacity 1
+        order: -1
+        top 0px
+        padding 10px !important
 @media (max-width: 550px)
+  .init
+    height 1000px
+    min-height auto
   .home
     .hero
-      align-items center
-      z-index 500
+      // align-items center
+      // z-index 500
+      .points-init
+        z-index -1
       .description
         text-align center
 @media (max-width: 500px)
@@ -584,6 +591,7 @@ getVar(var)
     .hero
       padding 10px
       .content-hero
+        z-index 1000
         padding-right 15px !important
         #main-title
           font-size 1.8rem !important
