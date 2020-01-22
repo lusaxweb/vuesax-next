@@ -483,6 +483,18 @@ getVar(var)
         svg
           height auto
           width 100%
+@media (max-width: 1150px)
+  .home
+    .hero
+      width 60%
+      justify-content flex-start
+      .content-hero
+        padding 20px
+        padding-right 30px
+        .description
+          font-size .95rem
+        #main-title
+          font-size 2rem !important
 @media (max-width: 1000px)
   .home
     .content-i
@@ -494,6 +506,18 @@ getVar(var)
         .btn-action
           padding 7px 15px
           font-size .9rem
+@media (max-width: 960px)
+  .home
+    .hero
+      width 100%
+      align-items flex-start
+      .content-hero
+        width 100%
+        align-items center
+        padding-top 0px
+        #main-title
+          margin-top 0px
+          text-align center
 @media (max-width: 800px)
   .home
     .content-i
@@ -513,6 +537,7 @@ getVar(var)
     .content-i
       position relative
       justify-content flex-start
+      padding 40px 20px
       .con-text
         width 90%
         z-index 300
@@ -522,7 +547,14 @@ getVar(var)
         top 40px
         right -40%
         max-width none
-        opacity .4
+        opacity 0
+@media (max-width: 550px)
+  .home
+    .hero
+      align-items center
+      z-index 500
+      .description
+        text-align center
 @media (max-width: 500px)
   .home
     .content-i
@@ -532,4 +564,21 @@ getVar(var)
           font-size 1.2rem
         p
           font-size .8rem
+@media (max-width: 470px)
+  .home
+    .hero
+      padding 10px
+      .content-hero
+        padding-right 15px !important
+        #main-title
+          font-size 1.8rem !important
+  .con-btns
+    flex-wrap wrap
+    width 100%
+    a
+      width calc(50% - 20px)
+      margin 10px
+      text-align center
+      &:first-child
+        width calc(100% - 30px)
 </style>

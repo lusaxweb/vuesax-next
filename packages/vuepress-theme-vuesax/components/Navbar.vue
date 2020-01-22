@@ -401,8 +401,11 @@ getVar(var)
   justify-content center
   border-radius 0px 0px 30px 0px
   transition all .25s ease
+  &.transparent
+    background transparent
   &.fixed
     border-radius 0px
+    background getVar(theme-layout)
     // backdrop-filter blur(20px)
     // background rgba(255,255,255,0.6) !important
   a, span, img

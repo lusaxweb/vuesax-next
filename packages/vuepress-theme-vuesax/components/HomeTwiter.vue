@@ -365,5 +365,22 @@ getVar(var)
           opacity .35
           filter blur(12px)
 
-
+@media (max-width: 600px)
+  .con-twits
+    margin-top 50px
+    margin-bottom 0px
+    ul
+      padding 50px 20px
+      padding-top 100px
+    header
+      h2
+        padding 10px
+    .con-projects-ul
+      overflow auto
+      width 100%
+      li
+        position relative
+        min-width 320px
+      &::-webkit-scrollbar
+        height 0px
 </style>

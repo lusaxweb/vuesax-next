@@ -12,6 +12,7 @@
       <Navbar
         v-if="shouldShowNavbar"
         @toggle-sidebar="toggleSidebar"
+        :class="{'transparent': $page.frontmatter.branding}"
       />
     </ClientOnly>
 
@@ -27,6 +28,8 @@
     <Pass-layout :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.passLayout"/>
 
     <license :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.license"/>
+
+    <Branding :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.branding"/>
 
     <Page
       v-else
@@ -79,8 +82,23 @@ import License from '../components/License.vue'
 import HeaderNotification from '../components/HeaderNotification.vue'
 import Codefund from '../components/Codefund.vue'
 import VuesaxAds from '../components/VuesaxAds.vue'
+import Branding from '../components/Branding.vue'
 export default {
-  components: { Home, Page, Sidebar, Navbar, Carbon, DocsHome, Config, PassLayout, HeaderNotification, License, Codefund, VuesaxAds },
+  components: {
+    Home,
+    Page,
+    Sidebar,
+    Navbar,
+    Carbon,
+    DocsHome,
+    Config,
+    PassLayout,
+    HeaderNotification,
+    License,
+    Codefund,
+    VuesaxAds,
+    Branding
+  },
 
   data () {
     return {

@@ -117,15 +117,23 @@ getVar(var)
         opacity 1
         transform translate(0,-10px)
 
+@media (max-width: 1050px)
+  .con-themes
+    padding 40px 20px
+    a
+      padding-left 0px
+    header
+      padding-left 30px
 
 @media (max-width: 850px)
   .con-themes
     padding 40px 20px
     header
       padding-right 20px
-@media (max-width: 705px)
+@media (max-width: 800px)
   .con-themes
     flex-wrap wrap
+    margin-bottom 80px
     header
       padding-bottom 0px
 </style>

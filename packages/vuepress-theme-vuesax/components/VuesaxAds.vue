@@ -32,13 +32,17 @@ export default {
 }
 </script>
 <style lang="stylus">
+getColor(colorx, alpha = 1)
+    unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
+getVar(var)
+    unquote("var(--vs-"+var+")")
 .con-vuesax-ads
   position fixed
   bottom 0px
   right 0px
   width 145px
   height auto
-  background #fff
+  background getVar('theme-layout')
   border-radius 30px 0px 0px 0px
   z-index 100000
   padding 8px

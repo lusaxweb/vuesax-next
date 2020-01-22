@@ -7,64 +7,33 @@
       </div>
 
       <div class="con-text-header">
-        <h1>
-          <b>Vuesax</b> License
-        </h1>
+        <h1 v-html="data.header.title" />
 
-        <p>
-          Revisa las licencias para poder usar <b>vuesax</b> en tus proyectos
-        </p>
+        <p v-html="data.header.text" />
 
         <footer>
-          <button class="see">
-            See more
+          <button @click="handleRoute('#plans')" class="see">
+            {{ data.header.button }}
           </button>
-          <button class="faq">
+          <button @click="handleRoute('#faq')" class="faq">
             FAQ
           </button>
         </footer>
       </div>
     </header>
 
-    <div class="con-plans">
-      <h2>
-        <b>Vuesax</b> Framework Licenses
-      </h2>
+    <div id="plans" class="con-plans">
+      <h2 v-html="data.cards.title" />
 
       <div class="con-cards">
-        <div class="card">
-          <h3>
-            Open Source
-          </h3>
-
-          <p>
-            Vuesax v4 es Open Source y tiene la licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3 license</a>, puedes usar vuesax en tus proyectos open source que tengan la misma licencia GPLv3
-          </p>
-
-          <button>
-            Get Started
-          </button>
-        </div>
-        <div class="card">
-          <h3>
-            Project Personal or Comercial
-          </h3>
-          <p>
-            Si quieres usar vuesax en proyectos personales o comerciales que no sean (Saas / OEM) puedes hacerlo sin ningun problema, Si dirige un negocio y está utilizando Vuesax en un proyecto o pagina que genera ingresos, tiene sentido comercial <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">Patrocinar el desarrollo de Vuesax</a>
-          </p>
-          <button>
-            Get Started
-          </button>
-        </div>
-        <div class="card">
-          <h3>
-            SaaS / OEM
-          </h3>
-          <p>
-            Si desea incluir Vuesax en productos descargables o instalables como temas de Wordpress, plantillas HTML, como parte de un creador de interfaz comercial, SDK o kit de herramientas, elija la licencia OEM comercial. Las licencias OEM comerciales se personalizan para cada cliente.
-          </p>
-          <button>
-            Contact us
+        <div
+          v-for="(card, index) in data.cards.items"
+          :key="index"
+          class="card">
+          <h3 v-html="card.title" />
+          <p v-html="card.text" />
+          <button @click="card.contact ? openContact() : $router.push('/docs/guide/gettingStarted')">
+            {{ card.button }}
           </button>
         </div>
       </div>
@@ -72,7 +41,7 @@
 
     <div class="table-plans">
       <h2>
-        Compare Licenses
+        {{ data.table.title }}
       </h2>
 
       <div class="con-tabla">
@@ -80,144 +49,47 @@
           <thead>
             <tr>
               <th>
-                Tipo de licencia
+                {{ data.table.thead[0] }}
               </th>
               <th>
-                Open Source
+                {{ data.table.thead[1] }}
               </th>
               <th>
-                Proyecto Comercial
+                {{ data.table.thead[2] }}
               </th>
               <th>
-                Sass / OEM
+                {{ data.table.thead[3] }}
               </th>
             </tr>
           </thead>
           <tbody>
-              <tr>
+              <tr
+                v-for="(tr, index) in data.table.tbody"
+                :key="index"
+              >
                 <td>
-                  Todos los Componentes
+                  {{ tr[0] }}
                 </td>
-                <td>
-                  <i class='bx bx-check'></i>
+                <td :class="{'none': !tr[1] && typeof tr[1] !== 'string'}">
+                  <i v-if="tr[1] && typeof tr[1] !== 'string'" class='bx bx-check'></i>
+                  <i v-else-if="!tr[1] && typeof tr[1] !== 'string'" class='bx bx-x' ></i>
+                  <span v-else>
+                    {{ tr[1] }}
+                  </span>
                 </td>
-                <td>
-                  <i class='bx bx-check'></i>
+                <td :class="{'none': !tr[2] && typeof tr[2] !== 'string'}">
+                  <i v-if="tr[2] && typeof tr[2] !== 'string'" class='bx bx-check'></i>
+                  <i v-else-if="!tr[2] && typeof tr[2] !== 'string'" class='bx bx-x' ></i>
+                  <span v-else>
+                    {{ tr[2] }}
+                  </span>
                 </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Todas las funciones
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Soporte Discord
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Uso de la documentación
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Usar el nombre Vuesax
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Número de servidores y sitios.
-                </td>
-                <td>
-                  Ilimitado
-                </td>
-                <td class="none">
-                  Ilimitado
-                </td>
-                <td class="none">
-                  Ilimitado
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Soporte premium
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software descargable
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td class="none">
-                  Contact us
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Derechos de distribución (SaaS / OEM)
-                </td>
-                <td>
-                  <i class='bx bx-check'></i>
-                </td>
-                <td class="none">
-                  <i class='bx bx-x' ></i>
-                </td>
-                <td>
-                  Contact us
+                <td :class="{'none': !tr[3] && typeof tr[3] !== 'string'}">
+                  <i v-if="tr[3] && typeof tr[3] !== 'string'" class='bx bx-check'></i>
+                  <i v-else-if="!tr[3] && typeof tr[3] !== 'string'" class='bx bx-x' ></i>
+                  <span @click="openContact" v-else>
+                    {{ tr[3] }}
+                  </span>
                 </td>
               </tr>
           </tbody>
@@ -226,117 +98,19 @@
       </div>
     </div>
 
-    <div class="con-faq">
+    <div id="faq" class="con-faq">
       <h2>
         Got Questions? Check the FAQs
       </h2>
       <ul>
-        <li>
+        <li
+          v-for="(li, index) in data.faqs"
+          :key="index"
+          >
           <h4>
-            Porque Cambio la licencia a GPLv3 license
+            {{ li.title }}
           </h4>
-          <p>
-            Vuesax es un proyecto open source y tenia la licencia inicialmente MIT por motivos a un inconveniente con una empresa que uso nuestro nombre y componentes para ganar dinero a nuestra costa decidimos cambiar la licencia y los términos al usar vuesax para ese tipo de proyectos
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Tengo un proyecto con vuesax v3
-          </h4>
-          <p>
-            No hay problema vuesax v3 tiene la licencia MIT y puede usarme en cualquier proyecto, si quieres usar vuesax v4 o superior si apical las nuevas licencias
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Tengo que pagar para usar vuesax
-          </h4>
-          <p>
-            No, Vuesax puede usarse para todo tipo de proyecto 100% gratis, excepto para los proyectos (SaaS, OEM) que tendría que contactarnos para poder usar vuesax
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Necesito soporte premium
-          </h4>
-          <p>
-            No damos soporte premium a menos que patrocines a vuesax o contactes con nosotros para un acuerdo de soporte
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Actualizaciones
-          </h4>
-          <p>
-            Puedes tener acceso a todas las actualizaciones de Vuesax, con excepción de los proyectos (SaaS, OEM) que tendría que contactarnos para poder usar vuesax y sus actualizaciones futuras
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Puedo usar los documentos de Vuesax
-          </h4>
-          <p>
-            Si tu proyecto es open source puedes usar los documentos sin problema, contacta con nosotros para usar los documentos en proyectos comerciales o (SaaS, OEM)
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Mi proyecto no es (SaaS, OEM)
-          </h4>
-          <p>
-            Puedes usar vuesax en su totalidad sin problema y con toda confianza
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Como puedo contactarme con vuesax
-          </h4>
-          <p>
-            Puedes contactarnos por correo a <b>luisdanielrovira8@gmail.com</b> o por nuestra pagina web <a target="_blank" href="https://lusaxweb.net/">Lusaxweb</a>
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Puedo usar el nombre Vuesax
-          </h4>
-          <p>
-            No, el nombre vuesax esta reservado para nosotros y nuestros proyectos futuros
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Como patrocino a Vuesax
-          </h4>
-          <p>
-            Puedes patrocinar vuesax por medio de ya sea <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras">Patreon</a>, <a href="https://opencollective.com/vuesax">Opencollective</a> o visita nuestra pagina de patrocinio para ver otras opciones como <b>Paypal</b> o <b>Btc</b> para patrocinio no recurrente
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Quiero hacer un proyecto con los creadores de Vuesax
-          </h4>
-          <p>
-            Vuesax esta creado por los hermanos <a target="_blank" href="https://github.com/luisDanielRoviraContreras">luis daniel rovira contreras</a> y <a target="_blank" href="https://dribbble.com/ManuelRovira">Manuel Rovira Contreras</a> co-fundadores de <a target="_blank" href="https://lusaxweb.net/">Lusaxweb</a> contacta con nosotros si necesitas hacer un proyecto personalizado
-          </p>
-        </li>
-
-        <li>
-          <h4>
-            Puedo usar el codigo fuente de Vuesax
-          </h4>
-          <p>
-            Si tu proyecto es open source y va a tener la misma licencia de vuesax puedes hacerlo pero si es un proyecto comercial o (SaaS / OEM) no puedes usar el código fuente de Vuesax
-          </p>
+          <p v-html="li.text" />
         </li>
       </ul>
     </div>
@@ -349,6 +123,22 @@ import Footer from './Footer.vue'
 export default {
   components: {
     Footer
+  },
+  computed: {
+    data () {
+      return this.$page.frontmatter
+    },
+  },
+  methods: {
+    handleRoute(hash) {
+      this.$router.replace('').catch(err => {})
+      this.$nextTick(() => {
+        this.$router.replace(hash).catch(err => {})
+      })
+    },
+    openContact() {
+      window.open('mailto:luisdanielrovira8@gmail.com', '_self')
+    }
   }
 }
 </script>
@@ -372,6 +162,7 @@ getVar(var)
   justify-content center
   min-height 100vh
   flex-direction column
+  padding-top 70px
   h2
     text-align center
     width 100%
@@ -383,6 +174,7 @@ getVar(var)
     justify-content flex-start
     max-width 1000px
     flex-wrap wrap
+    padding 0px
     li
       width calc(50% - 40px)
       margin 10px 20px
@@ -415,8 +207,11 @@ getVar(var)
   display flex
   align-items center
   justify-content center
-  min-height 100vh
+  min-height auto
   flex-direction column
+  margin 0px 20px
+  margin-top 100px
+  margin-bottom 100px
   h2
     border 0px
     text-align left
@@ -447,7 +242,13 @@ getVar(var)
         text-align center
         padding 12px 10px
         font-size .8rem
-
+        &:last-child
+          span
+            color getColor('primary')
+            text-decoration underline
+            cursor pointer
+            &:hover
+              opacity .6
         &:first-child
           font-size .9rem
           text-align left
@@ -474,7 +275,7 @@ getVar(var)
     display flex
     align-items center
     justify-content center
-    min-height 100vh
+    min-height 50vh
     padding-top 100px
     .con-img-header
       width 50%
@@ -499,11 +300,23 @@ getVar(var)
           &.see
             background getColor('primary')
             color #fff
+            transition all .25s ease
+            box-shadow 0px 0px 0px 0px getColor('primary',.3)
+            transform translate(0px)
+            &:hover
+              transform translate(0,-4px)
+              box-shadow 0px 8px 20px 0px getColor('primary',.3)
           &.faq
             background getColor('primary', .1)
             color getColor('primary')
             font-weight bold
             box-sizing border-box
+            transition all .25s ease
+            box-shadow 0px 0px 0px 0px getColor('primary',.2)
+            transform translate(0px)
+            &:hover
+              transform translate(0,-4px)
+              box-shadow 0px 8px 15px 0px getColor('primary',.2)
       h1
         font-weight normal
       p
@@ -520,7 +333,9 @@ getVar(var)
   align-items center
   justify-content center
   flex-direction column
-  min-height 100vh
+  margin 40px 0px
+  margin-top 0px
+  padding-top 60px
   h2
     border 0px
     padding 20px
@@ -580,4 +395,70 @@ getVar(var)
           color #fff
           background getColor('primary')
 
+@media (max-width: 800px)
+  .con-license
+    header
+      .con-text-header
+        h1
+          font-size 1.6rem
+        footer
+          margin-top 15px
+      .con-img-header
+        padding 20px
+  .con-plans
+    flex-wrap: wrap
+    .con-cards
+      width 100%
+      flex-wrap wrap
+      .card
+        width calc(50% - 40px)
+        margin 20px
+  .table-plans
+    table
+      tr
+        td
+          font-size .75rem !important
+          padding-left 0px
+          padding-right 0px
+        th
+          padding-left 0px
+          padding-right 0px
+          font-size .75rem
+@media (max-width: 700px)
+  .con-plans
+    .con-cards
+      .card
+        width 100%
+        max-width none
+        min-height auto
+@media (max-width: 600px)
+  .con-license
+    header
+      .con-img-header
+        position absolute
+        z-index 100
+        width 100%
+        opacity .35
+      .con-text-header
+        z-index 200
+  .con-faq
+    ul
+      li
+        width 100%
+
+@media (max-width: 560px)
+  .table-plans
+    margin 100px 8px
+    .con-tabla
+      padding 10px
+    table
+      tr
+        td
+          font-size .75rem !important
+          padding-left 0px
+          padding-right 0px
+        th
+          padding-left 0px
+          padding-right 0px
+          font-size .75rem
 </style>

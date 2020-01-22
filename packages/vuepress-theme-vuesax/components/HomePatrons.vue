@@ -61,7 +61,9 @@ getVar(var)
   align-items center
   justify-content center
   padding 20px 20px
+  z-index 1000
   flex-direction column
+  position relative
   button
     padding 14px 25px
     border 0px

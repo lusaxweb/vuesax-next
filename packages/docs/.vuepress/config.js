@@ -22,11 +22,11 @@ module.exports = ctx => ({
     // ['script', {
     //   src: 'https://cdn.paddle.com/paddle/paddle.js'
     // }],
-    ['script', {
-      'data-ad-client': 'ca-pub-4283907298344887',
-      sync: true,
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    }]
+    // ['script', {
+    //   'data-ad-client': 'ca-pub-4283907298344887',
+    //   sync: true,
+    //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    // }]
   ],
   themeConfig: {
 
@@ -128,6 +128,12 @@ function getNavbar (lang = '/') {
               { text: `Codepen Template`, link: `https://codepen.io/lusaxweb/pen/mxMKYr` }
             ]
           }
+        ]
+      },
+      {
+        text: '...',
+        items: [
+          { text: `Banding`, link: `/branding/` },
         ]
       }
     ]

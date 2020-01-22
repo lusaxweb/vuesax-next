@@ -1315,9 +1315,6 @@ getVar(var)
         height 100%
 
 
-
-
-
     .component1
       border-radius 35px
       width 400px
@@ -1394,4 +1391,17 @@ getVar(var)
           z-index 120
           user-select none
 
+@media (max-width: 1150px)
+  .con-components
+    transform scale(.7)
+@media (max-width: 960px)
+  .con-components
+    transform scale(.6)
+    left -7%
+    right auto
+    bottom 0px
+    width 100%
+@media (max-width: 550px)
+  .con-components
+    display none
 </style>
