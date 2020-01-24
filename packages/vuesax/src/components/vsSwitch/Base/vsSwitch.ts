@@ -1,12 +1,9 @@
 import { VNode } from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
-import VsIconsCheck from '../../../icons/check'
 import VsComponent from '../../../mixins/component'
 
 @Component
-export default class VsCheckbox extends VsComponent {
-  // tslint:disable-next-line:variable-name
-  _uid: any
+export default class VsSwitch extends VsComponent {
 
   @Prop({ default: '' }) value: any
 
@@ -14,21 +11,13 @@ export default class VsCheckbox extends VsComponent {
 
   @Prop({ default: '' }) notValue!: any
 
-  @Prop({ type: Boolean, default: false }) indeterminate!: boolean
-
-  @Prop({ type: Boolean, default: false }) lineThrough!: boolean
-
-  @Prop({ type: Boolean, default: false }) checked!: boolean
-
   @Prop({ type: Boolean, default: false }) loading!: boolean
 
-  @Prop({ type: Boolean, default: false }) labelBefore!: boolean
+  @Prop({ type: Boolean, default: false }) square!: boolean
 
-  mounted() {
-    if (this.checked && typeof this.value == 'boolean') {
-      this.$emit('input', true)
-    }
-  }
+  @Prop({ type: Boolean, default: false }) indeterminate!: boolean
+
+  @Prop({ type: Boolean, default: false }) icon!: boolean
 
   get isChecked() {
     let isChecked = false
@@ -63,12 +52,30 @@ export default class VsCheckbox extends VsComponent {
   }
 
   public render(h: any): VNode {
-    const InputCheckbox = h('input', {
-      staticClass: 'vs-checkbox',
+    const circle = h('div', {
+      class: ['vs-switch__circle'],
+    }, [
+      this.$slots.circle
+    ])
+
+    const textOn = h('div', {
+      ref: 'on',
+      class: ['vs-switch__text', 'on'],
+    }, [ this.$slots.on || this.$slots.default ])
+
+    const textOff = h('div', {
+      ref: 'off',
+      class: ['vs-switch__text', 'off'],
+    }, [ this.$slots.off || this.$slots.default ])
+
+    const background = h('div', {
+      class: ['vs-switch__background'],
+    })
+
+    const input = h('input', {
       attrs: {
         ...this.$attrs,
         type: 'checkbox',
-        id: this._uid
       },
       domProps: {
         checked: this.isChecked
@@ -111,54 +118,28 @@ export default class VsCheckbox extends VsComponent {
           }
           this.$emit('change', evt)
         }
-      }
+      },
+      class: ['vs-switch__input'],
     })
 
-    const checkbox = h('div', {
-      staticClass: 'vs-checkbox-mask',
-    }, [
-      !this.$slots.icon && h(VsIconsCheck, {
-        props: {
-          indeterminate: this.indeterminate
-        }
-      }),
-      this.$slots.icon
-    ])
-
-    const label = h('label', {
-      staticClass: 'vs-checkbox-label',
-      class: [
-        {
-          lineThrough: this.lineThrough
-        }
-      ],
-      attrs: {
-        for: this._uid
-      }
-    }, [
-      this.$slots.default
-    ])
-
-    const conCheckbox = h('div', {
-      staticClass: 'vs-checkbox-con'
-    }, [
-      InputCheckbox,
-      checkbox
-    ])
-
     return h('div', {
-      staticClass: 'vs-checkbox-content',
-      class: [
-        { 'vs-checkbox--checked': this.isChecked },
-        { 'vs-checkbox--disabled': this.$attrs.hasOwnProperty('disabled') },
-        { 'vs-checkbox--loading': this.loading },
-        { 'vs-checkbox--label-before': this.labelBefore },
-      ]
-    },
-     [
-      conCheckbox,
-      label
-     ]
-    )
+      staticClass: 'vs-switch',
+      attrs: {
+        type: 'checkbox',
+      },
+      class: {
+        'vs-switch--loading': this.loading,
+        'vs-switch--square': this.square,
+        'vs-switch--indeterminate': this.indeterminate,
+        'vs-switch--icon': this.icon,
+      },
+    }, [
+      input,
+      circle,
+      textOn,
+      textOff,
+      // !this.active && textOff,
+      background
+    ])
   }
 }

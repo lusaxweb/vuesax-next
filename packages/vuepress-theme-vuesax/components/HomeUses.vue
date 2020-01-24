@@ -2,7 +2,7 @@
   <div class="con-twits">
     <header>
       <h2>
-        Estas son algunas de las <b>librerías</b>, <b>lenguajes</b> y <b>tecnologías</b> <br> que usamos para crear este hermoso <b>framework</b>
+        These are some of the <b>libraries</b>, <b>languages ​</b> and <b>technologies</b> <br>that we use to create this beautiful <b>framework</b>
       </h2>
     </header>
 

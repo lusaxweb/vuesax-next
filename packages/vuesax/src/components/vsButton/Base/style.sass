@@ -200,6 +200,8 @@
 .vs-button--flat
   background: vs-color(color, .15)
   color: vs-color(color, 1)
+  &.vs-button--dark
+    color: vs-color(text, 1)
   &:hover
     background: vs-color(color, .25)
   &:focus
@@ -273,7 +275,7 @@
 
   &:hover
     transform: translate(0, -3px)
-    box-shadow: 0px 10px 20px -10px rgba(0,0,0,.35)
+    box-shadow: 0px 10px 20px -10px vs-color('color', .7)
     &::before
       opacity: 0
       // transform: translate(50%, -50%)
@@ -349,19 +351,19 @@
       transform: scale(1)
 
 .vs-button--shadow
-  background: #fff
-  color: vs-color('color')
+  background: vs-color('background')
+  color: vs-color('text')
   overflow: hidden
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.09)
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
   &:active:not(.vs-button--active)
     transform: translate(0,-1px)
-    box-shadow: 0px 5px 15px 0px rgba(0,0,0,.09) !important
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0, vs-var(shadow-opacity)) !important
   &:hover
     transform: translate(0,-3px)
-    box-shadow: 0px 8px 25px 0px rgba(0,0,0,.09)
+    box-shadow: 0px 8px 25px 0px rgba(0,0,0, vs-var(shadow-opacity))
   &.vs-button--active
     transform: translate(0,-3px)
-    box-shadow: 0px 8px 25px 0px rgba(0,0,0,.09)
+    box-shadow: 0px 8px 25px 0px rgba(0,0,0, vs-var(shadow-opacity))
 
 @keyframes btnload
   0%

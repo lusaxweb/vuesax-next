@@ -31,6 +31,11 @@ export default class VsComponent extends Vue {
     (this.primary && 'primary')
 
     setColor('color', this.componentColor || this.color || 'primary', this.$el)
+    if(this.componentColor == 'dark') {
+      this.$el.classList.add('vs-component-dark')
+    } else {
+      this.$el.classList.remove('vs-component-dark')
+    }
   }
 
   @Watch('color')

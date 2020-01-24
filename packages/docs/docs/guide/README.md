@@ -49,16 +49,15 @@
   ## Features
 
   - Modular: you can use all vuesax components or just one on demand, thus saving unnecessary code and less weight in the total framework
-  - Quick creation: create web applications quickly with vuesax since all the difficult work is done for you, just by adding a component you already have a beautiful and functional element in your project
-  - easy start: you don't need to be an expert in vuejs or javascript to implement vuesax or its components in your project
-  - unique design: Is your project unique? Vuesax knows that it is and that is why it is also unique so that you are not equal to other projects and everything is the same
-  - unique components: there are components in vuesax that you will not find in other frameworks since we have a unique design and therefore freedom to create new user experiences
-  - Much more
+
+  - Quick creation: create web applications quickly with vuesax since all the difficult work is done for you, just by adding a component you already have a beautiful and functional element in your project
+
+  - Easy start: you don't need to be an expert in vuejs or javascript to implement vuesax or its components in your project
+
+  - Unique design: Is your project unique? Vuesax knows that it is and that is why it is also unique so that you are not equal to other projects and everything is the same
+
+  - Unique components: there are components in vuesax that you will not find in other frameworks since we have a unique design and therefore freedom to create new user experiences
+
+  - Much more
 
 </card>
-
-<!-- <card>
-
-  ## Comparison with Other Frameworks
-
-</card> -->

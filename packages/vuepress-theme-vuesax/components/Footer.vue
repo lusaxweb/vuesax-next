@@ -31,7 +31,7 @@
           v-for="(item, i) in link.items"
           :key="i"
         >
-          <a href="">
+          <a target="_blank" :href="item.link">
             {{ item.text }}
           </a>
         </li>
@@ -62,40 +62,40 @@ export default {
           items: [
             {
               text: 'What is Vuesax?',
-              link: '/'
+              link: '/docs/guide/#whats-is-vuesax'
             },
             {
               text: 'Why Vuesax?',
-              link: '/'
+              link: '/docs/guide/#why-vuesax'
             },
             {
               text: 'What\'s new in v4',
-              link: '/'
+              link: '/docs/guide/#features'
             },
             {
               text: 'FAQ',
-              link: '/'
+              link: '/license/#faq'
             }
           ]
         },
         {
           title: 'Resources',
           items: [
-            {
-              text: 'Blog',
-              link: '/'
-            },
+            // {
+            //   text: 'Blog',
+            //   link: '/'
+            // },
             {
               text: 'Documentation',
-              link: '/'
+              link: '/docs/'
             },
             {
               text: 'Github',
-              link: '/'
+              link: 'https://github.com/lusaxweb/vuesax-next'
             },
             {
               text: 'Privacy Policy',
-              link: '/'
+              link: '/license/'
             }
           ]
         },
@@ -104,15 +104,15 @@ export default {
           items: [
             {
               text: 'Github Issues',
-              link: '/'
+              link: 'https://github.com/lusaxweb/vuesax-next/issues'
             },
-            {
-              text: 'Latest Releases',
-              link: '/'
-            },
+            // {
+            //   text: 'Latest Releases',
+            //   link: '/'
+            // },
             {
               text: 'FAQ',
-              link: '/'
+              link: '/license/#faq'
             }
           ]
         },
@@ -121,11 +121,11 @@ export default {
           items: [
             {
               text: 'Discord',
-              link: '/'
+              link: 'https://discordapp.com/invite/9dsKtvB'
             },
             {
               text: 'Github',
-              link: '/'
+              link: 'https://github.com/lusaxweb/vuesax-next/'
             }
           ]
         }

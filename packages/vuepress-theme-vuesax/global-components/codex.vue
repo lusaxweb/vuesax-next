@@ -167,7 +167,7 @@ export default {
   methods:{
     toggleCode() {
       this.active = !this.active
-      this.$router.replace(!this.active ? `${this.$route.hash.replace('-view', '')}-hide` : `${this.$route.hash.replace('-hide', '')}-view`)
+      // this.$router.replace(!this.active ? `${this.$route.hash.replace('-view', '')}-hide` : `${this.$route.hash.replace('-hide', '')}-view`)
     },
     openCodepen(url) {
       window.open(this.codepen)

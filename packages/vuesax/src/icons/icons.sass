@@ -135,16 +135,28 @@
 
   &.indeterminate
     span
-      margin-top: -7px !important
+      transform: rotate(0)
+      height: auto
+      margin: 0px
+      width: auto
+      &:after
+        position: relative
+        content: ''
+        width: 10px
+        height: 2px
+        background: #fff
+        display: block
       .line1
         transform: rotate(-45deg)
         bottom: 0px
-        right: 0px
+        right: -1px
         opacity: 0
+        display: none
       .line2
         right: 0px !important
-        bottom: -1px !important
+        bottom: -0.14rem !important
         transform: rotate(45deg) !important
         transition: all .25s ease !important
         height: 11px !important
+        display: none
 

@@ -3,5 +3,6 @@
   "vsAlert": "./src/components/vsAlert/Base/index.ts",
   "vsInput": "./src/components/vsInput/Base/index.ts",
   "vsCheckbox": "./src/components/vsCheckbox/Base/index.ts",
+  "vsSwitch": "./src/components/vsSwitch/Base/index.ts",
   "newComponent": ""
 }

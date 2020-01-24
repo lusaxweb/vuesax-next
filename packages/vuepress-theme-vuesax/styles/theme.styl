@@ -49,6 +49,8 @@
   display none
 
 .darken
+  .data
+    background: rgba(0,0,0,.3) !important
   .has-darken
     display block
   .not-darken
@@ -69,9 +71,9 @@ getColor(colorx, alpha = 1)
 getVar(var)
     unquote("var(--vs-"+var+")")
 
-.darken
-  .vs-loading:not(.vs-loading--background)
-    background: getVar(theme-layout)
+// .darken
+//   .vs-loading:not(.vs-loading--background)
+//     background: getVar(theme-layout)
 
 .vs-clipboard
   opacity 0

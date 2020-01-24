@@ -6,9 +6,9 @@
       <path id="Trazado_200" data-name="Trazado 200" d="M0-10,150,0l10,150S137.643,80.734,100.143,43.234,0-10,0-10Z" transform="translate(0 10)" />
     </svg>
     <div class="content-sidebar">
-      <NavLinks2 />
       <slot name="top"/>
       <SidebarLinks :fixed="fixed" :depth="0" :items="items"/>
+      <NavLinks2 />
       <slot name="bottom"/>
     </div>
   </aside>

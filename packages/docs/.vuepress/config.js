@@ -19,14 +19,18 @@ module.exports = ctx => ({
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
     ['link', { rel: 'icon', href: `/favicon2_1.png` }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, shrink-to-fit=no' }],
+    ['meta', { name: 'author', content: 'Lusaxweb' }],
+    ['meta', { name: 'google', content: 'nositelinkssearchbox' }],
+    ['meta', { hid: 'description', name: 'description', content: 'Vuesax Framework Components for Vuejs' }],
+    ['meta', { property: 'og:image', content: 'https://vuesax.com/logos/logo-vuesax-logotipo-vuesax-png-1.png' }],
+    ['meta', { property: 'og:description', content: 'Vuesax Framework Components for Vuejs' }],
+    ['meta', { property: 'og:title', content: 'Vuesax - Framework for Vuejs'}],
+    ['meta', { property: 'og:url', content: 'https://vuesax.com/'}],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image'}],
     // ['script', {
     //   src: 'https://cdn.paddle.com/paddle/paddle.js'
     // }],
-    // ['script', {
-    //   'data-ad-client': 'ca-pub-4283907298344887',
-    //   sync: true,
-    //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    // }]
   ],
   themeConfig: {
 
@@ -84,6 +88,7 @@ function getNavbar (lang = '/') {
               { text: `Loading`, link: `${lang}docs/components/Loading` },
               { text: `Input`, link: `${lang}docs/components/Input` },
 							{ text: 'Checkbox', link: `${lang}docs/components/Checkbox` },
+							{ text: 'Switch', link: `${lang}docs/components/Switch` },
 							// new component slot 1
             ]
           }
@@ -168,6 +173,7 @@ function getSidebar (lang = '/') {
             `${lang}docs/components/Loading`,
             `${lang}docs/components/Input`,
 						`${lang}docs/components/Checkbox`,
+						`${lang}docs/components/Switch`,
 						// new component slot 2
           ]
         },
