@@ -14,7 +14,7 @@ const writeToFile = (contents, file) => {
 }
 
 function FileSass(name, sub, isSub) {
-  return `@use '../../../styles/mixins' as *
+  return `@import '../../../styles/mixins'
 .vs-${name.toLowerCase()}${isSub ? '__' : '-' }${sub.toLowerCase()}
   background: #000
   `.trim()

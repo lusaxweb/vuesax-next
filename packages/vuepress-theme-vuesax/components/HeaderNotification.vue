@@ -10,7 +10,7 @@
       </div>
       <div class="text-n">
         <h3>
-          New component <b>Checkbox</b> 🎉
+          New component <b>Select</b> 🎉
         </h3>
         <p>
           See the examples and the new documentation
@@ -36,11 +36,11 @@
 export default {
   data:() => ({
     active: 0,
-    number: 1
+    number: 3
   }),
   methods: {
     handleClick() {
-      this.$router.push('/docs/components/checkbox')
+      this.$router.push('/docs/components/select')
       this.active = 0
 
       localStorage.notificationHidden = this.number

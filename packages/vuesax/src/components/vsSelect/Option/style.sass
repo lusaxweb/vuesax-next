@@ -1,0 +1,63 @@
+@import '../../../styles/mixins'
+.vs-select__option
+  border: 0px
+  width: 100%
+  padding: 6px 10px
+  text-align: left
+  background: transparent
+  transition: all .25s ease
+  color: vs-color('text')
+  border-radius: 5px
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  margin: 2px 0px
+  display: flex
+  align-items: cneter
+  justify-content: flex-start
+  overflow: hidden
+  opacity: 1
+  visibility: visible
+  max-height: 40px
+  &.hiddenOption
+    // display: none
+    opacity: 0
+    visibility: hidden
+    max-height: 0px
+    padding-top: 0px
+    padding-bottom: 0px
+    border: 0px
+    margin: 0px
+  &.isMultiple
+    padding: 0px
+    padding-left: 5px
+    .vs-select__option-group
+      padding-left: 0px
+    &.isHover
+      background: vs-color('gray-2') !important
+    &:disabled
+      .vs-checkbox-content
+        pointer-events: none
+    &:hover
+      padding-left: 5px !important
+    .vs-checkbox-content
+      width: 100%
+      pointer-events: none
+      .vs-checkbox-con
+        transform: scale(.85)
+      .vs-checkbox-label
+        width: calc(100% - 23px)
+        text-align: left
+        justify-content: flex-start
+    &.activeOption
+      pointer-events: auto !important
+  &.isHover
+    background: vs-color('gray-2')
+  &.activeOption
+    background: vs-color('color', .05)
+    color: vs-color('color', 1)
+    pointer-events: none
+  // &:last-child
+  //   border-radius: 0px 0px 12px 12px
+  &:hover:not(:disabled)
+    color: vs-color('color')
+    padding-left: 14px
+

@@ -1,3 +1,4 @@
+import { transform } from "@babel/core"
 
 // import * as consolee from 'consolee'
 
@@ -88,11 +89,51 @@ const setColor = (colorName: string, color: string, el: any) => {
 // • Example: color="#000" or color="rgb(255,255,255)"`,
 //       title: 'VUESAX'
 //     })
+  }
 }
+
+const insertBody = (element: HTMLElement, parent: any) => {
+  const target = parent ? parent : document.body
+  target.insertBefore(element, target.firstChild)
+}
+
+const removeBody = (element: HTMLElement, parent: any) => {
+  const target = parent ? parent : document.body
+  target.removeChild(element)
+}
+
+const setCords = (element: any, parent: any) => {
+  const cords = parent.getBoundingClientRect()
+  const x = cords.x
+  const y = cords.y
+  const w = cords.width
+  const h = cords.height
+  const style = element.style
+  const scrollTop = window.pageYOffset
+  const elTop = element.clientHeight + cords.y + scrollTop
+  const rootTop = scrollTop + window.innerHeight
+
+  if ((rootTop - elTop) < 30) {
+    // console.log('hola mundo')
+    style.top = `${y + scrollTop - element.clientHeight - 4}px`
+    style.left = `${x}px`
+    style.width = `${w}px`
+    element.classList.add('top')
+    parent.classList.add('top')
+  } else {
+    style.top = `${y + scrollTop + h - 4}px`
+    style.left = `${x}px`
+    style.width = `${w}px`
+    element.classList.remove('top')
+    parent.classList.remove('top')
+  }
 }
 
 export {
   setColor,
   setVar,
-  isColor
+  isColor,
+  insertBody,
+  removeBody,
+  setCords
 }

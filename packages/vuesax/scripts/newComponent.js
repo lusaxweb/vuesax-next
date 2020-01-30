@@ -55,7 +55,7 @@ import VsComponent from '../../../mixins/component'
 export default class Vs${name} extends VsComponent {
   public render(h: any): VNode {
     return h('button', {
-      class: ['vs-${name.toLowerCase()}'],
+      staticClass: ['vs-${name.toLowerCase()}'],
     }, this.$slots.default)
   }
 }`.trim()
@@ -129,7 +129,7 @@ SLOTS:
     link: /api/slot
     usage: '#animated'
     code: >
-          ...
+            ...
 ---
 
 # ${name}

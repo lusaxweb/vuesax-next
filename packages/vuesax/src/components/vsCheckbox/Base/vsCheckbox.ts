@@ -18,7 +18,9 @@ export default class VsCheckbox extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) lineThrough!: boolean
 
-  @Prop({ type: Boolean, default: false }) checked!: boolean
+  @Prop({ type: Boolean, default: false }) checked: boolean
+
+  @Prop({ type: Boolean, default: false }) checkedForce: boolean
 
   @Prop({ type: Boolean, default: false }) loading!: boolean
 
@@ -71,7 +73,7 @@ export default class VsCheckbox extends VsComponent {
         id: this._uid
       },
       domProps: {
-        checked: this.isChecked
+        checked: this.checkedForce || this.isChecked
       },
       on: {
         ...this.$listeners,
@@ -110,6 +112,10 @@ export default class VsCheckbox extends VsComponent {
             }
           }
           this.$emit('change', evt)
+          this.$emit('mousedown', evt)
+        },
+        blur: (evt: EventTarget) => {
+          this.$emit('blur', evt)
         }
       }
     })

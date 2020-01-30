@@ -1,0 +1,424 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+@mixin state($color)
+  .vs-select__input
+    // border: 2px solid vs-color($color,.5)
+    background: vs-color($color,.05)
+    color: vs-color($color,1)
+    &:hover
+      // border: 2px solid vs-color($color, 0)
+      color: vs-color('text',1)
+  .vs-select__chips
+    background: vs-color($color,.05)
+    color: vs-color($color,1)
+    &:hover
+      &:after
+          opacity: 0
+    &:after
+      width: calc(100% - 4px)
+      height: calc(100% - 4px)
+      content: ''
+      position: absolute
+      top: 0px
+      left: 0px
+      border: 2px solid vs-color($color,.5)
+      border-radius: inherit
+      transition: all .25s ease
+  .vs-select__label
+    color: vs-color($color,1)
+  .vs-select__icon
+    color: vs-color($color,1)
+    background: vs-color($color,.1)
+    box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+  .vs-icon-arrow
+    &:after
+      background: vs-color($color,1)
+    &:before
+      background: vs-color($color,1)
+
+.vs-select-enter-active
+  transition: all .25s ease
+.vs-select-enter
+  opacity: 0
+  transform: translate(0, -10px)
+  transition: all .25s ease
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  &:after
+    opacity: 0 !important
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+
+.vs-select-leave-active
+  transition: all .25s ease
+.vs-select-leave-to
+  opacity: 0
+  transform: translate(0, -10px)
+  transition: all .25s ease
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  &.top
+    transform: translate(0, 10px) !important
+  &:after
+    opacity: 0 !important
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+.vs-select-content
+  width: 100%
+  max-width: 200px
+
+.vs-select
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  min-height: 38px
+  width: 100%
+  &--state-success
+    @include state('success')
+  &--state-danger
+    @include state('danger')
+  &--state-warn
+    @include state('warn')
+  &--state-dark
+    @include state('dark')
+  &--state-primary
+    @include state('primary')
+
+  &.loading
+    pointer-events: none
+    *:not(.vs-select__loading):not(.vs-select__label)
+      opacity: .6
+    .vs-select__label
+      pointer-events: none !important
+  &.top
+    &.activeOptions
+      .vs-select__input, .vs-select__chips
+        border-radius: 0px 0px 12px 12px !important
+        box-shadow: 0px -5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity)) !important
+  &--disabled
+    opacity: .6
+    pointer-events: none
+    label
+      pointer-events: none
+  .vs-icon-arrow
+    z-index: 600
+    position: absolute
+    right: 15px
+    margin-top: -2px
+    transition: all .25s ease
+    pointer-events: auto
+    cursor: pointer
+
+  &.activeOptions
+    .vs-icon-arrow
+      transform: rotate(45deg)
+      margin-top: -2px !important
+    .vs-select__input
+      border-radius: 12px 12px 0px 0px
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      transition: all .25s ease, height 0s
+      border: 2px solid transparent !important
+      color: vs-color('text',1)
+    .vs-select__chips
+      border-radius: 12px 12px 0px 0px
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      transition: all .25s ease, height 0s
+      &:after
+        opacity: 0
+    .vs-select__label--placeholder
+      opacity: 1
+      visibility: visible
+      pointer-events: auto
+      transform: translate(-3%, -28px) !important
+      font-size: .75rem
+      margin-top: 0px !important
+    .vs-select__label
+      margin-top: -4px
+  &__input
+    opacity: 1
+    background: transparent
+    padding: 7px 13px
+    border: 2px solid transparent
+    border-radius: 12px
+    cursor: pointer
+    transition: all .25s ease, height 0s
+    background: vs-color('gray-2')
+    color: vs-color('text')
+    min-height: 38px
+    padding-right: 30px
+    width: 100%
+    &.multiple
+      color: transparent
+      background: transparent
+      pointer-events: none
+    &.simple
+      user-select: none
+    &:focus
+      border-radius: 12px 12px 0px 0px
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      transition: all .25s ease
+      ~ .vs-select__label--placeholder
+        opacity: 1
+        visibility: visible
+        pointer-events: auto
+        transform: translate(-3%, -28px) !important
+        font-size: .75rem
+        margin-top: 0px !important
+    &:hover
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      ~ .vs-select__label
+        margin-top: -4px
+      ~ .vs-icon-arrow
+        margin-top: -6px
+
+
+  &__chips
+    width: 100%
+    height: auto
+    position: absolute
+    left: 0px
+    background: vs-color('gray-2')
+    z-index: 300
+    border-radius: 12px
+    display: flex
+    border: 0px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+    flex-wrap: wrap
+    padding: 5px
+    min-height: 38px
+    transition: all .25s ease, height 0s
+    padding-right: 26px
+    &:focus
+      border-radius: 12px 12px 0px 0px
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      transition: all .25s ease
+    &:hover
+      background: vs-color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      transform: translate(0, -4px)
+      transition: all .25s ease
+      ~ .vs-icon-arrow
+        margin-top: -6px
+        transition: all .25s ease
+    &__input
+      width: auto
+      flex: 1
+      max-width: 100%
+      position: relative
+      min-width: 0px
+      border: 2px solid transparent
+      background: transparent
+      margin: 2px 3px
+      min-width: 30px
+      &::placeholder
+        color: vs-color('text', .4)
+    &__chip
+      flex: 0 1 auto
+      position: relative
+      background: vs-color('background')
+      border-radius: 10px
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0px 6px
+      margin: 2px 3px
+      padding-right: 10px
+      font-size: .84rem
+      border: 2px solid vs-color('gray-2')
+      box-sizing: border-box
+      color: vs-color('text')
+      &.isCollapse
+        padding-right: 6px !important
+      &__close
+        position: absolute
+        top: -4px
+        right: -4px
+        width: 15px
+        height: 15px
+        background: vs-color('gray-4')
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 50%
+        font-size: .75rem
+        cursor: pointer
+        transition: all .25s ease
+        &:hover
+          background: vs-color('danger')
+          .vs-icon-close
+            --vs-color: var(--vs-background)
+            &:after
+              width: 12px
+              transform: rotate(180deg)
+            &:before
+              width: 12px
+              transform: rotate(180deg)
+        .vs-icon-close
+          --vs-color: var(--vs-text)
+          transform: scale(.5)
+
+  &__options
+    --vs-color: var(--vs-primary)
+    position: absolute
+    z-index: 9999
+    background: vs-color('background')
+    padding: 5px
+    border-radius: 0px 0px 12px 12px
+    overflow: hidden
+    box-shadow: 0px 10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity))
+    &.top
+      border-radius: 12px 12px 0px 0px
+      box-shadow: 0px -10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity))
+      &:after
+        top: auto
+        bottom: -10px
+    &:after
+      content: ''
+      position: absolute
+      top: -10px
+      width: 80%
+      margin-left: 10%
+      left: 0px
+      height: 10px
+      background: vs-color('background')
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0, vs-var(shadow-opacity))
+      z-index: 200
+      transition: all .25s ease .05s
+      opacity: 1
+    &__content
+      max-height: 200px
+      overflow: auto
+      height: auto
+      z-index: 100
+      transform: scale(1)
+      transition: all .25s ease
+      position: relative
+      scroll-behavior: smooth
+      &__not-data
+        font-size: .8rem
+        text-align: center
+        padding: 6px 10px
+      &::-webkit-scrollbar
+        width: 5px
+        height: 5px
+        display: block
+        background: transparent
+
+      &::-webkit-scrollbar-thumb
+        background: vs-color('gray-3')
+        border-radius: 5px
+
+  &__label
+    position: absolute
+    left: 14px
+    font-size: .8rem
+    transition: all .25s ease
+    cursor: text
+    user-select: none
+    pointer-events: none
+    width: 100%
+    // height: 100%
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    opacity: .4
+    z-index: 500
+    top: 10px
+    &--hidden
+      opacity: 0
+      visibility: hidden
+      &.vs-select__label--placeholder
+        opacity: 1
+        visibility: visible
+        pointer-events: auto
+        transform: translate(-3%, -28px) !important
+        font-size: .75rem
+        margin-top: 0px !important
+    &--label
+      opacity: 1
+      visibility: visible
+      pointer-events: auto
+      transform: translate(-3%, -28px) !important
+      font-size: .75rem
+      margin-top: 0px !important
+
+  &__loading
+    position: absolute
+    width: 22px
+    height: 22px
+    right: 7px
+    pointer-events: none
+    border-radius: 50%
+    box-sizing: border-box
+    background: inherit
+    cursor: default
+    z-index: 600
+    &:after
+      box-sizing: border-box
+      position: absolute
+      width: 100%
+      height: 100%
+      border: 2px solid vs-color('primary',1)
+      border-radius: inherit
+      border-top: 2px solid transparent
+      border-left: 2px solid transparent
+      border-right: 2px solid transparent
+      animation: rotateInputLoading .8s ease infinite
+      top: 0px
+      content: ''
+    &:before
+      box-sizing: border-box
+      top: 0px
+      position: absolute
+      width: 100%
+      height: 100%
+      border: 2px dashed vs-color('primary',1)
+      border-radius: inherit
+      border-top: 2px solid transparent
+      border-left: 2px solid transparent
+      border-right: 2px solid transparent
+      animation: rotateInputLoading .8s linear infinite
+      opacity: .2
+      content: ''
+    & ~ .vs-icon-arrow
+      opacity: 0 !important
+
+  &__message
+    font-size: .7rem
+    position: relative
+    padding: 0px 7px
+    transition: all .25s ease
+    overflow: hidden
+    &--success
+      color: vs-color('success',1)
+    &--danger
+      color: vs-color('danger',1)
+    &--warn
+      color: vs-color('warn',1)
+    &--dark
+      color: vs-color('dark',1)
+    &--primary
+      color: vs-color('primary',1)
+
+.vs-darken
+  .vs-select__options
+    &.isColorDark
+      --vs-color: 0, 0, 0 !important
+      .vs-select__option
+        &:hover
+          background: vs-color('color',.2)
+          color: vs-color('text')
+      .activeOption
+        color: vs-color('text')
+        background: vs-color('color',.6)

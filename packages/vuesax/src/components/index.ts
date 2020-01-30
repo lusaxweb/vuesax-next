@@ -4,4 +4,7 @@ export { default as vsAlert } from './vsAlert/Base/index'
 export { default as vsInput } from './vsInput/Base/index'
 export { default as vsCheckbox } from './vsCheckbox/Base/index'
 export { default as vsSwitch } from './vsSwitch/Base/index'
+export { default as vsSelect } from './vsSelect/Base/index'
+export { default as vsOption } from './vsSelect/Option'
+export { default as vsOptionGroup } from './vsSelect/OptionGroup'
 // new component slot

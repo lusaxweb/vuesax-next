@@ -3,26 +3,8 @@ export default {
   render (h) {
     return h('div', { class: 'carbon-ads' })
   },
-  mounted () {
-    this.load()
-  },
-  // watch: {
-  //   '$route' (to, from) {
-  //     if (
-  //       to.path !== from.path
-  //       &&
-  //       this.$el.querySelector('#carbonads')
-  //     ) {
-  //       // this.$el.classList.add('hidden-ads')
-  //       // setTimeout(() => {
-  //       //   this.$el.classList.remove('hidden-ads')
-  //       //   this.$el.innerHTML = ''
-  //       //   this.load()
-  //       // }, 400);
-  //       this.$el.innerHTML = ''
-  //       this.load()
-  //     }
-  //   }
+  // mounted () {
+  //   this.load()
   // },
   methods: {
     load () {
@@ -31,6 +13,9 @@ export default {
       s.src = `//cdn.carbonads.com/carbon.js?serve=CE7DEKQN&placement=vuesaxcom`
       // s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=localhost`
       this.$el.appendChild(s)
+    },
+    clean() {
+      this.$el.innerHTML = ''
     }
   }
 };

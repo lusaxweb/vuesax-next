@@ -1,0 +1,31 @@
+@import '../../../styles/mixins'
+.vs-select__option-group
+  padding-left: 10px
+  border-bottom: 2px solid vs-color('gray-1')
+  position: relative
+  overflow: hidden
+  transition: all .25s ease
+  &:last-child
+    border: 0px
+  &.hiddenOptionGroup
+    border-bottom: 0px solid vs-color('gray-1')
+    // display: none
+    // visibility: hidden
+    // opacity: 0
+    // max-height: 0px
+    h5
+      padding: 0px
+      max-height: 0px
+
+  h5
+    max-height: 28px
+    transition: all .25s ease
+    opacity: .5
+    margin: 0px
+    padding: 0px
+    padding: 7px 0px
+    font-size: .7rem
+    user-select: none
+    overflow: hidden
+    *
+      pointer-events: none

@@ -160,3 +160,26 @@
         height: 11px !important
         display: none
 
+.vs-icon-arrow
+  pointer-events: none
+  width: 7px
+  height: 7px
+  transform: rotate(-135deg)
+  transition: all .25s ease
+  transform-origin: center
+  &:after
+    content: ''
+    width: 100%
+    height: 1px
+    background: vs-color('text')
+    position: absolute
+    display: block
+    top: 0px
+  &:before
+    top: 0px
+    content: ''
+    width: 1px
+    height: 100%
+    background: vs-color('text')
+    position: absolute
+    display: block

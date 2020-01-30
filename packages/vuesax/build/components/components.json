@@ -4,5 +4,8 @@
   "vsInput": "./src/components/vsInput/Base/index.ts",
   "vsCheckbox": "./src/components/vsCheckbox/Base/index.ts",
   "vsSwitch": "./src/components/vsSwitch/Base/index.ts",
+  "vsSelect": "./src/components/vsSelect/Base/index.ts",
+  "vsOption": "./src/components/vsSelect/Option/index.ts",
+  "vsOptionGroup": "./src/components/vsSelect/OptionGroup/index.ts",
   "newComponent": ""
 }

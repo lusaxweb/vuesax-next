@@ -9,7 +9,7 @@ export default class VsComponent extends Vue {
 
   componentColor: string = null
 
-  @Prop({ type: String, default: 'primary' }) color!: string
+  @Prop({ type: String, default: null }) color!: string
 
   @Prop({ type: Boolean, default: false }) danger!: boolean
 
@@ -23,14 +23,24 @@ export default class VsComponent extends Vue {
 
   @Prop({ type: Boolean, default: false }) active!: boolean
 
+  get isColorDark() {
+    return this.color === 'dark' || this.dark
+  }
+
   changeColor() {
+    if (!this.$el || this.$el.nodeName == '#comment') { return }
     this.componentColor = (this.danger && 'danger') ||
     (this.success && 'success') ||
     (this.warn && 'warn') ||
     (this.dark && 'dark') ||
     (this.primary && 'primary')
+    if (this.color || this.componentColor) {
+      setColor('color', this.componentColor || this.color || 'primary', this.$el)
 
-    setColor('color', this.componentColor || this.color || 'primary', this.$el)
+      if(this.$refs.options) {
+        setColor('color', this.componentColor || this.color || 'primary', this.$refs.options)
+      }
+    }
     if(this.componentColor == 'dark') {
       this.$el.classList.add('vs-component-dark')
     } else {

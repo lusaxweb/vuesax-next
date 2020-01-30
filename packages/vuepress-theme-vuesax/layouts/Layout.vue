@@ -163,7 +163,7 @@ export default {
       if (
         to.path !== from.path
       ) {
-        this.$refs.carbon.$el.innerHTML = ''
+        this.$refs.carbon.clean()
         this.$refs.codefund.$el.innerHTML = ''
         // if (this.$route.path !== '/') {
         if (!this.noAdvertiser) {
@@ -209,6 +209,7 @@ export default {
           this.$refs.carbon.$el.classList.add('hidden')
         } else {
           this.ads = 'carbon'
+          this.$refs.carbon.clean()
           this.$refs.carbon.load()
           this.$refs.carbon.$el.classList.remove('hidden')
         }

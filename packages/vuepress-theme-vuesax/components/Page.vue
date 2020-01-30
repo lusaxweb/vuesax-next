@@ -481,7 +481,7 @@ getVar(var)
   &.fixed
     position fixed
     top 53px
-    z-index 1000
+    z-index 9999
     border-radius 0px
     background getVar(theme-bg)
     margin 0px
