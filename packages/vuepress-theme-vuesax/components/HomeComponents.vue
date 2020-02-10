@@ -138,7 +138,7 @@
         </div>
 
         <footer>
-          <vs-input placeholder="Comment" />
+          <vs-input v-model="input1" placeholder="Comment" />
           <!-- <input placeholder="Comment" type="text" name="" id="comment"> -->
           <vs-button icon flat>
             <i class='bx bx-send' ></i>
@@ -244,7 +244,7 @@
       </div>
 
       <div class="component12">
-        <vs-input placeholder="Search" />
+        <vs-input v-model="input2" placeholder="Search" />
         <!-- <input placeholder="Search" type="text" name="" id="search"> -->
         <vs-button icon>
           <i class='bx bx-search'></i>
@@ -253,7 +253,7 @@
 
       <div class="component13">
         <header>
-          <vs-input placeholder="location"></vs-input>
+          <vs-input v-model="input3" placeholder="location"></vs-input>
           <!-- <input placeholder="Location" type="text" name="" id="location"> -->
           <button>
             <i class='bx bx-chevron-right'></i>
@@ -329,7 +329,10 @@ export default {
     switch2: true,
     focusSelect: true,
     focusDrop: true,
-    selectValue: ''
+    selectValue: '',
+    input1: '',
+    input2: '',
+    input3: ''
   }),
   methods: {
     handleClickOption(val) {

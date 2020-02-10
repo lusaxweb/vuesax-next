@@ -15,4 +15,8 @@ export default ({
     sidebarCollapseOpen: true,
     sidebarCollapseOpen: true,
   }
+
+  Vue.prototype.$codesandbox = {
+    url: null
+  }
 }

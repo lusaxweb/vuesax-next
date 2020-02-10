@@ -16,7 +16,7 @@
       dark
     </vs-checkbox>
     <vs-checkbox color="#7d33ff" v-model="option6">
-      dark
+      HEX
     </vs-checkbox>
     <vs-checkbox color="rgb(59,222,200)" v-model="option7">
       RGB

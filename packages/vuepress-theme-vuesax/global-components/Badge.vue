@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+getVar(var)
+    unquote("var(--vs-"+var+")")
 .badge
   display inline-block
   font-size .7rem
@@ -58,6 +60,9 @@ export default {
     border 0px
   &.warning, &.warn, &.yellow
     background alpha(rgb(255, 186, 0),1)
+    color #fff
+  &.text
+    background getVar(theme-color)
     color #fff
     // background-color darken(#ffe564, 35%)
 </style>

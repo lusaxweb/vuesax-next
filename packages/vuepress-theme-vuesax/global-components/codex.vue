@@ -173,7 +173,8 @@ export default {
       window.open(this.codepen)
     },
     openCodesandbox(url) {
-      window.open(this.codesandbox)
+      document.body.style.overflow = 'hidden'
+      this.$codesandbox.url = this.codesandbox
     },
     clipboard(text) {
 

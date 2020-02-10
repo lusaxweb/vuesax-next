@@ -120,7 +120,7 @@ export default class VsButton extends VsComponent {
             if (this.flat) {
               ripple(
                 evt,
-                this.color &&
+                (this.componentColor || this.color || 'primary') &&
                 !this.active &&
                 document.activeElement !== this.$el ?
                 this.componentColor || this.color :

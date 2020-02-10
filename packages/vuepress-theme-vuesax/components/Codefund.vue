@@ -20,7 +20,7 @@ getVar(var)
   bottom 0px
   width 145px
   background getVar('theme-layout')
-  z-index 10000
+  z-index 100003
   // padding 8px
   border-radius 25px 0px 0px 0px
   transition all .25s ease

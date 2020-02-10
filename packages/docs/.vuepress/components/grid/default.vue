@@ -64,4 +64,11 @@ getVar(var)
     box-shadow inset 0px 10px 20px -10px rgba(0,0,0,.1)
   &:last-child
     border-right 2px solid getVar(theme-layout)
+
+
+@media ( max-width: 500px )
+  .vs-col
+    font-size .58rem
+    font-weight bold
+    padding 10px 0px
 </style>

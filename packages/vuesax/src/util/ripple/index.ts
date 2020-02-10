@@ -22,6 +22,7 @@ const ripple = (evt: any, color: any = '', solid: boolean = false) => {
   effect.className = 'vs-ripple'
   if (solid) {
     effect.classList.add('vs-ripple--solid')
+    setColor('color', color || 'primary', effect)
   }
   effect.style.transition = `all ${time}s ease`
 

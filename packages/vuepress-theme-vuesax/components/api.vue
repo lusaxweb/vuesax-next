@@ -117,6 +117,7 @@ export default {
       let tables = document.querySelectorAll('.content-api table')
       tables.forEach((table, index) => {
         if(Number(pageYOffset) + 52 >= table.offsetTop && pageYOffset + 100 < (table.offsetTop + table.offsetHeight)) {
+          console.log('hola')
           let clone = table.cloneNode(true)
           let tbodys = clone.querySelectorAll('tbody')
           tbodys.forEach((tbody) => {
@@ -406,8 +407,8 @@ getVar(var)
 .con-api
   max-width 900px
   margin auto
-  padding: 1rem 2.5rem;
-  padding-top 30px
+  padding: 1rem 10px;
+  padding-top 0px
   h2
     padding 0px 20px
     padding-top 40px

@@ -29,3 +29,7 @@ export default {
 	}),
 }
 </script>
+<style lang="stylus">
+  *
+    box-sizing border-box !important
+</style>

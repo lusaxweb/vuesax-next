@@ -14,7 +14,7 @@ The central team is working on the priority that is to create new components and
 ### Vuesax v3
 
 - Components created with `.vue` files
-- Pre css processor: ** Stylus **
+- Pre css processor: **Stylus**
 - Use of Vue-CLI 3 to compile the components
 - Vuepress v0.14.10
 

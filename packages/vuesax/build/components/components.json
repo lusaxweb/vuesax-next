@@ -7,5 +7,8 @@
   "vsSelect": "./src/components/vsSelect/Base/index.ts",
   "vsOption": "./src/components/vsSelect/Option/index.ts",
   "vsOptionGroup": "./src/components/vsSelect/OptionGroup/index.ts",
+  "vsAvatar": "./src/components/vsAvatar/Base/index.ts",
+  "vsAvatarGroup": "./src/components/vsAvatar/Group/index.ts",
+  "vsRadio": "./src/components/vsRadio/Base/index.ts",
   "newComponent": ""
 }

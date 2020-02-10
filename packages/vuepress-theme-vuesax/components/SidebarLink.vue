@@ -118,7 +118,7 @@ a.sidebar-link
   display inline-block
   // color $textColor
   color getVar(theme-color)
-  padding 0.35rem 1rem 0.35rem 1.25rem
+  padding 0.3rem 1rem 0.3rem 1.25rem
   width: 100%
   box-sizing: border-box
   transition all .25s ease

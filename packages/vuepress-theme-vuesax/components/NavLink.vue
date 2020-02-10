@@ -3,7 +3,7 @@
     class="nav-link"
     :to="link"
     v-if="!isExternal(link)"
-    :exact="exact || $route.path.indexOf('/guide/') !== -1 && item.text === 'Documentation'"
+    :exact="exact || $route.path.indexOf('/guide/') !== -1 && item.text === 'Documentation' || item.text === 'Button'"
   >
   {{ item.text }}
     <i class="bx bx-chevron-down"></i>
@@ -64,6 +64,9 @@ export default {
     i.bx
       display block
       font-size 1rem
-      transition all .25s ease
-      margin-bottom -4px
+      transition all .2s ease
+      transform-origin center
+      width 16px
+      height 16px
+      position relative
 </style>

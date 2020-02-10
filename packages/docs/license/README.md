@@ -52,9 +52,9 @@ table:
       - false
     -
       - Use the name Vuesax
-      - true
-      - true
-      - true
+      - false
+      - false
+      - false
     -
       - Number of servers and sites.
       - unlimited

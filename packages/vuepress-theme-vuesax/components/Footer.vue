@@ -40,7 +40,7 @@
 
     <div class="copy">
       <span class="span-copy">
-        Copyright © 2019 Vuesax
+        Copyright © 2020 Vuesax
       </span>
       <span class="span-lusaxweb">
         <span>
@@ -274,8 +274,12 @@ getVar(var)
       margin 30px 10px
       padding 15px
       width calc(50% - 20px)
+@media (max-width: 600px)
+  .footer
+    padding-bottom 100px !important
 @media (max-width: 500px)
   .footer
+    p
     .subscribe-content
       padding 40px 10px
       .con-form

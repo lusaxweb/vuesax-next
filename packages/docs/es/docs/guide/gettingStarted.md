@@ -15,7 +15,7 @@
   Puedes instalar vuesax por medio de npm con el comando:
 
   ```bash
-  npm install vuesax # OR yarn add vuesax
+  npm install vuesax@next # OR yarn add vuesax@next
   ```
 
 </card>
@@ -60,7 +60,7 @@
 
   ## CDN
 
-  Puedes usar vuesax cargandolo por medio de cdn agregando una etiqueta `<script>` a tu proyecto 
+  Puedes usar vuesax cargandolo por medio de cdn agregando una etiqueta `<script>` a tu proyecto
 
   ```html
     <!DOCTYPE html>

@@ -15,7 +15,7 @@
   You can install vuesax through npm with the command:
 
   ```bash
-  npm install vuesax # OR yarn add vuesax
+  npm install vuesax@next # OR yarn add vuesax@next
   ```
 
 </card>

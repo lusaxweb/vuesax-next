@@ -7,4 +7,7 @@ export { default as vsSwitch } from './vsSwitch/Base/index'
 export { default as vsSelect } from './vsSelect/Base/index'
 export { default as vsOption } from './vsSelect/Option'
 export { default as vsOptionGroup } from './vsSelect/OptionGroup'
+export { default as vsAvatar } from './vsAvatar/Base/index'
+export { default as vsAvatarGroup } from './vsAvatar/Group'
+export { default as vsRadio } from './vsRadio/Base/index'
 // new component slot

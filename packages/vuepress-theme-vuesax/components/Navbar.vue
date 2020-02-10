@@ -342,8 +342,9 @@ getVar(var)
     color: getVar(theme-layout)
     border 0px
     padding 10px 15px
-    border-radius 10px
+    border-radius 10px 10px 20px 10px
     margin-right 10px
+    padding-right 17px
     transition all .25s ease
     box-shadow 0px 0px 0px 0px getVar(theme-color)
     &:hover
@@ -406,6 +407,8 @@ getVar(var)
   &.fixed
     border-radius 0px
     background getVar(theme-layout)
+    .btn-login
+      border-radius 10px
     // backdrop-filter blur(20px)
     // background rgba(255,255,255,0.6) !important
   a, span, img

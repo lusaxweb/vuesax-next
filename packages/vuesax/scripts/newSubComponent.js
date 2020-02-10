@@ -46,7 +46,7 @@ ${isSub ? `import VsComponent from '../../../mixins/component'` : `import Vs${na
 export default class Vs${name}${sub} extends ${ isSub ? 'VsComponent' : `Vs${name}` } {
   public render(h: any): VNode {
     return h('button', {
-      class: ['vs-${name.toLowerCase()}${isSub ? '__' : '-' }${sub.toLowerCase()}'],
+      staticClass: 'vs-${name.toLowerCase()}${isSub ? '__' : '-' }${sub.toLowerCase()}',
     }, this.$slots.default)
   }
 }`.trim()

@@ -53,4 +53,9 @@ getVar(var)
   &:hover
     transform scale(.93)
     box-shadow inset 0px 10px 20px -10px rgba(0,0,0,.1)
+@media ( max-width: 500px )
+  .vs-col
+    font-size .6rem
+    font-weight bold
+    padding 10px 2px
 </style>

@@ -1,0 +1,150 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-radio-content
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  &.active
+    .vs-radio__effect__icon
+      opacity: 0
+      transition: all .25s ease
+      transform: scale(1.3)
+    .vs-radio__effect
+      &:after
+        border: 7px solid vs-color('color', 1)
+        box-shadow: 0px 3px 12px 0px vs-color('color', .3)
+  &:not(.active)
+    .vs-radio
+      input
+        &:hover
+          ~ .vs-radio__effect
+            .vs-radio__effect__icon
+              opacity: .7
+            &::after
+              border: 2px solid vs-color('text', .2)
+
+  &.loading
+    pointer-events: none
+    user-select: none
+    .vs-radio
+      &__effect
+        &:after
+          opacity: .1
+        &__loading
+          position: absolute
+          width: 100%
+          height: 100%
+          border-radius: inherit
+          &:after
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            border-radius: inherit
+            border: 2px solid vs-color('text', .4)
+            border-top: 2px solid vs-color('text', 0)
+            border-left: 2px solid vs-color('text', 0)
+            border-bottom: 2px solid vs-color('text', 0)
+            box-sizing: border-box
+            transition: all .25s ease
+            display: block
+            box-shadow: 0px 0px 0px 0px vs-color('color', .4)
+            animation: loadingRadio .6s ease infinite
+          &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            border-radius: inherit
+            border: 2px dashed vs-color('text', .4)
+            border-top: 2px solid vs-color('text', 0)
+            border-left: 2px solid vs-color('text', 0)
+            border-bottom: 2px solid vs-color('text', 0)
+            box-sizing: border-box
+            transition: all .25s ease
+            display: block
+            box-shadow: 0px 0px 0px 0px vs-color('color', .4)
+            animation: loadingRadio .6s linear infinite
+  label
+    cursor: pointer
+  &.disabled
+    opacity: .5
+    pointer-events: none
+    .vs-radio
+      &__effect
+        background: vs-color('gray-3')
+    label
+      pointer-events: none
+.vs-radio
+  width: 20px
+  height: 20px
+  margin: 0px
+  padding: 0px
+  border-radius: 50%
+  position: relative
+  z-index: 10
+  &__label
+    margin: 0px 6px
+  &__effect
+    position: absolute
+    width: 100%
+    height: 100%
+    border-radius: inherit
+    left: 0px
+    top: 0px
+    transition: all .25s ease
+    display: flex
+    align-items: center
+    justify-content: center
+    box-sizing: border-box
+    z-index: 10
+    &__icon
+      transition: all .25s ease
+      i
+        font-size: .75rem
+
+    &:after
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
+      border-radius: inherit
+      border: 2px solid vs-color('text', .4)
+      box-sizing: border-box
+      transition: all .25s ease
+      display: block
+      box-shadow: 0px 0px 0px 0px vs-color('color', .4)
+  input
+    margin: 0px
+    padding: 0px
+    width: 100%
+    height: 100%
+    position: relative
+    z-index: 100
+    opacity: 0
+    cursor: pointer
+    &:active
+     ~ .vs-radio__effect
+       &:after
+         transform: scale(.9)
+
+    // &:checked
+    //  ~ .vs-radio__effect
+    //    &:after
+    //     //  border: 7px solid vs-color('color', 1)
+    //       animation-name: radio
+    //       animation-duration: 4s
+
+    //       animation-play-state: paused
+    //       animation-iteration-count: infinite
+
+    //       box-shadow: 0px 3px 10px 0px vs-color('color', .4)
+
+  @keyframes loadingRadio
+    0%
+      transform: rotate(0)
+    100%
+      transform: rotate(360deg)

@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "4.0.1-alpha.1",
+  "version": "4.0.1-alpha.9",
   "description": "Framework components for vuejs",
   "main": "dist/vuesax.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "postinstall": "node scripts/postinstall.js",
     "dev": "tsc -w src/index.ts --module es6",
     "test:types": "tsc -p ./types/test/tsconfig.json",
-    "deploy": "npm publish --tag next"
+    "deploy": "npm run build && npm version prerelease --preid=alpha && npm publish --tag next"
   },
   "keywords": [],
   "author": "",

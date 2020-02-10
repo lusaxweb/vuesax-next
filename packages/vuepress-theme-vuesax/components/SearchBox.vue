@@ -233,6 +233,10 @@ getVar(var)
   opacity 0
   transform translate(0,calc(100% + 10px)) !important
 
+.darken
+  .search-box
+    input
+      background rgba(0,0,0,.25)
 
 .search-box
   display inline-block
@@ -267,21 +271,20 @@ getVar(var)
     outline none
     transition all .2s ease
     // background #f4f7f8
-    background getVar(theme-bg2)
+    background rgba(0,0,0,.05)
     background-size 1rem
     display block
     border-radius 0px
     border 0px
     padding 4px
     padding-left 20px
-    opacity .5
+    opacity 1
     border-radius 14px 5px 14px 14px
     &::placeholder
       color getVar(theme-color)
     &:focus
       width 25rem
       cursor auto
-      opacity 1
       ~ svg
         transform scale(1.15)
   .suggestions

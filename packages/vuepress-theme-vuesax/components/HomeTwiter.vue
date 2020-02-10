@@ -49,6 +49,13 @@ export default {
     notScrolling: false,
     twits: [
       {
+        name: 'Sébastien Chopin',
+        user: 'Author of @nuxt_js',
+        link: 'https://twitter.com/Atinux',
+        text: 'I have to say, Vuesax 4 is 😍',
+        img: 'https://pbs.twimg.com/profile_images/1042510623962275840/1Iw_Mvud_400x400.jpg'
+      },
+      {
         name: 'illy',
         user: '@__illy___',
         link: 'https://twitter.com/__illy___',

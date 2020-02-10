@@ -1,0 +1,45 @@
+@import '../../../styles/mixins'
+.vs-avatar__group
+  display: flex
+  align-items: center
+  justify-content: center
+  padding-left: 18px
+  &.float
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: flex-start
+    padding-left: 0px
+    .vs-avatar-content
+      position: relative
+      z-index: 2
+      border: 3px solid vs-color('background')
+      margin: 0px
+  &:not(.float)
+    .vs-avatar-content
+      margin-left: -18px
+      position: relative
+      z-index: 2
+      &:hover
+        .vs-avatar
+          box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,.1)
+        img
+          transform: scale(1)
+      .vs-avatar__latest
+        width: calc(100% - 6px)
+        height: calc(100% - 6px)
+        margin: 3px
+      &:not(.vs-change-color)
+        .vs-avatar
+          background: vs-color('background')
+      img
+        width: calc(100% - 6px)
+      // border: 3px solid vs-color('background')
+      &:hover:not(.vs-avatar-content--hasIcons)
+        transform: translate(-10px)
+        .vs-avatar
+          transform: scale(1)
+      &--hasIcons
+        margin-right: 0px
+        &:hover
+          transform: translate(-34px) !important
+

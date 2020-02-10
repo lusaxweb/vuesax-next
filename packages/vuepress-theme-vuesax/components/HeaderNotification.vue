@@ -10,7 +10,7 @@
       </div>
       <div class="text-n">
         <h3>
-          New component <b>Select</b> 🎉
+          New component <b>Radio</b> 🎉
         </h3>
         <p>
           See the examples and the new documentation
@@ -36,11 +36,11 @@
 export default {
   data:() => ({
     active: 0,
-    number: 3
+    number: 5
   }),
   methods: {
     handleClick() {
-      this.$router.push('/docs/components/select')
+      this.$router.push('/docs/components/radio')
       this.active = 0
 
       localStorage.notificationHidden = this.number

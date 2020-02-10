@@ -197,7 +197,7 @@ NEWS:
 
 # Button
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/reverent-shape-pmyk2?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue">
 
 ## Default
 
@@ -251,7 +251,7 @@ the buttons have all the states as active, focus, hover, to make its implementat
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/charming-maxwell-ms0xf?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark">
 
 ## Flat
 
@@ -308,7 +308,7 @@ You can change the full style towards *flat* of a button with the `flat` propert
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-border-zc0td?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Border
 
@@ -365,7 +365,7 @@ You can change the full style towards *border* of a button with the `border` pro
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-gradient-7en0i?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Gradient
 
@@ -427,7 +427,7 @@ You can change the full style towards *Gradient* of a button with the `gradient`
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-relief-7dfh7?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Relief
 
@@ -485,7 +485,7 @@ Change the style of the button to a relief aspect with the `relief` property, th
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-transparent-4t6d6?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Transparent
 
@@ -544,7 +544,7 @@ Change the style of the button with the `transparent` property, the property is 
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-shadow-ufx6y?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Shadow
 
@@ -603,7 +603,7 @@ Change the style of the button with the `shadow` property, the property is a` bo
 
 </card>
 
-<card>
+<card codesandbox="https://codesandbox.io/embed/vuesax-button-colors-gje98?fontsize=14&hidenavigation=1&theme=dark">
 
 ## Color
 

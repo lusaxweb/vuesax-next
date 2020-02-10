@@ -22,11 +22,11 @@
           </h1>
 
           <ul ref="titleul" class="interactive-links">
-            <li title="Copy Link">
+            <!-- <li title="Copy Link">
               <a target="_blank" href="">
                 <i class="bx bx-link"></i>
               </a>
-            </li>
+            </li> -->
 
             <li title="Share">
               <button>
@@ -69,7 +69,7 @@
               </a>
             </li>
             <li title="View Code Github">
-              <a target="_blank" href="">
+              <a target="_blank" href="https://github.com/lusaxweb/vuesax-next">
                 <i class="bx bx-code-alt"></i>
               </a>
             </li>
@@ -480,7 +480,7 @@ getVar(var)
     height 60px
   &.fixed
     position fixed
-    top 53px
+    top 60px
     z-index 9999
     border-radius 0px
     background getVar(theme-bg)
@@ -675,7 +675,7 @@ getVar(var)
     &.fixed
       position fixed !important
       top 55px !important
-      z-index 1200 !important
+      z-index 10000 !important
       max-height calc(100vh - 270px)
     .sidebar-link,.sidebar-heading
       display none
@@ -791,6 +791,26 @@ getVar(var)
       float none
       text-align left
 @media (max-width: 600px)
+   .page-nav
+    .inner
+      position fixed
+      right 0px
+      bottom: 90px
+      z-index 1000
+      padding 0px
+      margin 0px
+      width 100%
+      padding 10px 0px
+      // padding-left 15px
+      span
+        background getVar(theme-layout)
+        margin 0px
+        border-radius 0px 10px 10px 0px
+        box-shadow 0px 0px 10px 0px rgba(0,0,0,.05)
+        transform translate(0) !important
+        &.next
+          border-radius 10px 0px 0px 10px
+          transform translate(0) !important
   .page
     .content__default
       padding 10px
@@ -799,6 +819,8 @@ getVar(var)
     right 0px
     opacity 0
     pointer-events none
+    margin 0px
+    border-radius 15px 0px 0px 0px
     &.active
       opacity 1
       pointer-events auto

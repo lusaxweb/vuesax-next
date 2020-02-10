@@ -42,7 +42,7 @@ const setVar = (propertyName: string, value: string, el: any) => {
   }
 }
 
-const setColor = (colorName: string, color: string, el: any) => {
+const setColor = (colorName: string, color: string, el: any, addClass?: boolean) => {
   function hexToRgb(hex: string) {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
     hex = hex.replace(shorthandRegex, (m: any, r: string, g: string, b: string) => {
@@ -67,16 +67,28 @@ const setColor = (colorName: string, color: string, el: any) => {
     const arrayColor = color.replace(/[rgba()]/g, '').split(',')
     newColor = `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
     setVar(colorName, newColor, el)
+    if (addClass) {
+      el.classList.add('vs-change-color')
+    }
   } else if (isHEX) {
     const rgb = hexToRgb(color)
     newColor = `${rgb!.r},${rgb!.g},${rgb!.b}`
     setVar(colorName, newColor, el)
+    if (addClass) {
+      el.classList.add('vs-change-color')
+    }
   } else if (isColor(color)) {
     const style = getComputedStyle(document.documentElement)
     newColor = style.getPropertyValue('--vs-' + color)
     setVar(colorName, newColor, el)
+    if (addClass) {
+      el.classList.add('vs-change-color')
+    }
   } else if (isRGBNumbers) {
     setVar(colorName, color, el)
+    if (addClass) {
+      el.classList.add('vs-change-color')
+    }
   } else {
     //     consolee.warn({
       //       el,

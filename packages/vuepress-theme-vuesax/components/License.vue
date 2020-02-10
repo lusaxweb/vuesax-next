@@ -142,7 +142,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 getColor(colorx, alpha = 1)
     unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
 getVar(var)
@@ -198,10 +198,9 @@ getVar(var)
       p
         font-size .8rem
         opacity .7
-      a
-        text-decoration underline
-        font-weight bold
-
+        a
+          text-decoration underline !important
+          font-weight bold
 
 .table-plans
   display flex

@@ -3,15 +3,13 @@ export default {
   render (h) {
     return h('div', { class: 'carbon-ads' })
   },
-  // mounted () {
-  //   this.load()
-  // },
   methods: {
     load () {
+      this.$el.innerHTML = ''
       const s = document.createElement('script')
       s.id = '_carbonads_js'
+      s.async = true
       s.src = `//cdn.carbonads.com/carbon.js?serve=CE7DEKQN&placement=vuesaxcom`
-      // s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=localhost`
       this.$el.appendChild(s)
     },
     clean() {
@@ -30,37 +28,14 @@ getVar(var)
     transform rotate(0deg)
   100%
     transform rotate(360deg)
-// .carbon-ads
-//   &:after
-//     content ''
-//     width 22px
-//     height 22px
-//     position absolute
-//     border-radius 50%
-//     border 3px solid getVar(theme-color)
-//     border-top 3px solid transparent
-//     border-left 3px solid transparent
-//     border-bottom 3px solid transparent
-//     animation loading .6s ease infinite
-//     top calc(50% - 14px)
-//     left calc(50% - 14px)
-//   &:before
-//     content ''
-//     width 22px
-//     height 22px
-//     position absolute
-//     border-radius 50%
-//     border 3px dashed getVar(theme-color)
-//     border-top 3px solid transparent
-//     border-left 3px solid transparent
-//     border-bottom 3px solid transparent
-//     animation loading .6s linear infinite
-//     top calc(50% - 14px)
-//     left calc(50% - 14px)
 
   div[id*="carbonads"]
     + div
       display none !important
+
+.carbon-ads
+  &:empty
+    opacity 0
 
 @media (max-width: 600px)
   .carbon-ads
@@ -118,7 +93,7 @@ getVar(var)
   border-radius: 25px 0px 0px 0px;
   box-sizing: border-box;
   bottom: 0px;
-  z-index: 10000;
+  z-index: 100002;
   min-height: 170px
 }
 

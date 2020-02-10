@@ -23,7 +23,7 @@ module.exports = ctx => ({
     ['meta', { name: 'author', content: 'Lusaxweb' }],
     ['meta', { name: 'google', content: 'nositelinkssearchbox' }],
     ['meta', { hid: 'description', name: 'description', content: 'Vuesax Framework Components for Vuejs' }],
-    ['meta', { property: 'og:image', content: 'https://vuesax.com/logos/logo-vuesax-logotipo-vuesax-png-1.png' }],
+    ['meta', { property: 'og:image', content: 'https://vuesax.com/vuesax_components.png' }],
     ['meta', { property: 'og:description', content: 'Vuesax Framework Components for Vuejs' }],
     ['meta', { property: 'og:title', content: 'Vuesax - Framework for Vuejs'}],
     ['meta', { property: 'og:url', content: 'https://vuesax.com/'}],
@@ -33,7 +33,8 @@ module.exports = ctx => ({
     // }],
   ],
   themeConfig: {
-
+    repo: 'lusaxweb/vuesax-next',
+    docsDir: 'packages/docs',
     locales: {
       '/': {
         ...getNavbar(),
@@ -90,6 +91,9 @@ function getNavbar (lang = '/') {
 							{ text: 'Checkbox', link: `${lang}docs/components/Checkbox` },
 							{ text: 'Switch', link: `${lang}docs/components/Switch` },
 							{ text: 'Select', link: `${lang}docs/components/Select` },
+							{ text: 'Avatar', link: `${lang}docs/components/Avatar` },
+							{ text: 'Notification', link: `${lang}docs/components/Notification` },
+							{ text: 'Radio', link: `${lang}docs/components/Radio` },
 							// new component slot 1
             ]
           }
@@ -106,7 +110,7 @@ function getNavbar (lang = '/') {
       },
       {
         text: `Ecosystem`,
-        link: `${lang}ecosystem/`,
+        // link: `${lang}ecosystem/`,
         items: [
           {
             text: `Social`,
@@ -139,7 +143,7 @@ function getNavbar (lang = '/') {
       {
         text: '...',
         items: [
-          { text: `Banding`, link: `/branding/` },
+          { text: `Branding`, link: `/branding/` },
         ]
       }
     ]
@@ -176,6 +180,9 @@ function getSidebar (lang = '/') {
 						`${lang}docs/components/Checkbox`,
 						`${lang}docs/components/Switch`,
 						`${lang}docs/components/Select`,
+						`${lang}docs/components/Avatar`,
+						`${lang}docs/components/Notification`,
+						`${lang}docs/components/Radio`,
 						// new component slot 2
           ]
         },

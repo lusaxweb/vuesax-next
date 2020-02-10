@@ -50,6 +50,8 @@ h1
   margin-top 20px
   margin-bottom -50px
   width 100%
+  &:last-of-type
+    margin-bottom 0px
   > .text
     ul
       margin-left 40px
@@ -139,6 +141,8 @@ h1
       font-size .85rem
       z-index 200
       position relative
+    li
+      font-size .85rem
 
 @media (max-width: 500px)
   .card

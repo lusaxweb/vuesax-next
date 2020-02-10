@@ -49,7 +49,7 @@
               v-for="childSubItem in subItem.items"
             >
               <NavLink
-                :exact="$route.path.indexOf('/guide/components/') !== -1 && childSubItem.text === 'Button'"
+                :exact="$route.path.indexOf('/guide/components/') !== -1 || childSubItem.text === 'Button'"
                 :item="childSubItem"/>
             </li>
           </ul>

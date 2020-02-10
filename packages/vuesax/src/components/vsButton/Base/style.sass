@@ -17,6 +17,7 @@
   padding: 0px
   outline: none
   font-size: .8rem
+  box-sizing: border-box
   &--fff
     &:focus
       color: rgba(30,30,30,1) !important
@@ -107,6 +108,7 @@
       left: 0px
       z-index: 1200
       animation: btnupload .7s ease infinite
+      box-sizing: border-box
 
   &--loading
      pointer-events: none
@@ -134,6 +136,7 @@
       border-radius: 50%
       position: absolute
       animation: btnload .6s linear infinite
+      box-sizing: border-box
     &:before
       position: absolute
       content: ''
@@ -145,6 +148,7 @@
       border-right: 2px solid rgba(255,255,255, 0)
       border-radius: 50%
       animation: btnload .6s ease infinite
+      box-sizing: border-box
 
 
   // SIZE -----
@@ -236,12 +240,13 @@
     position: absolute
     top: 0px
     left: 0px
-    width: calc(100% - 4px)
-    height: calc(100% - 4px)
+    width: 100%
+    height: 100%
     border-radius: inherit
     background: transparent
     pointer-events: none
     transition: all .25s ease
+    box-sizing: border-box
   &:hover
     &:before
       border: 2px solid vs-color(color, .5)
@@ -272,6 +277,7 @@
     transition: all .4s ease
     z-index: -1
     filter: hue-rotate(-40deg)
+    box-sizing: border-box
 
   &:hover
     transform: translate(0, -3px)
@@ -306,6 +312,7 @@
     z-index: -1
     filter: contrast(2) grayscale(.4)
     border-bottom: 3px solid vs-color('color')
+    box-sizing: border-box
   &:active
     transform: translate(0,1px)
     .vs-button__content
@@ -337,6 +344,7 @@
     z-index: -1
     transform: scale(.5)
     opacity: 0
+    box-sizing: border-box
   &:active:not(.vs-button--active)
     &::before
       transform: scale(.9) !important

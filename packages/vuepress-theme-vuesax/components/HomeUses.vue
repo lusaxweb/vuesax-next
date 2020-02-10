@@ -21,7 +21,7 @@
         <div class="con-img-t">
           <img :class="{'not-darken': item.img2}" :src="item.img" alt="">
           <img v-if="item.img2" class="has-darken" :src="item.img2" alt="">
-          <img class="filter" :class="{'not-darken': item.img2}" :src="item.img" alt="">
+          <img v-if="!item.notShadow" class="filter" :class="{'not-darken': item.img2}" :src="item.img" alt="">
           <img v-if="item.img2" class="filter" :class="{'has-darken': item.img2}" :src="item.img2" alt="">
         </div>
         <p v-html="item.name" />
@@ -79,7 +79,8 @@ export default {
         name: 'Jest',
         link: 'https://jestjs.io/',
         img: '/use/jest-vuesax-8-w.svg',
-        img2: '/use/jest-vuesax-8.svg'
+        img2: '/use/jest-vuesax-8.svg',
+        notShadow: true
       },
       {
         name: 'Boxicons',

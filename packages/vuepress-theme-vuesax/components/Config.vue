@@ -377,6 +377,7 @@ getVar(var)
   &:hover
     .lang
       opacity 1
+      visibility visible
       transform translate(0,-54px)
   svg
     width 18px
@@ -389,6 +390,7 @@ getVar(var)
     transform translate(0,-90%)
     padding 0px
     opacity 0
+    visibility hidden
 
     li
       text-align center
@@ -474,7 +476,7 @@ getVar(var)
   .effect1config
     width 40px
     height 40px
-    top -38px
+    top -36px
     left -3px
     position absolute
     transform rotate(179deg)
@@ -482,13 +484,15 @@ getVar(var)
     stroke getVar(theme-layout)
     &.invert
       transform rotate(-90deg)
-      bottom -38px
+      bottom -36px
       top auto
 
   i.bx
     font-size 1.2rem
     transition all .25s ease
     color getVar(theme-color)
+    &.bxs-moon
+      color rgba(0,0,0,.5)
   ul.options
     position absolute
     top 0px

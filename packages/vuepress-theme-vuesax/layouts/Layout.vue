@@ -5,6 +5,21 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+    <transition name="fade-code">
+      <div
+        @click="handleClickCodeSandbox"
+        v-if="codesandbox.url" class="con-codesandbox">
+        <div class="con-iframe">
+          <iframe
+            :src="codesandbox.url"
+            style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+            title="vuesax-buttons-default"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+          ></iframe>
+        </div>
+      </div>
+    </transition>
 
     <HeaderNotification />
 
@@ -69,6 +84,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
@@ -104,7 +120,8 @@ export default {
     return {
       isSidebarOpen: false,
       ads: 'codefund',
-      noAdvertiser: false
+      noAdvertiser: false,
+      codesandbox: null
     }
   },
 
@@ -159,32 +176,40 @@ export default {
   },
 
   watch: {
+    'codesandbox': {
+      deep: true,
+      handler(val) {
+        console.log('paso por aqui')
+        if (!this.noAdvertiser) {
+          this.loadCodeFund()
+        } else {
+          window.removeEventListener('codefund', this.handlerCodefound);
+          this.ads = 'carbon'
+          this.$refs.carbon.load()
+        }
+      }
+    },
     '$route' (to, from) {
       if (
         to.path !== from.path
       ) {
-        this.$refs.carbon.clean()
-        this.$refs.codefund.$el.innerHTML = ''
+        Vue.observable(this.$codesandbox)
         // if (this.$route.path !== '/') {
         if (!this.noAdvertiser) {
           this.loadCodeFund()
         } else {
-          this.$refs.codefund.$el.innerHTML = ''
           window.removeEventListener('codefund', this.handlerCodefound);
-          const number = Math.round(Math.random() * (4) + 1)
-          if (number == 1) {
-            this.ads = 'vuesax'
-            this.$refs.carbon.$el.innerHTML = ''
-            this.$refs.carbon.$el.classList.add('hidden')
-          } else {
-            this.ads = 'carbon'
-            this.$refs.carbon.load()
-            this.$refs.carbon.$el.classList.remove('hidden')
-          }
+          this.ads = 'carbon'
+          this.$refs.carbon.load()
+          // this.$refs.carbon.$el.classList.remove('hidden')
         }
         // }
       }
     }
+  },
+
+  created() {
+    this.codesandbox = Vue.observable(this.$codesandbox)
   },
 
   mounted () {
@@ -197,26 +222,27 @@ export default {
   },
 
   methods: {
+    handleClickCodeSandbox() {
+      document.body.style.overflow = ''
+      this.codesandbox.url = null
+    },
     handlerCodefound(event) {
       if (event.detail.status === 'no-advertiser') {
         this.noAdvertiser = true
-        this.$refs.codefund.$el.innerHTML = ''
         window.removeEventListener('codefund', this.handlerCodefound);
-        const number = Math.round(Math.random() * (4) + 1)
-        if (number == 1) {
-          this.ads = 'vuesax'
-          this.$refs.carbon.$el.innerHTML = ''
-          this.$refs.carbon.$el.classList.add('hidden')
-        } else {
-          this.ads = 'carbon'
-          this.$refs.carbon.clean()
-          this.$refs.carbon.load()
-          this.$refs.carbon.$el.classList.remove('hidden')
-        }
+        // const number = Math.round(Math.random() * (4) + 1)
+        // if (number == 1) {
+        //   this.ads = 'vuesax'
+        //   this.$refs.carbon.$el.innerHTML = ''
+        //   this.$refs.carbon.$el.classList.add('hidden')
+        // } else {
+        this.ads = 'carbon'
+        this.$refs.carbon.clean()
+        this.$refs.carbon.load()
+        // }
       } else {
         this.ads = 'codefund'
-        this.$refs.carbon.$el.innerHTML = ''
-        this.$refs.carbon.$el.classList.add('hidden')
+        // this.$refs.carbon.$el.classList.add('hidden')
       }
     },
     loadCodeFund() {
@@ -259,6 +285,32 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.fade-code-enter-active, .fade-code-leave-active
+  transition: opacity .5s;
+
+.fade-code-enter, .fade-code-leave-to
+  opacity: 0
+
+.darken
+  .con-codesandbox
+    background rgba(0,0,0,.7)
+.con-codesandbox
+  width 100%
+  height 100%
+  position fixed
+  z-index 100001
+  top 0px
+  left 0px
+  background rgba(0,0,0,.4)
+  display flex
+  align-items center
+  justify-content center
+  .con-iframe
+    max-width 1200px
+    width 100%
+</style>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="../styles/theme.styl" lang="stylus"></style>

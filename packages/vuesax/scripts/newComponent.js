@@ -110,26 +110,29 @@ export default {
 function FileComponentMD(name) {
   return `---
 PROPS:
-  - name: nombre de la propiedad
+  - name: propiedad
     type: String
     values: Valores separados en coma
     description: texto descriptivo.
     default: primary
-    link: /api/color
+    link: null
     usage: '#color'
     code: >
             ...
 
 SLOTS:
-  - name: animate
+  - name: slot name
     type: slot
     values: null
     description: texto descriptivo.
     default: null
-    link: /api/slot
+    link: null
     usage: '#animated'
     code: >
             ...
+
+NEWS:
+  - name
 ---
 
 # ${name}
@@ -147,6 +150,14 @@ Descripción
 </div>
 
 <div slot="template">
+
+  ${'```'}html{3,4,5}
+    ...
+  ${'```'}
+
+</div>
+
+<div slot="script">
 
   ${'```'}html{3,4,5}
     ...
