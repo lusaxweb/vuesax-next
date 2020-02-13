@@ -1,6 +1,4 @@
-const path = require('path')
-// const { ShellString, test, mkdir, cd, sed, exit, exec } = require('shelljs')
-const { mkdir, ShellString, cd, sed, exit, test } = require('shelljs')
+const { mkdir, ShellString, cd, sed, test } = require('shelljs')
 const inquirer = require('inquirer');
 const boxen = require('boxen');
 const { execSync } = require('child_process')
@@ -18,14 +16,17 @@ function FileSass(name) {
 @import '../../../styles/colors'
 @import 'root'
 
-.vs-${name.toLowerCase()}
+.vs-${name.toLowerCase()}-content
   background: vs-color('color')
+
+.vs-${name.toLowerCase()}
+  background: #000
   color: #fff
   `.trim()
 }
 
 function FileRootSass(name) {
-  return `.vs-${name.toLowerCase()}
+  return `.vs-${name.toLowerCase()}-content
   --vs-color: var(--vs-primary)`.trim()
 }
 
@@ -48,15 +49,26 @@ export default component
 function FileComponentTs(name) {
   return `
 import { VNode } from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
 
 @Component
 export default class Vs${name} extends VsComponent {
+
+  @Prop({ default: false, type: Boolean }) loading: boolean
+
   public render(h: any): VNode {
+    const ${name.toLowerCase()} = h('div', {
+      staticClass: 'vs-${name.toLowerCase()}'
+    }, [
+      this.$slots.default
+    ])
+
     return h('button', {
-      staticClass: ['vs-${name.toLowerCase()}'],
-    }, this.$slots.default)
+      staticClass: 'vs-${name.toLowerCase()}-content',
+    }, [
+      ${name.toLowerCase()}
+    ])
   }
 }`.trim()
 }
@@ -75,7 +87,7 @@ var questions = [
   {
     type: 'input',
     name: 'name',
-    message: 'Cual es el nombre del nuevo componente ?',
+    message: 'What is the name of the new component?',
     filter: String,
     validate: (value) => {
       if(test('-e', `src/components/vs${value}`)) {
@@ -164,6 +176,40 @@ Descripción
   ${'```'}
 
 </div>
+
+</card>
+
+<card>
+
+## Otro
+
+Descripción
+
+<div slot="example">
+  <${name}-default />
+</div>
+
+<div slot="template">
+
+  ${'```'}html{3,4,5}
+    ...
+  ${'```'}
+
+</div>
+
+<div slot="script">
+
+  ${'```'}html{3,4,5}
+    ...
+  ${'```'}
+
+</div>
+
+</card>
+
+<card>
+
+## API
 
 </card>`.trim()
 }

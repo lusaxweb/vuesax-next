@@ -10,5 +10,6 @@
   "vsAvatar": "./src/components/vsAvatar/Base/index.ts",
   "vsAvatarGroup": "./src/components/vsAvatar/Group/index.ts",
   "vsRadio": "./src/components/vsRadio/Base/index.ts",
+  "vsTooltip": "./src/components/vsTooltip/Base/index.ts",
   "newComponent": ""
 }

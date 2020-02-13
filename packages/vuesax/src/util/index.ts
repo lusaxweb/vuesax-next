@@ -141,11 +141,51 @@ const setCords = (element: any, parent: any) => {
   }
 }
 
+const setCordsPosition = (element: any, parent: any, position: string) => {
+  const cords = parent.getBoundingClientRect()
+  const x = cords.x
+  const y = cords.y
+  const w = cords.width
+  const h = cords.height
+  const style = element.style
+  const scrollTop = window.pageYOffset
+  const elTop = element.clientHeight + cords.y + scrollTop
+  const rootTop = scrollTop + window.innerHeight
+
+  if (x + w + 10 + element.getBoundingClientRect().width > window.innerWidth && position == 'right') {
+    position = 'left'
+    element.classList.remove('right')
+    element.classList.add('left')
+  }
+
+  if (x - 10 < element.getBoundingClientRect().width  && position == 'left') {
+    position = 'top'
+    element.classList.remove('left')
+    element.classList.add('top')
+  }
+
+  if ((rootTop - elTop) < 30 || position == 'top') {
+    // console.log('hola mundo')
+    style.top = `${y + scrollTop - element.clientHeight - 8}px`
+    style.left = `${x + ((w - element.getBoundingClientRect().width) / 2)}px`
+  } else if (position == 'bottom') {
+    style.top = `${y + scrollTop + h + 8}px`
+    style.left = `${x + ((w - element.getBoundingClientRect().width) / 2)}px`
+  } else if (position == 'left') {
+    style.top = `${y + scrollTop + ((h - element.getBoundingClientRect().height) / 2)}px`
+    style.left = `${x - element.getBoundingClientRect().width - 8}px`
+  } else if (position == 'right') {
+    style.top = `${y + scrollTop + ((h - element.getBoundingClientRect().height) / 2)}px`
+    style.left = `${x + w + 8}px`
+  }
+}
+
 export {
   setColor,
   setVar,
   isColor,
   insertBody,
   removeBody,
-  setCords
+  setCords,
+  setCordsPosition
 }

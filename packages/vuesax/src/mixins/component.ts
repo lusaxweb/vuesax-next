@@ -37,14 +37,24 @@ export default class VsComponent extends Vue {
     if (this.color || this.componentColor) {
       setColor('color', this.componentColor || this.color || 'primary', this.$el, true)
 
-      if(this.$refs.options) {
+      if (this.$refs.options) {
         setColor('color', this.componentColor || this.color || 'primary', this.$refs.options, true)
       }
+
+      if (this.$refs.tooltip) {
+        setColor('color', this.componentColor || this.color || 'primary', this.$refs.tooltip, true)
+      }
     }
-    if(this.componentColor == 'dark') {
+    if (this.componentColor == 'dark') {
       this.$el.classList.add('vs-component-dark')
     } else {
       this.$el.classList.remove('vs-component-dark')
+    }
+
+    if (this.componentColor == 'white') {
+      this.$el.classList.add('vs-component-white')
+    } else {
+      this.$el.classList.remove('vs-component-white')
     }
   }
 

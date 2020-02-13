@@ -94,6 +94,7 @@ function getNavbar (lang = '/') {
 							{ text: 'Avatar', link: `${lang}docs/components/Avatar` },
 							{ text: 'Notification', link: `${lang}docs/components/Notification` },
 							{ text: 'Radio', link: `${lang}docs/components/Radio` },
+							{ text: 'Tooltip', link: `${lang}docs/components/Tooltip` },
 							// new component slot 1
             ]
           }
@@ -183,6 +184,7 @@ function getSidebar (lang = '/') {
 						`${lang}docs/components/Avatar`,
 						`${lang}docs/components/Notification`,
 						`${lang}docs/components/Radio`,
+						`${lang}docs/components/Tooltip`,
 						// new component slot 2
           ]
         },

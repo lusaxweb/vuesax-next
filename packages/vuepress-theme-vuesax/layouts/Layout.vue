@@ -179,7 +179,6 @@ export default {
     'codesandbox': {
       deep: true,
       handler(val) {
-        console.log('paso por aqui')
         if (!this.noAdvertiser) {
           this.loadCodeFund()
         } else {
@@ -236,6 +235,7 @@ export default {
         //   this.$refs.carbon.$el.innerHTML = ''
         //   this.$refs.carbon.$el.classList.add('hidden')
         // } else {
+        this.$refs.codefund.$el.innerHTML = ''
         this.ads = 'carbon'
         this.$refs.carbon.clean()
         this.$refs.carbon.load()

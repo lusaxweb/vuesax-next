@@ -117,7 +117,6 @@ export default {
       let tables = document.querySelectorAll('.content-api table')
       tables.forEach((table, index) => {
         if(Number(pageYOffset) + 52 >= table.offsetTop && pageYOffset + 100 < (table.offsetTop + table.offsetHeight)) {
-          console.log('hola')
           let clone = table.cloneNode(true)
           let tbodys = clone.querySelectorAll('tbody')
           tbodys.forEach((tbody) => {

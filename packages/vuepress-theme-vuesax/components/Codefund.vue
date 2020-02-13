@@ -1,6 +1,5 @@
 <template>
   <div ref="codefund" class="codefund" id="codefund">
-    <div></div>
   </div>
 </template>
 
@@ -25,7 +24,8 @@ getVar(var)
   border-radius 25px 0px 0px 0px
   transition all .25s ease
   &:empty
-    display none
+    background transparent
+    pointer-events none
   &:hover
     transform translate(-10px,-10px)
     border-radius 20px

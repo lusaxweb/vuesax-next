@@ -10,4 +10,5 @@ export { default as vsOptionGroup } from './vsSelect/OptionGroup'
 export { default as vsAvatar } from './vsAvatar/Base/index'
 export { default as vsAvatarGroup } from './vsAvatar/Group'
 export { default as vsRadio } from './vsRadio/Base/index'
+export { default as vsTooltip } from './vsTooltip/Base/index'
 // new component slot
