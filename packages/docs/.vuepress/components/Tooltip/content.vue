@@ -46,7 +46,7 @@
         <div class="content-tooltip">
           <div class="body">
             <div class="text">
-                Cosed Tasks
+                Closed Tasks
               <span>
               89
               </span>

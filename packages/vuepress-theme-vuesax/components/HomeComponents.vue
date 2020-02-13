@@ -36,7 +36,7 @@
             Segoe cute
           </h4>
           <p>
-            Do you want to participate iin out me half initiative? We are open.
+            Do you want to participate in our initiative? We are open.
           </p>
 
           <footer>
@@ -80,7 +80,12 @@
         <img class="not-darken" src="/foto3.png" alt="">
         <img class="has-darken" src="/foto10.png" alt="">
         <h4>
-          Potted Captus
+          <span class="not-darken">
+            Potted cactus
+          </span>
+          <span class="has-darken">
+            Red Shoes
+          </span>
         </h4>
 
         <vs-button block>
@@ -94,11 +99,11 @@
           <img src="/vue-logo.png" alt="">
         </div>
         <h4>
-          Components Vuejs
+          Vuejs Components
         </h4>
 
         <p>
-          Framework components for vuejs, create interfaces quickly with few lines of code
+          Framework components for VueJS. Create instances quickly with a few lines of code.
         </p>
       </div>
 

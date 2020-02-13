@@ -389,7 +389,7 @@ Cambia la posición de el tooltip con las propiedades
 
 ## Color
 
-<coloren />
+<color />
 
 <div slot="example">
   <Tooltip-color />

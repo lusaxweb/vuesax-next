@@ -18,7 +18,7 @@ module.exports = ctx => ({
   title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
-    ['link', { rel: 'icon', href: `/favicon2_1.png` }],
+    ['link', { rel: 'icon', href: `/logos/logo-vuesax-svg-7.svg`, color: '#2c3e50' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, shrink-to-fit=no' }],
     ['meta', { name: 'author', content: 'Lusaxweb' }],
     ['meta', { name: 'google', content: 'nositelinkssearchbox' }],
@@ -58,31 +58,31 @@ function getNavbar (lang = '/') {
   return {
     nav: [
       {
-        text: `Guide`,
+        text: lang !== '/'? `Guía` : `Guide`,
         link: `${lang}docs/guide/`,
         items: [
-          { text: `Introduction`, link: `${lang}docs/guide/` },
-          { text: `Getting Started`, link: `${lang}docs/guide/gettingStarted` },
+          { text: lang !== '/'? `Introducción` : `Introduction`, link: `${lang}docs/guide/` },
+          { text: lang !== '/'? `Empezando` : `Getting Started`, link: `${lang}docs/guide/gettingStarted` },
         ]
       },
       {
-        text: `Documentation`,
+        text: lang !== '/'? `Documentación` : `Documentation`,
         link: `${lang}docs/`,
         items: [
           {
-            text: `Theme`,
+            text: lang !== '/'? `Tema` : `Theme`,
             items: [
               { text: `Color`, link: `${lang}docs/theme/` },
             ]
           },
           {
-            text: `Layout`,
+            text: lang !== '/'? `Diseño` : `Layout`,
             items: [
-              { text: `Grid`, link: `${lang}docs/layout/` },
+              { text: lang !== '/'? `Cuadrícula` : `Grid`, link: `${lang}docs/layout/` },
             ]
           },
           {
-            text: `Components`,
+            text: lang !== '/'? `Componentes` : `Components`,
             items: [
               { text: `Button`, link: `${lang}docs/components/` },
               { text: `Alert`, link: `${lang}docs/components/Alert` },
@@ -106,11 +106,11 @@ function getNavbar (lang = '/') {
       //   items: []
       // },
       {
-        text: `License`,
+        text: lang !== '/'? `Licencia` : `License`,
         link: `${lang}license/`
       },
       {
-        text: `Ecosystem`,
+        text: lang !== '/'? `Ecosistema` : `Ecosystem`,
         // link: `${lang}ecosystem/`,
         items: [
           {
@@ -123,15 +123,15 @@ function getNavbar (lang = '/') {
             ]
           },
           {
-            text: `Help`,
+            text: lang !== '/'? `Ayuda` : `Help`,
             items: [
-              { text: `Issues`, link: `https://github.com/lusaxweb/vuesax/issues` },
-              { text: `Edit Page`, link: `https://github.com/lusaxweb/vuesax` },
-              { text: `Latest Releases`, link: `https://github.com/lusaxweb/vuesax/releases` },
+              { text: lang !== '/'? `Problemas` : `Issues`, link: `https://github.com/lusaxweb/vuesax/issues` },
+              { text: lang !== '/'? `Editar página` : `Edit Page`, link: `https://github.com/lusaxweb/vuesax` },
+              { text: lang !== '/'? `Últimos lanzamientos` : `Latest Releases`, link: `https://github.com/lusaxweb/vuesax/releases` },
             ]
           },
           {
-            text: `Contact`,
+            text: lang !== '/'? `Contacto` : `Contact`,
             items: [
               { text: `Lusaxweb`, link: `http://lusaxweb.net` },
               { text: `Chat`, link: `https://discordapp.com/invite/9dsKtvB` },
@@ -144,7 +144,7 @@ function getNavbar (lang = '/') {
       {
         text: '...',
         items: [
-          { text: `Branding`, link: `/branding/` },
+          { text: lang !== '/'? `Marca` : `Branding`, link: `/branding/` },
         ]
       }
     ]
@@ -156,7 +156,7 @@ function getSidebar (lang = '/') {
     sidebar: {
       [`${lang}docs/`]: [
         {
-          title: 'Guide',
+          title: lang !== '/'? `Guía` : `Guide`,
           collapsable: false,
           children: [
             `${lang}docs/guide/`,
@@ -164,14 +164,14 @@ function getSidebar (lang = '/') {
           ]
         },
         {
-          title: `Theme`,
+          title: lang !== '/'? `Tema` : `Theme`,
           collapsable: false,
           children: [
             `${lang}docs/theme/`,
           ]
         },
         {
-          title: `Components`,
+          title: lang !== '/'? `Componentes` : `Components`,
           collapsable: false,
           children: [
             `${lang}docs/components/`,
@@ -189,7 +189,7 @@ function getSidebar (lang = '/') {
           ]
         },
         {
-          title: `Layout`,
+          title: lang !== '/'? `Diseño` : `Layout`,
           collapsable: false,
           children: [
             `${lang}docs/layout/`,

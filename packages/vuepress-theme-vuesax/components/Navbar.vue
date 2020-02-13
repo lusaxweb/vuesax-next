@@ -68,7 +68,7 @@
         Buy Now!
       </button> -->
       <div class="user-info">
-        <button class="btn-login" v-if="!$user.user" @click="handleLogin">
+        <!-- <button class="btn-login" v-if="!$user.user" @click="handleLogin">
           Login
         </button>
 
@@ -87,7 +87,7 @@
               </button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- <button @click="handleVuesaxPass" v-if="$user.user">
           Comprar Components Pass
