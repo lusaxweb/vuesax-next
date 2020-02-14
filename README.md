@@ -30,7 +30,41 @@ We would love our users to test with Vuesax v4 to find bugs so we can fix them o
 
 ## Updates
 
-Every day is being updated and working on **Vuesax 4**, we will announce each new component and significant improvement in our networks and discord channel, this in order to benefit from our own users and help us improve and test each component and function
+Every day is being updated and working on **Vuesax 4**, we will announce each new component and significant improvement in our networks and [discord](https://discord.gg/6AZNXEa) channel, this in order to benefit from our own users and help us improve and test each component and function
+
+## Components v3 vs v4
+
+- [x] Alert
+- [x] Avatar
+- [ ] Breadcrumb
+- [x] Button
+- [ ] Card
+- [x] Checkbox
+- [ ] Chip
+- [ ] Collapse
+- [ ] Dialogs
+- [ ] Divider
+- [ ] Dropdown
+- [ ] Images
+- [x] Input
+- [ ] List
+- [x] Loading
+- [ ] Navbar
+- [x] Notification
+- [ ] Number Input
+- [ ] Pagination
+- [ ] Popup
+- [ ] Progress
+- [x] Radio
+- [x] Select
+- [ ] Sidebar
+- [ ] Slider
+- [x] Switch
+- [ ] Table
+- [ ] Tabs
+- [ ] Textarea
+- [x] Tooltip
+- [ ] Upload
 
 ## What is still missing and is working
 

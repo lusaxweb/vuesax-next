@@ -31,7 +31,7 @@
             <a
               @mouseleave="time('discord')"
               @mouseenter="discord = true, expand = true"
-              title="Discord" class="discord" target="_blank" href="https://discord.gg/9dsKtvB">
+              title="Discord" class="discord" target="_blank" href="https://discord.gg/6AZNXEa">
               <i class='bx bxl-discord' ></i>
               Discord
             </a>
@@ -271,7 +271,7 @@ getVar(var)
       border 40px solid getVar(theme-bg2)
   .hero
     width 50%
-    z-index 100
+
 .badge-star
   position absolute
   top -8px
@@ -571,8 +571,11 @@ getVar(var)
     min-height auto
   .home
     .hero
+      z-index 120
       // align-items center
       // z-index 500
+      .circle-init
+        display none
       .points-init
         z-index -1
       .description

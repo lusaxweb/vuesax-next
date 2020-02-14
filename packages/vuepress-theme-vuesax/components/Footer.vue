@@ -121,7 +121,7 @@ export default {
           items: [
             {
               text: 'Discord',
-              link: 'https://discordapp.com/invite/9dsKtvB'
+              link: 'https://discord.gg/6AZNXEa'
             },
             {
               text: 'Github',

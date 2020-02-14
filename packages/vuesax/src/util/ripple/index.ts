@@ -1,4 +1,5 @@
 import { setColor } from '../index'
+import './style.sass'
 const ripple = (evt: any, color: any = '', solid: boolean = false) => {
 
   const el = evt.currentTarget

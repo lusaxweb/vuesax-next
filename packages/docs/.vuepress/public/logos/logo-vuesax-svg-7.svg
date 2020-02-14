@@ -6,8 +6,8 @@
   }
   @media (prefers-color-scheme: dark) {
     .svg {
-      fill: white;
-      stroke: white;
+      fill: #fff !important
+      stroke: #fff !important
     }
   }
 </style>

@@ -47,13 +47,13 @@
       </a>
 
       <div class="con-links">
-        <a title="Github" target="_blank" href="https://github.com/lusaxweb/vuesax">
+        <a title="Github" target="_blank" href="https://github.com/lusaxweb/vuesax-next">
           <i class="bx bxl-github"></i>
         </a>
         <a title="Twitter" target="_blank" href="https://twitter.com/vuesax">
           <i class="bx bxl-twitter"></i>
         </a>
-        <a title="Discord" target="_blank" href="https://discordapp.com/invite/9dsKtvB">
+        <a title="Discord" target="_blank" href="https://discord.gg/6AZNXEa">
           <i class="bx bxl-discord"></i>
         </a>
       </div>

@@ -18,7 +18,9 @@ module.exports = ctx => ({
   title: 'Vue.js Framework Components - Vuesax',
   theme: require.resolve('../../vuepress-theme-vuesax/'),
   head: [
-    ['link', { rel: 'icon', href: `/logos/logo-vuesax-svg-7.svg`, color: '#2c3e50' }],
+    // ['link', { rel: 'icon', href: `/logos/logo-vuesax-svg-7.svg`, color: '#2c3e50' }],
+    ['link', { rel: 'icon', href: `/logos/logo-vuesax-logotipo-vuesax-png-8.png`, media: '(prefers-color-scheme:dark)', type: 'image/png' }],
+    ['link', { rel: 'icon', href: `/logos/logo-vuesax-logotipo-vuesax-png-7.png`, media: '(prefers-color-scheme:light)', type: 'image/png' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, shrink-to-fit=no' }],
     ['meta', { name: 'author', content: 'Lusaxweb' }],
     ['meta', { name: 'google', content: 'nositelinkssearchbox' }],
@@ -28,6 +30,7 @@ module.exports = ctx => ({
     ['meta', { property: 'og:title', content: 'Vuesax - Framework for Vuejs'}],
     ['meta', { property: 'og:url', content: 'https://vuesax.com/'}],
     ['meta', { name: 'twitter:card', content: 'summary_large_image'}],
+    // ['script', {}, ``],
     // ['script', {
     //   src: 'https://cdn.paddle.com/paddle/paddle.js'
     // }],
@@ -116,8 +119,8 @@ function getNavbar (lang = '/') {
           {
             text: `Social`,
             items: [
-              { text: `GitHub`, link: `https://github.com/lusaxweb/vuesax` },
-              { text: `Discord`, link: `https://discord.gg/9dsKtvB` },
+              { text: `GitHub`, link: `https://github.com/lusaxweb/vuesax-next` },
+              { text: `Discord`, link: `https://discord.gg/6AZNXEa` },
               { text: `Twitter`, link: `https://twitter.com/vuesax` },
               { text: `Medium`, link: `https://medium.com/@luisdanielrovira8` }
             ]
@@ -125,9 +128,9 @@ function getNavbar (lang = '/') {
           {
             text: lang !== '/'? `Ayuda` : `Help`,
             items: [
-              { text: lang !== '/'? `Problemas` : `Issues`, link: `https://github.com/lusaxweb/vuesax/issues` },
-              { text: lang !== '/'? `Editar página` : `Edit Page`, link: `https://github.com/lusaxweb/vuesax` },
-              { text: lang !== '/'? `Últimos lanzamientos` : `Latest Releases`, link: `https://github.com/lusaxweb/vuesax/releases` },
+              { text: lang !== '/'? `Problemas` : `Issues`, link: `https://github.com/lusaxweb/vuesax-next/issues` },
+              { text: lang !== '/'? `Editar página` : `Edit Page`, link: `https://github.com/lusaxweb/vuesax-next` },
+              { text: lang !== '/'? `Últimos lanzamientos` : `Latest Releases`, link: `https://github.com/lusaxweb/vuesax-next/releases` },
             ]
           },
           {
