@@ -191,9 +191,20 @@ getVar(var)
 
 @media (min-width: $MQMobile)
   .dropdown-wrapper
+    position relative
+    &:after
+      content ''
+      position absolute
+      bottom -12px
+      width 100%
+      height 20px
+      background transparent
+      display none
     &:hover
       // override the inline style.
       display block !important
+      &:after
+        display block
       .nav-dropdown
         transform translate(0, calc(100% + 10px)) !important
         visibility visible !important
@@ -219,13 +230,14 @@ getVar(var)
       transform translate(0, 100%)
       left 0
       background-color getVar(theme-layout)
-      padding 0.6rem 0
+      padding 0.5rem 0
       // border 1px solid #ddd
       // border-bottom-color #ccc
       text-align left
       border-radius 7px 20px 20px 20px
       white-space nowrap
       margin 0
+      margin-top -10px
       transition all .25s ease
       box-shadow 0px 10px 20px -10px rgba(0,0,0,.1)
 </style>

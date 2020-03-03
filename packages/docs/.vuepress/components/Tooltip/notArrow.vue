@@ -45,5 +45,5 @@ export default {
   .vs-button
     margin 0px
   .vs-tooltip-content
-    margin 0px 5px
+    margin 5px
 </style>

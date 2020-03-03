@@ -1,8 +1,6 @@
 <template>
   <button :class="{'openSidebar': isOpenSidebar}" class="sidebar-button" @click="$emit('toggle-sidebar')">
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512">
-      <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class=""></path>
-    </svg>
+    <i class='bx bx-menu'></i>
   </button>
 </template>
 
@@ -18,6 +16,10 @@ export default {
 </script>
 
 <style lang="stylus">
+getColor(vsColor, alpha = 1)
+    unquote("rgba(var(--vs-"+vsColor+"), "+alpha+")")
+getVar(var)
+    unquote("var(--vs-"+var+")")
 .isSidebarOpen
   .sidebar-button
     transform rotate(90deg)
@@ -27,7 +29,7 @@ export default {
   position absolute
   padding 0.6rem
   top 0.6rem
-  left 1rem
+  left .2rem
   outline none
   user-select none
   background transparent
@@ -35,12 +37,12 @@ export default {
   box-shadow: none
   border 0px
   transition all .25s ease
+  color: getColor('theme-color') !important
   &:focus
     outline 0
-  .icon
+  i
     display block
-    width 1.25rem
-    height 1.25rem
+    font-size 1.8rem
 
 @media (max-width: 1000px)
   .sidebar-button

@@ -37,7 +37,8 @@ export default class VsSelectOption extends VsComponent {
   }
 
   get isActive() {
-    return this.getParent().value.indexOf(this.value) !== -1
+    return typeof this.getParent().value == 'number' ?
+    this.getParent().value == this.value : this.getParent().value.indexOf(this.value) !== -1
   }
 
   get isHover() {

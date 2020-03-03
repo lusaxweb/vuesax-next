@@ -130,14 +130,16 @@
           <!-- v-show="prev" -->
         <span
           class="prev"
+          v-if="prev"
         >
-          <i class="bx bx-chevron-left"></i>
           <router-link
-            v-if="prev"
             class="prev"
             :to="prev.path"
           >
-            {{ prev.title || prev.path }}
+            <i class="bx bx-chevron-left"></i>
+            <span>
+              {{ prev.title || prev.path }}
+            </span>
           </router-link>
         </span>
 
@@ -149,9 +151,11 @@
             v-if="next"
             :to="next.path"
           >
-            {{ next.title || next.path }}
+            <span>
+              {{ next.title || next.path }}
+            </span>
+            <i class="bx bx-chevron-right"></i>
           </router-link>
-          <i class="bx bx-chevron-right"></i>
         </span>
       </p>
     </div>
@@ -212,12 +216,16 @@ export default {
 
     next () {
       const next = this.$page.frontmatter.next
+      const obj = {
+          path: '/docs/guide/',
+          title: 'introduction'
+        }
       if (next === false) {
-        return
+        return obj
       } else if (next) {
-        return resolvePage(this.$site.pages, next, this.$route.path)
+        return resolvePage(this.$site.pages, next, this.$route.path) || obj
       } else {
-        return resolveNext(this.$page, this.sidebarItems)
+        return resolveNext(this.$page, this.sidebarItems) || obj
       }
     },
 
@@ -467,7 +475,7 @@ getVar(var)
   background getVar(theme-bg2)
   height auto
   border-radius 0px 0px 0px 30px
-  transition background .25s ease, border-radius .25s ease !important
+  transition background .25s ease, border-radius .25s ease
   top 0px
   // overflow hidden
   &:before
@@ -480,7 +488,7 @@ getVar(var)
     height 60px
   &.fixed
     position fixed
-    top 60px
+    top 57px
     z-index 9999
     border-radius 0px
     background getVar(theme-bg)
@@ -581,6 +589,7 @@ getVar(var)
           align-items center
           justify-content center
           transition all .25s ease
+          color getVar(theme-color)
           &:hover
             ul
               opacity 1
@@ -760,7 +769,6 @@ getVar(var)
     padding-left 5px
     border-radius 12px
     transition all .25s ease
-    transform translate(10px)
     &:hover
       background getVar(theme-layout)
       transform translate(0px)
@@ -772,12 +780,19 @@ getVar(var)
     margin-top 0
     // border-top 1px solid $borderColor
     padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
-    transform translate(-10px)
-    padding-right 5px
-    padding-left 10px
+    overflow hidden // clear float
+    a
+      display flex
+      align-items center
+      justify-content space-between
+      span
+        display block
+        padding 0px
+  .prev
+    ~ .next
+      float right
+      padding-right 5px
+      padding-left 10px
 
 @media (max-width: 1300px)
   .page .sidebar
@@ -791,11 +806,11 @@ getVar(var)
       float none
       text-align left
 @media (max-width: 600px)
-   .page-nav
+  .page-nav
     .inner
       position fixed
       right 0px
-      bottom: 90px
+      bottom: 34px
       z-index 1000
       padding 0px
       margin 0px
@@ -808,9 +823,27 @@ getVar(var)
         border-radius 0px 10px 10px 0px
         box-shadow 0px 0px 10px 0px rgba(0,0,0,.05)
         transform translate(0) !important
+        span
+          display none
         &.next
-          border-radius 10px 0px 0px 10px
-          transform translate(0) !important
+          padding 0px
+          font-size 1.5rem
+          width 40px
+          height 40px
+          border-radius 0px 10px 0px 0px
+        &.prev
+          padding 0px
+          font-size 1.5rem
+          width 40px
+          height 40px
+          border-radius 0px 10px 0px 0px
+          ~ .next
+            border-radius 10px 0px 0px 10px
+            transform translate(0) !important
+            width 40px
+            height 40px
+            font-size 1.5rem
+            padding 0px
   .page
     .content__default
       padding 10px
@@ -841,6 +874,16 @@ getVar(var)
         .flex-header
           #header-title
             font-size 1.2rem !important
+@media (max-width: 600px)
+  .page
+    ~ .carbon-ads
+      background transparent
+      #carbonads
+        background transparent
+        border-radius 0px
+        margin-top 0px
+        img
+          border-radius 0px 0px 10px 10px !important
 @media (max-width: 500px)
   .page
     padding-top 140px !important

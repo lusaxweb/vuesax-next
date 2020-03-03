@@ -56,11 +56,25 @@ export default {
         img: 'https://pbs.twimg.com/profile_images/1042510623962275840/1Iw_Mvud_400x400.jpg'
       },
       {
+        name: 'Paurakh Sharma',
+        user: '@PaurakhSharma',
+        link: 'https://twitter.com/PaurakhSharma',
+        text: 'Awesome news 🎉 Best looking Vue component library 🔥',
+        img: 'https://pbs.twimg.com/profile_images/1160037349037768704/dtk4DCfv_400x400.jpg'
+      },
+      {
         name: 'illy',
         user: '@__illy___',
         link: 'https://twitter.com/__illy___',
         text: 'Create a serverless mobile web application with Vue (ts), <b>Vuesax</b> and Firebase',
         img: 'https://pbs.twimg.com/profile_images/1184434161873870848/9e37ffmP_400x400.jpg'
+      },
+      {
+        name: 'lvzy',
+        user: '@lvzy12',
+        link: 'https://twitter.com/lvzy12',
+        text: 'Vuesax 4.0 UI components are very beautiful, look forward to your continuous updates 😻😻😻',
+        img: 'https://pbs.twimg.com/profile_images/1210388192207097857/Xj8nbZKE_400x400.jpg'
       },
       {
         name: 'Gusto',

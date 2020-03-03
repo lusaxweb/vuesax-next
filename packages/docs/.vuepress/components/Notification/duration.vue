@@ -22,7 +22,7 @@ export default {
         duration,
         progress: 'auto',
         title: 'Documentation Vuesax 4.0+',
-        text: 'These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax3.x'
+        text: 'These documents refer to the latest version of vuesax (4.0+), to see the documents of the previous versions you can do it here 👉 Vuesax3.x',
       })
     }
   }

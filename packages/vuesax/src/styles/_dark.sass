@@ -1,0 +1,43 @@
+@import './mixins'
+
+[vs-theme="dark"]
+  --vs-background: 30, 32, 35
+  --vs-text: 255, 255, 255
+  --vs-gray-1: 24, 25, 28
+  --vs-gray-2: 20, 20, 23
+  --vs-gray-3: 15, 16, 19
+  --vs-gray-4: 10, 11, 14
+  --vs-shadow-opacity: .75
+  --vs-dark: 0, 0, 0
+  --vs-background-opacity: .6
+  .vs-pagination-content
+    &.vs-component-dark
+      .vs-pagination__active
+        --vs-color: 255, 255, 255
+        color: vs-color('gray-3')
+  .vs-button
+    &.vs-component-dark
+      &.vs-button--transparent
+        color: vs-color('text') !important
+        &:hover
+          &:before
+            background: vs-color('color', .2)
+        &.vs-button--active
+          &:before
+            background: vs-color('color', vs-var('background-opacity'))
+  .vs-ripple,.vs-ripple-invert,.vs-ripple-content
+    --vs-color: 0,0,0
+  .vs-loading
+    --vs-background: 0, 0, 0
+  .vs-input-parent--state-dark
+    --vs-dark: 255, 255, 255 !important
+    .vs-input
+      background: #000 !important
+  .vs-component-dark
+    --vs-color: 0, 0, 0 !important
+    .vs-avatar
+      color: #fff !important
+    &.vs-alert
+      --vs-color: 0, 0, 0 !important
+      background: vs-color('color', 1) !important
+      color: vs-color('text', 1) !important

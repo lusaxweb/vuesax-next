@@ -156,8 +156,14 @@ export default {
 
       this.$vsTheme.openCode = false
 
-      localStorage.theme = 'darken'
-      this.ChangeTheme()
+      localStorage.theme = 'dark'
+      const returnTheme = this.$vs.setTheme()
+      this.$vsTheme.themeDarken = returnTheme == 'dark'
+      if (returnTheme == 'dark') {
+        document.body.classList.add('darken')
+      } else {
+        document.body.classList.remove('darken')
+      }
     },
     ChangeSidebar() {
       if (document.body.classList.contains('hidden-sidebar')) {
@@ -240,57 +246,23 @@ export default {
       this.$vsTheme.openCode = !this.$vsTheme.openCode
     },
     ChangeTheme() {
-      this.$vs.darken()
-      document.body.classList.add('all-transition')
-      const isDarken = localStorage.theme === 'darken'
-      document.body.classList.remove(!isDarken ? 'lighten' : 'darken')
-      document.body.classList.add(isDarken ? 'lighten' : 'darken')
-      if (isDarken) {
-        document.body.style.setProperty(`--vs-theme-bg`, '#f4f7f8')
-        document.body.style.setProperty(`--vs-theme-color`, '#2c3e50')
-        document.body.style.setProperty(`--vs-theme-layout`, '#fff')
-         document.body.style.setProperty(`--vs-theme-bg2`, '#eef2f5')
-         document.body.style.setProperty(`--vs-theme-code`, '#363449')
-         document.body.style.setProperty(`--vs-theme-code2`, '#3f3d56')
-        localStorage.theme = 'lighten'
-        this.$vsTheme.themeDarken = false
+      const returnTheme = this.$vs.toggleTheme()
+      this.$vsTheme.themeDarken = returnTheme == 'dark'
+      if (returnTheme == 'dark') {
+        document.body.classList.add('darken')
       } else {
-        localStorage.theme = 'darken'
-        this.$vsTheme.themeDarken = true
-        document.body.style.setProperty(`--vs-theme-bg`, '#18191c')
-        document.body.style.setProperty(`--vs-theme-color`, '#fff')
-        document.body.style.setProperty(`--vs-theme-layout`, '#1e2023')
-        document.body.style.setProperty(`--vs-theme-bg2`, '#141417')
-        document.body.style.setProperty(`--vs-theme-code`, '#141417')
-        document.body.style.setProperty(`--vs-theme-code2`, '#161619')
+        document.body.classList.remove('darken')
       }
-
-      setTimeout(() => {
-        document.body.classList.remove('all-transition')
-      }, 100);
     }
   },
   mounted() {
-    const isDarken = localStorage.theme === 'darken'
-    this.$vs.darken(isDarken ? 'darken' : 'lighten')
-    if (!isDarken) {
-      document.body.style.setProperty(`--vs-theme-bg`, '#f4f7f8')
-      document.body.style.setProperty(`--vs-theme-color`, '#2c3e50')
-      document.body.style.setProperty(`--vs-theme-layout`, '#fff')
-      document.body.style.setProperty(`--vs-theme-bg2`, '#eef2f5')
-      document.body.style.setProperty(`--vs-theme-code`, '#363449')
-      document.body.style.setProperty(`--vs-theme-code`, '#3f3d56')
+    const returnTheme = this.$vs.setTheme()
+    this.$vsTheme.themeDarken = returnTheme == 'dark'
+    if (returnTheme == 'dark') {
+      document.body.classList.add('darken')
     } else {
-      document.body.style.setProperty(`--vs-theme-bg`, '#18191c')
-      document.body.style.setProperty(`--vs-theme-color`, '#fff')
-      document.body.style.setProperty(`--vs-theme-layout`, '#1e2023')
-      document.body.style.setProperty(`--vs-theme-bg2`, '#141417')
-      document.body.style.setProperty(`--vs-theme-code`, '#141417')
-      document.body.style.setProperty(`--vs-theme-code2`, '#161619')
+      document.body.classList.remove('darken')
     }
-
-    document.body.classList.remove(isDarken ? 'lighten' : 'darken')
-    document.body.classList.add(!isDarken ? 'lighten' : 'darken')
   },
   created() {
     Vue.prototype.$mobile = { active: (localStorage.mobile != 'true') || false }
@@ -307,6 +279,14 @@ getColor(vsColor, alpha = 1)
     unquote("rgba(var(--vs-"+vsColor+"), "+alpha+")")
 getVar(var)
     unquote("var(--vs-"+var+")")
+
+[vs-theme="dark"]
+  --vs-theme-bg: #18191c
+  --vs-theme-color: #fff
+  --vs-theme-layout: #1e2023
+  --vs-theme-bg2: #141417
+  --vs-theme-code: #141417
+  --vs-theme-code2: #161619
 
 .switch-dark
   position relative
@@ -529,5 +509,18 @@ getVar(var)
   .config
     // display none
     left 0px
-    bottom 48px
+    bottom 0px
+    z-index 2000
+    .config-btn
+      .effect1config
+        display none
+      ul.options
+        transform: translate(-100%, calc(-100% - 45px))
+        li
+          padding: 6px
+      &:hover
+        ul.options
+          transform: translate(0px, calc(-100% - 45px))
+      >.effect1config
+        left 37px
 </style>

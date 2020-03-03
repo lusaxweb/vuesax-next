@@ -565,6 +565,10 @@ getVar(var)
         order: -1
         top 0px
         padding 10px !important
+@media (max-width: 600px)
+  .home
+    .hero
+      margin-top 60px
 @media (max-width: 550px)
   .init
     height 1000px

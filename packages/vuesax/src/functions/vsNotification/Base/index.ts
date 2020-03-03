@@ -22,6 +22,7 @@ interface NotificationParams {
   notPadding?: any
   content?: any
   clickClose?: boolean
+  classNotification?: string
 }
 
 const notificationConstructor = Vue.extend(component)
@@ -38,6 +39,13 @@ notificationConstructor.prototype.setLoading = function(val: boolean) {
 notificationConstructor.prototype.changeProgress = function(val: number) {
   if (val) {
     this.progress = val
+  }
+}
+
+notificationConstructor.prototype.toggleClass = function(val: number) {
+  if (val) {
+    this.classNotification = val
+    this.$el.closest('.vs-notification-parent').classList.toggle(val)
   }
 }
 
@@ -59,6 +67,7 @@ const notification = (params: NotificationParams = {}) => {
   instance.$data.loading = params.loading
   instance.$data.notPadding = params.notPadding
   instance.$data.clickClose = params.clickClose
+  instance.$data.classNotification = params.classNotification
   if (params.duration !== 'none') {
     instance.$data.duration = params.duration || 4000
   }
@@ -89,6 +98,10 @@ const notification = (params: NotificationParams = {}) => {
   if (!document.querySelector(`.vs-notification-parent--${params.position || 'bottom-right'}`)) {
     parent.className = 'vs-notification-parent'
     parent.classList.add(`vs-notification-parent--${params.position || 'bottom-right'}`)
+  }
+
+  if (params.classNotification) {
+    parent.classList.add(params.classNotification)
   }
 
   parent.appendChild(instance.$mount().$el)

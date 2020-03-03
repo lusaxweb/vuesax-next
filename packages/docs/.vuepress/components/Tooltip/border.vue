@@ -36,4 +36,6 @@ export default {
 <style scoped lang="stylus">
   .vs-button
     margin 0px
+    .vs-tooltip-content
+      margin 10px
 </style>

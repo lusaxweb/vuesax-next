@@ -193,16 +193,13 @@ export default {
         to.path !== from.path
       ) {
         Vue.observable(this.$codesandbox)
-        // if (this.$route.path !== '/') {
         if (!this.noAdvertiser) {
           this.loadCodeFund()
         } else {
-          window.removeEventListener('codefund', this.handlerCodefound);
+          window.removeEventListener('codefund', this.handlerCodefound)
           this.ads = 'carbon'
           this.$refs.carbon.load()
-          // this.$refs.carbon.$el.classList.remove('hidden')
         }
-        // }
       }
     }
   },

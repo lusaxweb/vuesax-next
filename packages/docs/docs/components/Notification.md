@@ -351,6 +351,59 @@ PROPS:
                 }
               }
             </script>
+  - name: instance.toggleClass(String)
+    type: function
+    values: String
+    description: Add or remove the last class as a parameter to the notification.
+    default: null
+    link: null
+    usage: null
+    code: >
+            <script>
+              export default {
+                methods: {
+                  openNotification() {
+                    const noti = this.$vs.notification({
+                      classNotification: 'my-class'
+                      title: 'Documentation Vuesax 4.0+',
+                      text: `These documents refer to the latest version of vuesax (4.0+),
+                      to see the documents of the previous versions you can do it here 👉 Vuesax3.x`,
+                    })
+
+                    setTimeout(() => {
+                      noti.toggleClass('new-class')
+                    }, 5000)
+                  }
+                }
+              }
+            </script>
+
+  - name: classNotification
+    type: String
+    values: String
+    description: Add a custom class to the notification.
+    default: null
+    link: null
+    usage: null
+    code: >
+            <script>
+              export default {
+                methods: {
+                  openNotification() {
+                    const noti = this.$vs.notification({
+                      classNotification: 'my-class'
+                      title: 'Documentation Vuesax 4.0+',
+                      text: `These documents refer to the latest version of vuesax (4.0+),
+                      to see the documents of the previous versions you can do it here 👉 Vuesax3.x`,
+                    })
+
+                    setTimeout(() => {
+                      noti.toggleClass('new-class')
+                    }, 5000)
+                  }
+                }
+              }
+            </script>
 
 NEWS:
   - progress

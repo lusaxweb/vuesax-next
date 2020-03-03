@@ -1,5 +1,5 @@
 import { setColor } from '../util/index'
-import darken from './vsDarken/index'
+import { setTheme, toggleTheme } from './toggleTheme/index'
 import loading from './vsLoading/Base/index'
 import notification from './vsNotification/Base/index'
 
@@ -9,7 +9,8 @@ export default (Vue: any) => {
       setColor(color, val, document.body)
     },
     loading,
-    darken,
+    toggleTheme,
+    setTheme,
     notification
   }
 

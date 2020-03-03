@@ -63,6 +63,10 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
   const isHEX = /^(#)/.test(color)
   let newColor
 
+  if (color == 'dark') {
+    el.classList.add('vs-component-dark')
+  }
+
   if (isRGB) {
     const arrayColor = color.replace(/[rgba()]/g, '').split(',')
     newColor = `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
@@ -78,7 +82,7 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
       el.classList.add('vs-change-color')
     }
   } else if (isColor(color)) {
-    const style = getComputedStyle(document.documentElement)
+    const style = getComputedStyle(document.body)
     newColor = style.getPropertyValue('--vs-' + color)
     setVar(colorName, newColor, el)
     if (addClass) {
@@ -106,7 +110,7 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
 
 const insertBody = (element: HTMLElement, parent: any) => {
   const target = parent ? parent : document.body
-  target.insertBefore(element, target.firstChild)
+  target.insertBefore(element, target.lastChild)
 }
 
 const removeBody = (element: HTMLElement, parent: any) => {
@@ -167,10 +171,36 @@ const setCordsPosition = (element: any, parent: any, position: string) => {
   if ((rootTop - elTop) < 30 || position == 'top') {
     // console.log('hola mundo')
     style.top = `${y + scrollTop - element.clientHeight - 8}px`
-    style.left = `${x + ((w - element.getBoundingClientRect().width) / 2)}px`
+    const left = x + ((w - element.getBoundingClientRect().width) / 2)
+
+    if (left + element.getBoundingClientRect().width < window.innerWidth) {
+      if (left > 0) {
+        style.left = `${left}px`
+      } else {
+        style.left = '10px'
+        element.classList.add('notArrow')
+      }
+    } else {
+      style.left = 'auto'
+      style.right = '10px'
+      element.classList.add('notArrow')
+    }
   } else if (position == 'bottom') {
     style.top = `${y + scrollTop + h + 8}px`
-    style.left = `${x + ((w - element.getBoundingClientRect().width) / 2)}px`
+    const left = x + ((w - element.getBoundingClientRect().width) / 2)
+
+    if (left + element.getBoundingClientRect().width < window.innerWidth) {
+      if (left > 0) {
+        style.left = `${left}px`
+      } else {
+        style.left = '10px'
+        element.classList.add('notArrow')
+      }
+    } else {
+      style.left = 'auto'
+      style.right = '10px'
+      element.classList.add('notArrow')
+    }
   } else if (position == 'left') {
     style.top = `${y + scrollTop + ((h - element.getBoundingClientRect().height) / 2)}px`
     style.left = `${x - element.getBoundingClientRect().width - 8}px`

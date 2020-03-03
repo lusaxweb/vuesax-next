@@ -285,7 +285,13 @@ SLOTS:
             </vs-tooltip>
 
 NEWS:
-  - name
+  - border
+  - square
+  - circle
+  - shadow
+  - not-arrow
+  - loading
+  - content
 ---
 
 # Tooltip

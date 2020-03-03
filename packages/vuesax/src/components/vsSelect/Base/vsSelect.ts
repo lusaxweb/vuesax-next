@@ -103,7 +103,7 @@ export default class VsSelect extends VsComponent {
     const options = this.childOptions
 
     const filterOptions = options.filter((option: any): boolean => {
-      return this.value.indexOf(option.value) !== -1
+      return typeof this.value == 'number' ? this.value == option.value : this.value.indexOf(option.value) !== -1
     })
 
     const label: any[] = []
@@ -134,9 +134,9 @@ export default class VsSelect extends VsComponent {
   }
 
   handleBlur() {
-    setTimeout(() => {
+    this.$nextTick(() => {
       this.activeOptions = false
-    }, 60);
+    })
     this.$emit('blur')
     this.setHover()
     window.removeEventListener('click', this.handleWindowClick)

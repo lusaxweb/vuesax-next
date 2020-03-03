@@ -52,6 +52,8 @@ export default class VsNotification extends Vue {
 
   clickClose: boolean = false
 
+  classNotification: string = null
+
   close() {
     this.isVisible = false
   }
@@ -203,6 +205,7 @@ export default class VsNotification extends Vue {
             { 'vs-notification--loading': this.loading },
             { 'vs-notification--notPadding': this.notPadding },
             `vs-notification--${this.colorName}`,
+            this.classNotification
           ],
           on: {
             click: () => {

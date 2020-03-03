@@ -24,7 +24,7 @@ export default class VsComponent extends Vue {
   @Prop({ type: Boolean, default: false }) active!: boolean
 
   get isColorDark() {
-    return this.color === 'dark' || this.dark
+    return this.color === 'dark' || this.dark || this.componentColor === 'dark'
   }
 
   changeColor() {
@@ -45,7 +45,7 @@ export default class VsComponent extends Vue {
         setColor('color', this.componentColor || this.color || 'primary', this.$refs.tooltip, true)
       }
     }
-    if (this.componentColor == 'dark') {
+    if (this.componentColor == 'dark' || this.color == 'dark') {
       this.$el.classList.add('vs-component-dark')
     } else {
       this.$el.classList.remove('vs-component-dark')

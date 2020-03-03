@@ -11,5 +11,7 @@
   "vsAvatarGroup": "./src/components/vsAvatar/Group/index.ts",
   "vsRadio": "./src/components/vsRadio/Base/index.ts",
   "vsTooltip": "./src/components/vsTooltip/Base/index.ts",
+  "vsDialog": "./src/components/vsDialog/Base/index.ts",
+  "vsPagination": "./src/components/vsPagination/Base/index.ts",
   "newComponent": ""
 }

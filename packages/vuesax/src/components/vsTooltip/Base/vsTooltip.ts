@@ -113,6 +113,8 @@ export default class VsTooltip extends VsComponent {
     if (this.notHover) {
       window.addEventListener('mousedown', this.handleMouseDownNotHover)
     }
+
+    window.addEventListener('touchstart', this.handleMouseDownNotHover)
   }
 
   beforeDestroy() {

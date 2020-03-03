@@ -10,7 +10,9 @@ export default {
       s.id = '_carbonads_js'
       s.async = true
       s.src = `//cdn.carbonads.com/carbon.js?serve=CE7DEKQN&placement=vuesaxcom`
-      this.$el.appendChild(s)
+      this.$nextTick(() => {
+        this.$el.appendChild(s)
+      })
     },
     clean() {
       this.$el.innerHTML = ''
@@ -36,13 +38,16 @@ getVar(var)
 .carbon-ads
   &:empty
     opacity 0
+    pointer-events none
 
 @media (max-width: 600px)
   .carbon-ads
+    position absolute !important
     width 100% !important
     min-height auto !important
     padding 0px 30px !important
-    bottom 0px !important
+    top 62px !important
+    bottom auto !important
     z-index 1000 !important
     border-radius 0px !important
     &:hover

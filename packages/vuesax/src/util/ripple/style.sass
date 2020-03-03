@@ -2,6 +2,7 @@
 @import '../../styles/colors'
 
 .vs-ripple-content
+  --vs-color: var(--vs-background)
   width: 100px
   height: 100px
   position: absolute
@@ -14,7 +15,6 @@
   border-radius: inherit
   z-index: -1
   .vs-ripple
-    --vs-color: 255,255,255
     width: 0px
     height: 0px
     border-radius: 50%
@@ -27,7 +27,6 @@
       background: vs-color(color, 1)
       opacity: 1
   .vs-ripple-invert
-    --vs-color: 255,255,255
     width: 0px
     height: 0px
     border-radius: 50%
@@ -37,7 +36,6 @@
     transition: all .5s ease
     background-image: radial-gradient(circle,vs-color(color, .5),vs-color(color, 0))
   .vs-ripple-cut-1
-    --vs-color: 255,255,255
     width: 0px
     height: 0px
     opacity: 0
@@ -46,7 +44,6 @@
     transition: all .6s ease
     background-image: linear-gradient(270deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 100%)
   .vs-ripple-cut-2
-    --vs-color: 255,255,255
     width: 0px
     height: 0px
     opacity: 0

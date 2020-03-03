@@ -18,6 +18,9 @@
   outline: none
   font-size: .8rem
   box-sizing: border-box
+  &.vs-component-dark
+    &.vs-button--transparent
+      color: vs-color('text') !important
   &--fff
     &:focus
       color: rgba(30,30,30,1) !important
@@ -333,6 +336,7 @@
   &::before
     content: ''
     background: vs-color('color', .1)
+    // background: vs-color('color', vs-var('background-opacity'))
     position: absolute
     bottom: 0px
     left: 0px

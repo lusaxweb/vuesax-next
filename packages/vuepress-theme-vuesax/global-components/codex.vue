@@ -307,7 +307,7 @@ getVar(var)
 .con-codes
   position relative
   width 100%
-  overflow hidden
+  // overflow hidden
 .slots
   transition all .25s ease
   width 100%
@@ -316,10 +316,10 @@ getVar(var)
   left 0px
   div
     width 100%
-    overflow hidden
+    // overflow hidden
     pre
       width 100%
-      overflow hidden
+      // overflow hidden
   >div
     &:last-child
       div[class*="language-"]
@@ -410,6 +410,8 @@ getVar(var)
       align-items center
       cursor pointer
       border-radius 12px
+      background transparent
+      outline none !important
       &.copied
         transform scale(1.3)
         opacity 1 !important

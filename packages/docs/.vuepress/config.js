@@ -98,6 +98,8 @@ function getNavbar (lang = '/') {
 							{ text: 'Notification', link: `${lang}docs/components/Notification` },
 							{ text: 'Radio', link: `${lang}docs/components/Radio` },
 							{ text: 'Tooltip', link: `${lang}docs/components/Tooltip` },
+							{ text: 'Dialog', link: `${lang}docs/components/Dialog` },
+							{ text: 'Pagination', link: `${lang}docs/components/Pagination` },
 							// new component slot 1
             ]
           }
@@ -188,6 +190,8 @@ function getSidebar (lang = '/') {
 						`${lang}docs/components/Notification`,
 						`${lang}docs/components/Radio`,
 						`${lang}docs/components/Tooltip`,
+						`${lang}docs/components/Dialog`,
+						`${lang}docs/components/Pagination`,
 						// new component slot 2
           ]
         },

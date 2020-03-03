@@ -19,7 +19,7 @@ getVar(var)
   bottom 0px
   width 145px
   background getVar('theme-layout')
-  z-index 100003
+  z-index 90000
   // padding 8px
   border-radius 25px 0px 0px 0px
   transition all .25s ease
@@ -64,8 +64,19 @@ getVar(var)
     padding 0px 30px
     min-height 48px
     border-radius 0px
+    bottom: auto
+    position absolute
+    top 62px
+    z-index 100
+    background transparent
+    &:hover
+      transform translate(0) !important
+    img
+      border-radius 0px 0px 10px 10px !important
     .cf-text
       text-align left
+      span
+        font-size .6rem
     .cf-sponsored-by
       display flex
       align-items center
@@ -73,7 +84,7 @@ getVar(var)
     .cf-powered-by
       display none
     img
-      height 44px
+      height 46px
       width auto
       margin 0px
       border-radius 7px

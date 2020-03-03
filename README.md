@@ -42,7 +42,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Checkbox
 - [ ] Chip
 - [ ] Collapse
-- [ ] Dialogs
+- [x] Dialogs
 - [ ] Divider
 - [ ] Dropdown
 - [ ] Images
@@ -52,8 +52,8 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Navbar
 - [x] Notification
 - [ ] Number Input
-- [ ] Pagination
-- [ ] Popup
+- [x] Pagination
+- [x] Popup
 - [ ] Progress
 - [x] Radio
 - [x] Select
