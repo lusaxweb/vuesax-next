@@ -34,7 +34,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 
 ## Components v3 vs v4
 
-- [x] Alert
+- [x] Alert [rtl]
 - [x] Avatar
 - [ ] Breadcrumb
 - [x] Button

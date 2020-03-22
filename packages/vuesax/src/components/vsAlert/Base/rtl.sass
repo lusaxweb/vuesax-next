@@ -1,0 +1,39 @@
+.vs-alert--rtl
+    border-radius: 12px 0px 0px 12px
+    &::after
+        left: auto
+        right: 0px
+    &.vs-alert--border
+        border-left: 1px
+        border-right: 0px
+        left: auto
+        right: 0px
+    &.vs-alert--relief
+        box-shadow: -6px 6px 0px 0px vs-color('color', .3)
+    .vs-alert__title
+        &--clickHidden
+            padding-left: 15px
+            padding-right: 0px
+    .vs-alert__close
+        right: auto
+        left: 6px
+    .vs-alert__icon
+        left: auto
+        right: 0px
+        padding-left: 0px
+        padding-right: 2px
+        ~ .vs-alert__footer
+            padding-left: 15px
+            padding-right: 35px
+        ~ .vs-alert__content
+            padding-left: 0px
+            padding-right: 20px
+        ~ .vs-alert__title
+            padding-left: 15px
+            padding-right: 35px
+    .vs-alert__progress
+        left: auto
+        right: 0px
+        &__bar
+            left: auto
+            right: 0px

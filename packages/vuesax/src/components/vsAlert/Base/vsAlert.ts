@@ -18,6 +18,8 @@ export default class VsAlert extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) relief!: boolean
 
+  @Prop({ type: Boolean, default: false }) rtl!: boolean
+
   @Prop({ default: true }) value!: any
 
   @Prop({ type: Boolean, default: null }) hiddenContent!: boolean | null
@@ -225,6 +227,7 @@ export default class VsAlert extends VsComponent {
         { [`vs-alert--gradient`] : !!this.gradient },
         { [`vs-alert--flat`] : !!this.flat },
         { [`vs-alert--relief`] : !!this.relief },
+        { [`vs-alert--rtl`] : !!this.rtl },
         { [`vs-alert--pages`] : this.getPages.length > 0 },
       ],
     }, [
