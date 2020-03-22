@@ -1,0 +1,102 @@
+@import './style'
+
+.vs-input-parent--rtl
+    &--state-success
+        @include state('success',true)
+    &--state-danger
+        @include state('danger',true)
+    &--state-warn
+        @include state('warn',true)
+    &--state-dark
+        @include state('dark',true)
+    &--state-primary
+        @include state('primary',true)
+    .vs-input
+        padding-left: 13px
+        padding-right: 10px
+        &:focus
+            padding-left: 13px
+            padding-right: 15px
+            &.vs-input--has-icon:not(.vs-input--has-icon--after)
+                padding-left: 13px
+                padding-right: 40px
+                ~ .vs-input__icon
+                    box-shadow: -15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+                ~ .vs-input__label:not(.vs-input__label--placeholder):not(.vs-input__label--label)
+                    left: auto
+                    right: 44px
+            ~ .vs-input__icon
+                box-shadow: 15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+                transform: translate(6px, -6px)
+                &--after
+                    transform: translate(-6px, -6px)
+
+            ~ .vs-input__label:not(.vs-input__label--placeholder):not(.vs-input__label--label)
+                left: auto
+                right: 20px
+            ~ .vs-input__label--placeholder
+                transform: translate(3%, -77%)
+        &__label
+            left: auto
+            right: 13px
+            &.vs-input__label--placeholder
+                transform: translate(3%, -80%)
+            &--label
+                transform: translate(2%, -77%)
+        &--has-icon
+            padding-left: 13px
+            padding-right: 38px
+            ~ .vs-input__label
+                left: auto
+                right: 44px
+            &--after
+                padding-left: 38px
+                padding-right: 7px
+                ~ .vs-input__label
+                    left: auto
+                    right: 13px
+                &.vs-input__label--label
+                    transform: translate(calc(3% + 22px), -80%) !important
+            &:focus
+                &--has-icon
+                    &--after
+                        ~ .vs-input__label
+                            left: auto
+                            right: 44px
+                        ~ .vs-input__label--placeholder
+                            transform: translate(calc(3% + 22px), -80%) !important
+                        ~ .vs-input__label
+                            left: auto
+                            right: 44px
+        &__icon
+            left: auto
+            right: 0px
+            box-shadow: -12px 0px 10px -10px rgba(0,0,0,vs-var(shadow-opacity))
+            &--after
+                right: auto
+                left: 0px
+                box-shadow: 12px 0px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+            &--click
+                &:hover
+                    box-shadow: 15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+                    transform: translate(6px, -6px)
+                    &.vs-input__icon--after
+                        transform: translate(-6px, -6px)
+        &__progress
+            left: auto
+            right: 2.5%
+        &__loading
+            right: auto
+            left: 7px
+
+    &.vs-input-parent--border
+        .vs-input-content
+            .vs-input__affects
+                left: auto
+                right: 0px
+    
+    &.vs-input-parent--shadow
+        .vs-input-content
+            .vs-input__affects
+                left: auto
+                right: 0px

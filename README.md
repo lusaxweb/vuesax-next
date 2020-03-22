@@ -46,7 +46,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Divider
 - [ ] Dropdown
 - [ ] Images
-- [x] Input
+- [x] Input [rtl]
 - [ ] List
 - [x] Loading
 - [ ] Navbar

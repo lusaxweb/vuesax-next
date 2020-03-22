@@ -2,7 +2,7 @@
 @import '../../../styles/colors'
 @import 'root'
 
-@mixin state($color)
+@mixin state($color,$rtl : false)
   .vs-input
     background: vs-color($color,.1) !important
     color: vs-color($color,1)
@@ -11,7 +11,10 @@
   .vs-input__icon
     color: vs-color($color,1)
     background: vs-color($color,.1)
-    box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+    @if $rtl
+      box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+    @else
+      box-shadow: -15px 10px 10px -10px vs-color($color,.1)
 
 .vs-input-parent
   display: flex
@@ -281,8 +284,8 @@
         border-radius: 0px
         &:focus
           ~ .vs-input__affects
-              .vs-input__affects__2
-                width: 100%
+            .vs-input__affects__2
+              width: 100%
   &--shadow
     .vs-input__icon
       background: transparent
@@ -318,9 +321,9 @@
             opacity: 1
             box-shadow: 0px 10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity)) !important
           ~ .vs-input__affects
-              .vs-input__affects__1
-                transform: translate(0,3px)
-                box-shadow: 0px 0px 3px 0px rgba(0,0,0, vs-var(shadow-opacity))
+            .vs-input__affects__1
+              transform: translate(0,3px)
+              box-shadow: 0px 0px 3px 0px rgba(0,0,0, vs-var(shadow-opacity))
 
 @keyframes rotateInputLoading
   0%
