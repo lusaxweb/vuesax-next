@@ -34,7 +34,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 
 ## Components v3 vs v4
 
-- [x] Alert [rtl]
+- [x] Alert ```RTL```
 - [x] Avatar
 - [ ] Breadcrumb
 - [x] Button
@@ -46,7 +46,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Divider
 - [ ] Dropdown
 - [ ] Images
-- [x] Input [rtl]
+- [x] Input ```RTL```
 - [ ] List
 - [x] Loading
 - [ ] Navbar
