@@ -13,4 +13,5 @@ export { default as vsRadio } from './vsRadio/Base/index'
 export { default as vsTooltip } from './vsTooltip/Base/index'
 export { default as vsDialog } from './vsDialog/Base/index'
 export { default as vsPagination } from './vsPagination/Base/index'
+export { default as vsBreadcrumb } from './vsBreadcrumb/Base/index'
 // new component slot
