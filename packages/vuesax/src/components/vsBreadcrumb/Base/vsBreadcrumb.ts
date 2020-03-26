@@ -5,7 +5,7 @@ import { setColor } from '../../../util/index'
 
 @Component
 export default class VsBreadcrumb extends VsComponent {
-  @Prop({ default: (): any => [], type: Array }) items: string[]
+  @Prop({ default: (): any => [], type: Array }) items: any[]
 
   @Prop({ default: '/', type: String }) separator: string
 
