@@ -90,7 +90,6 @@ export default class VsPagination extends VsComponent {
   setActivePosition(Val: number){
     const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
     this.leftActive = (this.$refs[`btn${Val}`] as HTMLElement).offsetLeft + offsetLeftPagination
-    console.log('tick',this.leftActive)
   }
 
   setValuePage(NumberPage: number) {
