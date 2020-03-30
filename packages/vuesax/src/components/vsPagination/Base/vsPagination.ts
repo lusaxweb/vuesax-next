@@ -65,14 +65,32 @@ export default class VsPagination extends VsComponent {
       if (this.$refs.pagination) {
         this.activeClassMove = true
         this.$nextTick(() => {
-          const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
-          this.leftActive = (this.$refs[`btn${val}`] as HTMLElement).offsetLeft + offsetLeftPagination
+          this.setActivePosition(val)
           setTimeout(() => {
             this.activeClassMove = false
           }, 300)
         })
       }
     }
+  }
+
+  @Watch('length')
+  handleLength() {
+    if (this.$refs.pagination) {
+      this.activeClassMove = true
+      this.$nextTick(() => {
+        this.setActivePosition(this.val)
+        setTimeout(() => {
+          this.activeClassMove = false
+        }, 300)
+      })
+    }
+  }
+
+  setActivePosition(Val: number){
+    const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
+    this.leftActive = (this.$refs[`btn${Val}`] as HTMLElement).offsetLeft + offsetLeftPagination
+    console.log('tick',this.leftActive)
   }
 
   setValuePage(NumberPage: number) {
