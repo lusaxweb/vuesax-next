@@ -1,4 +1,5 @@
 import './style.sass'
+import './rtl.sass'
 import component from './VsPagination'
 
 component.install = (vue: any) => {

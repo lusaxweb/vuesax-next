@@ -31,6 +31,8 @@ export default class VsPagination extends VsComponent {
 
   @Prop({ default: false, type: Boolean }) disabled: boolean
 
+  @Prop({ default: false, type: Boolean }) rtl: boolean
+
   @Prop({ default: (): any => [], type: Array }) disabledItems: number[]
 
   @Prop({ default: (): any => [], type: Array }) loadingItems: number[]
@@ -75,6 +77,20 @@ export default class VsPagination extends VsComponent {
 
   setValuePage(NumberPage: number) {
     this.$emit('input', NumberPage)
+  }
+
+  convertNumber(Number: number) {
+    return Number.toString()
+      .replace(/0/g,'۰')
+      .replace(/1/g,'۱')
+      .replace(/2/g,'۲')
+      .replace(/3/g,'۳')
+      .replace(/4/g,'۴')
+      .replace(/5/g,'۵')
+      .replace(/6/g,'۶')
+      .replace(/7/g,'۷')
+      .replace(/8/g,'۸')
+      .replace(/9/g,'۹')
   }
 
   renderDotted(text: string = '...') {
@@ -136,7 +152,7 @@ export default class VsPagination extends VsComponent {
           this.setValuePage(NumberPage)
         }
       }
-    }, this.buttonsDotted ? '' : `${NumberPage}`)
+    }, this.buttonsDotted ? '' : `${this.rtl ? this.convertNumber(NumberPage) : NumberPage}`)
 
     return button
   }
@@ -223,7 +239,7 @@ export default class VsPagination extends VsComponent {
       class: {
         move: this.activeClassMove
       }
-    }, this.buttonsDotted ? '' : this.value)
+    }, this.buttonsDotted ? '' : this.rtl ? this.convertNumber(this.value) : this.value)
 
     const pagination = h('div', {
       staticClass: 'vs-pagination',
@@ -302,7 +318,8 @@ export default class VsPagination extends VsComponent {
           square: this.square,
           disabled: this.disabled,
           notMargin: this.notMargin
-        }
+        },
+        { [`vs-pagination--rtl`] : !!this.rtl }
       ]
     }, [
       (!this.onlyArrows && !this.$slots.default) && active,
