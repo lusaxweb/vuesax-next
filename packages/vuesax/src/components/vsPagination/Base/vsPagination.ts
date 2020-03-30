@@ -87,8 +87,13 @@ export default class VsPagination extends VsComponent {
     }
   }
 
+  @Watch('onlyArrows')
+  handleOnlyArrows() {
+    this.setActivePosition(this.val)
+  }
+
   setActivePosition(Val: number){
-    if(this.$refs.pagination){
+    if(this.$refs.pagination && this.$refs[`btn${Val}`]){
       const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
       this.leftActive = (this.$refs[`btn${Val}`] as HTMLElement).offsetLeft + offsetLeftPagination
     }
