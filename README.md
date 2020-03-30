@@ -52,7 +52,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Navbar
 - [x] Notification
 - [ ] Number Input
-- [x] Pagination
+- [x] Pagination ```RTL```
 - [x] Popup
 - [ ] Progress
 - [x] Radio
