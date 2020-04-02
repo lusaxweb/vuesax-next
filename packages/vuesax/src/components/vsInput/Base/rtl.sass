@@ -39,8 +39,9 @@
         &__label
             left: auto
             right: 13px
-            &.vs-input__label--placeholder
-                transform: translate(3%, -80%)
+            &--hidden
+                &.vs-input__label--placeholder
+                    transform: translate(3%, -80%)
             &--label
                 transform: translate(2%, -77%)
         &--has-icon
@@ -67,7 +68,7 @@
                             transform: translate(calc(3% + 22px), -80%) !important
                         ~ .vs-input__label
                             left: auto
-                            right: 44px
+                            right: 44px !important
         &__icon
             left: auto
             right: 0px
