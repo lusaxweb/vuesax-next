@@ -2,7 +2,7 @@
 @import '../../../styles/colors'
 @import 'root'
 
-@mixin state($color)
+@mixin state($color,$rtl : false)
   .vs-select__input
     // border: 2px solid vs-color($color,.5)
     background: vs-color($color,.05)
@@ -22,7 +22,10 @@
       content: ''
       position: absolute
       top: 0px
-      left: 0px
+       @if $rtl
+        right: 0px
+       @else
+        left: 0px
       border: 2px solid vs-color($color,.5)
       border-radius: inherit
       transition: all .25s ease

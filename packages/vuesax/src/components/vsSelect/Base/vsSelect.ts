@@ -26,6 +26,8 @@ export default class VsSelect extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) collapseChips: boolean
 
+  @Prop({ type: Boolean, default: false }) rtl: boolean
+
   @Prop({ type: Boolean, default: false }) loading!: boolean
 
   @Prop({ type: String, default: null }) state!: string
@@ -428,7 +430,8 @@ export default class VsSelect extends VsComponent {
       staticClass: 'vs-select__options',
       ref: 'options',
       class: {
-        isColorDark: this.isColorDark
+        isColorDark: this.isColorDark,
+        'vs-select__options--rtl': this.rtl
       },
       on: {
         mouseleave: () => {
@@ -613,7 +616,11 @@ export default class VsSelect extends VsComponent {
     ])
 
     return  h('div', {
-      staticClass: 'vs-select-content'
+      staticClass: 'vs-select-content',
+      class: 
+        {
+          'vs-select--rtl': this.rtl
+        }
     }, [
       selectContent,
       messageSuccess,

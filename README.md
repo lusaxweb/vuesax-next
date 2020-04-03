@@ -56,7 +56,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Popup
 - [ ] Progress
 - [x] Radio
-- [x] Select
+- [x] Select ```RTL```
 - [ ] Sidebar
 - [ ] Slider
 - [x] Switch
