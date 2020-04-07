@@ -42,7 +42,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Checkbox
 - [ ] Chip
 - [ ] Collapse
-- [x] Dialogs
+- [x] Dialogs ```RTL```
 - [ ] Divider
 - [ ] Dropdown
 - [ ] Images
