@@ -63,7 +63,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Table
 - [ ] Tabs
 - [ ] Textarea
-- [x] Tooltip
+- [x] Tooltip ```RTL```
 - [ ] Upload
 
 ## What is still missing and is working

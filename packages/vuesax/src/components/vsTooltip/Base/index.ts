@@ -1,4 +1,5 @@
 import './style.sass'
+import './rtl.sass'
 import component from './VsTooltip'
 
 component.install = (vue: any) => {
