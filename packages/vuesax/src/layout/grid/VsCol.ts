@@ -21,12 +21,18 @@ export default class VsCol extends Vue {
 
   @Prop({ type: [String, Number], default: '0' }) public xs!: string | number
 
+  @Prop({ type: String, default: 'block' }) public type!: string
+
+  @Prop({ type: String, default: 'flex-start' }) public justify!: string
+
   public render(h: any): VNode {
 
     const vsCol = h('div', {
       staticClass: 'vs-col',
       style: {
-        order: this.order
+        order: this.order,
+        display: this.type,
+        justifyContent: this.justify,
       },
       class: [
         `vs-col--w-${this.w}`,
