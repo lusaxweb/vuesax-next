@@ -41,7 +41,7 @@ With the `w` directive define the column width (vs-col) its value is **1-12**, a
 
 ## Offset
 
-To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=25%`.
+To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=33%`.
 
 <div slot="example">
   <grid-offset />
