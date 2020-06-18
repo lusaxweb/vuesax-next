@@ -1,0 +1,14 @@
+@import '../../../styles/mixins'
+.vs-table__td
+  padding: 10px 12px
+  transition: all .25s ease
+  font-size: .8rem
+  &:last-child
+    border-radius: 0px 15px 15px 0px
+  &:first-child
+    border-radius: 15px 0px 0px 15px
+  &.isCheckbox
+    width: 23px
+  &.isEdit
+    text-decoration: underline
+    cursor: pointer

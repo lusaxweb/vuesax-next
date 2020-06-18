@@ -22,13 +22,45 @@ Con la directiva `w` define el ancho de la columna (vs-col) su valor es **1-12**
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="center grid">
+        <vs-row>
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+          100%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 2" vs-type="flex" vs-justify="center" vs-align="center" w="6">
+          50%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" w="4">
+          33.3%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" w="3">
+          25%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 6" vs-type="flex" vs-justify="center" vs-align="center" w="2">
+          16.6%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 12" vs-type="flex" vs-justify="center" vs-align="center" w="1">
+          8.3%
+        </vs-col>
+      </vs-row>
       </div>
     </template>
   ```
@@ -48,13 +80,39 @@ Para dar una distancia con respecto a la izquierda tenemos la propiedad offset q
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html{4}
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div>
+        <vs-row w="12">
+          <vs-col offset="5" w="6">
+            offset = 6
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="0" w="2">
+            offset = 2
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="2" w="8">
+            offset = 8
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="9" w="3">
+            offset = 7
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="4" w="4">
+            offset = 4
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -74,17 +132,43 @@ Si tenemos que alinear los elementos en horizontal, utilice la `justify` directi
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row>
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Default {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Center {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="flex-end">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Flex-end {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+
+        <vs-row justify="space-around">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-around {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="space-between">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-between {{ index + 1 }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
-
 </div>
 
 </card>
@@ -101,13 +185,40 @@ También tenemos la propiedad `direction` que hace referencia a la propiedad css
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Default {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row align="center" justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Center {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row align="flex-end" justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Flex-end {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+
+        <vs-row class="mh" align="center" justify="space-around" direction="column">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-around {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row class="mh" align="center" justify="space-between" direction="column">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-between {{ index + 1 }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -127,13 +238,24 @@ En algunos casos, queremos ordenar los elementos a nuestro gusto. Para hacer est
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div>
+        <vs-row w="12">
+          <vs-col w="3">
+            1
+          </vs-col>
+          <vs-col w="3">
+            2
+          </vs-col>
+          <vs-col order="-1" w="3">
+            3
+          </vs-col>
+          <vs-col w="3">
+            4
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -157,15 +279,57 @@ Hay algunas medidas que solo se pueden agregar en un tamaño específico del dis
 </div>
 
 <div slot="template">
-  
-  ```html{3,4,5}
+
+  ```html{4}
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row>
+          <vs-col :w="num">
+            {{ num }}
+          </vs-col>
+          <vs-col :w="num2">
+            {{ num2 }}
+          </vs-col>
+          <vs-col :w="num">
+            {{ num }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
+  ```
+
+</div>
+
+<div slot="script">
+
+  ```html
+    <script>
+      export default {
+        data() {
+          return {
+            num: 2,
+            num2: 8
+          }
+        },
+        mounted() {
+          setInterval(() => {
+            if(this.num == 2) {
+              this.num = 4
+              this.num2 = 4
+            } else if (this.num == 4) {
+              this.num = 1
+              this.num2 = 10
+            } else if (this.num == 1) {
+              this.num = 5
+              this.num2 = 2
+            } else if (this.num == 5) {
+              this.num = 2
+              this.num2 = 8
+            }
+          }, 2000)
+        }
+      }
+      </script>
   ```
 
 </div>

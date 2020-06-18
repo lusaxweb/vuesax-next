@@ -20,7 +20,6 @@ const defineColors = (colors: VuesaxColors) => {
 }
 
 export const defineVuesaxOptions = (options: VuesaxOptions) => {
-  console.log(options)
   if (!!options.colors) {
     defineColors(options.colors)
   }

@@ -17,7 +17,7 @@
   opacity: 0
   .vs-dialog
     transform: scale(.7)
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var('shadow-opacity'))
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var('shadow-opacity'))
     &--fullScreen
       transform: translate(0,8%) !important
 
@@ -42,11 +42,11 @@
     transform: scale(1)
 
 .vs-dialog-content
-  background: rgba(0,0,0, vs-var('background-opacity'))
+  background: rgba(0,0,0, -var('background-opacity'))
   position: fixed
   left: 0px
   top: 0px
-  z-index: vs-var('zindex-2')
+  z-index: -var('zindex-2')
   display: flex
   align-items: flex-start
   justify-content: center
@@ -64,13 +64,13 @@
     backdrop-filter: saturate(180%) blur(15px)
 
 .vs-dialog
-  background: vs-color('background')
-  color: vs-color('text')
+  background: -color('background')
+  color: -color('text')
   position: relative
   min-width: 400px
-  border-radius: vs-var('radius')
+  border-radius: -var('radius')
   transition: all .25s ease
-  box-shadow: 0px 5px 30px 0px rgba(0,0,0, vs-var('shadow-opacity'))
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0, -var('shadow-opacity'))
   max-width: 800px
   margin: auto
   &--notCenter
@@ -83,7 +83,7 @@
     left: 0px
     height: 100%
     border-radius: inherit
-    background: vs-color('background', .8)
+    background: -color('background', .8)
     z-index: 100
     display: flex
     align-items: center
@@ -94,14 +94,14 @@
       width: 30px
       height: 30px
       border-radius: inherit
-      border: 2px solid vs-color('color', 1)
-      border-top: 2px solid vs-color('color', 0)
-      border-left: 2px solid vs-color('color', 0)
-      border-bottom: 2px solid vs-color('color', 0)
+      border: 2px solid -color('color', 1)
+      border-top: 2px solid -color('color', 0)
+      border-left: 2px solid -color('color', 0)
+      border-bottom: 2px solid -color('color', 0)
       box-sizing: border-box
       transition: all .25s ease
       display: block
-      box-shadow: 0px 0px 0px 0px vs-color('color',1)
+      box-shadow: 0px 0px 0px 0px -color('color',1)
       animation: loadingDialog .6s ease infinite
     &:before
       content: ''
@@ -109,14 +109,14 @@
       width: 30px
       height: 30px
       border-radius: inherit
-      border: 2px dashed vs-color('color',1)
-      border-top: 2px solid vs-color('color', 0)
-      border-left: 2px solid vs-color('color', 0)
-      border-bottom: 2px solid vs-color('color', 0)
+      border: 2px dashed -color('color',1)
+      border-top: 2px solid -color('color', 0)
+      border-left: 2px solid -color('color', 0)
+      border-bottom: 2px solid -color('color', 0)
       box-sizing: border-box
       transition: all .25s ease
       display: block
-      box-shadow: 0px 0px 0px 0px vs-color('color',1)
+      box-shadow: 0px 0px 0px 0px -color('color',1)
       animation: loadingDialog .6s linear infinite
   &--scroll
     .vs-dialog__content
@@ -172,7 +172,7 @@
     justify-content: center
     background: inherit
     border-radius: 12px
-    box-shadow: 0px 5px 20px 0px rgba(0,0,0, vs-var('shadow-opacity'))
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0, -var('shadow-opacity'))
     transition: all .25s ease
     z-index: 200
     i
@@ -184,7 +184,7 @@
       &:before
         width: 14px
     &:hover
-      box-shadow: 0px 0px 4px 0px rgba(0,0,0, vs-var('shadow-opacity'))
+      box-shadow: 0px 0px 4px 0px rgba(0,0,0, -var('shadow-opacity'))
       transform: translate(-2px, 2px)
       i
         opacity: 1

@@ -92,7 +92,6 @@
             <i v-else class='bx bxs-moon'></i>
           </span>
         </div>
-
     </button>
 
   </div>

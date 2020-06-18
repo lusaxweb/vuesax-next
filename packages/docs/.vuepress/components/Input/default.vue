@@ -1,6 +1,6 @@
 <template>
   <div class="center content-inputs">
-    <vs-input v-model="value" placeholder="Name" />
+    <vs-input block v-model="value" placeholder="Name" />
   </div>
 </template>
 <script>

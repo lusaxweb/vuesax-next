@@ -65,7 +65,7 @@
       transition: all .25s ease, transform .3s ease, max-height .25s ease, clip-path .5s ease .1s
       &.vs-notification--border
         border: 3px solid transparent
-        border-top: 3px solid vs-color('border')
+        border-top: 3px solid -color('border')
     .notification-enter
       transform: translate(0,-25%)
       clip-path: circle(0% at 50% 0%) !important
@@ -87,7 +87,7 @@
       transition: all .25s ease, transform .3s ease, max-height .25s ease, clip-path .5s ease .1s
       &.vs-notification--border
         border: 3px solid transparent
-        border-bottom: 3px solid vs-color('border')
+        border-bottom: 3px solid -color('border')
     .notification-enter
       transform: translate(0,25%)
       clip-path: circle(0% at 50% 100%) !important
@@ -110,7 +110,7 @@
       clip-path: circle(145% at 0% 50%)
       &.vs-notification--border
         border: 3px solid transparent
-        border-left: 3px solid vs-color('border')
+        border-left: 3px solid -color('border')
     .notification-enter
       transform: translate(-25%)
       clip-path: circle(0% at 20% 35%) !important
@@ -127,7 +127,7 @@
       clip-path: circle(145% at 0% 50%)
       &.vs-notification--border
         border: 3px solid transparent
-        border-left: 3px solid vs-color('border')
+        border-left: 3px solid -color('border')
     .notification-enter
       transform: translate(-25%)
       clip-path: circle(0% at 20% 35%) !important
@@ -144,15 +144,15 @@
   width: 100%
   height: auto
   border-radius: 20px
-  box-shadow: 0px 10px 30px -5px rgba(0,0,0, vs-var('shadow-opacity'))
+  box-shadow: 0px 10px 30px -5px rgba(0,0,0, -var('shadow-opacity'))
   overflow: hidden
   clip-path: circle(145% at 100% 50%)
-  background: vs-color('color')
-  color: vs-color('text')
+  background: -color('color')
+  color: -color('text')
   margin: 3px 10px
   transition: all .25s ease, transform .3s ease .1s, max-height .25s ease, clip-path .5s ease .1s
   &:hover:not(&--flat)
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var('shadow-opacity'))
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var('shadow-opacity'))
     transform: translate(0,3px)
   &--notPadding
     padding: 0px !important
@@ -180,24 +180,24 @@
     margin-bottom: 0px
     border-radius: 20px 0px 0px 20px
   &--flat
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var('shadow-opacity'))
-    background: vs-color('background')
-    color: vs-color('color') !important
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var('shadow-opacity'))
+    background: -color('background')
+    color: -color('color') !important
     &:hover
       &::after
-        background: vs-color('color', .15)
+        background: -color('color', .15)
     .vs-notification__progress
-      background: vs-color('color')
+      background: -color('color')
     .vs-notification__close
       --vs-color: inherit
     .vs-notification__content
-      color: vs-color('color') !important
+      color: -color('color') !important
     &.vs-notification--border
       border: 0px solid transparent !important
-      border-right: 3px solid vs-color('border') !important
+      border-right: 3px solid -color('border') !important
     &:after
       content: ''
-      background: vs-color('color', .1)
+      background: -color('color', .1)
       width: 100%
       height: 100%
       border-radius: inherit
@@ -228,11 +228,11 @@
 
   &.vs-notification--border
     border: 3px solid transparent
-    border-right: 3px solid vs-color('border')
+    border-right: 3px solid -color('border')
   &__progress
     width: 0%
     height: 3px
-    background: vs-color('text')
+    background: -color('text')
     position: absolute
     bottom: 0px
     left: 0px
@@ -247,7 +247,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px solid vs-color('text')
+      border: 2px solid -color('text')
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent
@@ -261,7 +261,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px dashed vs-color('text')
+      border: 2px dashed -color('text')
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent

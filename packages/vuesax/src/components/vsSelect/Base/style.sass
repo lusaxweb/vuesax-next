@@ -4,15 +4,15 @@
 
 @mixin state($color)
   .vs-select__input
-    // border: 2px solid vs-color($color,.5)
-    background: vs-color($color,.05)
-    color: vs-color($color,1)
+    // border: 2px solid -color($color,.5)
+    background: -color($color,.05)
+    color: -color($color,1)
     &:hover
-      // border: 2px solid vs-color($color, 0)
-      color: vs-color('text',1)
+      // border: 2px solid -color($color, 0)
+      color: -color('text',1)
   .vs-select__chips
-    background: vs-color($color,.05)
-    color: vs-color($color,1)
+    background: -color($color,.05)
+    color: -color($color,1)
     &:hover
       &:after
           opacity: 0
@@ -23,20 +23,20 @@
       position: absolute
       top: 0px
       left: 0px
-      border: 2px solid vs-color($color,.5)
+      border: 2px solid -color($color,.5)
       border-radius: inherit
       transition: all .25s ease
   .vs-select__label
-    color: vs-color($color,1)
+    color: -color($color,1)
   .vs-select__icon
-    color: vs-color($color,1)
-    background: vs-color($color,.1)
-    box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+    color: -color($color,1)
+    background: -color($color,.1)
+    box-shadow: -15px 10px 10px -10px -color($color,.1)
   .vs-icon-arrow
     &:after
-      background: vs-color($color,1)
+      background: -color($color,1)
     &:before
-      background: vs-color($color,1)
+      background: -color($color,1)
 
 .vs-select-enter-active
   transition: all .25s ease
@@ -44,10 +44,10 @@
   opacity: 0
   transform: translate(0, -10px)
   transition: all .25s ease
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
   &:after
     opacity: 0 !important
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
 
 .vs-select-leave-active
   transition: all .25s ease
@@ -55,16 +55,18 @@
   opacity: 0
   transform: translate(0, -10px)
   transition: all .25s ease
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
   &.top
     transform: translate(0, 10px) !important
   &:after
     opacity: 0 !important
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
 .vs-select-content
   width: 100%
   max-width: 200px
-
+  &.block
+    &.block
+      max-width: 100%
 .vs-select
   position: relative
   display: flex
@@ -72,6 +74,7 @@
   justify-content: center
   min-height: 38px
   width: 100%
+
   &--state-success
     @include state('success')
   &--state-danger
@@ -93,7 +96,7 @@
     &.activeOptions
       .vs-select__input, .vs-select__chips
         border-radius: 0px 0px 12px 12px !important
-        box-shadow: 0px -5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity)) !important
+        box-shadow: 0px -5px 25px -4px rgba(0,0,0, -var(shadow-opacity)) !important
   &--disabled
     opacity: .6
     pointer-events: none
@@ -114,16 +117,16 @@
       margin-top: -2px !important
     .vs-select__input
       border-radius: 12px 12px 0px 0px
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease, height 0s
       // border: 2px solid transparent !important
-      color: vs-color('text',1)
+      color: -color('text',1)
     .vs-select__chips
       border-radius: 12px 12px 0px 0px
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease, height 0s
       &:after
@@ -145,8 +148,8 @@
     border-radius: 12px
     cursor: pointer
     transition: all .25s ease, height 0s
-    background: vs-color('gray-2')
-    color: vs-color('text')
+    background: -color('gray-2')
+    color: -color('text')
     min-height: 38px
     padding-right: 30px
     width: 100%
@@ -158,8 +161,8 @@
       user-select: none
     &:focus
       border-radius: 12px 12px 0px 0px
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease
       ~ .vs-select__label--placeholder
@@ -170,8 +173,8 @@
         font-size: .75rem
         margin-top: 0px !important
     &:hover
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       ~ .vs-select__label
         margin-top: -4px
@@ -184,7 +187,7 @@
     height: auto
     position: absolute
     left: 0px
-    background: vs-color('gray-2')
+    background: -color('gray-2')
     z-index: 300
     border-radius: 12px
     display: flex
@@ -199,13 +202,13 @@
     padding-right: 26px
     &:focus
       border-radius: 12px 12px 0px 0px
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease
     &:hover
-      background: vs-color('background')
-      box-shadow: 0px 5px 25px -4px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease
       ~ .vs-icon-arrow
@@ -222,11 +225,11 @@
       margin: 2px 3px
       min-width: 30px
       &::placeholder
-        color: vs-color('text', .4)
+        color: -color('text', .4)
     &__chip
       flex: 0 1 auto
       position: relative
-      background: vs-color('background')
+      background: -color('background')
       border-radius: 10px
       display: flex
       align-items: center
@@ -235,9 +238,9 @@
       margin: 2px 3px
       padding-right: 10px
       font-size: .84rem
-      border: 2px solid vs-color('gray-2')
+      border: 2px solid -color('gray-2')
       box-sizing: border-box
-      color: vs-color('text')
+      color: -color('text')
       &.isCollapse
         padding-right: 6px !important
       &__close
@@ -246,7 +249,7 @@
         right: -4px
         width: 15px
         height: 15px
-        background: vs-color('gray-4')
+        background: -color('gray-4')
         display: flex
         align-items: center
         justify-content: center
@@ -255,7 +258,7 @@
         cursor: pointer
         transition: all .25s ease
         &:hover
-          background: vs-color('danger')
+          background: -color('danger')
           .vs-icon-close
             --vs-color: var(--vs-background)
             &:after
@@ -271,15 +274,15 @@
   &__options
     --vs-color: var(--vs-primary)
     position: absolute
-    z-index: 9999
-    background: vs-color('background')
+    z-index: 99999
+    background: -color('background')
     padding: 5px
     border-radius: 0px 0px 12px 12px
     overflow: hidden
-    box-shadow: 0px 10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity))
+    box-shadow: 0px 10px 20px -5px rgba(0,0,0, -var(shadow-opacity))
     &.top
       border-radius: 12px 12px 0px 0px
-      box-shadow: 0px -10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity))
+      box-shadow: 0px -10px 20px -5px rgba(0,0,0, -var(shadow-opacity))
       &:after
         top: auto
         bottom: -10px
@@ -291,8 +294,8 @@
       margin-left: 10%
       left: 0px
       height: 10px
-      background: vs-color('background')
-      box-shadow: 0px 0px 20px 0px rgba(0,0,0, vs-var(shadow-opacity))
+      background: -color('background')
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0, -var(shadow-opacity))
       z-index: 200
       transition: all .25s ease .05s
       opacity: 1
@@ -316,7 +319,7 @@
         background: transparent
 
       &::-webkit-scrollbar-thumb
-        background: vs-color('gray-3')
+        background: -color('gray-3')
         border-radius: 5px
 
   &__label
@@ -369,7 +372,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px solid vs-color('primary',1)
+      border: 2px solid -color('primary',1)
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent
@@ -383,7 +386,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px dashed vs-color('primary',1)
+      border: 2px dashed -color('primary',1)
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent
@@ -401,15 +404,15 @@
     transition: all .25s ease
     overflow: hidden
     &--success
-      color: vs-color('success',1)
+      color: -color('success',1)
     &--danger
-      color: vs-color('danger',1)
+      color: -color('danger',1)
     &--warn
-      color: vs-color('warn',1)
+      color: -color('warn',1)
     &--dark
-      color: vs-color('dark',1)
+      color: -color('dark',1)
     &--primary
-      color: vs-color('primary',1)
+      color: -color('primary',1)
 
 .vs-darken
   .vs-select__options
@@ -417,8 +420,8 @@
       --vs-color: 0, 0, 0 !important
       .vs-select__option
         &:hover
-          background: vs-color('color',.2)
-          color: vs-color('text')
+          background: -color('color',.2)
+          color: -color('text')
       .activeOption
-        color: vs-color('text')
-        background: vs-color('color',.6)
+        color: -color('text')
+        background: -color('color',.6)

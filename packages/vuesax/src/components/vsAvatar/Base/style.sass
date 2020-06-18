@@ -13,7 +13,7 @@
   &.vs-change-color-badge
     .vs-avatar__badge
       .vs-avatar__points__point
-        background: vs-color('background')
+        background: -color('background')
   &.vs-change-color
     &:hover
       .vs-avatar
@@ -52,7 +52,7 @@
     .vs-avatar
       width: calc(100% - 4px)
       height: calc(100% - 4px)
-      border: 2px solid vs-color('background')
+      border: 2px solid -color('background')
       margin: 2px
     &:after
       content: ''
@@ -64,21 +64,21 @@
       border-radius: inherit
       background-color: #FFE53B
       z-index: -1
-      background: vs-color('color')
+      background: -color('color')
   &.vs-change-color
     .vs-avatar
-      color: vs-color('background')
+      color: -color('background')
     .vs-avatar__points
       .vs-avatar__points__point
-        background: vs-color('background')
+        background: -color('background')
 .vs-avatar
-  background: vs-color('color')
+  background: -color('color')
   color: #fff
   overflow: hidden
   display: flex
   align-items: center
   justify-content: center
-  color: vs-color('text')
+  color: -color('text')
   border-radius: inherit
   width: 100%
   height: 100%
@@ -151,15 +151,15 @@
     position: absolute
     width: 13px
     height: 13px
-    background: vs-color('badge')
+    background: -color('badge')
     border-radius: 50%
-    border: 2px solid vs-color('background')
+    border: 2px solid -color('background') !important
     right: -4px
     bottom: -4px
     font-size: .6rem
     font-weight: bold
     z-index: 200
-    color: vs-color('text')
+    color: -color('text')
     &.isSlot, &.writing
       width: auto
       height: auto
@@ -168,7 +168,7 @@
       display: flex
       align-items: center
       justify-content: center
-      color: vs-color('background')
+      color: -color('background')
       line-height: .9rem
       padding: 0px 3px
       min-height: 18px
@@ -192,7 +192,7 @@
     &__point
       width: 5px
       height: 5px
-      background: vs-color('text')
+      background: -color('text')
       margin: 0px 2px
       border-radius: 50%
       &:nth-child(1)
@@ -223,7 +223,7 @@
     width: auto
     height: auto
     min-height: 90%
-    background: vs-color('gray-3')
+    background: -color('gray-3')
     top: 50%
     transform: translate(0, -50%)
     right: -20px

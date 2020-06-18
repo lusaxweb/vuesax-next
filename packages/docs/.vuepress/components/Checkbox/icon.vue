@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div class="center checks">
     <vs-checkbox v-model="option1">
       <template #icon>
         <i class='bx bx-check' ></i>
@@ -50,3 +50,8 @@ export default {
   })
 }
 </script>
+<style lang="stylus">
+  .checks
+    .vs-checkbox-content
+      margin 5px
+</style>

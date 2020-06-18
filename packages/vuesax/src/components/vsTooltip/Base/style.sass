@@ -24,8 +24,8 @@
 
 
 .vs-tooltip
-  background: vs-color('color')
-  color: vs-color('background')
+  background: -color('color')
+  color: -color('background')
   position: absolute
   z-index: 1000000
   text-align: center
@@ -36,7 +36,7 @@
   min-width: 30px
   min-height: 30px
   &.loading
-    color: vs-color('background', .2)
+    color: -color('background', .2)
     *
       opacity: .5
       pointer-events: none
@@ -56,14 +56,14 @@
       width: 100%
       height: 100%
       border-radius: inherit
-      border: 2px solid vs-color('background', 1)
-      border-top: 2px solid vs-color('background', 0)
-      border-left: 2px solid vs-color('background', 0)
-      border-bottom: 2px solid vs-color('background', 0)
+      border: 2px solid -color('background', 1)
+      border-top: 2px solid -color('background', 0)
+      border-left: 2px solid -color('background', 0)
+      border-bottom: 2px solid -color('background', 0)
       box-sizing: border-box
       transition: all .25s ease
       display: block
-      box-shadow: 0px 0px 0px 0px vs-color('color',1)
+      box-shadow: 0px 0px 0px 0px -color('color',1)
       animation: loadingTooltip .6s ease infinite
     &:before
       content: ''
@@ -71,33 +71,33 @@
       width: 100%
       height: 100%
       border-radius: inherit
-      border: 2px dashed vs-color('background',1)
-      border-top: 2px solid vs-color('background', 0)
-      border-left: 2px solid vs-color('background', 0)
-      border-bottom: 2px solid vs-color('background', 0)
+      border: 2px dashed -color('background',1)
+      border-top: 2px solid -color('background', 0)
+      border-left: 2px solid -color('background', 0)
+      border-bottom: 2px solid -color('background', 0)
       box-sizing: border-box
       transition: all .25s ease
       display: block
-      box-shadow: 0px 0px 0px 0px vs-color('color',1)
+      box-shadow: 0px 0px 0px 0px -color('color',1)
       animation: loadingTooltip .6s linear infinite
   &.borderThick
-    background: vs-color('background')
-    color: vs-color('color')
-    box-shadow: 0px 2px 10px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    background: -color('background')
+    color: -color('color')
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity))
     &.top
-      border-bottom: 4px solid vs-color('color')
+      border-bottom: 4px solid -color('color')
       &:after
         bottom: -7px
     &.left
-      border-right: 4px solid vs-color('color')
+      border-right: 4px solid -color('color')
       &:after
         right: -7px
     &.right
-      border-left: 4px solid vs-color('color')
+      border-left: 4px solid -color('color')
       &:after
         left: -7px
     &.bottom
-      border-top: 4px solid vs-color('color')
+      border-top: 4px solid -color('color')
       &:after
         top: -7px
 
@@ -113,11 +113,11 @@
       content: ''
       position: absolute
     &:after
-      background: vs-color('color') !important
+      background: -color('color') !important
   &.border
-    background: vs-color('background')
-    color: vs-color('color')
-    border: 2px solid vs-color('color')
+    background: -color('background')
+    color: -color('color')
+    border: 2px solid -color('color')
     &:before
       width: 100%
       height: 100%
@@ -129,7 +129,7 @@
       content: ''
       position: absolute
     &:after
-      border: 2px solid vs-color('color')
+      border: 2px solid -color('color')
       width: 12px !important
       height: 12px !important
   &.circle
@@ -140,9 +140,9 @@
     &:after
       display: none
   &.shadow
-    background: vs-color('background')
-    color: vs-color('color')
-    box-shadow: 0px 2px 10px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    background: -color('background')
+    color: -color('color')
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity))
     &:before
       width: 100%
       height: 100%
@@ -154,7 +154,7 @@
       content: ''
       position: absolute
     &:after
-      box-shadow: 0px 2px 10px 0px rgba(0,0,0, vs-var(shadow-opacity))
+      box-shadow: 0px 2px 10px 0px rgba(0,0,0, -var(shadow-opacity))
   &.isDark
     --vs-color: var(--vs-gray-3)
     color: #fff

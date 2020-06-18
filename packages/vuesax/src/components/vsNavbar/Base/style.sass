@@ -1,0 +1,66 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-navbar-content
+  width: 100%
+  position: absolute
+  z-index: 9000
+  top: 0px
+  width: 100%
+  border-radius: 0px 0px 15px 15px
+  background: -color('color')
+  transition: all .25s ease
+  color: -color('text')
+  &.paddingScroll:not(.paddingScrollActive)
+    padding-top: 20px
+    padding-bottom: 20px
+    .vs-navbar__group__items
+      margin-bottom: -30px
+  &.square
+    border-radius: 0px
+  &.textWhite
+    color: #fff
+    .vs-navbar__line
+      background: #fff
+    .vs-navbar__item
+      &:before
+        background: #fff
+  &.fixed
+    position: fixed !important
+  &.shadow, &.shadowActive
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0, -var('shadow-opacity'))
+  &.hidden
+    transform: translate(0,-100%)
+
+.vs-navbar
+  width: 100%
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0px 15px
+  box-sizing: border-box
+  &__left
+    display: flex
+    align-items: center
+    justify-content: flex-start
+  &__right
+    display: flex
+    align-items: center
+    justify-content: flex-end
+  &__center
+    display: flex
+    align-items: center
+    justify-content: center
+  &__line
+    position: absolute
+    left: 0px
+    bottom: 0px
+    width: 100px
+    background: -color('text')
+    height: 3px
+    transition: all .25s ease
+    &.notTransition
+      transition: none !important
+

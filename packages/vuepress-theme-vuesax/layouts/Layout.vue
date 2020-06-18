@@ -26,6 +26,7 @@
     <ClientOnly>
       <Navbar
         v-if="shouldShowNavbar"
+        v-show="!$page.frontmatter.navbar"
         @toggle-sidebar="toggleSidebar"
         :class="{'transparent': $page.frontmatter.branding, isSidebarOpen: isSidebarOpen}"
       />
@@ -45,6 +46,8 @@
     <license :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.license"/>
 
     <Branding :sidebar-items="sidebarItems" v-else-if="$page.frontmatter.branding"/>
+
+    <navbar v-else-if="$page.frontmatter.navbar"/>
 
     <Page
       v-else
@@ -78,7 +81,7 @@
       />
     </Sidebar>
     <ClientOnly>
-      <Config />
+      <Config v-if="!$page.frontmatter.navbar" />
     </ClientOnly>
   </div>
 </template>
@@ -99,6 +102,7 @@ import HeaderNotification from '../components/HeaderNotification.vue'
 import Codefund from '../components/Codefund.vue'
 import VuesaxAds from '../components/VuesaxAds.vue'
 import Branding from '../components/Branding.vue'
+import navbar from '../components/navbarLayout.vue'
 export default {
   components: {
     Home,
@@ -113,7 +117,8 @@ export default {
     License,
     Codefund,
     VuesaxAds,
-    Branding
+    Branding,
+    navbar
   },
 
   data () {

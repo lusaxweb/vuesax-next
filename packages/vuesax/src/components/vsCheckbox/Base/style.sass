@@ -43,7 +43,7 @@
     left: 0px
     width: 100%
     height: 100%
-    background: vs-color('color', 1)
+    background: -color('color', 1)
     transform: scale(.5)
     border-radius: inherit
     opacity: 0
@@ -59,7 +59,7 @@
     border-radius: inherit
     transition: all .25s ease
     z-index: -1
-    border: 2px solid vs-color('gray-4', 1)
+    border: 2px solid -color('gray-4', 1)
     box-sizing: border-box
   .vs-icon-check
     opacity: 0
@@ -81,20 +81,20 @@
     pointer-events: none
   &:active
     ~ .vs-checkbox-mask
-      background: vs-color('gray-4', 1) !important
+      background: -color('gray-4', 1) !important
   &:hover
     ~ .vs-checkbox-mask
-      background: vs-color('gray-3', 1)
+      background: -color('gray-3', 1)
       &:before
-        border: 2px solid vs-color('gray-4', 0)
-      // border: 2px solid vs-color('gray-3', 1)
+        border: 2px solid -color('gray-4', 0)
+      // border: 2px solid -color('gray-3', 1)
   &:checked
     &:hover
       ~ .vs-checkbox-mask
-        box-shadow: 0px 3px 15px 0px vs-color('color', .35)
+        box-shadow: 0px 3px 15px 0px -color('color', .35)
     ~ .vs-checkbox-mask
-      // border: 2px solid vs-color('color', 1) !important
-      box-shadow: 0px 0px 0px 0px vs-color('color', .35)
+      // border: 2px solid -color('color', 1) !important
+      box-shadow: 0px 0px 0px 0px -color('color', .35)
       i:not(.vs-icon-check)
         opacity: 1
         transform: scale(1)
@@ -131,7 +131,7 @@
     position: absolute
     width: 0px
     height: 2px
-    background: vs-color('text', .6)
+    background: -color('text', .6)
     content: ''
     transition: all .25s ease
 
@@ -156,7 +156,7 @@
       background: transparent !important
       &:before
         border-radius: 50%
-        border: 2px solid vs-color('color', 1) !important
+        border: 2px solid -color('color', 1) !important
         border-top: 2px solid transparent !important
         animation: rotateCheckboxLoading .6s linear infinite
         opacity: 1 !important
@@ -167,7 +167,7 @@
     background: transparent !important
     &:before
       border-radius: 50%
-      border: 2px solid vs-color('gray-4', 1) !important
+      border: 2px solid -color('gray-4', 1) !important
       border-top: 2px solid transparent !important
       animation: rotateCheckboxLoading .6s linear infinite
 

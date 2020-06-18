@@ -4,8 +4,8 @@
 
 .vs-button
   border: 0px
-  margin: vs-var(button-margin)
-  border-radius: vs-var(button-border-radius)
+  margin: -var(button-margin)
+  border-radius: -var(button-border-radius)
   transition: all .25s ease
   position: relative
   user-select: none
@@ -20,13 +20,13 @@
   box-sizing: border-box
   &.vs-component-dark
     &.vs-button--transparent
-      color: vs-color('text') !important
+      color: -color('text') !important
   &--fff
     &:focus
       color: rgba(30,30,30,1) !important
 
   &__content
-    padding: vs-var(button-padding)
+    padding: -var(button-padding)
     width: 100%
     display: flex
     align-items: center
@@ -106,7 +106,7 @@
       position: absolute
       width: 100%
       height: 100%
-      background: vs-color('color', .4)
+      background: -color('color', .4)
       top: 0px
       left: 0px
       z-index: 1200
@@ -126,7 +126,7 @@
     display: flex
     align-items: center
     justify-content: center
-    background: vs-color('color', .8)
+    background: -color('color', .8)
     border-radius: inherit
     &:after
       content: ''
@@ -195,51 +195,51 @@
   // Type Button Style
 
 .vs-button--default
-  background: vs-color(color, 1)
+  background: -color(color, 1)
   color: #fff
   &.vs-button--active
-    box-shadow: 0px 10px 20px -10px vs-color(color, 1)
+    box-shadow: 0px 10px 20px -10px -color(color, 1)
     transform: translate(0,-3px)
   &:hover
-    box-shadow: 0px 10px 20px -10px vs-color(color, 1)
+    box-shadow: 0px 10px 20px -10px -color(color, 1)
     transform: translate(0,-3px)
 
 .vs-button--flat
-  background: vs-color(color, .15)
-  color: vs-color(color, 1)
+  background: -color(color, .15)
+  color: -color(color, 1)
   &.vs-button--dark
-    color: vs-color(text, 1)
+    color: -color(text, 1)
   &:hover
-    background: vs-color(color, .25)
+    background: -color(color, .25)
   &:focus
     color: #fff
-    background: vs-color(color, 1)
+    background: -color(color, 1)
     transition: all .25s ease, background .25s ease .25s
   &.vs-button--active
-    background: vs-color(color, 1)
+    background: -color(color, 1)
     color: #fff
 
 .vs-button--floating
-  background: vs-color(color, 1)
+  background: -color(color, 1)
   color: #fff
-  box-shadow: 0px 8px 20px -6px vs-color(color, 1)
+  box-shadow: 0px 8px 20px -6px -color(color, 1)
   transform: translate(0,-3px)
   &:hover
-    box-shadow: 0px 8px 20px -6px vs-color(color, 1)
+    box-shadow: 0px 8px 20px -6px -color(color, 1)
     transform: translate(0,-6px)
   &:focus
     transform: translate(0,0px)
-    box-shadow: 0px 0px 0px 0px vs-color(color, 1)
+    box-shadow: 0px 0px 0px 0px -color(color, 1)
   &.vs-button--active
     transform: translate(0,0px)
-    box-shadow: 0px 0px 0px 0px vs-color(color, 1)
+    box-shadow: 0px 0px 0px 0px -color(color, 1)
 
 .vs-button--border
-  background: vs-color(color, 0)
-  color: vs-color(color, 1)
+  background: -color(color, 0)
+  color: -color(color, 1)
   &:before
     content: ''
-    border: 2px solid vs-color(color, 1)
+    border: 2px solid -color(color, 1)
     position: absolute
     top: 0px
     left: 0px
@@ -252,16 +252,16 @@
     box-sizing: border-box
   &:hover
     &:before
-      border: 2px solid vs-color(color, .5)
+      border: 2px solid -color(color, .5)
   &:focus
     color: #fff
-    background: vs-color(color, 1)
+    background: -color(color, 1)
   &.vs-button--active
-    background: vs-color(color, 1)
+    background: -color(color, 1)
     color: #fff
 
 .vs-button--gradient
-  background: vs-color('color')
+  background: -color('color')
   color: #fff
   overflow: hidden
   &.vs-button--primary, &.vs-button--success
@@ -269,7 +269,7 @@
       filter: hue-rotate(40deg)
   &::before
     content: ''
-    background: linear-gradient(30deg, vs-color('color',0) 33%, vs-color('color', 1) 100%)
+    background: linear-gradient(30deg, -color('color',0) 33%, -color('color', 1) 100%)
     position: absolute
     top: 0px
     left: 0px
@@ -284,7 +284,7 @@
 
   &:hover
     transform: translate(0, -3px)
-    box-shadow: 0px 10px 20px -10px vs-color('color', .7)
+    box-shadow: 0px 10px 20px -10px -color('color', .7)
     &::before
       opacity: 0
       // transform: translate(50%, -50%)
@@ -293,7 +293,7 @@
     box-shadow: 0px 10px 20px -10px rgba(0,0,0,.35)
 
 .vs-button--relief
-  background: vs-color('color')
+  background: -color('color')
   color: #fff
   overflow: hidden
   transform: translate(0) scale(1,1)
@@ -314,29 +314,29 @@
     transition: all .4s ease
     z-index: -1
     filter: contrast(2) grayscale(.4)
-    border-bottom: 3px solid vs-color('color')
+    border-bottom: 3px solid -color('color')
     box-sizing: border-box
   &:active
     transform: translate(0,1px)
     .vs-button__content
       padding-bottom: 6px
     &::before
-      border-bottom: 0px solid vs-color('color')
+      border-bottom: 0px solid -color('color')
   &.vs-button--active
     transform: translate(0,1px)
     .vs-button__content
       padding-bottom: 6px
     &::before
-      border-bottom: 0px solid vs-color('color')
+      border-bottom: 0px solid -color('color')
 
 .vs-button--transparent
   background: transparent
-  color: vs-color('color')
+  color: -color('color')
   overflow: hidden
   &::before
     content: ''
-    background: vs-color('color', .1)
-    // background: vs-color('color', vs-var('background-opacity'))
+    background: -color('color', .1)
+    // background: -color('color', -var('background-opacity'))
     position: absolute
     bottom: 0px
     left: 0px
@@ -358,24 +358,24 @@
       transform: scale(1)
   &.vs-button--active
     &::before
-      background: vs-color('color', .2)
+      background: -color('color', .2)
       opacity: 1
       transform: scale(1)
 
 .vs-button--shadow
-  background: vs-color('background')
-  color: vs-color('text')
+  background: -color('background')
+  color: -color('text')
   overflow: hidden
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
   &:active:not(.vs-button--active)
     transform: translate(0,-1px)
-    box-shadow: 0px 5px 15px 0px rgba(0,0,0, vs-var(shadow-opacity)) !important
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0, -var(shadow-opacity)) !important
   &:hover
     transform: translate(0,-3px)
-    box-shadow: 0px 8px 25px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    box-shadow: 0px 8px 25px 0px rgba(0,0,0, -var(shadow-opacity))
   &.vs-button--active
     transform: translate(0,-3px)
-    box-shadow: 0px 8px 25px 0px rgba(0,0,0, vs-var(shadow-opacity))
+    box-shadow: 0px 8px 25px 0px rgba(0,0,0, -var(shadow-opacity))
 
 @keyframes btnload
   0%

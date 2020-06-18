@@ -1,5 +1,5 @@
 import { VNode } from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
 import VsIconsCheck from '../../../icons/check'
 import VsComponent from '../../../mixins/component'
 
@@ -25,6 +25,15 @@ export default class VsCheckbox extends VsComponent {
   @Prop({ type: Boolean, default: false }) loading!: boolean
 
   @Prop({ type: Boolean, default: false }) labelBefore!: boolean
+
+  @Watch('indeterminate')
+  handleIndeterminate(val: boolean) {
+    if (val) {
+      this.$emit('input', true)
+    } else {
+      this.$emit('input', false)
+    }
+  }
 
   mounted() {
     if (this.checked && typeof this.value == 'boolean') {
@@ -111,7 +120,6 @@ export default class VsCheckbox extends VsComponent {
               this.$emit('input', this.notValue || null)
             }
           }
-          this.$emit('change', evt)
           this.$emit('mousedown', evt)
         },
         blur: (evt: EventTarget) => {
@@ -163,7 +171,7 @@ export default class VsCheckbox extends VsComponent {
     },
      [
       conCheckbox,
-      label
+      this.$slots.default && label
      ]
     )
   }

@@ -59,6 +59,14 @@ h1
       li
         p
           padding-left 5px !important
+  .text
+    >img
+      width 100%
+      max-width 600px
+      margin auto
+      margin-top 10px
+      display block
+      border-radius 20px
   .example
     position relative
     padding 10px

@@ -1,0 +1,74 @@
+@import '../../../styles/mixins'
+.isMultipleSelected
+  .vs-table__tr
+    .vs-table__td
+      border-radius: 0px !important
+.vs-table__tr
+  padding: 5px
+  &.expand
+    cursor: pointer
+  &.vs-change-color
+    .vs-table__td
+      background: -color('color', .1) !important
+      color: -color('color', 1) !important
+      &:hover
+        background: -color('color', .2) !important
+  &:first-of-type
+    .vs-table__td
+      &:last-child
+        border-radius: 0px 0px 15px 0px
+      &:first-child
+        border-radius: 0px 0px 0px 15px
+  &.isExpand:first-of-type
+    .vs-table__td
+      background: -color('gray-1') !important
+      border-radius: 0px
+  &.isExpand:not(:first-of-type)
+    .vs-table__td
+      background: -color('gray-1') !important
+      &:last-child
+        border-radius: 0px 15px 0px 0px
+      &:first-child
+        border-radius: 15px 0px 0px 0px
+    + .vs-table__tr__expand
+      td
+        border-radius: 0px 0px 15px 15px !important
+  &.selected
+    .vs-table__td
+      background: -color('color', .1) !important
+      color: -color('color', 1) !important
+  .vs-table__td
+    background: -color('bg', .1)
+    color: -color('bg', 1)
+  &.vs-change-color
+    &:hover
+      .vs-table__td
+        background: -color('color', .2) !important
+  &:hover
+    .vs-table__td
+      background: -color('gray-1')
+
+.vs-table__tr__expand
+  transition: all .25s ease
+  td
+    transition: all .25s ease
+    padding: 0px
+    background: -color('gray-1') !important
+    .vs-table__expand__td__content
+      overflow: hidden
+      display: block
+      transition: all .25s ease
+      &__sub
+        padding: 10px 15px
+        z-index: 1
+        position: relative
+
+
+.fade-expand-enter-active, .fade-expand-leave-active
+  transition: all .25s ease
+
+.fade-expand-enter, .fade-expand-leave-to
+  opacity: 0
+  td
+    .vs-table__expand__td__content
+      height: 0px !important

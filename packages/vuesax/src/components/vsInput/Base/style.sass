@@ -4,14 +4,14 @@
 
 @mixin state($color)
   .vs-input
-    background: vs-color($color,.1) !important
-    color: vs-color($color,1)
+    background: -color($color,.1) !important
+    color: -color($color,1)
   .vs-input__label
-    color: vs-color($color,1)
+    color: -color($color,1)
   .vs-input__icon
-    color: vs-color($color,1)
-    background: vs-color($color,.1)
-    box-shadow: -15px 10px 10px -10px vs-color($color,.1)
+    color: -color($color,1)
+    background: -color($color,.1)
+    box-shadow: -15px 10px 10px -10px -color($color,.1)
 
 .vs-input-parent
   display: flex
@@ -19,6 +19,19 @@
   justify-content: center
   flex-direction: column
   position: relative
+  &.square
+    .vs-input-content
+      border-radius: 0px !important
+  &.textWhite
+    .vs-input
+      color: #fff
+  &.transparent
+    .vs-input
+      background: transparent !important
+  &.block
+    width: 100%
+    .vs-input
+      width: 100%
   &--has-label
     margin-top: 20px !important
   &--state-success
@@ -43,38 +56,38 @@
 
   &--has-color
     .vs-input
-      // box-shadow: 0px 10px 20px -5px vs-color('color',.3)
+      // box-shadow: 0px 10px 20px -5px -color('color',.3)
       &:focus
-        border-bottom: 2px solid vs-color('color',1)
+        border-bottom: 2px solid -color('color',1)
         ~ .vs-input__icon
-          color: vs-color('color',1)
+          color: -color('color',1)
         ~ .vs-input__label
-          color: vs-color('color',1)
+          color: -color('color',1)
         ~ .vs-input__label--placeholder
-          color: vs-color('color',1)
+          color: -color('color',1)
 
 .vs-input
   border: 2px solid transparent
-  background: vs-color('gray-2')
-  color: vs-color('text')
+  background: -color('gray-2')
+  color: -color('text')
   padding: 7px 13px
   border-radius: inherit
   transition: all .25s ease
-  width: 200px
   padding-left: 10px
+  width: 200px
   &:focus
-    background: vs-color('gray-3')
+    background: -color('gray-3')
     padding-left: 15px
     &.vs-input--has-icon:not(.vs-input--has-icon--after)
       padding-left: 40px
       ~ .vs-input__icon
-        box-shadow: 15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+        box-shadow: 15px 10px 10px -10px rgba(0,0,0, -var(shadow-opacity))
       ~ .vs-input__label:not(.vs-input__label--placeholder):not(.vs-input__label--label)
         left: 44px
     ~ .vs-input__icon
-      box-shadow: -15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+      box-shadow: -15px 10px 10px -10px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(-6px, -6px)
-      background: vs-color('gray-1')
+      background: -color('gray-1')
       &--after
         transform: translate(6px, -6px)
 
@@ -108,13 +121,13 @@
         opacity: 1
         visibility: visible
         pointer-events: auto
-        transform: translate(-3%, -80%)
+        transform: translate(-3px, -80%)
         font-size: .75rem
     &--label
       opacity: 1
       visibility: visible
       pointer-events: auto
-      transform: translate(-2%, -77%)
+      transform: translate(-2px, -77%)
       font-size: .75rem
   &--has-icon
     padding-left: 38px
@@ -127,14 +140,14 @@
       ~ .vs-input__label
         left: 13px
       &.vs-input__label--label
-        transform: translate(calc(-3% - 22px), -80%) !important
+        transform: translate(calc(-3px - 22px), -80%) !important
     &:focus
       &--has-icon
         &--after
           ~ .vs-input__label
             left: 44px
           ~ .vs-input__label--placeholder
-            transform: translate(calc(-3% - 22px), -80%) !important
+            transform: translate(calc(-3px - 22px), -80%) !important
           ~ .vs-input__label
             left: 44px
 
@@ -146,23 +159,23 @@
     display: flex
     align-items: center
     justify-content: center
-    box-shadow: 12px 0px 10px -10px rgba(0,0,0,vs-var(shadow-opacity))
+    box-shadow: 12px 0px 10px -10px rgba(0,0,0,-var(shadow-opacity))
     transition: all .25s ease
     border-radius: inherit
-    background: vs-color('gray-2')
+    background: -color('gray-2')
     pointer-events: none
     left: 0px
     &--after
       left: auto
       right: 0px
-      box-shadow: -12px 0px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+      box-shadow: -12px 0px 10px -10px rgba(0,0,0, -var(shadow-opacity))
     &--click
       pointer-events: auto !important
       cursor: pointer
       &:hover
-        box-shadow: -15px 10px 10px -10px rgba(0,0,0, vs-var(shadow-opacity))
+        box-shadow: -15px 10px 10px -10px rgba(0,0,0, -var(shadow-opacity))
         transform: translate(-6px, -6px)
-        background: vs-color('gray-1')
+        background: -color('gray-1')
         &.vs-input__icon--after
           transform: translate(6px, -6px)
 
@@ -173,34 +186,34 @@
     transition: all .25s ease
     overflow: hidden
     &--success
-      color: vs-color('success',1)
+      color: -color('success',1)
     &--danger
-      color: vs-color('danger',1)
+      color: -color('danger',1)
     &--warn
-      color: vs-color('warn',1)
+      color: -color('warn',1)
     &--dark
-      color: vs-color('dark',1)
+      color: -color('dark',1)
     &--primary
-      color: vs-color('primary',1)
+      color: -color('primary',1)
 
   &__progress
     width: 95%
     left: 2.5%
     position: relative
     height: 2px
-    background: vs-color('gray-2')
+    background: -color('gray-2')
     margin-top: 5px
     overflow: hidden
     border-radius: 5px
     &--danger
       .vs-input__progress__bar
-        background: vs-color('danger',1)
+        background: -color('danger',1)
     &--warn
       .vs-input__progress__bar
-        background: vs-color('warn',1)
+        background: -color('warn',1)
     &--success
       .vs-input__progress__bar
-        background: vs-color('success',1)
+        background: -color('success',1)
     &__bar
       width: 32%
       height: 2px
@@ -223,7 +236,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px solid vs-color('primary',1)
+      border: 2px solid -color('primary',1)
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent
@@ -237,7 +250,7 @@
       position: absolute
       width: 100%
       height: 100%
-      border: 2px dashed vs-color('primary',1)
+      border: 2px dashed -color('primary',1)
       border-radius: inherit
       border-top: 2px solid transparent
       border-left: 2px solid transparent
@@ -261,14 +274,14 @@
         left: 0px
         pointer-events: none
         &__1
-          border-bottom: 2px solid vs-color('gray-3')
+          border-bottom: 2px solid -color('gray-3')
           width: 100%
           height: 2px
           position: absolute
           bottom: 0px
           transition: all .25s ease
         &__2
-          border-bottom: 2px solid vs-color('color',1)
+          border-bottom: 2px solid -color('color',1)
           width: 0%
           height: 2px
           position: absolute
@@ -299,7 +312,7 @@
         pointer-events: none
         z-index: 10
         &__1
-          box-shadow: 0px 6px 25px -6px rgba(0,0,0, vs-var(shadow-opacity))
+          box-shadow: 0px 6px 25px -6px rgba(0,0,0, -var(shadow-opacity))
           width: 100%
           height: 100%
           position: absolute
@@ -314,13 +327,13 @@
         &:focus
           transform: translate(0,3px)
           ~ .vs-input__icon
-            background: vs-color('background') !important
+            background: -color('background') !important
             opacity: 1
-            box-shadow: 0px 10px 20px -5px rgba(0,0,0, vs-var(shadow-opacity)) !important
+            box-shadow: 0px 10px 20px -5px rgba(0,0,0, -var(shadow-opacity)) !important
           ~ .vs-input__affects
               .vs-input__affects__1
                 transform: translate(0,3px)
-                box-shadow: 0px 0px 3px 0px rgba(0,0,0, vs-var(shadow-opacity))
+                box-shadow: 0px 0px 3px 0px rgba(0,0,0, -var(shadow-opacity))
 
 @keyframes rotateInputLoading
   0%
