@@ -68,5 +68,8 @@
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2",
     "webpackbar": "^4.0.0"
+  },
+  "dependencies": {
+    "vue-router": "^3.3.4"
   }
 }

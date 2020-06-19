@@ -6,7 +6,6 @@ import { insertBody } from '../../../util/index'
 
 @Component
 export default class VsDialog extends VsComponent {
-
   rebound: boolean = false
 
   @Prop({ default: false, type: Boolean }) value: boolean
@@ -35,6 +34,8 @@ export default class VsDialog extends VsComponent {
 
   @Prop({ default: null, type: String }) width: string
 
+  @Prop({ default: false, type: Boolean }) routerClose: boolean
+
   esc(evt: any) {
     if (evt.which == 27 && !this.preventClose) {
       this.$emit('input', false)
@@ -49,7 +50,7 @@ export default class VsDialog extends VsComponent {
     this.addEsc()
     this.$nextTick(() => {
       const dialog = this.$refs['dialog-content'] as HTMLElement
-      insertBody(dialog, document.body)
+      insertBody(dialog, document.querySelector('#app'))
     })
   }
 
@@ -65,6 +66,12 @@ export default class VsDialog extends VsComponent {
         document.body.style.overflow = ''
         window.removeEventListener('keydown', this.esc)
       }
+    }
+  }
+
+  beforeDestroy() {
+    if (this.$el && this.$el.parentNode) {
+      this.$el.parentNode.removeChild(this.$el)
     }
   }
 

@@ -9,7 +9,6 @@ export default class VsNavbarItem extends VsComponent {
   @Prop({}) id: string
   @Prop({}) href: string
   @Prop({ default: '_blank' }) target: string
-  $router: any
 
   @Watch('active')
   handleWatchActive() {
