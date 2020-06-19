@@ -5,7 +5,6 @@ import VsComponent from '../../../mixins/component'
 @Component
 export default class VsNavbar extends VsComponent {
 
-  @Prop({ default: false, type: Boolean }) loading: boolean
   @Prop({ default: false, type: Boolean }) fixed: boolean
   @Prop({ default: false, type: Boolean }) shadow: boolean
   @Prop({ default: false, type: Boolean }) shadowScroll: boolean
@@ -193,9 +192,9 @@ export default class VsNavbar extends VsComponent {
         hidden: this.hidden,
         shadowActive: this.shadowActive,
         textWhite: this.textWhite,
-        square: this.square,
         paddingScroll: this.paddingScroll,
-        paddingScrollActive: this.paddingScrollActive
+        paddingScrollActive: this.paddingScrollActive,
+        vsNavbarSquare: this.square,
       }
     }, [
       navbar,

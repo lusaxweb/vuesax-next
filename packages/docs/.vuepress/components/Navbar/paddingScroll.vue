@@ -1,6 +1,6 @@
 <template>
   <div class="center example-nav">
-    <vs-navbar center-collapsed v-model="active">
+    <vs-navbar target-scroll="#padding-scroll-content" padding-scroll center-collapsed v-model="active">
       <template #left>
         <img src="/logo2.png" alt="">
       </template>
@@ -21,7 +21,7 @@
         <vs-button>Get Started</vs-button>
       </template>
     </vs-navbar>
-    <div class="square">
+    <div id="padding-scroll-content" class="square">
       <div class="child">
         child 1
       </div>
@@ -57,6 +57,7 @@ export default {
     background rgb(240,240,240) !important
     padding 0px !important
     position relative
+    overflow hidden
     img
       max-height 25px
 </style>

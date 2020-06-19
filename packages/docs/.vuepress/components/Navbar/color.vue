@@ -1,5 +1,5 @@
 <template>
-  <div class="center examplex">
+  <div class="center example-nav">
     <vs-navbar text-white :color="active" center-collapsed v-model="active">
       <template #left>
         <img src="/logos/logo-vuesax-logotipo-vuesax-png-4.png" alt="">
@@ -60,7 +60,7 @@ export default {
       align-items center
       justify-content center
       width 100%
-  .examplex
+  .example-nav
     background rgb(240,240,240) !important
     padding 0px !important
     position relative

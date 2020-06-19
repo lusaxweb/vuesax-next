@@ -2,6 +2,8 @@
 .vs-navbar__group
   position: relative
   &:hover
+    .vs-navbar__group__item
+      opacity: 1
     .vs-navbar__group__items
       opacity: 1
       visibility: visible
@@ -12,6 +14,7 @@
     color: inherit
     font-weight: bold
     transition: all .25s ease, color 0s
+    opacity: .7
   &__items
     position: absolute
     bottom: 0px
@@ -44,6 +47,7 @@
       text-align: left
       width: 100%
       position: relative
+      padding: 5px 10px
       &:before
         content: ''
         left: 0px

@@ -36,7 +36,7 @@
       <template #header>
           Change Prop {{ editProp }}
       </template>
-      <vs-input @keypress.enter="editActive = false" v-if="editProp == 'email'" v-model="edit[editProp]" />
+      <vs-input block @keypress.enter="editActive = false" v-if="editProp == 'email'" v-model="edit[editProp]" />
       <vs-select @change="editActive = false" block v-if="editProp == 'name'" placeholder="Select" v-model="edit[editProp]">
         <vs-option label="Vuesax" value="Vuesax">
           Vuesax

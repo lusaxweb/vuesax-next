@@ -3,7 +3,7 @@ PROPS:
   - name: fixed
     type: boolean
     values: true,false
-    description: Defines if the component is fixed on the screen.
+    description: Define si el componente esta fijo en la pantalla.
     default: false
     link: null
     usage: null
@@ -14,7 +14,7 @@ PROPS:
   - name: shadow
     type: boolean
     values: true,false
-    description: Add a shadow to the component.
+    description: Agrega una sombre al componente.
     default: primary
     link: null
     usage: null
@@ -25,7 +25,7 @@ PROPS:
   - name: shadowScroll
     type: boolean
     values: true,false
-    description: Add functionality to add shadow to component when scrollTop is more than 0.
+    description: Agrega la funcionalidad de agregar shadow al componente cuando el scrollTop es mas de 0.
     default: false
     link: null
     usage: null
@@ -36,7 +36,7 @@ PROPS:
   - name: hideScroll
     type: boolean
     values: true,false
-    description: Add the functionality to hide and show the component based on whether the scroll is lowered or raised.
+    description: Agrega la funcionalidad de ocultar y mostrar el componente en base a si se baja o sube el scroll.
     default: false
     link: null
     usage: '#hide-scroll'
@@ -47,7 +47,7 @@ PROPS:
   - name: textWhite
     type: boolean
     values: true,false
-    description: Change the text color of items to white.
+    description: Cambia el color de texto de los items a blanco.
     default: false
     link: null
     usage: '#color'
@@ -58,7 +58,7 @@ PROPS:
   - name: square
     type: boolean
     values: true,false
-    description: Change the border radius to 0 by making the component square.
+    description: Cambia el border radius a 0 haciendo el componente cuadrado.
     default: false
     link: null
     usage: '#square'
@@ -69,7 +69,7 @@ PROPS:
   - name: paddingScroll
     type: boolean
     values: true,false
-    description: Determines if the component has padding and the user scrolling is removed making an effect.
+    description: determina si el componente tiene padding y al usuario hacer scroll se elimina haciendo un efecto.
     default: false
     link: null
     usage: '#padding-scroll'
@@ -80,7 +80,7 @@ PROPS:
   - name: notLine
     type: boolean
     values: true,false
-    description: Delete the active line in the component.
+    description: Elimina la linea de active en el componente.
     default: false
     link: null
     usage: '#not-line'
@@ -91,7 +91,7 @@ PROPS:
   - name: leftCollapsed
     type: boolean
     values: true,false
-    description: Add the functionality that when the elements of this slot cannot be correctly they are visually removed.
+    description: Agrega la funcionalidad de que cuando los elementos de este slot no puedan estar correctamente se eliminen visualmente.
     default: false
     link: null
     usage: '#default'
@@ -102,7 +102,7 @@ PROPS:
   - name: centerCollapsed
     type: boolean
     values: true,false
-    description: Add the functionality that when the elements of this slot cannot be correctly they are visually removed.
+    description: Agrega la funcionalidad de que cuando los elementos de este slot no puedan estar correctamente se eliminen visualmente.
     default: false
     link: null
     usage: '#default'
@@ -113,7 +113,7 @@ PROPS:
   - name: rightCollapsed
     type: boolean
     values: true,false
-    description: Add the functionality that when the elements of this slot cannot be correctly they are visually removed.
+    description: Agrega la funcionalidad de que cuando los elementos de este slot no puedan estar correctamente se eliminen visualmente.
     default: false
     link: null
     usage: '#default'
@@ -124,7 +124,7 @@ PROPS:
   - name: targetScroll
     type: boolean
     values: true,false
-    description: Determines the element to which the scroll event will be requested.
+    description: Determina el elemento al que se le va a solicitar el evento scroll.
     default: document
     link: null
     usage: '#padding-scroll'
@@ -135,7 +135,7 @@ PROPS:
   - name: item:active
     type: boolean
     values: true,false
-    description: Determines if the component is in active status.
+    description: determina si el componente esta en estado de activo.
     default: false
     link: null
     usage: '#default'
@@ -146,7 +146,7 @@ PROPS:
   - name: item:to
     type: string
     values: url
-    description: Use vue-router to generate a new view based on the supplied string.
+    description: Usa vue-router para generar una nueva vista en base al string proporcionado.
     default: false
     link: null
     usage: null
@@ -157,7 +157,7 @@ PROPS:
   - name: item:id
     type: string
     values: id
-    description: It is the id that is used to change the value of the v-model of the parent component and thus be able to determine the active state based on user interaction..
+    description: Es el id que se usa para cambiar el valor de el v-model de el componente padre y asi poder determinar el estado de active en base a la interacción de el usuario.
     default: false
     link: null
     usage: null
@@ -168,7 +168,7 @@ PROPS:
   - name: item:href
     type: string
     values: url
-    description: Generate a new tab with the url provided.
+    description: Genera una nueva pestaña con la url proporcionada.
     default: false
     link: null
     usage: null
@@ -179,7 +179,7 @@ PROPS:
   - name: item:target
     type: string
     values: html-target
-    description: Determine if the tab is a new one or if it replaces the current one.
+    description: Determina si la pestaña es una nueva o si remplaza la actual.
     default: '_blank'
     link: null
     usage: null
@@ -192,7 +192,7 @@ SLOTS:
   - name: default
     type: slot
     values: null
-    description: Add the elements in the center of the component.
+    description: Agrega los elementos en el centro de el componente.
     default: null
     link: null
     usage: '#default'
@@ -205,7 +205,7 @@ SLOTS:
   - name: left
     type: slot
     values: null
-    description: Add the elements on the left side of the component.
+    description: Agrega los elementos en la parte izquierda de el componente.
     default: null
     link: null
     usage: '#default'
@@ -216,7 +216,7 @@ SLOTS:
   - name: right
     type: slot
     values: null
-    description: Add the elements on the right side of the component.
+    description: Agrega los elementos en la parte derecha de el componente.
     default: null
     link: null
     usage: '#default'
@@ -239,11 +239,11 @@ NEWS:
 
 <docs-warn />
 
-Quickly generate a menu with the `vs-navbar` component, as such the component is divided into 3 slots (**left**, **center** (default), **right**) with which you can determine the location of the elements, as sub components we have `vs-navbar-item` and` vs-navbar-group`
+genera un menu rápidamente con el componente `vs-navbar`, como tal el componente se divide en 3 slots (**left**, **center**(default), **right**) con los cuales puedes determinar la ubicación de los elementos, como sub componentes tenemos `vs-navbar-item` y `vs-navbar-group`
 
 
 :::tip
-You can see a complete example and change the properties in real time [Here](/examples/navbar.html)
+Puedes ver un ejemplo completo y cambiar las propiedades en tiempo real [Aqui](/examples/navbar.html)
 :::
 
 <div slot="example">
@@ -313,9 +313,9 @@ You can see a complete example and change the properties in real time [Here](/ex
 
 ## Color
 
-Change the component's color with the `color` property or by directly adding one of the main vuesax colors
+Cambia el color de el componente con la propiedad `color` o agregando directamente uno de los colores principales de vuesax
 
-if you want to change the text color to white you can do it with the property `text-white`
+si quieres cambiar el color de texto a blanco puedes hacerlo con la propiedad `text-white`
 
 <div slot="example">
   <Navbar-color />
@@ -391,7 +391,7 @@ if you want to change the text color to white you can do it with the property `t
 
 ## Hide scroll
 
-Add functionality to hide navbar when user scroll down and show when upload
+Agrega la funcionalidad de ocultar el navbar cuando el usuario hace scroll hacia abajo y de mostrar cuando sube
 
 <div slot="example">
   <Navbar-hideScroll />
@@ -460,7 +460,7 @@ Add functionality to hide navbar when user scroll down and show when upload
 
 ## Group
 
-You can add a list of elements within an item with the `vs-navbar-group` component and within it add the `vs-navbar-item` components
+Puedes agregar una lista de elementos dentro de un item con el componente `vs-navbar-group` y dentro de el agregar los componentes `vs-navbar-item`
 
 <div slot="example">
   <Navbar-group />
@@ -559,7 +559,7 @@ You can add a list of elements within an item with the `vs-navbar-group` compone
 
 ## Padding Scroll
 
-Add the functionality that the component has a padding up and down that when it is lowered the scroll is eliminated giving a pleasant effect
+Agrega la funcionalidad de que el componente tiene un padding arriba y abajo que cuando se baja el scroll se elimina dando un efecto agradable
 
 <div slot="example">
   <Navbar-paddingScroll />
@@ -628,7 +628,7 @@ Add the functionality that the component has a padding up and down that when it 
 
 ## Square
 
-Remove the border-radius property by making the component square
+Elimina la propiedad border-radius haciendo el componente cuadrado
 
 <div slot="example">
   <Navbar-square />
@@ -697,7 +697,7 @@ Remove the border-radius property by making the component square
 
 ## Not line
 
-Eliminates the active effect line of the component
+Elimina la linea de efecto active de el componente
 
 <div slot="example">
   <Navbar-notLine />

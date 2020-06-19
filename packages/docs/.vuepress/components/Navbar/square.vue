@@ -1,8 +1,8 @@
 <template>
-  <div class="center examplex">
-    <vs-navbar center-collapsed v-model="active">
+  <div class="center example-nav">
+    <vs-navbar color="#7d33ff" text-white square center-collapsed v-model="active">
       <template #left>
-        <img src="/logo2.png" alt="">
+        <img src="/logos/logo-vuesax-logotipo-vuesax-png-4.png" alt="">
       </template>
       <vs-navbar-item :active="active == 'guide'" id="guide">
         Guide
@@ -17,8 +17,8 @@
         license
       </vs-navbar-item>
       <template #right>
-        <vs-button flat >Login</vs-button>
-        <vs-button>Get Started</vs-button>
+        <vs-button color="#fff" flat >Login</vs-button>
+        <vs-button color="#fff" border >Get Started</vs-button>
       </template>
     </vs-navbar>
     <div class="square">
@@ -37,7 +37,7 @@
 <script>
 export default {
   data:() => ({
-    active: 'license'
+    active: 'guide'
   })
 }
 </script>
@@ -53,10 +53,11 @@ export default {
       align-items center
       justify-content center
       width 100%
-  .examplex
+  .example-nav
     background rgb(240,240,240) !important
     padding 0px !important
     position relative
+    overflow hidden
     img
-      max-height 25px
+      max-height 20px
 </style>
