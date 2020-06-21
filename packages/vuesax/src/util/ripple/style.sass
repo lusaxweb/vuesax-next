@@ -22,9 +22,9 @@
     position: absolute
     transform: translate(-50%,-50%)
     transition: all .5s ease
-    background: radial-gradient(circle,vs-color(color, .05),vs-color(color, .6))
+    background: radial-gradient(circle,-color(color, .05),-color(color, .6))
     &--solid
-      background: vs-color(color, 1)
+      background: -color(color, 1)
       opacity: 1
   .vs-ripple-invert
     width: 0px
@@ -34,7 +34,7 @@
     position: absolute
     transform: translate(-50%,-50%)
     transition: all .5s ease
-    background-image: radial-gradient(circle,vs-color(color, .5),vs-color(color, 0))
+    background-image: radial-gradient(circle,-color(color, .5),-color(color, 0))
   .vs-ripple-cut-1
     width: 0px
     height: 0px

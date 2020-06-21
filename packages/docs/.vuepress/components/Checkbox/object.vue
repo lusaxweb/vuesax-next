@@ -10,10 +10,8 @@
       Sass
     </vs-checkbox>
 
-    <pre class="data">
-      <code>
+    <pre class="data-check">
   {{ options }}
-      </code>
     </pre>
   </div>
 </template>
@@ -29,18 +27,21 @@ export default {
   }),
 }
 </script>
-<style scoped lang="stylus">
+<style scoped lang="stylus" scoped>
 .con-checkbox
   flex-direction column
   align-items flex-start
   >>>.vs-checkbox-content
     min-width 80px
-  .data
-    // background rgba(0,0,0,.025)
-    line-height 1rem
-    display flex
-    align-items center
-    justify-content flex-start
-    margin-top 10px
+  .data-check
+    background rgba(0,0,0,.03)
+    padding 10px
+    border-radius 18px
+    margin-top 20px
+    font-size .9rem
     width 100%
+    pre
+      background transparent
+      padding 0px 10px
+      overflow hidden
 </style>

@@ -63,7 +63,7 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
   const isHEX = /^(#)/.test(color)
   let newColor
 
-  if (color == 'dark') {
+  if (color == 'dark' && el) {
     el.classList.add('vs-component-dark')
   }
 

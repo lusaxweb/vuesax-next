@@ -6,9 +6,9 @@
   text-align: left
   background: transparent
   transition: all .25s ease
-  color: vs-color('text')
+  color: -color('text')
   border-radius: 5px
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0, vs-var(shadow-opacity))
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0, -var(shadow-opacity))
   margin: 2px 0px
   display: flex
   align-items: cneter
@@ -32,7 +32,7 @@
     .vs-select__option-group
       padding-left: 0px
     &.isHover
-      background: vs-color('gray-2') !important
+      background: -color('gray-2') !important
     &:disabled
       .vs-checkbox-content
         pointer-events: none
@@ -50,14 +50,14 @@
     &.activeOption
       pointer-events: auto !important
   &.isHover
-    background: vs-color('gray-2')
+    background: -color('gray-2')
   &.activeOption
-    background: vs-color('color', .05)
-    color: vs-color('color', 1)
+    background: -color('color', .05)
+    color: -color('color', 1)
     pointer-events: none
   // &:last-child
   //   border-radius: 0px 0px 12px 12px
   &:hover:not(:disabled)
-    color: vs-color('color')
+    color: -color('color')
     padding-left: 14px
 

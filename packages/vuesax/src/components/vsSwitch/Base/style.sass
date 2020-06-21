@@ -19,7 +19,7 @@
   display: flex
   align-items: center
   justify-content: center
-  background: vs-color('gray-3')
+  background: -color('gray-3')
   transition: all .25s ease
   overflow: hidden
   &--icon
@@ -53,7 +53,7 @@
     position: absolute
     width: calc(100% - 8px)
     height: calc(100% - 8px)
-    border: 3px dashed vs-color('color')
+    border: 3px dashed -color('color')
     z-index: 200
     border-radius: 50%
     border-top: 3px solid transparent
@@ -69,7 +69,7 @@
     position: absolute
     width: calc(100% - 8px)
     height: calc(100% - 8px)
-    border: 3px solid vs-color('color')
+    border: 3px solid -color('color')
     z-index: 200
     border-radius: 50%
     border-top: 3px solid transparent
@@ -93,14 +93,14 @@
       visibility: visible
       transition: all .25s ease .3s
   &:hover
-    background: vs-color('gray-4')
+    background: -color('gray-4')
   &:active
     transform: scale(.9)
   &__background
     width: 100%
     height: auto
     position: absolute
-    background: vs-color('color')
+    background: -color('color')
     border-radius: inherit
     z-index: 2
     transition: all .25s ease-out
@@ -114,7 +114,7 @@
     padding: 5px
     padding-left: 25px
     transition: all .25s ease .05s
-    color: vs-color('text')
+    color: -color('text')
     z-index: 9
     display: flex
     align-items: center
@@ -132,13 +132,13 @@
   &__circle
     width: 20px
     height: 20px
-    background: vs-color('background')
+    background: -color('background')
     border-radius: 20px
     transition: all .25s ease
     position: absolute
     z-index: 10
     left: 4px
-    color: vs-color('text')
+    color: -color('text')
     display: flex
     align-items: center
     justify-content: center
@@ -186,5 +186,5 @@
           opacity: 0
       ~ .vs-switch__circle
         left: calc(100% - 24px)
-        box-shadow: -5px 0px 25px 0px vs-color('background', .6)
-        color: vs-color('color')
+        box-shadow: -5px 0px 25px 0px -color('background', .6)
+        color: -color('color')

@@ -32,6 +32,8 @@ export default class VsSelect extends VsComponent {
 
   @Prop({ type: String, default: null }) state!: string
 
+  @Prop({ type: Boolean, default: false }) block!: boolean
+
   renderSelect: boolean = false
 
   activeOptions: boolean = false
@@ -370,7 +372,9 @@ export default class VsSelect extends VsComponent {
   @Watch('value')
   handleValue(val: string) {
     this.getValue()
-    this.$emit('change', val)
+    setTimeout(() => {
+      this.$emit('change', val)
+    }, 10)
 
     if (this.multiple) {
       this.$nextTick(() => {
@@ -416,6 +420,7 @@ export default class VsSelect extends VsComponent {
   }
 
   beforeDestroy() {
+    this.handleBlur()
     window.removeEventListener('resize', this.handleResize)
     window.removeEventListener('scroll', this.handleScroll)
   }
@@ -591,7 +596,7 @@ export default class VsSelect extends VsComponent {
         {
           'vs-select--disabled': this.disabled,
           'activeOptions': this.activeOptions,
-          'loading': this.loading,
+          'loading': this.loading
         }
       ],
       on: {
@@ -617,10 +622,10 @@ export default class VsSelect extends VsComponent {
 
     return  h('div', {
       staticClass: 'vs-select-content',
-      class: 
-        {
-          'vs-select--rtl': this.rtl
-        }
+      class: {
+        block: this.block,
+        'vs-select--rtl': this.rtl
+      }
     }, [
       selectContent,
       messageSuccess,

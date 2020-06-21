@@ -43,6 +43,17 @@ export default class VsPagination extends VsComponent {
 
   @Prop({ default: 5, type: Number }) dottedNumber: number
 
+  @Watch('length')
+  handleLength() {
+    this.$nextTick(() => {
+      const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
+      this.leftActive = (this.$refs[`btn${this.value}`] as HTMLElement).offsetLeft + offsetLeftPagination
+      setTimeout(() => {
+        this.activeClassMove = false
+      }, 300)
+    })
+  }
+
   @Watch('value')
   handleValue(val: number, prevValue: number) {
     if (this.isDisabledItem(val) || this.isLoadingItem(val)) {
@@ -236,7 +247,7 @@ export default class VsPagination extends VsComponent {
       ])
     } else if (this.buttonsDotted || this.length <= 6) {
       return this.renderButtons([
-        ...this.getButtons(1, this.length),
+        ...this.getButtons(1, this.length  == 0 ? 1 : this.length ),
       ])
     }
 

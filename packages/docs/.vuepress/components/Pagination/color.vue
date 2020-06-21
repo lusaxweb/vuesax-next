@@ -37,6 +37,7 @@ export default {
     display flex
     align-items center
     justify-content flex-start
+    flex-wrap: wrap
     .vs-radio-content
       margin 10px
   .vs-pagination-content

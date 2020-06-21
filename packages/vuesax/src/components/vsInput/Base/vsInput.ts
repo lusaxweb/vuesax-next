@@ -7,28 +7,21 @@ export default class VsInput extends VsComponent {
   isVisiblePassword: boolean = false
 
   @Prop({ default: '' }) value!: any
-
   @Prop({ default: '' }) labelPlaceholder!: any
-
   @Prop({ default: '' }) label!: any
-
+  @Prop({ type: Boolean, default: false }) block!: boolean
   @Prop({ type: Boolean, default: false }) iconAfter!: boolean
-
   @Prop({ type: Boolean, default: false }) visiblePassword!: boolean
-
   @Prop({ type: Boolean, default: false }) loading!: boolean
-
   @Prop({ type: Boolean, default: false }) rtl!: boolean
-
   @Prop({ type: String, default: null }) color!: string
-
   @Prop({ type: String, default: null }) state!: string
-
   @Prop({ type: Number, default: 0 }) progress!: number
-
   @Prop({ type: Boolean, default: false }) border!: boolean
-
   @Prop({ type: Boolean, default: false }) shadow!: boolean
+  @Prop({ type: Boolean, default: false }) transparent!: boolean
+  @Prop({ type: Boolean, default: false }) textWhite!: boolean
+  @Prop({ type: Boolean, default: false }) square!: boolean
 
   // tslint:disable-next-line:variable-name
   _uid: any
@@ -206,7 +199,11 @@ export default class VsInput extends VsComponent {
         { 'vs-input-parent--border': !!this.border },
         { 'vs-input-parent--shadow': !!this.shadow },
         { 'vs-input-parent--rtl': !!this.rtl },
-        { [`vs-input-content--has-label`]: this.label || this.labelPlaceholder }
+        { [`vs-input-content--has-label`]: this.label || this.labelPlaceholder },
+        { block: this.block },
+        { transparent: this.transparent },
+        { textWhite: this.textWhite },
+        { square: this.square }
       ]
     }, [
       inputContent,

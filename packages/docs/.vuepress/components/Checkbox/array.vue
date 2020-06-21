@@ -16,7 +16,7 @@
       Vuesax
     </vs-checkbox>
 
-    <span class="data">
+    <span class="data-check">
       {{ options }}
     </span>
   </div>
@@ -37,7 +37,7 @@ export default {
   align-items flex-start
   >>>.vs-checkbox-content
     min-width 80px
-  .data
+  .data-check
     background rgba(0,0,0,.03)
     padding 10px 20px
     border-radius 18px

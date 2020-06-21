@@ -10,7 +10,7 @@
       </div>
       <div class="text-n">
         <h3>
-          New component <b>Pagination</b> 🎉
+          New component <b>Navbar</b> 🎉
         </h3>
         <p>
           See the examples and the new documentation
@@ -36,11 +36,11 @@
 export default {
   data:() => ({
     active: 0,
-    number: 8
+    number: 10
   }),
   methods: {
     handleClick() {
-      this.$router.push('/docs/components/Pagination')
+      this.$router.push('/docs/components/Navbar')
       this.active = 0
 
       localStorage.notificationHidden = this.number

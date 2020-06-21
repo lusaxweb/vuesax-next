@@ -15,5 +15,8 @@
     "lerna": "^3.19.0",
     "shelljs": "^0.8.3",
     "vue": "^2.6.11"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.150"
   }
 }

@@ -2,6 +2,7 @@ import { VNode } from 'vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
 import { insertBody, setCordsPosition } from '../../../util/index'
+
 @Component
 export default class VsTooltip extends VsComponent {
 
@@ -37,7 +38,7 @@ export default class VsTooltip extends VsComponent {
 
   @Prop({ default: false, type: Boolean }) borderThick: boolean
 
-  @Prop({ default: '0', type: String }) delay: string
+  @Prop({ default: null, type: String }) delay: any
 
   @Prop({ default: '', type: String }) extraClass: string
 
@@ -61,12 +62,19 @@ export default class VsTooltip extends VsComponent {
   }
 
   handlerMouseEnter() {
-    setTimeout(() => {
+    if (this.delay) {
+      setTimeout(() => {
+        this.activeTooltip = true
+        this.$nextTick(() => {
+          this.insertTooltip()
+        })
+      }, Number(this.delay))
+    } else {
       this.activeTooltip = true
       this.$nextTick(() => {
         this.insertTooltip()
       })
-    }, Number(this.delay))
+    }
   }
 
   removeTooltip() {

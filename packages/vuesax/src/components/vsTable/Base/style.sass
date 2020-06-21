@@ -1,0 +1,66 @@
+@import '../../../styles/mixins'
+@import '../../../styles/colors'
+@import 'root'
+
+.vs-table-content
+  width: 100%
+  // box-shadow: 0px 5px 22px 0px rgba(0,0,0, -var(shadow-opacity))
+  border-radius: 16px
+.vs-table
+  width: 100%
+  font-size: .9rem
+  margin: 0px
+  overflow: auto
+  table
+    margin: 0px
+    border-collapse: collapse
+    width: 100%
+    min-width: 500px
+  &.striped
+    .vs-table__tr
+      &:nth-child(2n)
+        background: -color('gray-1') !important
+  &_not-found
+    display: none
+    padding: 20px
+    text-align: center
+    width: 100%
+    tr
+      text-align: center
+      td
+        padding: 20px
+        border: 0px
+        // width: 100%
+  &__tbody
+    &:empty
+      display: none
+      background: #000
+      ~ .vs-table_not-found
+        display: table-row-group
+  &.isSelectedValue
+    tr
+      cursor: pointer
+  &__footer
+    padding: 8px 10px
+    background: -color('gray-2')
+    border-radius: 0px 0px 14px 14px
+  &__header
+    width: 100%
+    padding: 10px
+    background: -color('gray-2')
+    border-radius: 14px 14px 0px 0px
+    & ~ .vs-table
+      .vs-table__th
+        &:first-child
+          border-radius: 0px
+        &:last-child
+          border-radius: 0px
+  &__thead
+    width: 100%
+    .vs-table__th
+      background: -color('gray-2')
+      &:first-child
+        border-radius: 14px 0px 0px 0px
+      &:last-child
+        border-radius: 0px 14px 0px 0px
+

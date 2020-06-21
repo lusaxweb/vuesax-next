@@ -15,7 +15,7 @@ The following is a brief glimpse of how it works:
 - The column grid system has a value of **1** to **12** to represent its range intervals. For example, `w="4"` can create three columns of equal width (**33.3%**).
 - If the sum of the cabbage segments in a row is greater than **12**, then the overflowing cabbage as a whole will start a new line layout.
 
-With the `w` directive define the column width (vs-col) its value is **1-12**, an example of sizes would be:`12=100%`,`6=50%`,`4=25% `
+With the `w` directive define the column width (vs-col) its value is **1-12**, an example of sizes would be:`12=100%`,`6=50%`,`4=33% `
 
 <div slot="example">
   <grid-default />
@@ -23,12 +23,44 @@ With the `w` directive define the column width (vs-col) its value is **1-12**, a
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="center grid">
+        <vs-row>
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="12">
+          100%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 2" vs-type="flex" vs-justify="center" vs-align="center" w="6">
+          50%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" w="4">
+          33.3%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" w="3">
+          25%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 6" vs-type="flex" vs-justify="center" vs-align="center" w="2">
+          16.6%
+        </vs-col>
+      </vs-row>
+
+      <vs-row>
+        <vs-col :key="index" v-for="col,index in 12" vs-type="flex" vs-justify="center" vs-align="center" w="1">
+          8.3%
+        </vs-col>
+      </vs-row>
       </div>
     </template>
   ```
@@ -41,7 +73,7 @@ With the `w` directive define the column width (vs-col) its value is **1-12**, a
 
 ## Offset
 
-To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=25%`.
+To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=33%`.
 
 <div slot="example">
   <grid-offset />
@@ -49,12 +81,38 @@ To give a distance from the left we have the offset property that with the same 
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html{4}
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div>
+        <vs-row w="12">
+          <vs-col offset="5" w="6">
+            offset = 6
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="0" w="2">
+            offset = 2
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="2" w="8">
+            offset = 8
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="9" w="3">
+            offset = 7
+          </vs-col>
+        </vs-row>
+
+        <vs-row>
+          <vs-col offset="4" w="4">
+            offset = 4
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -75,12 +133,39 @@ If we have to align the elements horizontally, use the `justify` directive that 
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row>
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Default {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Center {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="flex-end">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Flex-end {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+
+        <vs-row justify="space-around">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-around {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row justify="space-between">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-between {{ index + 1 }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -103,12 +188,39 @@ We also have the `direction` property that refers to the css` flex-direction` pr
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Default {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row align="center" justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Center {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row align="flex-end" justify="center">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Flex-end {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+
+        <vs-row class="mh" align="center" justify="space-around" direction="column">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-around {{ index + 1 }}
+          </vs-col>
+        </vs-row>
+
+        <vs-row class="mh" align="center" justify="space-between" direction="column">
+          <vs-col :key="index" v-for="col,index in 3" w="2">
+            Space-between {{ index + 1 }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -129,12 +241,23 @@ In some cases, we want to order the elements to our liking. To do this, use the 
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div>
+        <vs-row w="12">
+          <vs-col w="3">
+            1
+          </vs-col>
+          <vs-col w="3">
+            2
+          </vs-col>
+          <vs-col order="-1" w="3">
+            3
+          </vs-col>
+          <vs-col w="3">
+            4
+          </vs-col>
+        </vs-row>
       </div>
     </template>
   ```
@@ -159,14 +282,56 @@ There are some measures that can only be added in a specific device size, the di
 
 <div slot="template">
 
-  ```html{3,4,5}
+  ```html{4}
     <template>
-      <div class="center">
-        <vs-button active >Active</vs-button>
-        <vs-button>Default</vs-button>
-        <vs-button disabled >Disabled</vs-button>
+      <div class="grid">
+        <vs-row>
+          <vs-col :w="num">
+            {{ num }}
+          </vs-col>
+          <vs-col :w="num2">
+            {{ num2 }}
+          </vs-col>
+          <vs-col :w="num">
+            {{ num }}
+          </vs-col>
+        </vs-row>
       </div>
     </template>
+  ```
+
+</div>
+
+<div slot="script">
+
+  ```html
+    <script>
+      export default {
+        data() {
+          return {
+            num: 2,
+            num2: 8
+          }
+        },
+        mounted() {
+          setInterval(() => {
+            if(this.num == 2) {
+              this.num = 4
+              this.num2 = 4
+            } else if (this.num == 4) {
+              this.num = 1
+              this.num2 = 10
+            } else if (this.num == 1) {
+              this.num = 5
+              this.num2 = 2
+            } else if (this.num == 5) {
+              this.num = 2
+              this.num2 = 8
+            }
+          }, 2000)
+        }
+      }
+      </script>
   ```
 
 </div>

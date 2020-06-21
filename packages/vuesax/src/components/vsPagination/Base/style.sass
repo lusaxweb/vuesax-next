@@ -10,7 +10,7 @@
   &.notMargin
     .vs-pagination
       &__dotted
-        background: vs-color('gray-3')
+        background: -color('gray-3')
         margin: 0px
       &__arrow
         margin: 0px !important
@@ -70,7 +70,7 @@
       &__active
         width: 12px
         height: 12px
-        box-shadow: 0px 2px 10px 0px vs-color('color', .4)
+        box-shadow: 0px 2px 10px 0px -color('color', .4)
         transform: scale(1)
         &.move
           transform: scale(1.2)
@@ -82,13 +82,13 @@
   &__progress
     width: calc(100% - 16px)
     height: 3px
-    background: vs-color('gray-3')
+    background: -color('gray-3')
     position: absolute
     bottom: -8px
     border-radius: 10px
     .progress
       width: 0px
-      background: vs-color('color', 1)
+      background: -color('color', 1)
       height: 100%
       position: relative
       border-radius: inherit
@@ -112,13 +112,13 @@
     align-items: center
     justify-content: center
     margin: 0px 2px
-    background: vs-color('gray-3')
+    background: -color('gray-3')
     transition: all .25s ease
     &:disabled
       opacity: .4
       pointer-events: none
     &:hover
-      background: vs-color('gray-4')
+      background: -color('gray-4')
     i
       width: 10px
       height: 10px
@@ -142,7 +142,7 @@
     top: 0px
     width: 36px
     height: 36px
-    background: vs-color('color')
+    background: -color('color')
     border-radius: 12px
     z-index: 100
     display: flex
@@ -151,7 +151,7 @@
     font-size: .9rem
     transition: all .25s ease
     color: #fff
-    box-shadow: 0px 5px 20px 0px vs-color('color', .3)
+    box-shadow: 0px 5px 20px 0px -color('color', .3)
     cursor: default
     &.move
       transform: scale(1.1)
@@ -221,14 +221,14 @@
     height: 36px
     border-radius: 12px
     padding: 0px
-    background: vs-color('gray-3')
+    background: -color('gray-3')
     margin: 0px 2px
     display: flex
     align-items: center
     justify-content: center
     font-size: .9rem
     transition: all .25s ease
-    color: vs-color('text')
+    color: -color('text')
     position: relative
     &.loading
       border-radius: 50%
@@ -241,14 +241,14 @@
         width: 100%
         height: 100%
         border-radius: 50%
-        border: 2px solid vs-color('color', 1)
-        border-top: 2px solid vs-color('background', 0)
-        border-left: 2px solid vs-color('background', 0)
-        border-bottom: 2px solid vs-color('background', 0)
+        border: 2px solid -color('color', 1)
+        border-top: 2px solid -color('background', 0)
+        border-left: 2px solid -color('background', 0)
+        border-bottom: 2px solid -color('background', 0)
         box-sizing: border-box
         transition: all .25s ease
         display: block
-        box-shadow: 0px 0px 0px 0px vs-color('color',1)
+        box-shadow: 0px 0px 0px 0px -color('color',1)
         animation: loadingPagination .6s ease infinite
       &:before
         content: ''
@@ -256,14 +256,14 @@
         width: 100%
         height: 100%
         border-radius: 50%
-        border: 2px dashed vs-color('color',1)
-        border-top: 2px solid vs-color('background', 0)
-        border-left: 2px solid vs-color('background', 0)
-        border-bottom: 2px solid vs-color('background', 0)
+        border: 2px dashed -color('color',1)
+        border-top: 2px solid -color('background', 0)
+        border-left: 2px solid -color('background', 0)
+        border-bottom: 2px solid -color('background', 0)
         box-sizing: border-box
         transition: all .25s ease
         display: block
-        box-shadow: 0px 0px 0px 0px vs-color('color',1)
+        box-shadow: 0px 0px 0px 0px -color('color',1)
         animation: loadingPagination .6s linear infinite
 
     &.disabled
@@ -271,7 +271,7 @@
       pointer-events: none
       user-select: none
     &:hover
-      background: vs-color('gray-4')
+      background: -color('gray-4')
     &:active
       transform: scale(.9)
 

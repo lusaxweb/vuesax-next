@@ -13,5 +13,12 @@
   "vsTooltip": "./src/components/vsTooltip/Base/index.ts",
   "vsDialog": "./src/components/vsDialog/Base/index.ts",
   "vsPagination": "./src/components/vsPagination/Base/index.ts",
+  "vsTable": "./src/components/vsTable/Base/index.ts",
+  "vsTableTr": "./src/components/vsTable/Tr/index.ts",
+  "vsTableTh": "./src/components/vsTable/Th/index.ts",
+  "vsTableTd": "./src/components/vsTable/Td/index.ts",
+  "vsNavbar": "./src/components/vsNavbar/Base/index.ts",
+  "vsNavbarItem": "./src/components/vsNavbar/Item/index.ts",
+  "vsNavbarGroup": "./src/components/vsNavbar/Group/index.ts",
   "newComponent": ""
 }

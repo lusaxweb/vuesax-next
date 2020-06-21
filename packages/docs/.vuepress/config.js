@@ -66,6 +66,7 @@ function getNavbar (lang = '/') {
         items: [
           { text: lang !== '/'? `Introducción` : `Introduction`, link: `${lang}docs/guide/` },
           { text: lang !== '/'? `Empezando` : `Getting Started`, link: `${lang}docs/guide/gettingStarted` },
+          { text: `Vuesax + Nuxtjs`, link: `${lang}docs/guide/nuxt` }
         ]
       },
       {
@@ -100,6 +101,8 @@ function getNavbar (lang = '/') {
 							{ text: 'Tooltip', link: `${lang}docs/components/Tooltip` },
 							{ text: 'Dialog', link: `${lang}docs/components/Dialog` },
 							{ text: 'Pagination', link: `${lang}docs/components/Pagination` },
+							{ text: 'Table', link: `${lang}docs/components/Table` },
+							{ text: 'Navbar', link: `${lang}docs/components/Navbar` },
 							// new component slot 1
             ]
           }
@@ -166,6 +169,7 @@ function getSidebar (lang = '/') {
           children: [
             `${lang}docs/guide/`,
             `${lang}docs/guide/gettingStarted`,
+            `${lang}docs/guide/nuxt`,
           ]
         },
         {
@@ -192,6 +196,8 @@ function getSidebar (lang = '/') {
 						`${lang}docs/components/Tooltip`,
 						`${lang}docs/components/Dialog`,
 						`${lang}docs/components/Pagination`,
+						`${lang}docs/components/Table`,
+						`${lang}docs/components/Navbar`,
 						// new component slot 2
           ]
         },

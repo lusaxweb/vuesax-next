@@ -17,7 +17,7 @@ function FileSass(name) {
 @import 'root'
 
 .vs-${name.toLowerCase()}-content
-  background: vs-color('color')
+  background: -color('color')
 
 .vs-${name.toLowerCase()}
   background: #000

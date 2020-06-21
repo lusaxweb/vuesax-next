@@ -49,7 +49,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Input ```RTL```
 - [ ] List
 - [x] Loading
-- [ ] Navbar
+- [x] Navbar
 - [x] Notification
 - [ ] Number Input
 - [x] Pagination ```RTL```
@@ -60,7 +60,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Sidebar
 - [ ] Slider
 - [x] Switch
-- [ ] Table
+- [x] Table
 - [ ] Tabs
 - [ ] Textarea
 - [x] Tooltip ```RTL```
