@@ -1,12 +1,12 @@
-import './style.sass'
-import component from './VsTooltip'
+import './style.sass';
+import component from './vsTooltip';
 
 component.install = (vue: any) => {
-  vue.component('vs-tooltip', component)
-}
+  vue.component('vs-tooltip', component);
+};
 
 if (typeof window !== 'undefined' && window.Vue) {
-  component.install(window.Vue)
+  component.install(window.Vue);
 }
 
-export default component
+export default component;

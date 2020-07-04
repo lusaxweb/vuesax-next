@@ -1,12 +1,12 @@
-import './style.sass'
+import './style.sass';
+import component from './vsButton';
 
-import component from './VsButton'
 component.install = (vue: any) => {
-  vue.component('vs-button', component)
-}
+  vue.component('vs-button', component);
+};
 
 if (typeof window !== 'undefined' && window.Vue) {
-  component.install(window.Vue)
+  component.install(window.Vue);
 }
 
-export default component
+export default component;

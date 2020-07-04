@@ -1,5 +1,5 @@
 {
-  "vsButton": "./src/components/vsButton/base/index.ts",
+  "vsButton": "./src/components/vsButton/Base/index.ts",
   "vsAlert": "./src/components/vsAlert/Base/index.ts",
   "vsInput": "./src/components/vsInput/Base/index.ts",
   "vsCheckbox": "./src/components/vsCheckbox/Base/index.ts",

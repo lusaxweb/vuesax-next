@@ -1,12 +1,12 @@
-import './style.sass'
+import './style.sass';
+import component from './vsButtonGroup';
 
-import component from './VsButtonGroup'
 component.install = (vue: any) => {
-  vue.component('vs-button-group', component)
-}
+  vue.component('vs-button-group', component);
+};
 
 if (typeof window !== 'undefined' && window.Vue) {
-  component.install(window.Vue)
+  component.install(window.Vue);
 }
 
-export default component
+export default component;

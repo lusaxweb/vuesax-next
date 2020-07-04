@@ -1,12 +1,12 @@
-import './style.sass'
-import component from './VsNavbarItem'
+import './style.sass';
+import component from './vsNavbarItem';
 
 component.install = (vue: any) => {
-  vue.component('vs-navbar-item', component)
-}
+  vue.component('vs-navbar-item', component);
+};
 
 if (typeof window !== 'undefined' && window.Vue) {
-  component.install(window.Vue)
+  component.install(window.Vue);
 }
 
-export default component
+export default component;

@@ -1,12 +1,12 @@
-import './style.sass'
-import component from './VsSwitch'
+import './style.sass';
+import component from './vsSwitch';
 
 component.install = (vue: any) => {
-  vue.component('vs-switch', component)
-}
+  vue.component('vs-switch', component);
+};
 
 if (typeof window !== 'undefined' && window.Vue) {
-  component.install(window.Vue)
+  component.install(window.Vue);
 }
 
-export default component
+export default component;
