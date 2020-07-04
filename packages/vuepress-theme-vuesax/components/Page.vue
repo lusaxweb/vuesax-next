@@ -175,7 +175,7 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util'
-import Sidebar2 from './sidebar2.vue'
+import Sidebar2 from './Sidebar2.vue'
 import api from './api.vue'
 import headerSvg from './headerSvg.vue'
 import Footer from './Footer.vue'
