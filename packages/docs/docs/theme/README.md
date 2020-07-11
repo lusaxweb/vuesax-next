@@ -56,7 +56,7 @@
 
   ::: warning HEX Format Numbers Only
 
-  It is important that the colors are in HEX format and only the numerical value for example: `rgb (255,100.50)` is equivalent to `255,100.50`
+  It is important that the colors are in HEX format and only the numerical value for example: `rgb (255,100,50)` is equivalent to `255,100,50`
 
   :::
 
