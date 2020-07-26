@@ -437,7 +437,7 @@ Tipos de loading:
 
 <div slot="style">
 
-  ```html{3,4,5}
+  ```stylus
     <style scoped lang="stylus">
       .hasOpenLoading
         .box-loading
@@ -558,7 +558,7 @@ Change the color of the loading animation with the property `color`, the colors 
           })
         }
       }
-      </script>
+    </script>
   ```
 
 </div>
@@ -625,7 +625,7 @@ Change the color of the loading animation with the property `color`, the colors 
           &.vs-loading--gradient, &.vs-loading--square
             .vs-loading__load__animation__2
               background getVar(theme-layout) !important
-      </style>
+    </style>
   ```
 
 </div>
@@ -644,8 +644,76 @@ You can change the loading background with the property `loading`
 
 <div slot="template">
 
-  ```html{3,4,5}
-    ...
+  ```html
+    <template>
+      <div ref="target" id="target" class="center">
+        <div :style="`background: ${color};`" class="con-input">
+          <input v-model="color" type="color">
+          <i class='bx bxs-color-fill'></i>
+        </div>
+        <vs-button flat :color="color" @click="openLoading">Open Loading</vs-button>
+      </div>
+    </template>
+  ```
+
+</div>
+
+<div slot="script">
+
+  ```html
+    <script>
+      export default {
+        data: () => ({
+          color: '#7a76cb',
+        }),
+        methods: {
+          openLoading() {
+            const loading = this.$vs.loading({
+              background: this.color,
+              // opacity: 1,
+              color: '#fff'
+            })
+            setTimeout(() => {
+              loading.close()
+            }, 3000)
+          }
+        }
+      }
+    </script>
+  ```
+
+</div>
+
+<div slot="style">
+
+  ```stylus
+    <style scoped lang="stylus">
+      getColor(vsColor, alpha = 1)
+          unquote("rgba(var(--vs-"+vsColor+"), "+alpha+")")
+      getVar(var)
+          unquote("var(--vs-"+var+")")
+      .con-input
+        border-radius 10px
+        border 4px solid getVar(theme-layout)
+        box-shadow 0px 4px 10px 0px rgba(0,0,0,.1)
+        display flex
+        align-items center
+        justify-content center
+        transition all .25s ease
+        &:hover
+          transform translate(0, -4px)
+          box-shadow 0px 8px 10px 0px rgba(0,0,0,.1)
+        input
+          opacity 0
+          width 30px
+          height 30px
+          border 0px
+          cursor pointer
+        i
+          position absolute
+          color getVar(theme-layout)
+          pointer-events none
+    </style>
   ```
 
 </div>
