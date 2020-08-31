@@ -21,6 +21,8 @@ export default class VsNotification extends Vue {
   border: string | null = null
 
   icon: string | null = null
+  
+  onClickClose: any = null
 
   onClick: any = null
 
@@ -60,6 +62,7 @@ export default class VsNotification extends Vue {
 
   handleClickClose() {
     this.isVisible = false
+    this.onClickClose();
   }
 
   beforeEnter(el: any) {
