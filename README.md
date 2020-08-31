@@ -38,7 +38,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Avatar
 - [ ] Breadcrumb
 - [x] Button
-- [ ] Card
+- [x] Card
 - [x] Checkbox
 - [ ] Chip
 - [ ] Collapse
@@ -57,7 +57,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Progress
 - [x] Radio
 - [x] Select
-- [ ] Sidebar
+- [x] Sidebar
 - [ ] Slider
 - [x] Switch
 - [x] Table
