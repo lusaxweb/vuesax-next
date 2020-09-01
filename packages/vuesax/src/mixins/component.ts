@@ -27,6 +27,17 @@ export default class VsComponent extends Vue {
     return this.color === 'dark' || this.dark || this.componentColor === 'dark'
   }
 
+  get propertiesForWatch() {
+    return [
+      this.color,
+      this.primary,
+      this.danger,
+      this.success,
+      this.warn,
+      this.dark
+    ]
+  }
+
   changeColor() {
     if (!this.$el || this.$el.nodeName == '#comment') { return }
     this.componentColor = (this.danger && 'danger') ||
@@ -58,41 +69,15 @@ export default class VsComponent extends Vue {
     }
   }
 
-  @Watch('color')
-  handleWatchColor() {
-    this.changeColor()
-  }
-
-  @Watch('primary')
-  handleWatchPrimary() {
-    this.changeColor()
-  }
-
-  @Watch('danger')
-  handleWatchDanger() {
-    this.changeColor()
-  }
-
-  @Watch('success')
-  handleWatchSuccess() {
-    this.changeColor()
-  }
-
-  @Watch('warn')
-  handleWatchWarn() {
-    this.changeColor()
-  }
-
-  @Watch('dark')
-  handleWatchDark() {
+  @Watch('propertiesForWatch', {
+    immediate: true,
+    deep: true
+  })
+  handleWatch() {
     this.changeColor()
   }
 
   updated() {
-    this.changeColor()
-  }
-
-  mounted() {
     this.changeColor()
   }
 }
