@@ -21,11 +21,11 @@ const setTheme = (forceTheme: string) => {
     document.body.removeAttribute('vs-theme')
   }
 
-  localStorage.vsTheme =  isThemeDark ? 'dark' : 'light'
+  localStorage.vsTheme = isThemeDark ? 'dark' : 'light'
 
   setTimeout(() => {
     document.body.classList.remove('vs-remove-transition')
-  }, 100);
+  }, 100)
 
   return isThemeDark ? 'dark' : 'light'
 }

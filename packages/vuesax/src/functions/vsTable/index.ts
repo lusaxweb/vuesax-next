@@ -74,8 +74,8 @@ const sortData = (evt: any, data: any, sortKey: string, type: string) => {
   }
 
   el.dataset[`sortType${sortKey}`] = sortType
-  el.dataset[`sortType`] = sortType
-  el.dataset[`sortKey`] = `sortType${sortKey}`
+  el.dataset['sortType'] = sortType
+  el.dataset['sortKey'] = `sortType${sortKey}`
 
   const parent = el.closest('.vs-table__tr')
   const ths = parent.querySelectorAll('th.sort')
