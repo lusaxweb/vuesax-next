@@ -62,7 +62,6 @@ export default class VsNotification extends Vue {
 
   handleClickClose() {
     this.isVisible = false
-    this.onClickClose();
   }
 
   beforeEnter(el: any) {
@@ -200,6 +199,7 @@ export default class VsNotification extends Vue {
             { 'vs-notification--border': this.border },
             { 'vs-notification--icon': this.icon },
             { 'vs-notification--onClick': this.onClick },
+            { 'vs-notification--onClickClose': this.onClickClose },
             { 'vs-notification--flat': this.flat },
             { 'vs-notification--sticky': this.sticky },
             { 'vs-notification--square': this.square },
@@ -217,6 +217,9 @@ export default class VsNotification extends Vue {
               }
               if (this.clickClose) {
                 this.close()
+                if (this.onClickClose) {
+                  this.onClickClose()
+                }
               }
             }
           }
