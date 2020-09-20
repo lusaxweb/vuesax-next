@@ -163,7 +163,7 @@ export default class VsAvatar extends VsComponent {
         'vs-avatar-content--hidden': this.isHidden,
         'vs-avatar-content--latest': this.isLatest,
         'vs-avatar-content--hasIcons': this.$slots.icons,
-        [`vs-avatar-content--size--${this.size}`]: this.size,
+        [`vs-avatar-content--size`]: this.size,
       }
     }, [
       this.loading && loading,

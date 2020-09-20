@@ -55,8 +55,6 @@ getVar(var)
       border-radius 0px !important
     &:before,&:after
       display none !important
-    .carbon-poweredby
-      display none !important
     .carbon-wrap
       display flex
       align-items center
@@ -194,8 +192,6 @@ div[id*="carbonads"] span {
   font-weight: 600;
   font-size: 9px;
   line-height: 0;
-  /* padding-top: 5px */
-  display: none
 }
 
 @media only screen and (max-width: 1100) {

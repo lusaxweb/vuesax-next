@@ -20,5 +20,10 @@
   "vsNavbar": "./src/components/vsNavbar/Base/index.ts",
   "vsNavbarItem": "./src/components/vsNavbar/Item/index.ts",
   "vsNavbarGroup": "./src/components/vsNavbar/Group/index.ts",
+  "vsSidebar": "./src/components/vsSidebar/Base/index.ts",
+  "vsSidebarItem": "./src/components/vsSidebar/Item/index.ts",
+  "vsSidebarGroup": "./src/components/vsSidebar/Group/index.ts",
+  "vsCard": "./src/components/vsCard/Base/index.ts",
+  "vsCardGroup": "./src/components/vsCard/Group/index.ts",
   "newComponent": ""
 }

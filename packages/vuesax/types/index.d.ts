@@ -1,5 +1,5 @@
 
-import Vue, { VueConstructor, ComponentOptions } from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import { VsAlert } from './components/VsAlert'
 
 /** Alert Component */
@@ -22,11 +22,4 @@ declare global {
 declare module '*.svg' {
     const content: string;
     export default content;
-}
-
-declare module "vue/types/options" {
-  interface ComponentOptions<V extends Vue> {
-    // This adds the `middleware` property to the existing `vue/types/options/ComponentOptions` type
-    beforeRouteEnter?: any;
-  }
 }
