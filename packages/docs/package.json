@@ -14,7 +14,7 @@
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.0.0-rc.1",
     "@vuesax/vuepress-theme-vuesax": "0.0.11",
-    "boxicons": "^2.0.3",
+    "boxicons": "^2.0.5",
     "css-loader": "^3.2.0",
     "fibers": "^4.0.2",
     "mini-css-extract-plugin": "^0.8.0",

@@ -64,7 +64,7 @@
     </Page>
 
     <Carbon ref="carbon" />
-    <Codefund ref="codefund" />
+    <!-- <Codefund ref="codefund" /> -->
     <VuesaxAds v-if="ads == 'vuesax'" />
 
     <Sidebar
@@ -181,30 +181,26 @@ export default {
   },
 
   watch: {
-    'codesandbox': {
-      deep: true,
-      handler(val) {
-        if (!this.noAdvertiser) {
-          this.loadCodeFund()
-        } else {
-          window.removeEventListener('codefund', this.handlerCodefound);
-          this.ads = 'carbon'
-          this.$refs.carbon.load()
-        }
-      }
-    },
+    // 'codesandbox': {
+    //   deep: true,
+    //   handler(val) {
+    //     // if (!this.noAdvertiser) {
+    //     //   this.loadCodeFund()
+    //     // } else {
+    //   if (val) {
+    //     this.ads = 'carbon'
+    //     this.$refs.carbon.load()
+    //   }
+    //     // }
+    //   }
+    // },
     '$route' (to, from) {
       if (
         to.path !== from.path
       ) {
         Vue.observable(this.$codesandbox)
-        if (!this.noAdvertiser) {
-          this.loadCodeFund()
-        } else {
-          window.removeEventListener('codefund', this.handlerCodefound)
-          this.ads = 'carbon'
-          this.$refs.carbon.load()
-        }
+        this.ads = 'carbon'
+        this.$refs.carbon.load()
       }
     }
   },
@@ -217,10 +213,8 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
-    // if (this.$route.path !== '/') {
-    this.loadCodeFund()
-    // }
-
+    this.$refs.carbon.clean()
+    this.$refs.carbon.load()
     this.loadDarkModeFavicon()
   },
 
@@ -294,40 +288,6 @@ export default {
     handleClickCodeSandbox() {
       document.body.style.overflow = ''
       this.codesandbox.url = null
-    },
-    handlerCodefound(event) {
-      if (event.detail.status === 'no-advertiser') {
-        this.noAdvertiser = true
-        window.removeEventListener('codefund', this.handlerCodefound);
-        // const number = Math.round(Math.random() * (4) + 1)
-        // if (number == 1) {
-        //   this.ads = 'vuesax'
-        //   this.$refs.carbon.$el.innerHTML = ''
-        //   this.$refs.carbon.$el.classList.add('hidden')
-        // } else {
-        this.$refs.codefund.$el.innerHTML = ''
-        this.ads = 'carbon'
-        this.$refs.carbon.clean()
-        this.$refs.carbon.load()
-        // }
-      } else {
-        this.ads = 'codefund'
-        // this.$refs.carbon.$el.classList.add('hidden')
-      }
-    },
-    loadCodeFund() {
-      this.$refs.codefund.$el.innerHTML = ''
-      const script = document.createElement("script");
-      script.setAttribute("type", "text/javascript");
-      script.setAttribute(
-        "src",
-        `https://app.codefund.io/properties/677/funder.js`
-      )
-
-      window.removeEventListener('codefund', this.handlerCodefound);
-
-      window.addEventListener('codefund', this.handlerCodefound);
-      this.$refs.codefund.$el.appendChild(script);
     },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen

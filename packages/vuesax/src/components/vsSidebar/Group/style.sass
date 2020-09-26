@@ -1,0 +1,43 @@
+@import '../../../styles/mixins'
+.vs-sidebar__group
+  padding: 0px
+  width: 100%
+  min-width: 260px
+  position: relative
+  &.open
+    .vs-sidebar__group__content
+      &:after
+        transform: translate(0)
+        opacity: 1
+    >.vs-sidebar__group__header
+      .vs-sidebar__item
+        opacity: 1
+      .vs-sidebar__item__arrow
+        transform: rotate(45deg) !important
+  &__header
+    display: flex
+    align-items: center
+    justify-content: center
+  &__content
+    overflow: hidden
+    transition: all .25s ease
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      left: 0px
+      top: 0px
+      background: -color('color', .3)
+      width: 4px
+      height: 100%
+      opacity: 0
+      transition: all .25s ease
+      transform: translate(-100%)
+      border-radius: 0px 10px 10px 0px
+      z-index: 60
+    .vs-sidebar__item
+      background: -color('background')
+  >.vs-sidebar__group__header
+    .vs-sidebar__item:hover
+      padding-left: 0px
+
