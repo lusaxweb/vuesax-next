@@ -1,5 +1,6 @@
 <template>
   <div
+    id="vs-app"
     class="theme-container"
     :class="pageClasses"
     @touchstart="onTouchStart"

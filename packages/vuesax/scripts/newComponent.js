@@ -13,7 +13,6 @@ const writeToFile = (contents, file) => {
 
 function FileSass(name) {
   return `@import '../../../styles/mixins'
-@import '../../../styles/colors'
 @import 'root'
 
 .vs-${name.toLowerCase()}-content

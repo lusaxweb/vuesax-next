@@ -162,11 +162,21 @@ export default class VsCheckbox extends VsComponent {
 
     return h('div', {
       staticClass: 'vs-checkbox-content',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         { 'vs-checkbox--checked': this.isChecked },
         { 'vs-checkbox--disabled': this.$attrs.hasOwnProperty('disabled') },
         { 'vs-checkbox--loading': this.loading },
         { 'vs-checkbox--label-before': this.labelBefore },
+
+        // colors
+        { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+        { [`vs-component--danger`] : !!this.danger },
+        { [`vs-component--warn`] : !!this.warn },
+        { [`vs-component--success`] : !!this.success },
+        { [`vs-component--dark`] : !!this.dark },
       ]
     },
      [

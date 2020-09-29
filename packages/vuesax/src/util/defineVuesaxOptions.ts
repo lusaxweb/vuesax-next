@@ -15,7 +15,9 @@ export interface VuesaxColors {
 
 const defineColors = (colors: VuesaxColors) => {
   Object.keys(colors).forEach((item) => {
-    setColor(item, colors[item], document.body)
+    if (document.body) {
+      setColor(item, colors[item], document.body)
+    }
   })
 }
 

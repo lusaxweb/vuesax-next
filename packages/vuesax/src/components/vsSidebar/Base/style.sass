@@ -1,5 +1,4 @@
 @import '../../../styles/mixins'
-@import '../../../styles/colors'
 @import 'root'
 
 @keyframes delayOpacity
@@ -27,6 +26,19 @@
   background: -color('background')
   transition: all .25s ease
   transform: translate(-110%)
+  &.right
+    left: auto
+    right: 0px
+    transform: translate(110%)
+    &.open
+      transform: translate(0)
+    &.reduce
+      .vs-sidebar__item
+        &:hover
+          .vs-sidebar__item__text-tooltip
+            opacity: 1
+            left: auto !important
+            right: 60px !important
   &.absolute
     position: absolute !important
     z-index: 9001

@@ -1436,6 +1436,7 @@ getVar(var)
       left -12%
 @media (max-width: 760px)
   .con-components
+    display none
     .content-components
       left -18%
 @media (max-width: 470px)
