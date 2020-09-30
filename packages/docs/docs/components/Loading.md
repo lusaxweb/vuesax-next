@@ -644,8 +644,39 @@ You can change the loading background with the property `loading`
 
 <div slot="template">
 
-  ```html{3,4,5}
-    ...
+  ```html
+    <div ref="target" id="target" class="center">
+      <div :style="`background: ${color};`" class="con-input">
+        <input v-model="color" type="color">
+        <i class='bx bxs-color-fill'></i>
+      </div>
+      <vs-button flat :color="color" @click="openLoading">Open Loading</vs-button>
+    </div>
+  ```
+
+</div>
+
+<div slot="script">
+
+  ```html
+    <script>
+      export default {
+        data: () => ({
+          color: '#7a76cb',
+        }),
+        methods: {
+          openLoading() {
+            const loading = this.$vs.loading({
+              background: this.color,
+              color: '#fff'
+            })
+            setTimeout(() => {
+              loading.close()
+            }, 3000)
+          }
+        }
+      }
+    </script>
   ```
 
 </div>

@@ -16,6 +16,7 @@ export default class VsSidebar extends VsComponent {
   @Prop({ default: false, type: Boolean }) notShadow: boolean
   @Prop({ default: false, type: Boolean }) relative: boolean
   @Prop({ default: false, type: Boolean }) absolute: boolean
+  @Prop({ default: false, type: Boolean }) right: boolean
   @Prop({ default: 'background', type: String }) background: string
 
   staticWidth: number = 260
@@ -112,7 +113,10 @@ export default class VsSidebar extends VsComponent {
 
     return h('div', {
       staticClass: 'vs-sidebar-content',
-      class: {
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
+      class: [{
         reduce: this.reduceInternal,
         open: this.open,
         notLineActive: this.notLineActive,
@@ -120,8 +124,17 @@ export default class VsSidebar extends VsComponent {
         notShadow: this.notShadow,
         textWhite: this.textWhite,
         relative: this.relative,
-        absolute: this.absolute
+        absolute: this.absolute,
+        right: this.right
       },
+      // colors
+      { [`vs-component--primary`] : !!this.primary },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+      { [`vs-component--is-color`] : !!this.isColor },
+    ],
       on: {
         mouseenter: () => {
           if (this.hoverExpand) {

@@ -153,9 +153,10 @@ export default class VsAvatar extends VsComponent {
       style: {
         width: `${this.size}px`,
         height: `${this.size}px`,
-        cursor: this.pointer && 'pointer'
+        cursor: this.pointer && 'pointer',
+        ['--vs-color']: this.color ? this.getColor : ''
       },
-      class: {
+      class: [{
         'history': this.history,
         'history--gradient': this.historyGradient,
         'vs-avatar-content--circle': this.circle,
@@ -164,7 +165,15 @@ export default class VsAvatar extends VsComponent {
         'vs-avatar-content--latest': this.isLatest,
         'vs-avatar-content--hasIcons': this.$slots.icons,
         [`vs-avatar-content--size`]: this.size,
-      }
+      },
+      // colors
+      { [`vs-component--primary`] : !!this.primary },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+      { [`vs-component--is-color`] : !!this.isColor },
+    ]
     }, [
       this.loading && loading,
       avatar,

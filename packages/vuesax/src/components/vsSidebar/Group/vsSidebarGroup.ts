@@ -1,12 +1,14 @@
 import { VNode } from 'vue'
-import { Component, Watch } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
 
 @Component
 export default class VsSidebarGroup extends VsComponent {
 
   group: boolean = true
-  open: boolean = false
+  openState: boolean = false
+
+  @Prop({type: Boolean}) open: boolean
 
   @Watch('open')
   handleOpen(val: boolean) {
@@ -47,12 +49,18 @@ export default class VsSidebarGroup extends VsComponent {
     el.style.height = '0px'
   }
 
+  mounted() {
+    if (this.$el.querySelector('.active') || this.open) {
+      this.openState = true
+    }
+  }
+
   public render(h: any): VNode {
     const header = h('div', {
       staticClass: 'vs-sidebar__group__header',
       on: {
         click: () => {
-          this.open = !this.open
+          this.openState = !this.openState
         }
       }
     }, [
@@ -65,7 +73,7 @@ export default class VsSidebarGroup extends VsComponent {
       directives: [
         {
           name: 'show',
-          value: this.open
+          value: this.openState
         }
       ]
     }, [
@@ -83,7 +91,7 @@ export default class VsSidebarGroup extends VsComponent {
     return h('div', {
       staticClass: 'vs-sidebar__group',
       class: {
-        open: this.open
+        open: this.openState
       }
     }, [
       header,

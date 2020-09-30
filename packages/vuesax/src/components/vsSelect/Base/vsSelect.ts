@@ -127,11 +127,13 @@ export default class VsSelect extends VsComponent {
 
   get getValueLabel() {
     const valueLabel = this.valueLabel
-    const labels: any[] = []
-    if (valueLabel) {
+    let labels: any[] = []
+    if (Array.isArray(valueLabel)) {
       valueLabel.forEach((item: any) => {
         labels.push(item.label)
       })
+    } else {
+      labels = valueLabel
     }
 
     return labels
@@ -197,7 +199,7 @@ export default class VsSelect extends VsComponent {
     }
 
     let chips: any[] = []
-    if (this.valueLabel) {
+    if (Array.isArray(this.valueLabel)) {
       this.valueLabel.forEach((item: any) => {
         chips.push(chip(item, false))
       })
@@ -235,27 +237,29 @@ export default class VsSelect extends VsComponent {
       }, index);
     }
     if (evt.code == 'ArrowDown') {
-      event.preventDefault()
+      evt.preventDefault()
       if (this.hoverOption < this.childOptions.length - 1) {
         this.hoverOption++
       } else {
         this.hoverOption = 0
       }
     } else if (evt.code == 'ArrowUp') {
-      event.preventDefault()
+      evt.preventDefault()
       if (this.hoverOption > 0) {
         this.hoverOption--
       } else {
         this.hoverOption = this.childOptions.length - 1
       }
     } else if (evt.code == 'Enter') {
-      event.preventDefault()
-      if (!this.childOptions[this.hoverOption].disabled) {
-          this.clickOption(this.childOptions[this.hoverOption].value, this.childOptions[this.hoverOption].label)
-          if (!this.multiple) {
-            this.handleBlur();
-            (this.$refs.input as HTMLElement).blur()
-          }
+      evt.preventDefault()
+      if (this.hoverOption !== -1) {
+        if (!this.childOptions[this.hoverOption].disabled) {
+            this.clickOption(this.childOptions[this.hoverOption].value, this.childOptions[this.hoverOption].label)
+            if (!this.multiple) {
+              this.handleBlur();
+              (this.$refs.input as HTMLElement).blur()
+            }
+        }
       }
     }
 
@@ -434,10 +438,20 @@ export default class VsSelect extends VsComponent {
     }, [ this.activeOptions && h('div', {
       staticClass: 'vs-select__options',
       ref: 'options',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: {
         isColorDark: this.isColorDark,
         'vs-select__options--rtl': this.rtl
       },
+      // colors
+      { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+    ],
       on: {
         mouseleave: () => {
           this.targetSelect = false
@@ -622,10 +636,20 @@ export default class VsSelect extends VsComponent {
 
     return  h('div', {
       staticClass: 'vs-select-content',
-      class: {
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
+      class: [{
         block: this.block,
         'vs-select--rtl': this.rtl
-      }
+      },
+      // colors
+      { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+    ]
     }, [
       selectContent,
       messageSuccess,

@@ -145,6 +145,11 @@ getVar(var)
 
 @media (max-width: 500px)
   .header-notification
+    ~ .navbar.fixed
+      ~ .carbon-ads
+        margin-top 6px
+    ~ .carbon-ads
+      margin-top 42px
     .con-text-n
       width calc(100% - 30px)
     .con-btn-n

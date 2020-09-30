@@ -194,6 +194,9 @@ export default class VsInput extends VsComponent {
 
     return h('div', {
       staticClass: 'vs-input-parent',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         `vs-input-parent--state-${this.state}`,
         { 'vs-input-parent--border': !!this.border },
@@ -203,7 +206,15 @@ export default class VsInput extends VsComponent {
         { block: this.block },
         { transparent: this.transparent },
         { textWhite: this.textWhite },
-        { square: this.square }
+        { square: this.square },
+
+        // colors
+        { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+        { [`vs-component--danger`] : !!this.danger },
+        { [`vs-component--warn`] : !!this.warn },
+        { [`vs-component--success`] : !!this.success },
+        { [`vs-component--dark`] : !!this.dark },
+        { [`vs-component--is-color`] : !!this.isColor },
       ]
     }, [
       inputContent,
