@@ -214,16 +214,16 @@ getVar(var)
   width 100%
   height 100vh
   position relative
-  &:after
-    content ''
-    background-image: radial-gradient(getVar(theme-bg2) 0%, getVar(theme-bg) 40%, transparent 75%)
-    // background #000
-    position absolute
-    top 0px
-    right 0px
-    width 60%
-    height 100%
-    z-index 1
+  // &:after
+  //   content ''
+  //   background-image: radial-gradient(getVar(theme-bg2) 0%, getVar(theme-bg) 40%, transparent 75%);
+  //   // background #000
+  //   position absolute
+  //   top 0px
+  //   right 0px
+  //   width 60%
+  //   height 100%
+  //   z-index 1
   .points-init
     width 100px
     height 100px
@@ -362,20 +362,9 @@ getVar(var)
   display block
   width 100%
   overflow hidden
+  background getVar(theme-layout)
   ~ .config
     left 0px
-  // ~ .carbon-ads
-  //   opacity 0
-  //   visibility hidden
-  //   display none
-  // ~ .codefund
-  //   opacity 0
-  //   visibility hidden
-  //   display none
-  // ~ .con-vuesax-ads
-  //   opacity 0
-  //   visibility hidden
-  //   display none
   #main-title
     font-size 2rem
     font-weight normal
@@ -525,7 +514,7 @@ getVar(var)
   .home
     .hero
       width 100%
-      align-items flex-start
+      align-items center
       .content-hero
         width 100%
         align-items center
@@ -549,6 +538,7 @@ getVar(var)
 
 @media (max-width: 670px)
   .home
+    min-height auto
     .content-i
       position relative
       justify-content flex-start
@@ -565,13 +555,8 @@ getVar(var)
         order: -1
         top 0px
         padding 10px !important
-@media (max-width: 600px)
-  .home
-    .hero
-      margin-top 60px
 @media (max-width: 550px)
   .init
-    height 1000px
     min-height auto
   .home
     .hero

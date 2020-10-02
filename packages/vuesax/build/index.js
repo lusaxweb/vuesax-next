@@ -28,6 +28,16 @@ execSync(
 
 emptyLine()
 emptyLine()
+yellow(`Building Styles`)
+emptyLine()
+emptyLine()
+
+execSync(
+  `npx webpack --config build/styles/webpack.styles.js`, {stdio: 'inherit'}
+  )
+
+emptyLine()
+emptyLine()
 green(chalk.bold(`Success Build!`))
 emptyLine()
 emptyLine()

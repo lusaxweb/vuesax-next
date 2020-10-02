@@ -5,6 +5,7 @@ import { setColor } from '../../../util/index'
 
 @Component
 export default class VsNotification extends Vue {
+
   isVisible: boolean = false
 
   content: any = null
@@ -20,6 +21,8 @@ export default class VsNotification extends Vue {
   border: string | null = null
 
   icon: string | null = null
+  
+  onClickClose: any = null
 
   onClick: any = null
 
@@ -100,11 +103,18 @@ export default class VsNotification extends Vue {
     })
   }
 
+  get getProgress() {
+    setInterval(() => {
+      this.progress++
+    }, 1)
+    return 20
+  }
+
   mounted() {
     if (this.progressAuto) {
       this.intervalProgress = setInterval(() => {
         this.progress++
-      }, this.duration / 100)
+      }, (this.duration / 100))
     }
   }
 
@@ -113,68 +123,56 @@ export default class VsNotification extends Vue {
   }
 
   public render(h: any): VNode {
-    const title = h(
-      'header',
-      {
-        staticClass: 'vs-notification__content__header'
-      },
-      [
-        h('h4', {
-          domProps: {
-            innerHTML: this.title
-          }
-        })
-      ]
-    )
+    const title = h('header', {
+      staticClass: 'vs-notification__content__header'
+    }, [
+      h('h4', {
+        domProps: {
+          innerHTML: this.title
+        },
+      })
+    ])
 
-    const text = h(
-      'div',
-      {
-        staticClass: 'vs-notification__content__text'
-      },
-      [
-        h('p', {
-          domProps: {
-            innerHTML: this.text
-          }
-        })
-      ]
-    )
+    const text = h('div', {
+      staticClass: 'vs-notification__content__text'
+    }, [
+      h('p', {
+        domProps: {
+          innerHTML: this.text
+        },
+      })
+    ])
 
-    const content = h(
-      'div',
-      {
-        staticClass: 'vs-notification__content'
-      },
-      [this.title && title, this.text && text, this.content && h(this.content)]
-    )
+    const content = h('div', {
+      staticClass: 'vs-notification__content'
+    }, [
+      this.title && title,
+      this.text && text,
+      this.content && h(this.content)
+    ])
 
     const icon = h('div', {
       staticClass: 'vs-notification__icon',
       domProps: {
         innerHTML: this.icon
-      }
+      },
     })
 
-    const closeBtn = h(
-      'button',
-      {
-        staticClass: 'vs-notification__close',
-        on: {
-          click: this.handleClickClose
+    const closeBtn = h('button', {
+      staticClass: 'vs-notification__close',
+      on: {
+        click: this.handleClickClose
+      }
+    }, [
+      h(VsIconsClose, {
+        props: {
+          hover: 'less'
         }
-      },
-      [
-        h(VsIconsClose, {
-          props: {
-            hover: 'less'
-          }
-        })
-      ]
-    )
+      })
+    ])
 
     const loading = h('div', {
-      staticClass: 'vs-notification__loading'
+      staticClass: 'vs-notification__loading',
     })
 
     const progress = h('div', {
@@ -184,58 +182,54 @@ export default class VsNotification extends Vue {
       }
     })
 
-    return h(
-      'transition',
-      {
-        props: {
-          name: 'notification'
-        },
-        on: {
-          beforeEnter: this.beforeEnter,
-          enter: this.enter,
-          leave: this.leave
-        }
+    return h('transition', {
+      props: {
+        name: 'notification'
       },
-      [
-        this.isVisible &&
-          h(
-            'div',
-            {
-              staticClass: 'vs-notification',
-              class: [
-                { 'vs-notification--color': this.color },
-                { 'vs-notification--border': this.border },
-                { 'vs-notification--icon': this.icon },
-                { 'vs-notification--onClick': this.onClick },
-                { 'vs-notification--flat': this.flat },
-                { 'vs-notification--sticky': this.sticky },
-                { 'vs-notification--square': this.square },
-                { 'vs-notification--width-all': this.width == '100%' },
-                { 'vs-notification--width-auto': this.width == 'auto' },
-                { 'vs-notification--loading': this.loading },
-                { 'vs-notification--notPadding': this.notPadding },
-                `vs-notification--${this.colorName}`,
-                this.classNotification
-              ],
-              on: {
-                click: () => {
-                  if (this.onClick) {
-                    this.onClick()
-                  }
-                  if (this.clickClose) {
-                    this.close()
-                  }
+      on: {
+        beforeEnter: this.beforeEnter,
+        enter: this.enter,
+        leave: this.leave
+      },
+    }, [
+      this.isVisible && h('div', {
+          staticClass: 'vs-notification',
+          class: [
+            { 'vs-notification--color': this.color },
+            { 'vs-notification--border': this.border },
+            { 'vs-notification--icon': this.icon },
+            { 'vs-notification--onClick': this.onClick },
+            { 'vs-notification--onClickClose': this.onClickClose },
+            { 'vs-notification--flat': this.flat },
+            { 'vs-notification--sticky': this.sticky },
+            { 'vs-notification--square': this.square },
+            { 'vs-notification--width-all': this.width == '100%' },
+            { 'vs-notification--width-auto': this.width == 'auto' },
+            { 'vs-notification--loading': this.loading },
+            { 'vs-notification--notPadding': this.notPadding },
+            `vs-notification--${this.colorName}`,
+            this.classNotification
+          ],
+          on: {
+            click: () => {
+              if (this.onClick) {
+                this.onClick()
+              }
+              if (this.clickClose) {
+                this.close()
+                if (this.onClickClose) {
+                  this.onClickClose()
                 }
               }
-            },
-            [
-              !this.loading && this.icon && icon,
-              !this.loading && content,
-              this.buttonClose && closeBtn,
-              this.loading && loading,
-              progress
-            ]
-          )
+            }
+          }
+        }, [
+          (!this.loading && this.icon) && icon,
+          !this.loading && content,
+          this.buttonClose && closeBtn,
+          this.loading && loading,
+          progress
+        ])
       ]
     )
   }

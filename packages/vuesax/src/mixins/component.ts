@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
-import { setColor } from '../util/index'
+import { getColor } from '../util/index'
 @Component
 export default class VsComponent extends Vue {
   static install: (vue: any) => void
@@ -8,6 +8,7 @@ export default class VsComponent extends Vue {
   static use: (vue: any) => any
 
   componentColor: string = null
+  getColor: any = null
 
   @Prop({ type: String, default: null }) color!: string
 
@@ -27,72 +28,11 @@ export default class VsComponent extends Vue {
     return this.color === 'dark' || this.dark || this.componentColor === 'dark'
   }
 
-  changeColor() {
-    if (!this.$el || this.$el.nodeName == '#comment') { return }
-    this.componentColor = (this.danger && 'danger') ||
-    (this.success && 'success') ||
-    (this.warn && 'warn') ||
-    (this.dark && 'dark') ||
-    (this.primary && 'primary')
-    if (this.color || this.componentColor) {
-      setColor('color', this.componentColor || this.color || 'primary', this.$el, true)
-
-      if (this.$refs.options) {
-        setColor('color', this.componentColor || this.color || 'primary', this.$refs.options, true)
-      }
-
-      if (this.$refs.tooltip) {
-        setColor('color', this.componentColor || this.color || 'primary', this.$refs.tooltip, true)
-      }
-    }
-    if (this.componentColor == 'dark' || this.color == 'dark') {
-      this.$el.classList.add('vs-component-dark')
-    } else {
-      this.$el.classList.remove('vs-component-dark')
-    }
-
-    if (this.componentColor == 'white') {
-      this.$el.classList.add('vs-component-white')
-    } else {
-      this.$el.classList.remove('vs-component-white')
-    }
-  }
-
-  @Watch('color')
-  handleWatchColor() {
-    this.changeColor()
-  }
-
-  @Watch('primary')
-  handleWatchPrimary() {
-    this.changeColor()
-  }
-
-  @Watch('danger')
-  handleWatchDanger() {
-    this.changeColor()
-  }
-
-  @Watch('success')
-  handleWatchSuccess() {
-    this.changeColor()
-  }
-
-  @Watch('warn')
-  handleWatchWarn() {
-    this.changeColor()
-  }
-
-  @Watch('dark')
-  handleWatchDark() {
-    this.changeColor()
-  }
-
-  updated() {
-    this.changeColor()
+  get isColor() {
+    return !!this.color || !!this.primary || !!this.success || !!this.warn || !!this.danger || !!this.dark
   }
 
   mounted() {
-    this.changeColor()
+    this.getColor = getColor(this.color)
   }
 }

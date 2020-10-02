@@ -186,7 +186,10 @@ export default class VsNavbar extends VsComponent {
 
     return h('div', {
       staticClass: 'vs-navbar-content',
-      class: {
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
+      class: [{
         fixed: this.fixed,
         shadow: this.shadow,
         hidden: this.hidden,
@@ -195,7 +198,15 @@ export default class VsNavbar extends VsComponent {
         paddingScroll: this.paddingScroll,
         paddingScrollActive: this.paddingScrollActive,
         vsNavbarSquare: this.square,
-      }
+      },
+      // colors
+      { [`vs-component--primary`] : !!this.primary },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+      { [`vs-component--is-color`] : !!this.isColor },
+    ]
     }, [
       navbar,
       !this.notLine && line

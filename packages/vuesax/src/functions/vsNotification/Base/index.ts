@@ -11,6 +11,7 @@ interface NotificationParams {
   icon?: string
   duration?: number | string
   onClick?: any
+  onClickClose?: any
   buttonClose?: boolean
   flat?: boolean
   onDestroy?: any
@@ -59,6 +60,7 @@ const notification = (params: NotificationParams = {}) => {
   instance.$data.border = params.border
   instance.$data.icon = params.icon
   instance.$data.onClick = params.onClick
+  instance.$data.onClickClose = params.onClickClose
   instance.$data.flat = params.flat
   instance.$data.onDestroy = params.onDestroy
   instance.$data.sticky = params.sticky

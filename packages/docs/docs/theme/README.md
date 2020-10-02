@@ -6,7 +6,7 @@
 
   Vuesax has the main colors that are maintained throughout the application to facilitate change and effective operation
 
-  Los colores principales se pueden cambiar y personalizar al gusto de cada desarrollador para una aplicación mas personalizada
+  The main colors can be changed and customized to the taste of each developer for a more personalized application
 
   Default colors:
 
@@ -56,7 +56,7 @@
 
   ::: warning HEX Format Numbers Only
 
-  It is important that the colors are in HEX format and only the numerical value for example: `rgb (255,100.50)` is equivalent to `255,100.50`
+  It is important that the colors are in HEX format and only the numerical value for example: `rgb (255,100,50)` is equivalent to `255,100,50`
 
   :::
 

@@ -10,7 +10,7 @@
       </div>
       <div class="text-n">
         <h3>
-          New component <b>Navbar</b> 🎉
+          New component <b>Card</b> 🎉
         </h3>
         <p>
           See the examples and the new documentation
@@ -36,11 +36,11 @@
 export default {
   data:() => ({
     active: 0,
-    number: 10
+    number: 12
   }),
   methods: {
     handleClick() {
-      this.$router.push('/docs/components/Navbar')
+      this.$router.push('/docs/components/Card')
       this.active = 0
 
       localStorage.notificationHidden = this.number
@@ -145,6 +145,11 @@ getVar(var)
 
 @media (max-width: 500px)
   .header-notification
+    ~ .navbar.fixed
+      ~ .carbon-ads
+        margin-top 6px
+    ~ .carbon-ads
+      margin-top 42px
     .con-text-n
       width calc(100% - 30px)
     .con-btn-n

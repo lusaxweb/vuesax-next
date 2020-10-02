@@ -71,6 +71,9 @@ export default class VsButton extends VsComponent {
 
     const btn = h('button', {
       staticClass: 'vs-button',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         // `vs-button--${this.color.replace('#', '')}`,
         `vs-button--${this.componentColor}`,
@@ -87,6 +90,13 @@ export default class VsButton extends VsComponent {
         { [`vs-button--animate`] : !!this.$slots.animate },
         { [`vs-button--animate-${this.animationType}`] : !!this.animationType },
         { [`vs-button--animate-inactive`] : !!this.animateInactive },
+
+        // colors
+        { [`vs-button--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+        { [`vs-button--danger`] : !!this.danger },
+        { [`vs-button--warn`] : !!this.warn },
+        { [`vs-button--success`] : !!this.success },
+        { [`vs-button--dark`] : !!this.dark },
 
         { [`vs-button--default`] :
           !this.flat &&
@@ -122,8 +132,7 @@ export default class VsButton extends VsComponent {
                 evt,
                 (this.componentColor || this.color || 'primary') &&
                 !this.active &&
-                document.activeElement !== this.$el ?
-                this.componentColor || this.color :
+                document.activeElement !== this.$el ? 'inherit' :
                 null,
                 this.flat && !this.active && document.activeElement !== this.$el
               )
