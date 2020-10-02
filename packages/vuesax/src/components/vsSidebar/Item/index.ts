@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsSidebarItem'
+import component from './vsSidebarItem'
 
 component.install = (vue: any) => {
   vue.component('vs-sidebar-item', component)

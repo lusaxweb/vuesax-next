@@ -176,9 +176,9 @@ export default {
       var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
       hex = hex.replace(shorthandRegex, function(m, r, g, b) {
         return r + r + g + g + b + b;
-      });
+      })
 
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
       return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -191,7 +191,7 @@ export default {
         let rgb = this.hexToRgb(element)
         c = `rgb(${rgb.r},${rgb.g},${rgb.b})`
       }
-      var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
+      var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',')
       var yiq = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
       if(yiq >= 128){
         return true
@@ -225,7 +225,7 @@ export default {
 
       setTimeout(() => {
         document.body.classList.remove('all-transition')
-      }, 100);
+      }, 100)
     },
     ChangeColor(evt) {
       evt.target.closest('button').focus()

@@ -1,6 +1,6 @@
 import './style.sass'
+import component from './vsButtonGroup'
 
-import component from './VsButtonGroup'
 component.install = (vue: any) => {
   vue.component('vs-button-group', component)
 }

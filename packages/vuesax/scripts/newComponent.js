@@ -31,7 +31,7 @@ function FileRootSass(name) {
 
 function FileIndexTs(name) {
   return `import './style.sass'
-import component from './Vs${name}'
+import component from './vs${name}'
 
 component.install = (vue: any) => {
   vue.component('vs-${name.toLowerCase()}', component)

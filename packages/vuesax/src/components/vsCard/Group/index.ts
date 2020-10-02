@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsCardGroup'
+import component from './vsCardGroup'
 
 component.install = (vue: any) => {
   vue.component('vs-card-group', component)

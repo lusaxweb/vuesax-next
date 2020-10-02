@@ -21,13 +21,13 @@ export default {
       if(val) {
         var interval = setInterval(() => {
           this.progress++
-        }, this.time / 100);
+        }, this.time / 100)
 
         setTimeout(() => {
           this.active = false
           clearInterval(interval)
           this.progress = 0
-        }, this.time);
+        }, this.time)
       }
     }
   }

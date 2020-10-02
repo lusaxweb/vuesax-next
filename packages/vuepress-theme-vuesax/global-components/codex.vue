@@ -178,14 +178,14 @@ export default {
     },
     clipboard(text) {
 
-      var aux = document.createElement("textarea");
+      var aux = document.createElement("textarea")
       aux.value = text
       aux.className = "vs-clipboard"
-      document.body.appendChild(aux);
-      aux.focus();
-      aux.select();
-      document.execCommand("copy");
-      document.body.removeChild(aux);
+      document.body.appendChild(aux)
+      aux.focus()
+      aux.select()
+      document.execCommand("copy")
+      document.body.removeChild(aux)
     },
     copy(){
       let slot = 'template'
@@ -209,7 +209,7 @@ ${this.$slots['style'] ? this.$slots['style'][0].elm.innerText.trim() : ''}
       this.check = true
       setTimeout(() => {
         this.check = false
-      }, 1000);
+      }, 1000)
 
       this.$router.replace(`${this.$route.hash}-c`)
     },

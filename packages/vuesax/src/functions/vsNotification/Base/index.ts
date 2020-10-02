@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import './style.sass'
-import component from './VsNotification'
+import component from './vsNotification'
 
 interface NotificationParams {
   title?: string
@@ -85,7 +85,11 @@ const notification = (params: NotificationParams = {}) => {
   if (params.width == '100%' || window.innerWidth < 600) {
     if (params.position === 'top-left' || params.position === 'top-right') {
       params.position = 'top-center'
-    } else if (params.position === 'bottom-left' || params.position === 'bottom-right' || !params.position) {
+    } else if (
+      params.position === 'bottom-left' ||
+      params.position === 'bottom-right' ||
+      !params.position
+    ) {
       params.position = 'bottom-center'
     }
   }
@@ -95,11 +99,19 @@ const notification = (params: NotificationParams = {}) => {
   }
 
   const parent: HTMLElement =
-  document.querySelector(`.vs-notification-parent--${params.position || 'bottom-right'}`) || document.createElement('div')
+    document.querySelector(
+      `.vs-notification-parent--${params.position || 'bottom-right'}`
+    ) || document.createElement('div')
 
-  if (!document.querySelector(`.vs-notification-parent--${params.position || 'bottom-right'}`)) {
+  if (
+    !document.querySelector(
+      `.vs-notification-parent--${params.position || 'bottom-right'}`
+    )
+  ) {
     parent.className = 'vs-notification-parent'
-    parent.classList.add(`vs-notification-parent--${params.position || 'bottom-right'}`)
+    parent.classList.add(
+      `vs-notification-parent--${params.position || 'bottom-right'}`
+    )
   }
 
   if (params.classNotification) {
@@ -117,7 +129,7 @@ const notification = (params: NotificationParams = {}) => {
 
   if (params.duration !== 'none') {
     setTimeout(() => {
-      (instance as any).close()
+      ;(instance as any).close()
     }, Number(params.duration) || 4000)
   }
 

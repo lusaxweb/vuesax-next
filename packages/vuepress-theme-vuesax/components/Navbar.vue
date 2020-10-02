@@ -137,7 +137,7 @@ export default {
 
   created() {
     if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig)
     }
   },
 
@@ -152,14 +152,14 @@ export default {
           // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
           this.$user.user = snapshot.val()
           // ...
-        });
+        })
         // ...
       } else {
         // User is signed out.
         // ...
         this.$user.user = null
       }
-    });
+    })
 
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
@@ -216,7 +216,7 @@ export default {
     //         // var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
     //           this.$user.user = snapshot.val()
     //           // ...
-    //         });
+    //         })
     //       })
     //     }
     //   })
@@ -226,10 +226,10 @@ export default {
         this.$user.user = null
       }).catch(function(error) {
         // An error happened.
-      });
+      })
     },
     handleLogin() {
-      const provider = new firebase.auth.GithubAuthProvider();
+      const provider = new firebase.auth.GithubAuthProvider()
       firebase.auth().signInWithPopup(provider).then((result) => {
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         var token = result.credential.accessToken;

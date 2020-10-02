@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsRadio'
+import component from './vsRadio'
 
 component.install = (vue: any) => {
   vue.component('vs-radio', component)

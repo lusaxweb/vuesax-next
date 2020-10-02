@@ -1,4 +1,3 @@
-
 const setTheme = (forceTheme: string) => {
   document.body.classList.add('vs-remove-transition')
   const media = window.matchMedia('(prefers-color-scheme: dark)')
@@ -52,16 +51,13 @@ const toggleTheme = (forceTheme: string) => {
     document.body.setAttribute('vs-theme', 'dark')
   }
 
-  localStorage.vsTheme =  !isThemeDark ? 'dark' : 'light'
+  localStorage.vsTheme = !isThemeDark ? 'dark' : 'light'
 
   setTimeout(() => {
     document.body.classList.remove('vs-remove-transition')
-  }, 100);
+  }, 100)
 
   return !isThemeDark ? 'dark' : 'light'
 }
 
-export {
-  toggleTheme,
-  setTheme
-}
+export { toggleTheme, setTheme }

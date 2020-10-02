@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsTableTh'
+import component from './vsTableTh'
 
 component.install = (vue: any) => {
   vue.component('vs-th', component)

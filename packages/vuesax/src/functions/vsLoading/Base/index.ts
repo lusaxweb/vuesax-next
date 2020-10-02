@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import './style.sass'
-import component from './VsLoading'
+import component from './vsLoading'
 
 interface LoadingParams {
   type?: string
   text?: string
-  hidden?: boolean,
-  color?: string,
+  hidden?: boolean
+  color?: string
   background?: string
   opacity?: string
   percent?: string
@@ -48,7 +48,7 @@ loadingConstructor.prototype.changeText = function(val: string) {
 const loading = (params: LoadingParams = {}) => {
   const instance = new loadingConstructor()
 
-  if (typeof params.target === 'string' ) {
+  if (typeof params.target === 'string') {
     params.target = document.querySelector(params.target)
     instance.$data.target = params.target
   } else if (params.target) {

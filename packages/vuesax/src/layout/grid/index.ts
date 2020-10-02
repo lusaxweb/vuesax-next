@@ -1,7 +1,7 @@
 import './style.sass'
+import vsCol from './vsCol'
+import vsRow from './vsRow'
 
-import vsCol from './VsCol'
-import vsRow from './VsRow'
 vsCol.install = (vue: any) => {
   vue.component('vs-col', vsCol)
 }
@@ -15,7 +15,4 @@ if (typeof window !== 'undefined' && window.Vue) {
   vsRow.install(window.Vue)
 }
 
-export {
-  vsCol,
-  vsRow
-}
+export { vsCol, vsRow }

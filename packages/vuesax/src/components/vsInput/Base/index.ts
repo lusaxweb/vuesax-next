@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsInput'
+import component from './vsInput'
 
 component.install = (vue: any) => {
   vue.component('vs-input', component)

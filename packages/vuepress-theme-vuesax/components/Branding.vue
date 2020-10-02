@@ -237,7 +237,7 @@ getVar(var)
         left 0px
         width 100%
         height 80px
-        background-image: linear-gradient(180deg, getVar(theme-layout) 0%, transparent 100%);
+        background-image: linear-gradient(180deg, getVar(theme-layout) 0%, transparent 100%)
         z-index 200
 
       img

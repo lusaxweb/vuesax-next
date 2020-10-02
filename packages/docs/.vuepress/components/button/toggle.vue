@@ -44,7 +44,7 @@
         setTimeout(() => {
           this.sending = false
           this.success = !this.success
-        }, 2000);
+        }, 2000)
       },
       handleClickFace() {
         this.loadingFace = true
@@ -52,7 +52,7 @@
         setTimeout(() => {
           this.loadingFace = false
           this.successFace = !this.successFace
-        }, 2000);
+        }, 2000)
       }
     }
   }

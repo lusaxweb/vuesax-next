@@ -166,9 +166,9 @@ export default {
     },
     numberWithCommas() {
         const x = this.star
-        var parts = x.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        return parts.join(".");
+        var parts = x.toString().split(".")
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        return parts.join(".")
     }
   },
 
@@ -197,7 +197,7 @@ getVar(var)
 .darken
   .init
     &:after
-      background-image: radial-gradient(getVar(theme-bg) 0%, getVar(theme-bg) 30%, transparent 70%);
+      background-image: radial-gradient(getVar(theme-bg) 0%, getVar(theme-bg) 30%, transparent 70%)
   .discord
     background getVar(theme-bg)
     color #fff !important

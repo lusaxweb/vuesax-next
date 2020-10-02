@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsPagination'
+import component from './vsPagination'
 
 component.install = (vue: any) => {
   vue.component('vs-pagination', component)

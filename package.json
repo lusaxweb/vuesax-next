@@ -4,7 +4,7 @@
   "description": "Vuesax v4",
   "main": "index.js",
   "scripts": {
-    "dev": "node scripts/dev.js",
+    "dev": "cd ./packages/docs && npm run dev",
     "docs:deploy": "sh scripts/deploy.sh"
   },
   "keywords": [],

@@ -27,26 +27,30 @@ const checkAll = (selected: any, data: any): any => {
   } else {
     return []
   }
-
 }
 
 const getSearch = (data: any, search: string = ''): any => {
-
   function flattenDeep(val: any): any {
     return Object.values(val || []).reduce(
-      (acc: any, val: any) => (typeof val === 'object') ?
-      acc.concat(flattenDeep(val)) :
-      acc.concat(val), [])
+      (acc: any, val: any) =>
+        typeof val === 'object'
+          ? acc.concat(flattenDeep(val))
+          : acc.concat(val),
+      []
+    )
   }
 
   function getValues(obj: any) {
-    return flattenDeep(obj).filter(function (item: any) {
-      return (typeof item === 'string') || (typeof item === 'number');
-    });
+    return flattenDeep(obj).filter(function(item: any) {
+      return typeof item === 'string' || typeof item === 'number'
+    })
   }
 
   function normalize(text: string) {
-    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    return text
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
   }
 
   const searchNormalize = normalize(search)
@@ -91,7 +95,7 @@ const sortData = (evt: any, data: any, sortKey: string, type: string) => {
       return sortType !== 'desc' ? 1 : -1
     }
     if (a[sortKey] > b[sortKey]) {
-      return sortType !== 'desc' ? - 1 : 1
+      return sortType !== 'desc' ? -1 : 1
     }
     return 0
   }
@@ -100,13 +104,9 @@ const sortData = (evt: any, data: any, sortKey: string, type: string) => {
     return a[`vsOriginalIndex${sortKey}`] - b[`vsOriginalIndex${sortKey}`]
   }
 
-  return sortType !== null ? [...data].sort(compare) : [...data].sort(returnOriginalIndex)
+  return sortType !== null
+    ? [...data].sort(compare)
+    : [...data].sort(returnOriginalIndex)
 }
 
-export {
-  getPage,
-  getLength,
-  checkAll,
-  getSearch,
-  sortData
-}
+export { getPage, getLength, checkAll, getSearch, sortData }

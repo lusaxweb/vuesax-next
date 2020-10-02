@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsDialog'
+import component from './vsDialog'
 
 component.install = (vue: any) => {
   vue.component('vs-dialog', component)

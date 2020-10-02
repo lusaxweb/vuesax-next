@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsSwitch'
+import component from './vsSwitch'
 
 component.install = (vue: any) => {
   vue.component('vs-switch', component)

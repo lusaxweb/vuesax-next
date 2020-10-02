@@ -1,25 +1,24 @@
-
 import Vue, { VueConstructor } from 'vue'
-import { VsAlert } from './components/VsAlert'
+import { VsAlert } from './components/vsAlert'
 
 /** Alert Component */
 export class Alert extends VsAlert {}
 
 declare module 'vue/types/vue' {
-    export interface Vue {
-        $vs: any
-        $router: any
-    }
+  export interface Vue {
+    $vs: any
+    $router: any
+  }
 }
 
 declare global {
-    interface Window {
-        Vue: VueConstructor,
-        consolee: any
-    }
+  interface Window {
+    Vue: VueConstructor
+    consolee: any
+  }
 }
 
 declare module '*.svg' {
-    const content: string;
-    export default content;
+  const content: string
+  export default content
 }

@@ -1,5 +1,5 @@
 import './style.sass'
-import component from './VsNavbar'
+import component from './vsNavbar'
 
 component.install = (vue: any) => {
   vue.component('vs-navbar', component)
