@@ -10,7 +10,7 @@
 
     <vs-button
       icon
-      color="success"
+      success
       flat
       :active="active == 1"
       @click="active = 1"
@@ -20,7 +20,7 @@
 
     <vs-button
       icon
-      color="danger"
+      danger
       border
       :active="active == 2"
       @click="active = 2"
@@ -30,7 +30,7 @@
 
     <vs-button
       icon
-      color="warn"
+      warn
       gradient
       :active="active == 3" @click="active = 3"
     >

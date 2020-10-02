@@ -218,6 +218,9 @@ export default class VsAlert extends VsComponent {
 
     const render = h('div', {
       staticClass: 'vs-alert',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         { [`vs-alert--solid`] : !!this.solid },
         { [`vs-alert--border`] : !!this.border },
@@ -226,6 +229,13 @@ export default class VsAlert extends VsComponent {
         { [`vs-alert--flat`] : !!this.flat },
         { [`vs-alert--relief`] : !!this.relief },
         { [`vs-alert--pages`] : this.getPages.length > 0 },
+
+        // colors
+        { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+        { [`vs-component--danger`] : !!this.danger },
+        { [`vs-component--warn`] : !!this.warn },
+        { [`vs-component--success`] : !!this.success },
+        { [`vs-component--dark`] : !!this.dark },
       ],
     }, [
       this.$slots.icon && icon,

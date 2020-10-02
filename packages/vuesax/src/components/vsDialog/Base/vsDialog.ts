@@ -39,6 +39,7 @@ export default class VsDialog extends VsComponent {
   esc(evt: any) {
     if (evt.which == 27 && !this.preventClose) {
       this.$emit('input', false)
+      this.$emit('close')
     }
   }
 
@@ -102,6 +103,7 @@ export default class VsDialog extends VsComponent {
       on: {
         click: (evt: any) => {
           this.$emit('input', !this.value)
+          this.$emit('close')
         }
       }
     }, [
@@ -154,6 +156,7 @@ export default class VsDialog extends VsComponent {
         click: (evt: any) => {
           if (!evt.target.closest('.vs-dialog') && !this.preventClose) {
             this.$emit('input', !this.value)
+            this.$emit('close')
           }
 
           if (this.preventClose && !evt.target.closest('.vs-dialog')) {

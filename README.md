@@ -57,7 +57,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [ ] Progress
 - [x] Radio
 - [x] Select
-- [ ] Sidebar
+- [x] Sidebar
 - [ ] Slider
 - [x] Switch
 - [x] Table

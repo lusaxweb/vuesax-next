@@ -1,6 +1,6 @@
 <template>
   <div class="center example-nav">
-    <vs-navbar text-white :color="active" center-collapsed v-model="active">
+    <vs-navbar text-white :color="active" right-collapsed v-model="active">
       <template #left>
         <img src="/logos/logo-vuesax-logotipo-vuesax-png-4.png" alt="">
       </template>

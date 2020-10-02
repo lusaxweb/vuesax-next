@@ -9,7 +9,6 @@ const install = (Vue: any, options?: VuesaxOptions) => {
   Object.values(vsComponents).forEach((vsComponent) => {
     Vue.use(vsComponent)
   })
-
   // layout
   Object.values(vsLayouts).forEach((vsLayout) => {
     Vue.use(vsLayout)

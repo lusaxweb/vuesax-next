@@ -306,6 +306,9 @@ export default class VsPagination extends VsComponent {
 
     return h('div', {
       staticClass: 'vs-pagination-content',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         {
           buttonsDotted: this.buttonsDotted,
@@ -313,7 +316,14 @@ export default class VsPagination extends VsComponent {
           square: this.square,
           disabled: this.disabled,
           notMargin: this.notMargin
-        }
+        },
+
+        // colors
+        { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+        { [`vs-component--danger`] : !!this.danger },
+        { [`vs-component--warn`] : !!this.warn },
+        { [`vs-component--success`] : !!this.success },
+        { [`vs-component--dark`] : !!this.dark },
       ]
     }, [
       (!this.onlyArrows && !this.$slots.default) && active,
