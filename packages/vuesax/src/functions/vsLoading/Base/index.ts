@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import './style.sass'
 import component from './VsLoading'
 
@@ -24,7 +24,7 @@ loadingConstructor.prototype.close = function() {
   setTimeout(() => {
     this.$destroy()
     this.$el.parentNode.removeChild(this.$el)
-  }, 250);
+  }, 250)
 }
 
 loadingConstructor.prototype.changePercent = function(val: string) {

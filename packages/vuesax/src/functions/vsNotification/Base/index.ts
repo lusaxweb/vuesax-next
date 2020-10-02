@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import './style.sass'
 import component from './VsNotification'
 

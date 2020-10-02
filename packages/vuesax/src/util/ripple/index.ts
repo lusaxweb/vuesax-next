@@ -48,7 +48,7 @@ const ripple = (evt: any, color: any = '', solid: boolean = false) => {
   function removeEffect(evt: any) {
     effect.style.transition = `all 0.${time * 600}s ease`
     setTimeout(() => {
-      effect.style.opacity = `0`
+      effect.style.opacity = '0'
       setTimeout(() => {
         el.removeChild(effectContent)
       }, time * 300)
@@ -87,16 +87,16 @@ const rippleReverse = (evt: any) => {
   effect.style.top = `${y}px`
   effect.style.width = `${el.clientWidth * 2.5}px`
   effect.style.height = `${el.clientWidth * 2.5}px`
-  effect.style.opacity = `0`
+  effect.style.opacity = '0'
 
   effectContent.appendChild(effect)
 
   el.appendChild(effectContent)
 
   setTimeout(() => {
-    effect.style.width = `0px`
-    effect.style.height = `0px`
-    effect.style.opacity = `0.5`
+    effect.style.width = '0px'
+    effect.style.height = '0px'
+    effect.style.opacity = '0.5'
   }, 1)
 
   let noTime = false
@@ -107,7 +107,7 @@ const rippleReverse = (evt: any) => {
   function removeEffect(evt: any) {
     effect.style.transition = `all 0.${time * 600}s ease`
     setTimeout(() => {
-      effect.style.opacity = `0`
+      effect.style.opacity = '0'
       setTimeout(() => {
         el.removeChild(effectContent)
       }, time * 300)
@@ -158,10 +158,10 @@ const rippleCut = (evt: any) => {
 
   setTimeout(() => {
     effect.style.left = `-${el.clientWidth * 1.3}px`
-    effect.style.opacity = `1`
+    effect.style.opacity = '1'
 
     effect2.style.left = `${el.clientWidth * 1.3}px`
-    effect2.style.opacity = `1`
+    effect2.style.opacity = '1'
   }, 1)
 
   let noTime = false
@@ -172,7 +172,7 @@ const rippleCut = (evt: any) => {
   function removeEffect(evt: any) {
     effect.style.transition = `all 0.${time * 600}s ease`
     setTimeout(() => {
-      effect.style.opacity = `0`
+      effect.style.opacity = '0'
       setTimeout(() => {
         el.removeChild(effectContent)
       }, time * 300)

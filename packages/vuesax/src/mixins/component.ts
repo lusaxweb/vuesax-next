@@ -24,10 +24,6 @@ export default class VsComponent extends Vue {
 
   @Prop({ type: Boolean, default: false }) active!: boolean
 
-  // get getColor() {
-  //   return getColor(this.color)
-  // }
-
   get isColorDark() {
     return this.color === 'dark' || this.dark || this.componentColor === 'dark'
   }
