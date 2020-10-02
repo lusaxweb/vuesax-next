@@ -64,7 +64,9 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
   let newColor
 
   if (color == 'dark' && el) {
-    el.classList.add('vs-component-dark')
+    if (addClass) {
+      el.classList.add('vs-component-dark')
+    }
   }
 
   if (isRGB) {
