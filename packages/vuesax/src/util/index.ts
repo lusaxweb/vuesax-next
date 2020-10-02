@@ -1,4 +1,3 @@
-import { transform } from "@babel/core"
 
 // import * as consolee from 'consolee'
 
@@ -63,7 +62,7 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
   const isHEX = /^(#)/.test(color)
   let newColor
 
-  if (color == 'dark' && el) {
+  if (color == 'dark' && el && el.classlist) {
     el.classList.add('vs-component-dark')
   }
 
@@ -210,12 +209,5 @@ const setCordsPosition = (element: any, parent: any, position: string) => {
   }
 }
 
-export {
-  setColor,
-  setVar,
-  isColor,
-  insertBody,
-  removeBody,
-  setCords,
-  setCordsPosition
-}
+export { setColor, setVar, isColor, insertBody, removeBody, setCords, setCordsPosition }
+

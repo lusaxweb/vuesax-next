@@ -172,23 +172,23 @@ export default {
   methods:{
     isExternal,
     copyCode(evt, code) {
-      evt.preventDefault();
+      evt.preventDefault()
       evt.target.classList.add('copied')
       setTimeout(() => {
         evt.target.classList.remove('copied')
-      }, 1000);
+      }, 1000)
 
       this.clipboard(code)
     },
     clipboard(text) {
-      var aux = document.createElement("textarea");
+      var aux = document.createElement("textarea")
       aux.value = text
       aux.className = "vs-clipboard"
-      document.body.appendChild(aux);
-      aux.focus();
-      aux.select();
-      document.execCommand("copy");
-      document.body.removeChild(aux);
+      document.body.appendChild(aux)
+      aux.focus()
+      aux.select()
+      document.execCommand("copy")
+      document.body.removeChild(aux)
     },
     getValues(values) {
       if(!values) return

@@ -187,7 +187,7 @@ export default {
         if (!this.noAdvertiser) {
           this.loadCodeFund()
         } else {
-          window.removeEventListener('codefund', this.handlerCodefound);
+          window.removeEventListener('codefund', this.handlerCodefound)
           this.ads = 'carbon'
           this.$refs.carbon.load()
         }
@@ -298,7 +298,7 @@ export default {
     handlerCodefound(event) {
       if (event.detail.status === 'no-advertiser') {
         this.noAdvertiser = true
-        window.removeEventListener('codefund', this.handlerCodefound);
+        window.removeEventListener('codefund', this.handlerCodefound)
         // const number = Math.round(Math.random() * (4) + 1)
         // if (number == 1) {
         //   this.ads = 'vuesax'
@@ -317,17 +317,17 @@ export default {
     },
     loadCodeFund() {
       this.$refs.codefund.$el.innerHTML = ''
-      const script = document.createElement("script");
-      script.setAttribute("type", "text/javascript");
+      const script = document.createElement("script")
+      script.setAttribute("type", "text/javascript")
       script.setAttribute(
         "src",
         `https://app.codefund.io/properties/677/funder.js`
       )
 
-      window.removeEventListener('codefund', this.handlerCodefound);
+      window.removeEventListener('codefund', this.handlerCodefound)
 
-      window.addEventListener('codefund', this.handlerCodefound);
-      this.$refs.codefund.$el.appendChild(script);
+      window.addEventListener('codefund', this.handlerCodefound)
+      this.$refs.codefund.$el.appendChild(script)
     },
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen

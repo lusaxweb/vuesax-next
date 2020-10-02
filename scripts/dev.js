@@ -4,4 +4,4 @@ const { cd } = require('shelljs')
 
 cd('./packages/docs')
 
-execSync(`vuepress dev`)
+execSync(`npm run dev`)

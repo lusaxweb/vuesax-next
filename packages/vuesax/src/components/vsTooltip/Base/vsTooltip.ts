@@ -5,7 +5,6 @@ import { insertBody, setCordsPosition } from '../../../util/index'
 
 @Component
 export default class VsTooltip extends VsComponent {
-
   activeTooltip: boolean = false
 
   isHoverTooltip: boolean = false
@@ -88,7 +87,9 @@ export default class VsTooltip extends VsComponent {
       position = 'right'
     }
     const tooltip = this.$refs.tooltip as HTMLElement
-    if (!tooltip) { return }
+    if (!tooltip) {
+      return
+    }
     this.$nextTick(() => {
       setCordsPosition(tooltip, this.$refs.content, position)
     })
@@ -96,12 +97,15 @@ export default class VsTooltip extends VsComponent {
     for (let index = 0; index < 300; index++) {
       setTimeout(() => {
         setCordsPosition(tooltip, this.$refs.content, position)
-      }, index);
+      }, index)
     }
   }
 
   handleMouseDownNotHover(evt: any) {
-    if (!evt.target.closest('.vs-tooltip') && !evt.target.closest('.vs-tooltip-content')) {
+    if (
+      !evt.target.closest('.vs-tooltip') &&
+      !evt.target.closest('.vs-tooltip-content')
+    ) {
       this.removeTooltip()
     }
   }
@@ -133,76 +137,83 @@ export default class VsTooltip extends VsComponent {
 
   public render(h: any): VNode {
     const loading = h('div', {
-      staticClass: 'vs-tooltip__loading',
+      staticClass: 'vs-tooltip__loading'
     })
 
-    const tooltip = h('div', {
-      staticClass: 'vs-tooltip',
-      ref: 'tooltip',
-      class: [
-        {
-          top: !this.bottom && !this.left && !this.right,
-          bottom: this.bottom,
-          left: this.left,
-          right: this.right,
-          shadow: this.shadow,
-          notArrow: this.notArrow,
-          square: this.square,
-          circle: this.circle,
-          border: this.border,
-          borderThick: this.borderThick,
-          loading: this.loading
-        }
-      ],
-      on: {
-        mouseenter: () => {
-          if (this.interactivity) {
-            this.isHoverTooltip = true
-            this.handlerMouseEnter()
+    const tooltip = h(
+      'div',
+      {
+        staticClass: 'vs-tooltip',
+        ref: 'tooltip',
+        class: [
+          {
+            top: !this.bottom && !this.left && !this.right,
+            bottom: this.bottom,
+            left: this.left,
+            right: this.right,
+            shadow: this.shadow,
+            notArrow: this.notArrow,
+            square: this.square,
+            circle: this.circle,
+            border: this.border,
+            borderThick: this.borderThick,
+            loading: this.loading
           }
-        },
-        mouseleave: () => {
-          this.isHoverTooltip = false
-          this.removeTooltip()
-        }
-      }
-    }, [
-      this.$slots.tooltip,
-      this.loading && loading
-    ])
-
-    return h('div', {
-      staticClass: 'vs-tooltip-content',
-      ref: 'content',
-      on: {
-        mouseenter: () => {
-          if (!this.notHover) {
-            this.handlerMouseEnter()
-          }
-        },
-        mouseleave: () => {
-          if (!this.notHover) {
+        ],
+        on: {
+          mouseenter: () => {
             if (this.interactivity) {
-              setTimeout(() => {
-                if (!this.isHoverTooltip) {
-                  this.removeTooltip()
-                }
-              }, 250)
-            } else {
-              this.removeTooltip()
+              this.isHoverTooltip = true
+              this.handlerMouseEnter()
+            }
+          },
+          mouseleave: () => {
+            this.isHoverTooltip = false
+            this.removeTooltip()
+          }
+        }
+      },
+      [this.$slots.tooltip, this.loading && loading]
+    )
+
+    return h(
+      'div',
+      {
+        staticClass: 'vs-tooltip-content',
+        ref: 'content',
+        on: {
+          mouseenter: () => {
+            if (!this.notHover) {
+              this.handlerMouseEnter()
+            }
+          },
+          mouseleave: () => {
+            if (!this.notHover) {
+              if (this.interactivity) {
+                setTimeout(() => {
+                  if (!this.isHoverTooltip) {
+                    this.removeTooltip()
+                  }
+                }, 250)
+              } else {
+                this.removeTooltip()
+              }
             }
           }
         }
-      }
-    }, [
-      h('transition', {
-        props: {
-          name: 'vs-tooltip'
-        },
-      }, [
-        this.activeTooltip && tooltip,
-      ]),
-      this.$slots.default
-    ])
+      },
+      [
+        h(
+          'transition',
+          {
+            props: {
+              name: 'vs-tooltip'
+            }
+          },
+          [this.activeTooltip && tooltip]
+        ),
+        this.$slots.default
+      ]
+    )
   }
 }

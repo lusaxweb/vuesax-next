@@ -349,7 +349,7 @@ export default {
     handleBur() {
       setTimeout(() => {
         this.focusSelect = false
-      }, 100);
+      }, 100)
     },
     handleClickDrop() {
       this.focusDrop = !this.focusDrop
@@ -357,7 +357,7 @@ export default {
     handleBurDrop() {
       setTimeout(() => {
         this.focusDrop = false
-      }, 100);
+      }, 100)
     }
   }
 }
@@ -502,7 +502,7 @@ getVar(var)
   height 80vh
   // background getVar(theme-bg)
   // background-color: #FFFFFF;
-  // background-image: linear-gradient(180deg, getVar(theme-layout) 0%, getVar(theme-bg2) 30%, getVar(theme-bg2) 80%, getVar(theme-layout) 100%);
+  // background-image: linear-gradient(180deg, getVar(theme-layout) 0%, getVar(theme-bg2) 30%, getVar(theme-bg2) 80%, getVar(theme-layout) 100%)
 
   display flex
   align-items center
@@ -1339,7 +1339,7 @@ getVar(var)
     height 80vh
     // background getVar(theme-bg)
     // background-color: #FFFFFF;
-    // background-image: linear-gradient(180deg, getVar(theme-layout) 0%, getVar(theme-bg2) 30%, getVar(theme-bg2) 80%, getVar(theme-layout) 100%);
+    // background-image: linear-gradient(180deg, getVar(theme-layout) 0%, getVar(theme-bg2) 30%, getVar(theme-bg2) 80%, getVar(theme-layout) 100%)
 
     display flex
     align-items center

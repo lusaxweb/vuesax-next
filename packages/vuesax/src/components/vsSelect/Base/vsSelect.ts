@@ -82,7 +82,7 @@ export default class VsSelect extends VsComponent {
 
     setTimeout(() => {
       if (this.multiple && this.activeOptions) {
-        (this.$refs.chips as HTMLElement).focus()
+        ;(this.$refs.chips as HTMLElement).focus()
       }
     }, 10)
     if (!this.multiple) {
@@ -105,7 +105,9 @@ export default class VsSelect extends VsComponent {
     const options = this.childOptions
 
     const filterOptions = options.filter((option: any): boolean => {
-      return typeof this.value == 'number' ? this.value == option.value : this.value.indexOf(option.value) !== -1
+      return typeof this.value == 'number'
+        ? this.value == option.value
+        : this.value.indexOf(option.value) !== -1
     })
 
     const label: any[] = []
@@ -117,7 +119,7 @@ export default class VsSelect extends VsComponent {
     })
 
     label.sort((a, b) => {
-      return this.value.indexOf(a.value) - this.value.indexOf(b.value);
+      return this.value.indexOf(a.value) - this.value.indexOf(b.value)
     })
 
     this.valueLabel = label
@@ -152,46 +154,57 @@ export default class VsSelect extends VsComponent {
 
   get getChips() {
     const chip = (item: any, isCollapse: boolean): VNode => {
-      return this.$createElement('span', {
-        staticClass: 'vs-select__chips__chip',
-        attrs: {
-          'data-value': item.value
-        },
-        class: [
-          {
-            isCollapse
-          }
-        ]
-      }, [
-        item.label,
-        !isCollapse && this.$createElement('span', {
-          staticClass: 'vs-select__chips__chip__close',
-          on: {
-            click: () => {
-              setTimeout(() => {
-                this.targetClose = false;
-              }, 100);
-              if (!this.activeOptions) {
-                (this.$refs.chips as HTMLElement).blur();
-                if (this.filter) {
-                  (this.$refs.chips_input as HTMLElement).blur()
-                }
-              }
-              this.clickOption(item.value, item.label)
-            },
-            mouseleave: () => {
-              this.targetClose = false
-            },
-            mouseenter: () => {
-              this.targetClose = true
-            }
+      return this.$createElement(
+        'span',
+        {
+          staticClass: 'vs-select__chips__chip',
+          attrs: {
+            'data-value': item.value
           },
-        }, [this.$createElement(VsIconsClose, {
-          props: {
-            hover: 'less'
-          }
-        })])
-      ])
+          class: [
+            {
+              isCollapse
+            }
+          ]
+        },
+        [
+          item.label,
+          !isCollapse &&
+            this.$createElement(
+              'span',
+              {
+                staticClass: 'vs-select__chips__chip__close',
+                on: {
+                  click: () => {
+                    setTimeout(() => {
+                      this.targetClose = false
+                    }, 100)
+                    if (!this.activeOptions) {
+                      ;(this.$refs.chips as HTMLElement).blur()
+                      if (this.filter) {
+                        ;(this.$refs.chips_input as HTMLElement).blur()
+                      }
+                    }
+                    this.clickOption(item.value, item.label)
+                  },
+                  mouseleave: () => {
+                    this.targetClose = false
+                  },
+                  mouseenter: () => {
+                    this.targetClose = true
+                  }
+                }
+              },
+              [
+                this.$createElement(VsIconsClose, {
+                  props: {
+                    hover: 'less'
+                  }
+                })
+              ]
+            )
+        ]
+      )
     }
 
     let chips: any[] = []
@@ -202,7 +215,11 @@ export default class VsSelect extends VsComponent {
     }
 
     if (this.collapseChips) {
-      chips = [chips[0], chips.length > 1 && chip({ label: `+${chips.length - 1}`, value: null }, true)]
+      chips = [
+        chips[0],
+        chips.length > 1 &&
+          chip({ label: `+${chips.length - 1}`, value: null }, true)
+      ]
     }
 
     return chips
@@ -215,7 +232,8 @@ export default class VsSelect extends VsComponent {
       if (!evt.relatedTarget) {
         this.handleBlur()
       } else if (
-        !this.targetSelectInput || !this.targetSelect && !this.activeOptions
+        !this.targetSelectInput ||
+        (!this.targetSelect && !this.activeOptions)
       ) {
         this.handleBlur()
       }
@@ -230,7 +248,7 @@ export default class VsSelect extends VsComponent {
     for (let index = 0; index < 300; index++) {
       setTimeout(() => {
         setCords(options, this.$refs.select)
-      }, index);
+      }, index)
     }
     if (evt.code == 'ArrowDown') {
       event.preventDefault()
@@ -249,18 +267,21 @@ export default class VsSelect extends VsComponent {
     } else if (evt.code == 'Enter') {
       event.preventDefault()
       if (!this.childOptions[this.hoverOption].disabled) {
-          this.clickOption(this.childOptions[this.hoverOption].value, this.childOptions[this.hoverOption].label)
-          if (!this.multiple) {
-            this.handleBlur();
-            (this.$refs.input as HTMLElement).blur()
-          }
+        this.clickOption(
+          this.childOptions[this.hoverOption].value,
+          this.childOptions[this.hoverOption].label
+        )
+        if (!this.multiple) {
+          this.handleBlur()
+          ;(this.$refs.input as HTMLElement).blur()
+        }
       }
     }
 
     if (this.hoverOption !== -1) {
-      (this.$refs.content as HTMLElement).scrollTop = this.childOptions[this.hoverOption].$el.offsetTop - 66
+      ;(this.$refs.content as HTMLElement).scrollTop =
+        this.childOptions[this.hoverOption].$el.offsetTop - 66
     }
-
   }
 
   get notData() {
@@ -274,7 +295,7 @@ export default class VsSelect extends VsComponent {
       }
     })
 
-    childOptions = childOptions.filter((item) => {
+    childOptions = childOptions.filter(item => {
       if (item.optionGroup) {
         return !item.componentInstance.hiddenOptionGroup
       }
@@ -296,14 +317,16 @@ export default class VsSelect extends VsComponent {
     if (evt.target == this.$refs.input && this.activeOptions && !this.filter) {
       this.handleBlur()
       setTimeout(() => {
-        (this.$refs.input as HTMLElement).blur()
-      }, 100);
+        ;(this.$refs.input as HTMLElement).blur()
+      }, 100)
     }
   }
 
   handleResize() {
     const options = this.$refs.options as HTMLElement
-    if (!options) { return }
+    if (!options) {
+      return
+    }
     this.$nextTick(() => {
       setCords(options, this.$refs.select)
     })
@@ -311,7 +334,7 @@ export default class VsSelect extends VsComponent {
     for (let index = 0; index < 300; index++) {
       setTimeout(() => {
         setCords(options, this.$refs.select)
-      }, index);
+      }, index)
     }
   }
 
@@ -338,31 +361,38 @@ export default class VsSelect extends VsComponent {
   }
 
   getMessage(type: string) {
-    return this.$createElement('transition', {
-      on: {
-        beforeEnter: this.beforeEnter,
-        enter: this.enter,
-        leave: this.leave
+    return this.$createElement(
+      'transition',
+      {
+        on: {
+          beforeEnter: this.beforeEnter,
+          enter: this.enter,
+          leave: this.leave
+        }
       },
-    }, [
-      !!this.$slots[`message-${type}`] && this.$createElement('div', {
-        staticClass: 'vs-select__message',
-        class: [`vs-select__message--${type}`]
-      }, [
-        this.$slots[`message-${type}`]
-      ])
-    ])
+      [
+        !!this.$slots[`message-${type}`] &&
+          this.$createElement(
+            'div',
+            {
+              staticClass: 'vs-select__message',
+              class: [`vs-select__message--${type}`]
+            },
+            [this.$slots[`message-${type}`]]
+          )
+      ]
+    )
   }
 
   @Watch('textFilter')
   handleTextFilter(val: string) {
     if (val) {
       if (this.$refs.placeholder) {
-        (this.$refs.placeholder as HTMLElement).style.transition = '0s'
+        ;(this.$refs.placeholder as HTMLElement).style.transition = '0s'
       }
     } else {
       if (this.$refs.placeholder) {
-        (this.$refs.placeholder as HTMLElement).style.transition = ''
+        ;(this.$refs.placeholder as HTMLElement).style.transition = ''
       }
     }
   }
@@ -376,8 +406,8 @@ export default class VsSelect extends VsComponent {
 
     if (this.multiple) {
       this.$nextTick(() => {
-        const h = (this.$refs.chips as HTMLElement).scrollHeight;
-        (this.$refs.input as HTMLElement).style.height = `${h}px`
+        const h = (this.$refs.chips as HTMLElement).scrollHeight
+        ;(this.$refs.input as HTMLElement).style.height = `${h}px`
         const options = this.$refs.options as HTMLElement
         if (this.activeOptions) {
           this.$nextTick(() => {
@@ -389,11 +419,11 @@ export default class VsSelect extends VsComponent {
 
     if (val) {
       if (this.$refs.placeholder) {
-        (this.$refs.placeholder as HTMLElement).style.transition = '0s'
+        ;(this.$refs.placeholder as HTMLElement).style.transition = '0s'
       }
     } else {
       if (this.$refs.placeholder) {
-        (this.$refs.placeholder as HTMLElement).style.transition = ''
+        ;(this.$refs.placeholder as HTMLElement).style.transition = ''
       }
     }
   }
@@ -424,119 +454,144 @@ export default class VsSelect extends VsComponent {
   }
 
   public render(h: any): VNode {
+    const options = h(
+      'transition',
+      {
+        props: {
+          name: 'vs-select'
+        }
+      },
+      [
+        this.activeOptions &&
+          h(
+            'div',
+            {
+              staticClass: 'vs-select__options',
+              ref: 'options',
+              class: {
+                isColorDark: this.isColorDark
+              },
+              on: {
+                mouseleave: () => {
+                  this.targetSelect = false
+                  this.targetSelectInput = false
+                },
+                mouseenter: () => {
+                  this.targetSelect = true
+                  this.targetSelectInput = true
+                }
+              }
+            },
+            [
+              h(
+                'div',
+                {
+                  staticClass: 'vs-select__options__content',
+                  ref: 'content'
+                },
+                [
+                  this.notData &&
+                    h(
+                      'div',
+                      {
+                        staticClass: 'vs-select__options__content__not-data'
+                      },
+                      [this.$slots.notData || 'No data available']
+                    ),
+                  this.$slots.default
+                ]
+              )
+            ]
+          )
+      ]
+    )
 
-    const options = h('transition', {
-      props: {
-        name: 'vs-select'
-      },
-    }, [ this.activeOptions && h('div', {
-      staticClass: 'vs-select__options',
-      ref: 'options',
-      class: {
-        isColorDark: this.isColorDark
-      },
-      on: {
-        mouseleave: () => {
-          this.targetSelect = false
-          this.targetSelectInput = false
+    const input = h(
+      'input',
+      {
+        attrs: {
+          readonly: !this.filter && true,
+          id: !this.multiple && this._uid
         },
-        mouseenter: () => {
-          this.targetSelect = true
-          this.targetSelectInput = true
-        }
-      }
-    }, [
-        h('div', {
-          staticClass: 'vs-select__options__content',
-          ref: 'content'
-        }, [
-          this.notData && h('div', {
-            staticClass: 'vs-select__options__content__not-data'
-          }, [
-            this.$slots.notData || 'No data available'
-          ]),
-          this.$slots.default
-        ])
-      ])
-    ])
-
-    const input = h('input', {
-      attrs: {
-        readonly: !this.filter && true,
-        id: !this.multiple && this._uid
-      },
-      staticClass: 'vs-select__input',
-      ref: 'input',
-      domProps: {
-        value: this.activeFilter ? this.textFilter : this.getValueLabel
-      },
-      class: [
-        {
-          multiple: this.multiple,
-          simple: !this.multiple && !this.filter
-        }
-      ],
-      on: {
-        ...this.$listeners,
-        keydown: this.handleKeydown,
-        focus: (evt: Event) => {
-          this.activeOptions = true
-          this.$emit('focus', evt)
-          if (this.filter) {
-            this.activeFilter = true
+        staticClass: 'vs-select__input',
+        ref: 'input',
+        domProps: {
+          value: this.activeFilter ? this.textFilter : this.getValueLabel
+        },
+        class: [
+          {
+            multiple: this.multiple,
+            simple: !this.multiple && !this.filter
           }
-          window.addEventListener('mousedown', this.handleWindowClick)
-        },
-        // blur: this.blur,
-        input: (evt: any) => {
-          this.textFilter = evt.target.value
-        }
-      }
-    }, this.$slots.default)
-
-    const chips = h('button', {
-      staticClass: 'vs-select__chips',
-      ref: 'chips',
-      on: {
-        keydown: this.handleKeydown,
-        focus: (evt: Event) => {
-          if (!this.targetClose) {
+        ],
+        on: {
+          ...this.$listeners,
+          keydown: this.handleKeydown,
+          focus: (evt: Event) => {
             this.activeOptions = true
             this.$emit('focus', evt)
+            if (this.filter) {
+              this.activeFilter = true
+            }
+            window.addEventListener('mousedown', this.handleWindowClick)
+          },
+          // blur: this.blur,
+          input: (evt: any) => {
+            this.textFilter = evt.target.value
           }
-          if (this.filter && this.multiple) {
-            (this.$refs.chips_input as HTMLElement).focus()
-          }
-        },
-        blur: this.blur
-      }
-    }, [
-      ...this.getChips,
-      this.filter && h('input', {
-        staticClass: 'vs-select__chips__input',
-        ref: 'chips_input',
-        attrs:  {
-          placeholder: this.placeholder,
-          id: this._uid
-        },
-        domProps: {
-          value: this.textFilter
-        },
+        }
+      },
+      this.$slots.default
+    )
+
+    const chips = h(
+      'button',
+      {
+        staticClass: 'vs-select__chips',
+        ref: 'chips',
         on: {
-          // keydown: this.handleKeydown,
+          keydown: this.handleKeydown,
           focus: (evt: Event) => {
             if (!this.targetClose) {
               this.activeOptions = true
               this.$emit('focus', evt)
             }
+            if (this.filter && this.multiple) {
+              ;(this.$refs.chips_input as HTMLElement).focus()
+            }
           },
-          blur: this.blur,
-          input: (evt: any) => {
-            this.textFilter = evt.target.value
-          }
+          blur: this.blur
         }
-      })
-    ])
+      },
+      [
+        ...this.getChips,
+        this.filter &&
+          h('input', {
+            staticClass: 'vs-select__chips__input',
+            ref: 'chips_input',
+            attrs: {
+              placeholder: this.placeholder,
+              id: this._uid
+            },
+            domProps: {
+              value: this.textFilter
+            },
+            on: {
+              // keydown: this.handleKeydown,
+              focus: (evt: Event) => {
+                if (!this.targetClose) {
+                  this.activeOptions = true
+                  this.$emit('focus', evt)
+                }
+              },
+              blur: this.blur,
+              input: (evt: any) => {
+                this.textFilter = evt.target.value
+              }
+            }
+          })
+      ]
+    )
 
     const icon = h(VsIconsArrow, {
       on: {
@@ -544,37 +599,45 @@ export default class VsSelect extends VsComponent {
           if (this.activeOptions) {
             this.activeOptions = false
           } else {
-            (this.$refs.input as HTMLElement).focus()
+            ;(this.$refs.input as HTMLElement).focus()
           }
         }
       }
     })
 
-    const label = h('label', {
-      staticClass: 'vs-select__label',
-      attrs: {
-        for: this._uid
+    const label = h(
+      'label',
+      {
+        staticClass: 'vs-select__label',
+        attrs: {
+          for: this._uid
+        },
+        class: {
+          'vs-select__label--placeholder': this.labelPlaceholder,
+          'vs-select__label--label': this.label,
+          'vs-select__label--hidden': this.value
+        }
       },
-      class: {
-        'vs-select__label--placeholder': this.labelPlaceholder,
-        'vs-select__label--label': this.label,
-        'vs-select__label--hidden': this.value,
-      }
-    }, [this.labelPlaceholder || this.label])
+      [this.labelPlaceholder || this.label]
+    )
 
-    const placeholder = h('label', {
-      staticClass: 'vs-select__label',
-      ref: 'placeholder',
-      attrs: {
-        for: this._uid
+    const placeholder = h(
+      'label',
+      {
+        staticClass: 'vs-select__label',
+        ref: 'placeholder',
+        attrs: {
+          for: this._uid
+        },
+        class: {
+          'vs-select__label--hidden': this.value || this.textFilter
+        }
       },
-      class: {
-        'vs-select__label--hidden': this.value || this.textFilter,
-      }
-    }, [this.placeholder])
+      [this.placeholder]
+    )
 
     const loading = h('div', {
-      staticClass: 'vs-select__loading',
+      staticClass: 'vs-select__loading'
     })
 
     const messageSuccess = this.getMessage('success')
@@ -585,49 +648,57 @@ export default class VsSelect extends VsComponent {
 
     const messagePrimary = this.getMessage('primary')
 
-    const selectContent = h('div', {
-      staticClass: 'vs-select',
-      ref: 'select',
-      class: [
-        `vs-select--state-${this.state}`,
-        {
-          'vs-select--disabled': this.disabled,
-          'activeOptions': this.activeOptions,
-          'loading': this.loading
-        }
-      ],
-      on: {
-        mouseleave: (evt: any) => {
-          if (evt.relatedTarget !== this.$refs.options) {
-            this.targetSelectInput = false
-            this.targetSelect = false
+    const selectContent = h(
+      'div',
+      {
+        staticClass: 'vs-select',
+        ref: 'select',
+        class: [
+          `vs-select--state-${this.state}`,
+          {
+            'vs-select--disabled': this.disabled,
+            activeOptions: this.activeOptions,
+            loading: this.loading
           }
-        },
-        mouseenter: () => {
-          this.targetSelectInput = true
+        ],
+        on: {
+          mouseleave: (evt: any) => {
+            if (evt.relatedTarget !== this.$refs.options) {
+              this.targetSelectInput = false
+              this.targetSelect = false
+            }
+          },
+          mouseenter: () => {
+            this.targetSelectInput = true
+          }
         }
-      }
-    }, [
-      input,
-      (!this.multiple || this.label) && label,
-      (!this.multiple && !this.labelPlaceholder) && placeholder,
-      this.multiple && chips,
-      options,
-      this.loading && loading,
-      icon
-    ])
+      },
+      [
+        input,
+        (!this.multiple || this.label) && label,
+        !this.multiple && !this.labelPlaceholder && placeholder,
+        this.multiple && chips,
+        options,
+        this.loading && loading,
+        icon
+      ]
+    )
 
-    return  h('div', {
-      staticClass: 'vs-select-content',
-      class: {
-        block: this.block
-      }
-    }, [
-      selectContent,
-      messageSuccess,
-      messageDanger,
-      messageWarn,
-      messagePrimary
-    ])
+    return h(
+      'div',
+      {
+        staticClass: 'vs-select-content',
+        class: {
+          block: this.block
+        }
+      },
+      [
+        selectContent,
+        messageSuccess,
+        messageDanger,
+        messageWarn,
+        messagePrimary
+      ]
+    )
   }
 }

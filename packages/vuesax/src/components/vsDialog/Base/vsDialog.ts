@@ -76,102 +76,126 @@ export default class VsDialog extends VsComponent {
   }
 
   public render(h: any): VNode {
-    const header = h('header', {
-      staticClass: 'vs-dialog__header'
-    }, [
-      this.$slots.header
-    ])
-
-    const content = h('div', {
-      staticClass: 'vs-dialog__content',
-      class: {
-        notFooter: !this.$slots.footer
-      }
-    }, [
-      this.$slots.default
-    ])
-
-    const footer = h('footer', {
-      staticClass: 'vs-dialog__footer'
-    }, [
-      this.$slots.footer
-    ])
-
-    const close = h('button', {
-      staticClass: 'vs-dialog__close',
-      on: {
-        click: (evt: any) => {
-          this.$emit('input', !this.value)
-        }
-      }
-    }, [
-      h(VsIconsClose, {
-        props: {
-          hover: 'x'
-        }
-      })
-    ])
-
-    const loading = h('div', {
-      staticClass: 'vs-dialog__loading',
-    }, [
-      h('div', {
-        staticClass: 'vs-dialog__loading__load',
-      })
-    ])
-
-    const dialog = h('div', {
-      staticClass: 'vs-dialog',
-      style: {
-        width: this.width
+    const header = h(
+      'header',
+      {
+        staticClass: 'vs-dialog__header'
       },
-      class: {
-        'vs-dialog--fullScreen': this.fullScreen,
-        'vs-dialog--rebound': this.rebound,
-        'vs-dialog--notPadding': this.notPadding,
-        'vs-dialog--square': this.square,
-        'vs-dialog--autoWidth': this.autoWidth,
-        'vs-dialog--scroll': this.scroll,
-        'vs-dialog--loading': this.loading,
-        'vs-dialog--notCenter': this.notCenter,
-      }
-    }, [
-      this.loading && loading,
-      !this.notClose && close,
-      this.$slots.header && header,
-      content,
-      this.$slots.footer && footer
-    ])
+      [this.$slots.header]
+    )
 
-    const dialogContent = h('div', {
-      staticClass: 'vs-dialog-content',
-      ref: 'dialog-content',
-      class: {
-        blur: this.blur,
-        fullScreen: this.fullScreen,
+    const content = h(
+      'div',
+      {
+        staticClass: 'vs-dialog__content',
+        class: {
+          notFooter: !this.$slots.footer
+        }
       },
-      on: {
-        click: (evt: any) => {
-          if (!evt.target.closest('.vs-dialog') && !this.preventClose) {
+      [this.$slots.default]
+    )
+
+    const footer = h(
+      'footer',
+      {
+        staticClass: 'vs-dialog__footer'
+      },
+      [this.$slots.footer]
+    )
+
+    const close = h(
+      'button',
+      {
+        staticClass: 'vs-dialog__close',
+        on: {
+          click: (evt: any) => {
             this.$emit('input', !this.value)
           }
+        }
+      },
+      [
+        h(VsIconsClose, {
+          props: {
+            hover: 'x'
+          }
+        })
+      ]
+    )
 
-          if (this.preventClose && !evt.target.closest('.vs-dialog')) {
-            this.rebound = true
-            setTimeout(() => {
-              this.rebound = false
-            }, 300);
+    const loading = h(
+      'div',
+      {
+        staticClass: 'vs-dialog__loading'
+      },
+      [
+        h('div', {
+          staticClass: 'vs-dialog__loading__load'
+        })
+      ]
+    )
+
+    const dialog = h(
+      'div',
+      {
+        staticClass: 'vs-dialog',
+        style: {
+          width: this.width
+        },
+        class: {
+          'vs-dialog--fullScreen': this.fullScreen,
+          'vs-dialog--rebound': this.rebound,
+          'vs-dialog--notPadding': this.notPadding,
+          'vs-dialog--square': this.square,
+          'vs-dialog--autoWidth': this.autoWidth,
+          'vs-dialog--scroll': this.scroll,
+          'vs-dialog--loading': this.loading,
+          'vs-dialog--notCenter': this.notCenter
+        }
+      },
+      [
+        this.loading && loading,
+        !this.notClose && close,
+        this.$slots.header && header,
+        content,
+        this.$slots.footer && footer
+      ]
+    )
+
+    const dialogContent = h(
+      'div',
+      {
+        staticClass: 'vs-dialog-content',
+        ref: 'dialog-content',
+        class: {
+          blur: this.blur,
+          fullScreen: this.fullScreen
+        },
+        on: {
+          click: (evt: any) => {
+            if (!evt.target.closest('.vs-dialog') && !this.preventClose) {
+              this.$emit('input', !this.value)
+            }
+
+            if (this.preventClose && !evt.target.closest('.vs-dialog')) {
+              this.rebound = true
+              setTimeout(() => {
+                this.rebound = false
+              }, 300)
+            }
           }
         }
-      }
-    }, [
-      dialog
-    ])
-
-    return h('transition', {
-      props: {
-        name: 'vs-dialog'
       },
-    }, [this.value && dialogContent])
+      [dialog]
+    )
+
+    return h(
+      'transition',
+      {
+        props: {
+          name: 'vs-dialog'
+        }
+      },
+      [this.value && dialogContent]
+    )
   }
 }

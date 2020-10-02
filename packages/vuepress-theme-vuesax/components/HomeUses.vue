@@ -153,7 +153,7 @@ export default {
         return
       }
       // }, 10)
-      const element = e.target.closest('.con-projects-ul-uses');
+      const element = e.target.closest('.con-projects-ul-uses')
       const parent = element.parentNode
       let move
       if(e.type=='touchmove'){
@@ -190,7 +190,7 @@ export default {
     },
     mouseupx(e) {
       e.preventDefault()
-      const element = e.target.closest('.con-projects-ul-uses');
+      const element = e.target.closest('.con-projects-ul-uses')
       const parent = element.parentNode
       // if(e.type=='touchend'){
       //   // this.translatex -= -this.mousex + (e.targetTouches[0].clientX - 200)
@@ -213,7 +213,7 @@ export default {
       this.notPulse = true
       setTimeout(() => {
         this.moving = false
-      }, 1);
+      }, 1)
 
     },
     mousedownx(e) {
@@ -229,7 +229,7 @@ export default {
     },
     keydownx(evt) {
       let keyx = evt.key
-      const element = document.querySelector('.con-projects-ul-uses');
+      const element = document.querySelector('.con-projects-ul-uses')
       const parent = document.querySelector('.con-projects')
 
       if(keyx == 'ArrowRight') {
@@ -248,8 +248,8 @@ export default {
       this.scrolling = true
       let _this = this
       e = window.event || e;
-      var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-      const element = e.target.closest('.con-projects-ul-uses');
+      var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+      const element = e.target.closest('.con-projects-ul-uses')
       const parent = element.parentNode
       // console.dir(element)
       if (delta == 1 && this.translatex > 0) {
