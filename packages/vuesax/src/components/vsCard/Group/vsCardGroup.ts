@@ -10,9 +10,7 @@ export default class VsCardGroup extends VsComponent {
       staticClass: 'vs-card__group-prev',
       on: {
         click: (evt: any) => {
-          console.log('paso')
           const cards: any = this.$refs.cards
-          console.dir(cards)
           cards.scrollTo(cards.scrollLeft - cards.clientWidth, 0)
         }
       }
@@ -24,9 +22,7 @@ export default class VsCardGroup extends VsComponent {
       staticClass: 'vs-card__group-next',
       on: {
         click: (evt: any) => {
-          console.log('paso')
           const cards: any = this.$refs.cards
-          console.dir(cards)
           cards.scrollTo(cards.scrollLeft + cards.clientWidth, 0)
         }
       }
