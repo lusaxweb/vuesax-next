@@ -31,6 +31,8 @@ export default class VsPagination extends VsComponent {
 
   @Prop({ default: false, type: Boolean }) disabled: boolean
 
+  @Prop({ default: false, type: Boolean }) rtl: boolean
+
   @Prop({ default: (): any => [], type: Array }) disabledItems: number[]
 
   @Prop({ default: (): any => [], type: Array }) loadingItems: number[]
@@ -74,8 +76,7 @@ export default class VsPagination extends VsComponent {
       if (this.$refs.pagination) {
         this.activeClassMove = true
         this.$nextTick(() => {
-          const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
-          this.leftActive = (this.$refs[`btn${val}`] as HTMLElement).offsetLeft + offsetLeftPagination
+          this.setActivePosition(val)
           setTimeout(() => {
             this.activeClassMove = false
           }, 300)
@@ -84,8 +85,49 @@ export default class VsPagination extends VsComponent {
     }
   }
 
+  @Watch('length')
+  handleLength() {
+    if (this.$refs.pagination) {
+      this.activeClassMove = true
+      this.$nextTick(() => {
+        this.setActivePosition(this.val)
+        setTimeout(() => {
+          this.activeClassMove = false
+        }, 300)
+      })
+    }
+  }
+
+  @Watch('onlyArrows')
+  handleOnlyArrows() {
+    setTimeout(() => {
+      this.setActivePosition(this.val)
+    }, 500)
+  }
+
+  setActivePosition(val: number){
+    if(this.$refs.pagination && this.$refs[`btn${val}`]){
+      const offsetLeftPagination = (this.$refs.pagination as HTMLElement).offsetLeft
+      this.leftActive = (this.$refs[`btn${val}`] as HTMLElement).offsetLeft + offsetLeftPagination
+    }
+  }
+
   setValuePage(NumberPage: number) {
     this.$emit('input', NumberPage)
+  }
+
+  convertNumber(Number: number) {
+    return Number.toString()
+      .replace(/0/g,'۰')
+      .replace(/1/g,'۱')
+      .replace(/2/g,'۲')
+      .replace(/3/g,'۳')
+      .replace(/4/g,'۴')
+      .replace(/5/g,'۵')
+      .replace(/6/g,'۶')
+      .replace(/7/g,'۷')
+      .replace(/8/g,'۸')
+      .replace(/9/g,'۹')
   }
 
   renderDotted(text: string = '...') {
@@ -147,7 +189,7 @@ export default class VsPagination extends VsComponent {
           this.setValuePage(NumberPage)
         }
       }
-    }, this.buttonsDotted ? '' : `${NumberPage}`)
+    }, this.buttonsDotted ? '' : `${this.rtl ? this.convertNumber(NumberPage) : NumberPage}`)
 
     return button
   }
@@ -234,7 +276,7 @@ export default class VsPagination extends VsComponent {
       class: {
         move: this.activeClassMove
       }
-    }, this.buttonsDotted ? '' : this.value)
+    }, this.buttonsDotted ? '' : this.rtl ? this.convertNumber(this.value) : this.value)
 
     const pagination = h('div', {
       staticClass: 'vs-pagination',
@@ -317,7 +359,7 @@ export default class VsPagination extends VsComponent {
           disabled: this.disabled,
           notMargin: this.notMargin
         },
-
+        { [`vs-pagination--rtl`] : !!this.rtl }
         // colors
         { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
         { [`vs-component--danger`] : !!this.danger },

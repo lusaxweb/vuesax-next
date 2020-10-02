@@ -1,0 +1,44 @@
+.vs-pagination--rtl
+    .vs-pagination
+        &__arrow
+            i
+                margin-left: 0
+                margin-right: 4px
+                transform: rotate(45deg) scale(.8)
+            &.next
+                i
+                    margin-left: 0
+                    margin-right: -4px
+                    transform: rotate(-135deg) scale(0.8)
+        &__dotted
+            &:hover
+                span.dotted
+                    margin-left: 0
+                    margin-right: -1px
+                .con-arrows
+                    margin-left: 0
+                    margin-right: -1px
+            &.next
+                &:hover
+                    span.dotted
+                        margin-left: 0
+                        margin-right: 1px
+                    .con-arrows
+                        margin-left: 0
+                        margin-right: 1px
+            span.dotted
+                margin-right: 0
+                margin-left: -2px
+            &.next
+                .con-arrows
+                    transform: rotate(-180deg)
+                    margin-left: 0
+                    margin-right: -5px
+            .con-arrows
+                margin-left: 0
+                margin-right: 5px
+                i
+                    transform: rotate(45deg) scale(0.8)
+                    &:last-child
+                        margin-left: 0
+                        margin-right: 6px

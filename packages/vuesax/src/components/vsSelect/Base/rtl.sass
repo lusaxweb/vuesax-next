@@ -1,0 +1,69 @@
+@import './style'
+
+.vs-select--rtl
+    .vs-select
+        &--state-success
+            @include state('success',true)
+        &--state-danger
+            @include state('danger',true)
+        &--state-warn
+            @include state('warn',true)
+        &--state-dark
+            @include state('dark',true)
+        &--state-primary
+            @include state('primary',true)
+
+        .vs-icon-arrow
+            left: 15px
+            right: auto
+            transform: rotate(-225deg)
+
+        &.activeOptions
+            .vs-icon-arrow
+                 transform: rotate(-45deg)
+            .vs-select__label--placeholder
+                transform: translate(3%, -28px) !important
+        &__input
+            padding-left: 30px
+            padding-right: 13px
+            &:focus
+                ~ .vs-select__label--placeholder
+                    transform: translate(3%, -28px) !important
+
+        &__chips
+            left: auto
+            right: 0px
+            padding-right: 5px
+            padding-left: 26px
+
+            &__chip
+                padding-right: 6px
+                padding-left: 10px
+                &.isCollapse
+                    padding-right: 10px !important
+                    padding-left: 6px !important
+                &__close
+                    right: auto
+                    left: -4px
+
+        &__label
+            left: auto
+            right: 14px
+    
+        &__loading
+            right: auto
+            left: 7px
+            &--hidden
+                &.vs-select__label--placeholder
+                    transform: translate(3%, -28px) !important
+            &--label
+                transform: translate(3%, -28px) !important
+
+.vs-select__options--rtl
+    direction: rtl
+    
+    &:after
+        margin-left: 0px
+        left: auto
+        margin-right: 10%
+        right: 0px

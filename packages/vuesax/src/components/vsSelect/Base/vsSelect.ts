@@ -26,6 +26,8 @@ export default class VsSelect extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) collapseChips: boolean
 
+  @Prop({ type: Boolean, default: false }) rtl: boolean
+
   @Prop({ type: Boolean, default: false }) loading!: boolean
 
   @Prop({ type: String, default: null }) state!: string
@@ -439,8 +441,9 @@ export default class VsSelect extends VsComponent {
       style: {
         ['--vs-color']: this.color ? this.getColor : ''
       },
-      class: [{
-        isColorDark: this.isColorDark
+      class: {
+        isColorDark: this.isColorDark,
+        'vs-select__options--rtl': this.rtl
       },
       // colors
       { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
@@ -637,7 +640,8 @@ export default class VsSelect extends VsComponent {
         ['--vs-color']: this.color ? this.getColor : ''
       },
       class: [{
-        block: this.block
+        block: this.block,
+        'vs-select--rtl': this.rtl
       },
       // colors
       { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },

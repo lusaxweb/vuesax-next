@@ -32,6 +32,8 @@ export default class VsDialog extends VsComponent {
 
   @Prop({ default: false, type: Boolean }) notCenter: boolean
 
+  @Prop({ default: false, type: Boolean }) rtl: boolean
+
   @Prop({ default: null, type: String }) width: string
 
   @Prop({ default: false, type: Boolean }) routerClose: boolean
@@ -151,6 +153,7 @@ export default class VsDialog extends VsComponent {
       class: {
         blur: this.blur,
         fullScreen: this.fullScreen,
+        'vs-dialog-content--rtl': this.rtl
       },
       on: {
         click: (evt: any) => {

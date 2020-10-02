@@ -34,9 +34,13 @@ export default class VsTooltip extends VsComponent {
 
   @Prop({ default: false, type: Boolean }) border: boolean
 
+  @Prop({ default: false, type: Boolean }) rtl: boolean
+
   @Prop({ default: false, type: Boolean }) borderThick: boolean
 
   @Prop({ default: null, type: String }) delay: any
+
+  @Prop({ default: '', type: String }) extraClass: string
 
   insertTooltip() {
     const tooltip = this.$refs.tooltip as HTMLElement
@@ -147,6 +151,7 @@ export default class VsTooltip extends VsComponent {
         ['--vs-color']: this.color ? this.getColor : ''
       },
       class: [
+        this.extraClass,
         {
           top: !this.bottom && !this.left && !this.right,
           bottom: this.bottom,
@@ -158,7 +163,8 @@ export default class VsTooltip extends VsComponent {
           circle: this.circle,
           border: this.border,
           borderThick: this.borderThick,
-          loading: this.loading
+          loading: this.loading,
+          'vs-tooltip--rtl': this.rtl
         },
         // colors
         { [`vs-component--primary`] : !!this.primary },

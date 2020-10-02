@@ -1,4 +1,5 @@
 import './style.sass'
+import './rtl.sass'
 import component from './VsDialog'
 
 component.install = (vue: any) => {

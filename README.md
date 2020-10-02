@@ -34,7 +34,7 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 
 ## Components v3 vs v4
 
-- [x] Alert
+- [x] Alert ```RTL```
 - [x] Avatar
 - [ ] Breadcrumb
 - [x] Button
@@ -42,28 +42,28 @@ Every day is being updated and working on **Vuesax 4**, we will announce each ne
 - [x] Checkbox
 - [ ] Chip
 - [ ] Collapse
-- [x] Dialogs
+- [x] Dialogs ```RTL```
 - [ ] Divider
 - [ ] Dropdown
 - [ ] Images
-- [x] Input
+- [x] Input ```RTL```
 - [ ] List
 - [x] Loading
 - [x] Navbar
 - [x] Notification
 - [ ] Number Input
-- [x] Pagination
+- [x] Pagination ```RTL```
 - [x] Popup
 - [ ] Progress
 - [x] Radio
-- [x] Select
+- [x] Select ```RTL```
 - [x] Sidebar
 - [ ] Slider
 - [x] Switch
 - [x] Table
 - [ ] Tabs
 - [ ] Textarea
-- [x] Tooltip
+- [x] Tooltip ```RTL```
 - [ ] Upload
 
 ## What is still missing and is working
