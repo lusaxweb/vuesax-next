@@ -12,10 +12,10 @@
     </div>
     <div class="tip custom-block">
       <p class="custom-block-title">
-        Vuesax Docs Icons
+        Vuesax icons
       </p>
       <p>
-        Estos documentos y los ejemplos usan la libreria de componentes <a target="_blank" href="https://boxicons.com/">boxicons</a>, no es obligatoria o necesaria para el uso de Vuesax pero la recomendamos por su amplia gama de iconos y como complementan visualmente el framework
+        We use the <a target="_blank" href="https://boxicons.com/">Boxicons</a> library for the icons in these examples. It visually complements the Vuesax framework, and it has a wide range of icons. You don't have to use the Boxicons library in your application, but we recommend adding it to your application.
       </p>
     </div>
   </div>
