@@ -166,7 +166,7 @@ export default class VsPagination extends VsComponent {
     return buttons
   }
 
-  getButtons(start: number = 1, end: number = 6) {
+  getButtons(start: number = 1, end: number = 7) {
     const buttons = []
     for (start > 0 ? start : 1; start <= end; start++) {
       buttons.push(start)
@@ -192,18 +192,18 @@ export default class VsPagination extends VsComponent {
     const prevRange = Math.floor(max / 2)
     const nextRange  = length - prevRange + 1 + even
 
-    if (this.value >= prevRange && this.value <= nextRange && !this.buttonsDotted) {
+    if (this.value > prevRange && this.value <= nextRange && !this.buttonsDotted) {
       const start = this.value - prevRange + 2
       const end = this.value + prevRange - 2 - even
 
       return this.renderButtons([1, '<...', ...this.getButtons(start, end), '...>', this.length])
-    } else if (!this.buttonsDotted && this.length > 6) {
+    } else if (!this.buttonsDotted && this.length > 7) {
       return this.renderButtons([
         ...this.getButtons(1, prevRange),
         '...>',
         ...this.getButtons(nextRange, length)
       ])
-    } else if (this.buttonsDotted || this.length <= 6) {
+    } else if (this.buttonsDotted || this.length <= 7) {
       return this.renderButtons([
         ...this.getButtons(1, this.length  == 0 ? 1 : this.length ),
       ])
