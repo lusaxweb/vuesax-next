@@ -520,37 +520,17 @@ A beautiful and simple animation to show and hide the alert to the user
 
 <div slot="template">
 
-  ```html{3,5}
-    <template>
-      <div class="center">
-        <vs-button @click="active=!active">{{ active ? 'Close Alert' : 'Open Alert' }}</vs-button>
-
-        <vs-alert closable v-model="active">
-          <template #title>
-            Vuesax Framework
-          </template>
-          Vuesax (pronounced / vjusacksː /, as view sacks) is a <b>UI components framework</b>
-          created with <a href="https://vuejs.org/">Vuejs</a> to make projects easily and with a
-          Unique and pleasant style, Vuesax is created from scratch and designed for all types of
-          developed from the frontend lover to the backend that wants to easily create
-          your visual approach to the end user
-        </vs-alert>
-      </div>
-    </template>
-  ```
-
-</div>
-
-<div slot="script">
-
-  ```html{4}
-    <script>
-      export default {
-        data:() => ({
-          active: true,
-        })
-      }
-    </script>
+  ```html{1}
+    <vs-alert relief >
+      <template #title>
+        Vuesax Framework
+      </template>
+      Vuesax (pronounced / vjusacksː /, as view sacks) is a <b>UI components framework</b>
+      created with <a href="https://vuejs.org/">Vuejs</a> to make projects easily and with a
+      Unique and pleasant style, Vuesax is created from scratch and designed for all types of
+      developed from the frontend lover to the backend that wants to easily create
+      your visual approach to the end user
+    </vs-alert>
   ```
 
 </div>
