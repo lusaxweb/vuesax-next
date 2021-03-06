@@ -11,6 +11,7 @@ interface LoadingParams {
   opacity?: string
   percent?: string
   progress?: string
+  progressTransitionSpeed?: number
   target?: any
   scale?: string
 }
@@ -19,12 +20,14 @@ const loadingConstructor = Vue.extend(component)
 
 // tslint:disable-next-line:only-arrow-functions
 loadingConstructor.prototype.close = function() {
-  this.isVisible = false
-  document.body.style.overflowY = 'auto'
+  setTimeout(() => {
+    this.isVisible = false
+    document.body.style.overflowY = 'auto'
+  }, this.progressTransitionSpeed)
   setTimeout(() => {
     this.$destroy()
     this.$el.parentNode.removeChild(this.$el)
-  }, 250)
+  }, this.progressTransitionSpeed + 250)
 }
 
 loadingConstructor.prototype.changePercent = function(val: string) {
@@ -65,6 +68,7 @@ const loading = (params: LoadingParams = {}) => {
   instance.$data.percent = params.percent
   instance.$data.type = params.type
   instance.$data.progress = params.progress
+  instance.$data.progressTransitionSpeed = params.progressTransitionSpeed
   instance.$data.scale = params.scale
 
   params.target.appendChild(instance.$mount().$el)
