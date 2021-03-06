@@ -77,7 +77,7 @@ export default class VsLoading extends Vue {
       h('div', {
         staticClass: 'vs-loading__progress__bar',
         style: {
-          transform: `translateX(${this.progress}%)`,
+          transform: `translateX(calc(-100% + ${this.progress}%))`,
           transition: `transform ${this.progressTransitionSpeed}ms ease`
         }
       })
