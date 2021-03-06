@@ -18,6 +18,8 @@ export default class VsLoading extends Vue {
 
   progress: string | null = null
 
+  progressTransitionSpeed: number = 0
+
   scale: string | null = null
 
   target: any = null
@@ -75,7 +77,8 @@ export default class VsLoading extends Vue {
       h('div', {
         staticClass: 'vs-loading__progress__bar',
         style: {
-          width: `${this.progress}%`
+          transform: `translateX(${this.progress}%)`,
+          transition: `transform ${this.progressTransitionSpeed}ms ease`
         }
       })
     ])
