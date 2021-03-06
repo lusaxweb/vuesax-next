@@ -27,7 +27,7 @@ loadingConstructor.prototype.close = function() {
   setTimeout(() => {
     this.$destroy()
     this.$el.parentNode.removeChild(this.$el)
-  }, 250)
+  }, this.progressTransitionSpeed + 250)
 }
 
 loadingConstructor.prototype.changePercent = function(val: string) {
