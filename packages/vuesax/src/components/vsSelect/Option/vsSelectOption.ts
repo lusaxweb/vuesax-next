@@ -55,9 +55,19 @@ export default class VsSelectOption extends VsComponent {
   }
 
   mounted() {
-    if (!this.getParent().renderSelect) {
-      this.getParent().childOptions.push(this)
+    const filter = this.getParent().childOptions.findIndex((item: any) => {
+      if (item.$vnode.key === this.$vnode.key) return true
+      return false
+    })
+
+    if (filter == -1) {
+        this.getParent().childOptions.push(this);
+    } else {
+      if (!this.getParent().renderSelect) {
+        this.getParent().childOptions.push(this);
+      }
     }
+
     this.getParent().uids.push(this._uid)
 
     this.activeOption = this.isActive
