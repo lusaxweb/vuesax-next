@@ -103,6 +103,8 @@ function getNavbar (lang = '/') {
 							{ text: 'Pagination', link: `${lang}docs/components/Pagination` },
 							{ text: 'Table', link: `${lang}docs/components/Table` },
 							{ text: 'Navbar', link: `${lang}docs/components/Navbar` },
+							{ text: 'Sidebar', link: `${lang}docs/components/Sidebar` },
+							{ text: 'Card', link: `${lang}docs/components/Card` },
 							// new component slot 1
             ]
           }
@@ -198,6 +200,8 @@ function getSidebar (lang = '/') {
 						`${lang}docs/components/Pagination`,
 						`${lang}docs/components/Table`,
 						`${lang}docs/components/Navbar`,
+						`${lang}docs/components/Sidebar`,
+						`${lang}docs/components/Card`,
 						// new component slot 2
           ]
         },

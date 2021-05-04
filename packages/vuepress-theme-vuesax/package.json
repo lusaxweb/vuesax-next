@@ -17,5 +17,8 @@
     "sass-loader": "^7.3.1",
     "vuepress": "^1.1.0",
     "vuepress-plugin-container": "^2.1.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
   }
 }

@@ -70,11 +70,21 @@ export default class VsRadio extends VsComponent {
     ])
     return h('div', {
       staticClass: 'vs-radio-content',
-      class: {
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
+      class: [{
         disabled: this.disabled,
         loading: this.loading,
         active: this.isChecked
-      }
+      },
+      // colors
+      { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+    ]
     }, [
       this.labelBefore && label,
       radio,

@@ -127,12 +127,21 @@ export default class VsSwitch extends VsComponent {
       attrs: {
         type: 'checkbox',
       },
-      class: {
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
+      class: [{
         'vs-switch--loading': this.loading,
         'vs-switch--square': this.square,
         'vs-switch--indeterminate': this.indeterminate,
         'vs-switch--icon': this.icon,
       },
+      { [`vs-component--primary`] : !this.danger && !this.success && !this.warn && !this.dark && !this.color },
+      { [`vs-component--danger`] : !!this.danger },
+      { [`vs-component--warn`] : !!this.warn },
+      { [`vs-component--success`] : !!this.success },
+      { [`vs-component--dark`] : !!this.dark },
+    ],
     }, [
       input,
       circle,

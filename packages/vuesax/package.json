@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "4.0.1-alpha.20",
+  "version": "4.0.1-alpha.25",
   "description": "Framework components for vuejs",
   "main": "dist/vuesax.js",
   "scripts": {
@@ -68,5 +68,8 @@
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2",
     "webpackbar": "^4.0.0"
+  },
+  "dependencies": {
+    "vue-router": "^3.3.4"
   }
 }

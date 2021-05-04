@@ -1,5 +1,4 @@
 @import '../../../styles/mixins'
-@import '../../../styles/colors'
 @import 'root'
 
 .vs-navbar-content
@@ -7,6 +6,7 @@
   position: absolute
   z-index: 9000
   top: 0px
+  left: 0px
   width: 100%
   border-radius: 0px 0px 15px 15px
   background: -color('color')
@@ -17,7 +17,7 @@
     padding-bottom: 20px
     .vs-navbar__group__items
       margin-bottom: -30px
-  &.square
+  &.vsNavbarSquare
     border-radius: 0px
   &.textWhite
     color: #fff
@@ -41,6 +41,7 @@
   justify-content: space-between
   padding: 0px 15px
   box-sizing: border-box
+  min-height: 44px
   &__left
     display: flex
     align-items: center

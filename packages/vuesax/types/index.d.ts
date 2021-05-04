@@ -8,6 +8,7 @@ export class Alert extends VsAlert {}
 declare module 'vue/types/vue' {
     export interface Vue {
         $vs: any
+        $router: any
     }
 }
 

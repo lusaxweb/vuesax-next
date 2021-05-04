@@ -1,31 +1,24 @@
 <template>
-  <div class="center examplex">
-    <vs-navbar text-white :color="active" center-collapsed v-model="active">
+  <div class="center example-nav">
+    <vs-navbar center-collapsed v-model="active">
       <template #left>
-        <img src="/logos/logo-vuesax-logotipo-vuesax-png-4.png" alt="">
+        <img src="/logo2.png" alt="">
       </template>
+      <vs-navbar-item :active="active == 'guide'" id="guide">
+        Guide
+      </vs-navbar-item>
+      <vs-navbar-item :active="active == 'docs'" id="docs">
+        Documents
+      </vs-navbar-item>
+      <vs-navbar-item :active="active == 'components'" id="components">
+        Components
+      </vs-navbar-item>
+      <vs-navbar-item :active="active == 'license'" id="license">
+        license
+      </vs-navbar-item>
       <template #right>
-        <vs-navbar-item :active="active == 'primary'" id="primary">
-          Primary
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == 'success'" id="success">
-          Success
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == 'danger'" id="danger">
-          Danger
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == 'warn'" id="warn">
-          Warn
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == 'dark'" id="dark">
-          Dark
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == '#7d33ff'" id="#7d33ff">
-          HEX
-        </vs-navbar-item>
-        <vs-navbar-item :active="active == 'rgb(59,222,200)'" id="rgb(59,222,200)">
-          RGB
-        </vs-navbar-item>
+        <vs-button flat >Login</vs-button>
+        <vs-button>Get Started</vs-button>
       </template>
     </vs-navbar>
     <div class="square">
@@ -44,7 +37,7 @@
 <script>
 export default {
   data:() => ({
-    active: 'primary'
+    active: 'guide'
   })
 }
 </script>
@@ -60,10 +53,10 @@ export default {
       align-items center
       justify-content center
       width 100%
-  .examplex
+  .example-nav
     background rgb(240,240,240) !important
     padding 0px !important
     position relative
     img
-      max-height 22px
+      max-height 25px
 </style>

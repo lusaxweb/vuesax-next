@@ -1,5 +1,4 @@
 @import '../../../styles/mixins'
-@import '../../../styles/colors'
 @import 'root'
 
 @mixin state($color)
@@ -121,7 +120,7 @@
       box-shadow: 0px 5px 25px -4px rgba(0,0,0, -var(shadow-opacity))
       transform: translate(0, -4px)
       transition: all .25s ease, height 0s
-      // border: 2px solid transparent !important
+      border: 2px solid transparent
       color: -color('text',1)
     .vs-select__chips
       border-radius: 12px 12px 0px 0px
@@ -144,7 +143,7 @@
     opacity: 1
     background: transparent
     padding: 7px 13px
-    // border: 2px solid transparent
+    border: 2px solid transparent
     border-radius: 12px
     cursor: pointer
     transition: all .25s ease, height 0s
@@ -220,7 +219,7 @@
       max-width: 100%
       position: relative
       min-width: 0px
-      // border: 2px solid transparent
+      border: 0px solid transparent
       background: transparent
       margin: 2px 3px
       min-width: 30px
@@ -331,13 +330,12 @@
     user-select: none
     pointer-events: none
     width: 100%
-    // height: 100%
     display: flex
     align-items: center
     justify-content: flex-start
     opacity: .4
     z-index: 500
-    top: 10px
+    // top: 10px
     &--hidden
       opacity: 0
       visibility: hidden

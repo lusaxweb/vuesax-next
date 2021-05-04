@@ -35,7 +35,7 @@
           </vs-button>
 
           <div class="new">
-            New Here? <a href="#">Create New Account</a>
+            New Here? <router-link to="/">Create New Account</router-link>
           </div>
         </div>
       </template>

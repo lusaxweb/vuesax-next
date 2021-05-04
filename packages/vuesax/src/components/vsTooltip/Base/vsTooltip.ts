@@ -52,9 +52,6 @@ export default class VsTooltip extends VsComponent {
     }
 
     setCordsPosition(tooltip, this.$refs.content, position)
-    this.$nextTick(() => {
-      this.changeColor()
-    })
   }
 
   handlerMouseEnter() {
@@ -117,6 +114,13 @@ export default class VsTooltip extends VsComponent {
   }
 
   mounted() {
+    window.addEventListener('popstate', (event) => {
+      const tooltips = document.querySelectorAll('.vs-tooltip')
+      tooltips.forEach((tooltip) => {
+        tooltip.remove()
+      })
+    })
+
     window.addEventListener('resize', this.handleResize)
     if (this.notHover) {
       window.addEventListener('mousedown', this.handleMouseDownNotHover)
@@ -139,6 +143,9 @@ export default class VsTooltip extends VsComponent {
     const tooltip = h('div', {
       staticClass: 'vs-tooltip',
       ref: 'tooltip',
+      style: {
+        ['--vs-color']: this.color ? this.getColor : ''
+      },
       class: [
         {
           top: !this.bottom && !this.left && !this.right,
@@ -152,7 +159,13 @@ export default class VsTooltip extends VsComponent {
           border: this.border,
           borderThick: this.borderThick,
           loading: this.loading
-        }
+        },
+        // colors
+        { [`vs-component--primary`] : !!this.primary },
+        { [`vs-component--danger`] : !!this.danger },
+        { [`vs-component--warn`] : !!this.warn },
+        { [`vs-component--success`] : !!this.success },
+        { [`vs-component--dark`] : !!this.dark },
       ],
       on: {
         mouseenter: () => {

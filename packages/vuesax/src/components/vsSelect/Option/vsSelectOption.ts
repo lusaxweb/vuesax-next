@@ -85,6 +85,7 @@ export default class VsSelectOption extends VsComponent {
       on: {
         ...this.$listeners,
         mousedown: () => {
+          console.log(this.value);
           (this.$parent as any).clickOption(this.value, this.label)
         },
         blur: () => {

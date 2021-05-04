@@ -143,6 +143,17 @@ PROPS:
             <vs-dialog prevent-close v-model="active">
               ...
             </vs-dialog>
+  - name: v-on:close
+    type: Methods
+    values: function
+    description: función de retorno al cerrar el dialog.
+    default: null
+    link: null
+    usage: null
+    code: >
+            <vs-dialog @close="handleClose" v-model="active">
+              ...
+            </vs-dialog>
 
 SLOTS:
   - name: slot name

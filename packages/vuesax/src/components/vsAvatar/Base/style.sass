@@ -1,5 +1,4 @@
 @import '../../../styles/mixins'
-@import '../../../styles/colors'
 @import 'root'
 
 .vs-avatar-content
@@ -23,6 +22,10 @@
       box-shadow: inset 0px 0px 40px 0px rgba(0,0,0,.04)
     img
       transform: scale(1.1)
+  &--size
+    &.history
+      &:after
+        top: -2px !important
   &--hasIcons
     margin-right: 20px
   &--hidden
@@ -65,7 +68,7 @@
       background-color: #FFE53B
       z-index: -1
       background: -color('color')
-  &.vs-change-color
+  &.vs-component--is-color
     .vs-avatar
       color: -color('background')
     .vs-avatar__points

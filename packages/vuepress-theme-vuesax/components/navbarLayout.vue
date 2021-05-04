@@ -150,7 +150,8 @@ export default {
     justify-content center
     font-weight bold
     flex-direction column
-    background rgb(245,245,245)
+    background #F4F7F8
+    // background rgb(245,245,245)
     h2
       font-size 2rem
     .con-colors

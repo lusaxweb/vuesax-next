@@ -15,7 +15,7 @@ The following is a brief glimpse of how it works:
 - The column grid system has a value of **1** to **12** to represent its range intervals. For example, `w="4"` can create three columns of equal width (**33.3%**).
 - If the sum of the cabbage segments in a row is greater than **12**, then the overflowing cabbage as a whole will start a new line layout.
 
-With the `w` directive define the column width (vs-col) its value is **1-12**, an example of sizes would be:`12=100%`,`6=50%`,`4=25% `
+With the `w` directive define the column width (vs-col) its value is **1-12**, an example of sizes would be:`12=100%`,`6=50%`,`4=33% `
 
 <div slot="example">
   <grid-default />
@@ -73,7 +73,7 @@ With the `w` directive define the column width (vs-col) its value is **1-12**, a
 
 ## Offset
 
-To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=25%`.
+To give a distance from the left we have the offset property that with the same measurements **1-12** we add the specific space, an example would be: `12=100%`,`6=50%`,`4=33%`.
 
 <div slot="example">
   <grid-offset />
