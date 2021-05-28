@@ -7,9 +7,6 @@ import VsComponent from '../../../mixins/component'
 export default class VsTableTh extends VsComponent {
   @Prop({ default: false, type: Boolean }) sort: boolean
 
-  mounted() {
-    (this.$el as HTMLElement).style.width = `${this.$el.scrollWidth}px`
-  }
 
   public render(h: any): VNode {
     const icon2 = h(VsIconsArrow, {
