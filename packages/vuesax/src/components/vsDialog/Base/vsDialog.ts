@@ -63,9 +63,9 @@ export default class VsDialog extends VsComponent {
         document.body.style.overflow = 'hidden'
       }
     } else {
+      window.removeEventListener('keydown', this.esc)
       if (this.overflowHidden) {
         document.body.style.overflow = ''
-        window.removeEventListener('keydown', this.esc)
       }
     }
   }
