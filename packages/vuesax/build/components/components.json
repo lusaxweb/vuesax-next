@@ -25,5 +25,6 @@
   "vsSidebarGroup": "./src/components/vsSidebar/Group/index.ts",
   "vsCard": "./src/components/vsCard/Base/index.ts",
   "vsCardGroup": "./src/components/vsCard/Group/index.ts",
+  "vsTextarea": "./src/components/vsTextarea/Base/index.ts",
   "newComponent": ""
 }

@@ -25,4 +25,5 @@ export { default as vsSidebarItem } from './vsSidebar/Item'
 export { default as vsSidebarGroup } from './vsSidebar/Group'
 export { default as vsCard } from './vsCard/Base/index'
 export { default as vsCardGroup } from './vsCard/Group'
+export { default as vsTextarea } from './vsTextarea/Base/index'
 // new component slot
