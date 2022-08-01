@@ -1,5 +1,4 @@
 const getPage = (data: any, page: number, maxItems: number = 5): any => {
-  // console.log(data)
   const max = Math.ceil(page * maxItems)
   const min = max - maxItems
 
@@ -24,10 +23,8 @@ const checkAll = (selected: any, data: any): any => {
       selected.push(item)
     })
     return selected
-  } else {
-    return []
   }
-
+  return []
 }
 
 const getSearch = (data: any, search: string = ''): any => {
