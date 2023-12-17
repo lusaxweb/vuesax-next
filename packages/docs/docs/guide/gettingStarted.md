@@ -22,7 +22,7 @@
 
 <card>
 
-  ## Uso
+  ## Usage
 
   To use vuesax in your vuejs project, add this code:
 
