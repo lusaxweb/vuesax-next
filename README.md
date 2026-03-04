@@ -18,7 +18,7 @@ The central team is working on the priority that is to create new components and
 - Use of Vue-CLI 3 to compile the components
 - Vuepress v0.14.10
 
-### Vuesax 4
+### Vuesax v4
 
 - Components created with `.ts` files
 - Pre css processor: **Sass**
